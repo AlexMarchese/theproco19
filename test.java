@@ -1,17 +1,22 @@
-public class Test
-{
-    // instance variables - replace the example below with your own
-    private int limit;
-    private int wert;
-    
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Beschreiben Sie hier die Klasse Studentenverwaltung.
+ * 
+ * @author (Ihr Name) 
+ * @version (eine Versionsnummer oder ein Datum)
+ */
+public class Studentenverwaltung
+{
+    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+    private ArrayList<Student> myStudentList;
 
     /**
-     * Constructor for objects of class Nummernanzeige
+     * Konstruktor für Objekte der Klasse Studentenverwaltung
      */
-    public Nummernanzeige(int anzeigeLimit)
+    public Studentenverwaltung()
     {
-        // initialise instance variables
-        limit = anzeigeLimit;
-        wert = 0;
+        myStudentList = new ArrayList<Student>();
+        
     }
