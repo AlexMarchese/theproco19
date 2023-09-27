@@ -2,21 +2,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Beschreiben Sie hier die Klasse Studentenverwaltung.
+ * Beschreiben Sie hier die Klasse Fabrik.
  * 
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Studentenverwaltung
+public class Fabrik
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private ArrayList<Student> myStudentList;
+    private ArrayList<Bestellung> BestellungList;
 
     /**
      * Konstruktor für Objekte der Klasse Studentenverwaltung
      */
-    public Studentenverwaltung()
+    public Fabrik()
     {
-        myStudentList = new ArrayList<Student>();
+        BestellungList = new ArrayList<Bestellung>();
         
     }
