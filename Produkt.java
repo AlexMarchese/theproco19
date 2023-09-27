@@ -2,32 +2,42 @@
 /**
  * Beschreiben Sie hier die Klasse Produkt.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author GBI Gruppe 19
+ * @version 1.0
  */
 public class Produkt
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
+    private int zustand;
 
     /**
-     * Konstruktor für Objekte der Klasse Produkt
+     * Konstruktor für Objekte der Klasse Produkt, Produkt kann Zahlenwerte annehmen
      */
-    public Produkt()
+    public Produkt(int zustand)
     {
         // Instanzvariable initialisieren
-        x = 0;
+        this.zustand = zustand;
     }
 
     /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
      * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
+     * Methode zustandÄndern ersetzt den Zustandswert des Produkts
+     * 
+     * 
+     *
      */
-    public int beispielMethode(int y)
+    public void zustandAendern(int zustand)
     {
         // tragen Sie hier den Code ein
-        return x + y;
+        this.zustand = zustand;
+    }
+    
+    /**
+     * Methode gibt aktuellen Zustand zurück.
+     */
+    public int aktuellerZustand()
+    {
+        // tragen Sie hier den Code ein
+        return zustand;
     }
 }
