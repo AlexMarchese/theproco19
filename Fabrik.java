@@ -22,5 +22,5 @@ public class Fabrik
     }
     public void bestellungAufgeben (int sofa, int chairs)
     {
-        bestellungList.add(newBestellung)
+        bestellungList.add(newbestellung);
     }

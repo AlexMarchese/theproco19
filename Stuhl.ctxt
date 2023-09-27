@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Stuhl
+comment0.text=\n\ Eine\ Klasse,\ welche\ die\ Parameter\ des\ Stuhls\ enth\u00E4lt.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
+comment1.params=holzeinheiten\ schrauben\ farbeinheiten\ kartoneinheiten\ produktionsZeit
+comment1.target=Stuhl(int,\ int,\ int,\ int,\ int)
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Stuhl\n
+comment2.params=
+comment2.target=int\ getHolzeinheiten()
+comment2.text=\n\ Ein\ Beispiel\ einer\ Methode\ -\ ersetzen\ Sie\ diesen\ Kommentar\ mit\ Ihrem\ eigenen\n\ \n\ @param\ \ y\ \ \ \ ein\ Beispielparameter\ f\u00FCr\ eine\ Methode\n\ @return\ \ \ \ \ \ \ \ die\ Summe\ aus\ x\ und\ y\n
+numComments=3
