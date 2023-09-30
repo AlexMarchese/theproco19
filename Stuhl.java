@@ -8,14 +8,14 @@
 public class Stuhl
 {
     // Instanzvariablen
-    private int holzeinheiten = 2;
-    private int schrauben = 10;
-    private int farbeinheiten = 2;
-    private int kartoneinheiten = 1;
-    private int produktionsZeit = 22; //muss noch überarbeitet werden, da 22 die Summe ist.
+    private int holzeinheiten;
+    private int schrauben;
+    private int farbeinheiten;
+    private int kartoneinheiten;
+    private int produktionsZeit; 
 
     /**
-     * Konstruktor für Objekte der Klasse Stuhl
+     * Konstruktor für Objekte der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
      */
     public Stuhl(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit)
     {
@@ -27,15 +27,67 @@ public class Stuhl
         this.produktionsZeit = produktionsZeit;
     }
 
+        /**
+     * Konstruktor für Objekte der Klasse Stuhl, wenn Default-Parameter verwendet werden sollen.
+     */
+    public Stuhl()
+    {
+        // Instanzvariable initialisieren
+        holzeinheiten = 2;
+        schrauben = 10;
+        farbeinheiten = 2;
+        kartoneinheiten = 1;
+        produktionsZeit = 22; //muss noch überarbeitet werden, da 22 die Summe ist.
+    }
+    
+    
     /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
      * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
      */
     public int getHolzeinheiten()
     {
         return holzeinheiten;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getSchrauben()
+    {
+        return schrauben;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getFarbeinheiten()
+    {
+        return farbeinheiten;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getKartoneinheiten()
+    {
+        return kartoneinheiten;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
+    {
+        return produktionsZeit;
         
     }
 }
