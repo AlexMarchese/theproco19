@@ -33,11 +33,12 @@ public class Stuhl
     public Stuhl()
     {
         // Instanzvariable initialisieren
-        holzeinheiten = 2;
-        schrauben = 10;
-        farbeinheiten = 2;
-        kartoneinheiten = 1;
-        produktionsZeit = 22; //muss noch überarbeitet werden, da 22 die Summe ist.
+        this.holzeinheiten = 2;
+        this.schrauben = 10;
+        this.farbeinheiten = 2;
+        this.kartoneinheiten = 1;
+        this.produktionsZeit = 22; //muss noch überarbeitet werden, da 22 die Summe ist. //brauchen wie hier noch zusatz "this.xxx"? 
+        //theoretisch 2 Konstruktoren möglich einer Dummy variable / einer mt parameter
     }
     
     
@@ -47,7 +48,7 @@ public class Stuhl
      */
     public int getHolzeinheiten()
     {
-        return holzeinheiten;
+        return holzeinheiten; //brauchen wie hier noch zusatz "this.xxx"?
         
     }
     
@@ -57,7 +58,7 @@ public class Stuhl
      */
     public int getSchrauben()
     {
-        return schrauben;
+        return schrauben;//brauchen wie hier noch zusatz "this.xxx"?
         
     }
     
@@ -67,7 +68,7 @@ public class Stuhl
      */
     public int getFarbeinheiten()
     {
-        return farbeinheiten;
+        return farbeinheiten;//brauchen wie hier noch zusatz "this.xxx"?
         
     }
     
@@ -77,7 +78,7 @@ public class Stuhl
      */
     public int getKartoneinheiten()
     {
-        return kartoneinheiten;
+        return kartoneinheiten;//brauchen wie hier noch zusatz "this.xxx"?
         
     }
     
@@ -87,7 +88,7 @@ public class Stuhl
      */
     public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
     {
-        return produktionsZeit;
+        return produktionsZeit;//brauchen wie hier noch zusatz "this.xxx"?
         
     }
 }
