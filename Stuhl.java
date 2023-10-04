@@ -10,7 +10,7 @@ public class Stuhl
     // Instanzvariablen
     private int holzeinheiten;
     private int schrauben;
-    private int kissen; 
+    private int kissen;
     private int farbeinheiten;
     private int kartoneinheiten;
     private int produktionsZeit; 
@@ -23,6 +23,7 @@ public class Stuhl
         // Instanzvariable initialisieren
         this.holzeinheiten = holzeinheiten;
         this.schrauben = schrauben;
+        this.kissen = kissen;
         this.farbeinheiten = farbeinheiten;
         this.kartoneinheiten = kartoneinheiten;
         this.produktionsZeit = produktionsZeit;
