@@ -10,6 +10,7 @@ public class Stuhl
     // Instanzvariablen
     private int holzeinheiten;
     private int schrauben;
+    private int kissen; 
     private int farbeinheiten;
     private int kartoneinheiten;
     private int produktionsZeit; 

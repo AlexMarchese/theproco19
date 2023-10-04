@@ -8,7 +8,11 @@
 public class Sofa
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
+    private int holzeinheiten;
+    private int schrauben;
+    private int farbeinheiten;
+    private int kartoneinheiten;
+    private int produktionsZeit;
 
     /**
      * Konstruktor für Objekte der Klasse Sofa
