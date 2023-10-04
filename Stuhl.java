@@ -10,7 +10,6 @@ public class Stuhl
     // Instanzvariablen
     private int holzeinheiten;
     private int schrauben;
-    private int kissen;
     private int farbeinheiten;
     private int kartoneinheiten;
     private int produktionsZeit; 
@@ -23,7 +22,6 @@ public class Stuhl
         // Instanzvariable initialisieren
         this.holzeinheiten = holzeinheiten;
         this.schrauben = schrauben;
-        this.kissen = kissen;
         this.farbeinheiten = farbeinheiten;
         this.kartoneinheiten = kartoneinheiten;
         this.produktionsZeit = produktionsZeit;
@@ -55,7 +53,7 @@ public class Stuhl
     }
     
         /**
-     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * Methode, um benötigte Schrauben für einen Stuhl zu erhalten
      * 
      */
     public int getSchrauben()
@@ -65,7 +63,7 @@ public class Stuhl
     }
     
         /**
-     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * Methode, um benötigte Farbe für einen Stuhl zu erhalten
      * 
      */
     public int getFarbeinheiten()
@@ -75,7 +73,7 @@ public class Stuhl
     }
     
         /**
-     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
      * 
      */
     public int getKartoneinheiten()
@@ -85,7 +83,7 @@ public class Stuhl
     }
     
         /**
-     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * Methode, um Produktionszeit für einen einen Stuhl zu erhalten
      * 
      */
     public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
