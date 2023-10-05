@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Beschreiben Sie hier die Klasse Bestellung.
  * 
@@ -8,26 +8,82 @@
 public class Bestellung
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
+    private ArrayList<Produkt> bestellteProdukte;
+    private boolean bestellBestaetigung;
+    private int beschaffungsZeit;
+    private int anzahlSofas;
+    private int anzahlStuehle;
+    private int bestellungsNr;
+
 
     /**
      * Konstruktor für Objekte der Klasse Bestellung
      */
-    public Bestellung()
+    public Bestellung(int anzahlSofas, int anzahlStuehle)
     {
         // Instanzvariable initialisieren
-        x = 0;
+        this.anzahlSofas = anzahlSofas;
+        this.anzahlStuehle = anzahlStuehle;
+        // die anderen Attribute muessen auch noch initalisiert werden
     }
 
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
+   
+    /*
      * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
      */
-    public int beispielMethode(int y)
+    public void bestellungBestaetigen()
     {
-        // tragen Sie hier den Code ein
-        return x + y;
+        //pass
     }
+    
+    /*
+     * 
+     */
+    public boolean gibBestellBestaetigung()
+    {
+        return true; // ggf noch zu aendern
+    }
+    
+    /*
+     * 
+     */
+    public void setzeBeschaffungszeit(int zeit)
+    {
+        //pass
+    }
+    
+    /*
+     * 
+     */
+    public int gibBeschaffungszeit()
+    {
+        return 1; // noch zu aendern
+    }
+    
+    /*
+     * 
+     */
+    public int gibBestellungsNr()
+    {
+        return 1; // noch zu aendern
+    }
+    
+    /*
+     * 
+     */
+    public int gibAnzahlStuehle()
+    {
+        return 1; // noch zu aendern
+    }
+    
+    /*
+     * 
+     */
+    public int gibAnzahlSofas()
+    {
+        return 1; // noch zu aendern
+    }
+    
+    
+    
 }

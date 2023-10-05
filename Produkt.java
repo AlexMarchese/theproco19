@@ -13,7 +13,7 @@ public class Produkt
     /**
      * Konstruktor für Objekte der Klasse Produkt, Produkt kann Zahlenwerte annehmen
      * 0= nicht gestartet
-     * 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine 00 = nicht gestartet, 11 Maschine 1 in bearbeitung 12 etc)     *
+     * 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine 00 = nicht gestartet, 11 Maschine 1 in bearbeitung 12 etc)
      * 2= abgeschlossen
        */
     public Produkt(int zustand)
