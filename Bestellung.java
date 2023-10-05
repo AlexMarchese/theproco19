@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 /**
- * Beschreiben Sie hier die Klasse Bestellung.
+ * Klasse zur Definition von Objekten, die eine Bestellung beinhalten.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author GBI Gruppe 19
+ * @version 1.0
  */
 public class Bestellung
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+    // Instanzvariablen
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
     private int beschaffungsZeit;
@@ -22,9 +22,13 @@ public class Bestellung
     public Bestellung(int anzahlSofas, int anzahlStuehle)
     {
         // Instanzvariable initialisieren
+        this.bestellteProdukte = new ArrayList<Produkt>();
+        this.bestellBestaetigung = false;
+        this.beschaffungsZeit = 2; //Welche Beschaffungszeit? Haben wir das nicht auf Lager?
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
-        // die anderen Attribute muessen auch noch initalisiert werden
+        this.bestellungsNr = 0;
+        
     }
 
    
@@ -33,7 +37,8 @@ public class Bestellung
      */
     public void bestellungBestaetigen()
     {
-        //pass
+        this.bestellBestaetigung = true;
+        System.out.println("Bestellung Nr. " + bestellungsNr + "bestaetigt");
     }
     
     /*
@@ -41,7 +46,10 @@ public class Bestellung
      */
     public boolean gibBestellBestaetigung()
     {
-        return true; // ggf noch zu aendern
+        if(this.bestellBestaetigung == true){
+            return true;
+        }else {
+        return false;} // ggf noch zu aendern, wozu brauchen wir das?
     }
     
     /*
@@ -49,7 +57,7 @@ public class Bestellung
      */
     public void setzeBeschaffungszeit(int zeit)
     {
-        //pass
+        this.beschaffungsZeit = zeit;
     }
     
     /*
@@ -57,7 +65,7 @@ public class Bestellung
      */
     public int gibBeschaffungszeit()
     {
-        return 1; // noch zu aendern
+        return this.beschaffungsZeit;
     }
     
     /*
@@ -65,7 +73,7 @@ public class Bestellung
      */
     public int gibBestellungsNr()
     {
-        return 1; // noch zu aendern
+        return this.bestellungsNr;
     }
     
     /*
@@ -73,7 +81,7 @@ public class Bestellung
      */
     public int gibAnzahlStuehle()
     {
-        return 1; // noch zu aendern
+        return anzahlStuehle;
     }
     
     /*
@@ -81,7 +89,7 @@ public class Bestellung
      */
     public int gibAnzahlSofas()
     {
-        return 1; // noch zu aendern
+        return anzahlSofas;
     }
     
     

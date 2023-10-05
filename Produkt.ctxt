@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Produkt
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Produkt.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Produkt.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=zustand
 comment1.target=Produkt(int)
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produkt,\ Produkt\ kann\ Zahlenwerte\ annehmen\r\n\ 0\=\ nicht\ gestartet\r\n\ 1\=\ in\ bearbeitung\ (Zuk\u00FCnftig\ denkbar;\ Zustand\ pro\ Maschine\ 00\ \=\ nicht\ gestartet,\ 11\ Maschine\ 1\ in\ bearbeitung\ 12\ etc)\ \ \ \ \ *\r\n\ 2\=\ abgeschlossen\r\n
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produkt,\ Produkt\ kann\ Zahlenwerte\ annehmen\n\ 0\=\ nicht\ gestartet\n\ 1\=\ in\ bearbeitung\ (Zuk\u00FCnftig\ denkbar;\ Zustand\ pro\ Maschine\ 00\ \=\ nicht\ gestartet,\ 11\ Maschine\ 1\ in\ bearbeitung\ 12\ etc)\ \ \ \ \ *\n\ 2\=\ abgeschlossen\n
 comment2.params=zustand
 comment2.target=void\ zustandAendern(int)
-comment2.text=\r\n\ \r\n\ Methode\ zustand\u00C4ndern\ ersetzt\ den\ Zustandswert\ des\ Produkts\r\n\ \r\n\ \r\n\r\n
+comment2.text=\n\ \n\ Methode\ zustand\u00C4ndern\ ersetzt\ den\ Zustandswert\ des\ Produkts\n\ \n\ \n\n
 comment3.params=
 comment3.target=int\ aktuellerZustand()
-comment3.text=\r\n\ Methode\ gibt\ aktuellen\ Zustand\ zur\u00FCck.\r\n
+comment3.text=\n\ Methode\ gibt\ aktuellen\ Zustand\ zur\u00FCck.\n
 numComments=4

@@ -18,7 +18,7 @@ public class Fabrik
      */
     public Fabrik()
     {
-        bestellungList = new ArrayList<Bestellung>(); 
+        bestellungList = new ArrayList<Bestellung>();
     }
 
     /*
