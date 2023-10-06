@@ -48,7 +48,7 @@ public class Stuhl
      */
     public int getHolzeinheiten()
     {
-        return holzeinheiten; //brauchen wie hier noch zusatz "this.xxx"?
+        return this.holzeinheiten;
         
     }
     
@@ -58,17 +58,17 @@ public class Stuhl
      */
     public int getSchrauben()
     {
-        return schrauben;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.schrauben;
         
     }
     
         /**
-     * Methode, um benötigte Farbe für einen Stuhl zu erhalten
+     * Methode, um benötigte Farbeinheiten für einen Stuhl zu erhalten
      * 
      */
     public int getFarbeinheiten()
     {
-        return farbeinheiten;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.farbeinheiten;
         
     }
     
@@ -78,17 +78,17 @@ public class Stuhl
      */
     public int getKartoneinheiten()
     {
-        return kartoneinheiten;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.kartoneinheiten;
         
     }
     
         /**
-     * Methode, um Produktionszeit für einen einen Stuhl zu erhalten
+     * Methode, um Produktionszeit für einen Stuhl zu erhalten
      * 
      */
     public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
     {
-        return produktionsZeit;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.produktionsZeit;
         
     }
 }

@@ -7,7 +7,7 @@
  */
 public class Sofa
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+    // Instanzvariablen
     private int holzeinheiten;
     private int schrauben;
     private int kissen;
@@ -16,7 +16,7 @@ public class Sofa
     private int produktionsZeit;
 
     /**
-     * Konstruktor für Objekte der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
+     * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
      */
     public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit)
     {
@@ -51,7 +51,7 @@ public class Sofa
      */
     public int getHolzeinheiten()
     {
-        return holzeinheiten; //brauchen wie hier noch zusatz "this.xxx"?
+        return this.holzeinheiten;
         
     }
     
@@ -61,7 +61,7 @@ public class Sofa
      */
     public int getSchrauben()
     {
-        return schrauben;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.schrauben;
         
     }
     
@@ -71,7 +71,7 @@ public class Sofa
      */
     public int getKissen()
     {
-        return kissen;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.kissen;
         
     }
     
@@ -81,7 +81,7 @@ public class Sofa
      */
     public int getFarbeinheiten()
     {
-        return farbeinheiten;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.farbeinheiten;
         
     }
     
@@ -91,7 +91,7 @@ public class Sofa
      */
     public int getKartoneinheiten()
     {
-        return kartoneinheiten;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.kartoneinheiten;
         
     }
     
@@ -101,7 +101,7 @@ public class Sofa
      */
     public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
     {
-        return produktionsZeit;//brauchen wie hier noch zusatz "this.xxx"?
+        return this.produktionsZeit;
         
     }
 }

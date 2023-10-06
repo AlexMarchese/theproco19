@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 /**
- * Klasse zur Definition von Objekten, die eine Bestellung beinhalten.
+ * Klasse zur Definition von Instanzen, die eine Bestellung beinhalten.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -27,7 +27,7 @@ public class Bestellung
         this.beschaffungsZeit = 1; //Welche Beschaffungszeit? Haben wir das nicht auf Lager? Produktionsdauer?
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
-        this.bestellungsNr = 0;
+        this.bestellungsNr = 0; //muss von Fabrik gegeben werden
         
     }
 
@@ -46,10 +46,7 @@ public class Bestellung
      */
     public boolean gibBestellBestaetigung()
     {
-        if(this.bestellBestaetigung == true){
-            return true;
-        }else {
-        return false;} // ggf noch zu aendern, wozu brauchen wir das?
+        return this.bestellBestaetigung;
     }
     
     /*
@@ -81,7 +78,7 @@ public class Bestellung
      */
     public int gibAnzahlStuehle()
     {
-        return anzahlStuehle;
+        return this.anzahlStuehle;
     }
     
     /*
@@ -89,7 +86,7 @@ public class Bestellung
      */
     public int gibAnzahlSofas()
     {
-        return anzahlSofas;
+        return this.anzahlSofas;
     }
     
     

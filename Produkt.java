@@ -13,13 +13,13 @@ public class Produkt
     /**
      * Konstruktor für Objekte der Klasse Produkt, Produkt kann Zahlenwerte annehmen
      * 0= nicht gestartet
-     * 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine 00 = nicht gestartet, 11 Maschine 1 in bearbeitung 12 etc)
+     * 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in bearbeitung 12 etc)
      * 2= abgeschlossen
        */
-    public Produkt(int zustand)
+    public Produkt()
     {
         // Instanzvariable initialisieren
-        this.zustand = zustand;
+        this.zustand = 0;
     }
 
     /**
@@ -31,7 +31,7 @@ public class Produkt
      */
     public void zustandAendern(int zustand)
     {
-        // tragen Sie hier den Code ein
+        // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
         this.zustand = zustand;
     }
     
@@ -41,6 +41,6 @@ public class Produkt
     public int aktuellerZustand()
     {
         // tragen Sie hier den Code ein
-        return zustand;
+        return this.zustand;
     }
 }

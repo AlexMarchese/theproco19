@@ -32,10 +32,11 @@ public class Fabrik
     /*
      * 
      */
-    public void bestellungAusgeben()
-    {
+    public void bestellungAusgeben() //bestellungenAusgeben?
+     {
         for(Bestellung bestellung : bestellungList)
         {
+            System.out.println("Bestellung Nr.: " + bestellung.gibBestellungsNr());
             System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
             System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
         }

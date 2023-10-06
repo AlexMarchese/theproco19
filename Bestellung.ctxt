@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bestellung
-comment0.text=\n\ Klasse\ zur\ Definition\ von\ Objekten,\ die\ eine\ Bestellung\ beinhalten.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
+comment0.text=\n\ Klasse\ zur\ Definition\ von\ Instanzen,\ die\ eine\ Bestellung\ beinhalten.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=anzahlSofas\ anzahlStuehle
 comment1.target=Bestellung(int,\ int)
 comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Bestellung\n

@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Produkt
 comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Produkt.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
-comment1.params=zustand
-comment1.target=Produkt(int)
-comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produkt,\ Produkt\ kann\ Zahlenwerte\ annehmen\n\ 0\=\ nicht\ gestartet\n\ 1\=\ in\ bearbeitung\ (Zuk\u00FCnftig\ denkbar;\ Zustand\ pro\ Maschine\ 00\ \=\ nicht\ gestartet,\ 11\ Maschine\ 1\ in\ bearbeitung\ 12\ etc)\ \ \ \ \ *\n\ 2\=\ abgeschlossen\n
+comment1.params=
+comment1.target=Produkt()
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produkt,\ Produkt\ kann\ Zahlenwerte\ annehmen\n\ 0\=\ nicht\ gestartet\n\ 1\=\ in\ bearbeitung\ (Zuk\u00FCnftig\ denkbar;\ Zustand\ pro\ Maschine/Roboter\ 00\ \=\ nicht\ gestartet,\ 11\ Maschine/Roboter\ 1\ in\ bearbeitung\ 12\ etc)\n\ 2\=\ abgeschlossen\n
 comment2.params=zustand
 comment2.target=void\ zustandAendern(int)
 comment2.text=\n\ \n\ Methode\ zustand\u00C4ndern\ ersetzt\ den\ Zustandswert\ des\ Produkts\n\ \n\ \n\n
