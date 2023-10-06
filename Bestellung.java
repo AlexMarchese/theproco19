@@ -24,7 +24,7 @@ public class Bestellung
         // Instanzvariable initialisieren
         this.bestellteProdukte = new ArrayList<Produkt>();
         this.bestellBestaetigung = false;
-        this.beschaffungsZeit = 2; //Welche Beschaffungszeit? Haben wir das nicht auf Lager?
+        this.beschaffungsZeit = 1; //Welche Beschaffungszeit? Haben wir das nicht auf Lager? Produktionsdauer?
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
         this.bestellungsNr = 0;
