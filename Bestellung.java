@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 /**
- * Klasse zur Definition von Instanzen, die eine Bestellung beinhalten.
+ * Klasse zur Erstellung von Bestellungen, die Sofas und Stühle beinhalten.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -17,32 +17,55 @@ public class Bestellung
 
 
     /**
-     * Konstruktor für Objekte der Klasse Bestellung
+     * Konstruktor
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle)
     {
         // Instanzvariable initialisieren
-        this.bestellteProdukte = new ArrayList<Produkt>();
+        this.bestellteProdukte = new ArrayList<Produkt>(); //es fehlen ja noch die Stühle und Sofas in der Liste
         this.bestellBestaetigung = false;
         this.beschaffungsZeit = 1; //Welche Beschaffungszeit? Haben wir das nicht auf Lager? Produktionsdauer?
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
         this.bestellungsNr = 0; //muss von Fabrik gegeben werden
+        // this.bestellteProdukteHinzufuegen(); NICHT LÖSCHEN!
         
     }
 
-   
+     /* 
+      * Methode zum hinzufügen der bestellten Produkte in die zugehörige Liste. 
+      * Wird bei der Initialisierung einer Bestellung automatisch ausgeführt.
+      * NICHT LÖSCHEN!
+     //
+    private void bestellteProdukteHinzufuegen()
+    {
+        int stuhlCount = 0;
+        int sofaCount = 0;
+        while(stuhlCount < this.anzahlStuehle) {
+            this.bestellteProdukte.add(new Stuhl());
+            stuhlCount++;
+        }
+        
+        while(sofaCount < this.anzahlSofas) {
+            this.bestellteProdukte.add(new Sofa());
+            sofaCount++;
+        }
+    }*/
+
+        
+    
     /*
-     * 
+     * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
+     * gibt die Information aus, dass die Bestellung bestaetigt ist.
      */
     public void bestellungBestaetigen()
     {
         this.bestellBestaetigung = true;
-        System.out.println("Bestellung Nr. " + bestellungsNr + "bestaetigt");
+        System.out.println("Bestellung Nr. " + bestellungsNr + " bestaetigt.");
     }
     
     /*
-     * 
+     * Methode zur Ausgabe der Variable bestellBestaetigung.
      */
     public boolean gibBestellBestaetigung()
     {
@@ -50,15 +73,23 @@ public class Bestellung
     }
     
     /*
+     * Methode zur Anpassung der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
+     * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
      * 
+     * @param   zeit    Zeitangabe in Tagen
      */
     public void setzeBeschaffungszeit(int zeit)
     {
-        this.beschaffungsZeit = zeit;
+        if(zeit>0) {
+            this.beschaffungsZeit = zeit;
+        } else {
+            System.out.println("\nDer angegebene Wert (" + zeit + ") ist ungültig:"
+                                + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die grösser ist als 0.");
+        }
     }
     
     /*
-     * 
+     * Methode zur Ausgabe der gesetzten Beschaffungszeit.
      */
     public int gibBeschaffungszeit()
     {
@@ -66,7 +97,7 @@ public class Bestellung
     }
     
     /*
-     * 
+     * Methode zur Ausgabe der Bestellnummer.
      */
     public int gibBestellungsNr()
     {
@@ -74,7 +105,7 @@ public class Bestellung
     }
     
     /*
-     * 
+     * Methode zur Ausgabe der Anzahl bestellter Stühle.
      */
     public int gibAnzahlStuehle()
     {
@@ -82,7 +113,7 @@ public class Bestellung
     }
     
     /*
-     * 
+     * Methode zur Ausgabe der Anzahl bestellter Sofas.
      */
     public int gibAnzahlSofas()
     {
