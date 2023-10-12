@@ -28,15 +28,14 @@ public class Bestellung
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
         this.bestellungsNr = 0; //muss von Fabrik gegeben werden
-        // this.bestellteProdukteHinzufuegen(); NICHT LÖSCHEN!
+        this.bestellteProdukteHinzufuegen();
         
     }
 
      /* 
       * Methode zum hinzufügen der bestellten Produkte in die zugehörige Liste. 
       * Wird bei der Initialisierung einer Bestellung automatisch ausgeführt.
-      * NICHT LÖSCHEN!
-     //
+     */
     private void bestellteProdukteHinzufuegen()
     {
         int stuhlCount = 0;
@@ -50,7 +49,7 @@ public class Bestellung
             this.bestellteProdukte.add(new Sofa());
             sofaCount++;
         }
-    }*/
+    }
 
         
     
@@ -118,6 +117,11 @@ public class Bestellung
     public int gibAnzahlSofas()
     {
         return this.anzahlSofas;
+    }
+    
+    public ArrayList gibBestellteProdukte()
+    {
+        return this.bestellteProdukte;
     }
     
     

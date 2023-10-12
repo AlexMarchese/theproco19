@@ -8,7 +8,12 @@
 public class Produkt
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int zustand;
+    int zustand;
+    int holzeinheiten;
+    int schrauben;
+    int farbeinheiten;
+    int kartoneinheiten;
+    int produktionsZeit; 
 
     /**
      * Konstruktor für Objekte der Klasse Produkt, Produkt kann Zahlenwerte annehmen
@@ -16,10 +21,15 @@ public class Produkt
      * 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in bearbeitung 12 etc)
      * 2= abgeschlossen
        */
-    public Produkt()
+    public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit)
     {
         // Instanzvariable initialisieren
         this.zustand = 0;
+        this.holzeinheiten = holzeinheiten;
+        this.schrauben = schrauben;
+        this.farbeinheiten = farbeinheiten;
+        this.kartoneinheiten = kartoneinheiten;
+        this.produktionsZeit = produktionsZeit;
     }
 
     /**
@@ -42,5 +52,55 @@ public class Produkt
     {
         // tragen Sie hier den Code ein
         return this.zustand;
+    }
+    
+    /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getHolzeinheiten()
+    {
+        return this.holzeinheiten;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Schrauben für einen Stuhl zu erhalten
+     * 
+     */
+    public int getSchrauben()
+    {
+        return this.schrauben;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Farbeinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getFarbeinheiten()
+    {
+        return this.farbeinheiten;
+        
+    }
+    
+        /**
+     * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
+     * 
+     */
+    public int getKartoneinheiten()
+    {
+        return this.kartoneinheiten;
+        
+    }
+    
+        /**
+     * Methode, um Produktionszeit für einen Stuhl zu erhalten
+     * 
+     */
+    public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
+    {
+        return this.produktionsZeit;
+        
     }
 }

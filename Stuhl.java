@@ -5,26 +5,18 @@
  * @author GBI Gruppe 19
  * @version 1.0
  */
-public class Stuhl
+public class Stuhl extends Produkt
 {
     // Instanzvariablen
-    private int holzeinheiten;
-    private int schrauben;
-    private int farbeinheiten;
-    private int kartoneinheiten;
-    private int produktionsZeit; 
-
+    
+    
     /**
      * Konstruktor für Objekte der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
      */
     public Stuhl(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit)
     {
         // Instanzvariable initialisieren
-        this.holzeinheiten = holzeinheiten;
-        this.schrauben = schrauben;
-        this.farbeinheiten = farbeinheiten;
-        this.kartoneinheiten = kartoneinheiten;
-        this.produktionsZeit = produktionsZeit;
+        super(holzeinheiten, schrauben, farbeinheiten, kartoneinheiten, produktionsZeit);
     }
 
         /**
@@ -33,62 +25,11 @@ public class Stuhl
     public Stuhl()
     {
         // Instanzvariable initialisieren
-        this.holzeinheiten = 2;
-        this.schrauben = 10;
-        this.farbeinheiten = 2;
-        this.kartoneinheiten = 1;
-        this.produktionsZeit = 22; //muss noch überarbeitet werden, da 22 die Summe ist. //brauchen wie hier noch zusatz "this.xxx"? 
+        super(2, 10, 2, 1, 22); 
+        //muss noch überarbeitet werden, da 22 die Summe ist. //brauchen wie hier noch zusatz "this.xxx"? 
         //theoretisch 2 Konstruktoren möglich einer Dummy variable / einer mt parameter
     }
     
     
-    /**
-     * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
-     * 
-     */
-    public int getHolzeinheiten()
-    {
-        return this.holzeinheiten;
-        
-    }
     
-        /**
-     * Methode, um benötigte Schrauben für einen Stuhl zu erhalten
-     * 
-     */
-    public int getSchrauben()
-    {
-        return this.schrauben;
-        
-    }
-    
-        /**
-     * Methode, um benötigte Farbeinheiten für einen Stuhl zu erhalten
-     * 
-     */
-    public int getFarbeinheiten()
-    {
-        return this.farbeinheiten;
-        
-    }
-    
-        /**
-     * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
-     * 
-     */
-    public int getKartoneinheiten()
-    {
-        return this.kartoneinheiten;
-        
-    }
-    
-        /**
-     * Methode, um Produktionszeit für einen Stuhl zu erhalten
-     * 
-     */
-    public int getTotalProduktionszeit() //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
-    {
-        return this.produktionsZeit;
-        
-    }
 }

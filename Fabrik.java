@@ -39,11 +39,11 @@ public class Fabrik
             System.out.println("Bestellung Nr.: " + bestellung.gibBestellungsNr());
             System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
             System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
+            System.out.println("ArrayList: " + bestellung.gibBestellteProdukte());
         }
-    }
 
 
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
         // pass
     }
 
