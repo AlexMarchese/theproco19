@@ -9,5 +9,5 @@ comment2.target=Sofa()
 comment2.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\r\n
 comment3.params=
 comment3.target=int\ getKissen()
-comment3.text=\r\n\ Methode,\ um\ ben\u00F6tigte\ Kissen\ f\u00FCr\ ein\ Sofa\ zu\ erhalten\r\n\ \r\n
+comment3.text=\r\n\ Methode,\ um\ ben\u00F6tigte\ Kissen\ f\u00FCr\ ein\ Sofa\ zu\ erhalten\r\n
 numComments=4

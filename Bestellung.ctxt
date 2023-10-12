@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Bestellung
 comment0.text=\r\n\ Klasse\ zur\ Erstellung\ von\ Bestellungen,\ die\ Sofas\ und\ St\u00FChle\ beinhalten.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
-comment1.params=anzahlSofas\ anzahlStuehle
-comment1.target=Bestellung(int,\ int)
+comment1.params=anzahlSofas\ anzahlStuehle\ bestellungsNr
+comment1.target=Bestellung(int,\ int,\ int)
 comment1.text=\r\n\ Konstruktor\r\n
 comment10.params=
 comment10.target=java.util.ArrayList\ gibBestellteProdukte()
@@ -17,7 +17,7 @@ comment4.target=boolean\ gibBestellBestaetigung()
 comment4.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Variable\ bestellBestaetigung.\r\n
 comment5.params=zeit
 comment5.target=void\ setzeBeschaffungszeit(int)
-comment5.text=\r\n\ Methode\ zur\ Anpassung\ der\ Beschaffungszeit.\ Gibt\ der\ Variable\ beschaffungsZeit\ den\r\n\ angegebenen\ Wert.\ Fehlermeldung,\ wenn\ ein\ negativer\ Wert\ (oder\ 0)\ angegeben\ wird.\r\n\ \r\n\ @param\ \ \ zeit\ \ \ \ Zeitangabe\ in\ Tagen\r\n
+comment5.text=\r\n\ Methode\ zur\ Anpassung\ der\ Beschaffungszeit.\ Gibt\ der\ Variable\ beschaffungsZeit\ den\r\n\ angegebenen\ Wert.\ Fehlermeldung,\ wenn\ ein\ negativer\ Wert\ (oder\ 0)\ angegeben\ wird.\r\n\ \r\n\ @param\ zeit\ Zeitangabe\ in\ Tagen\r\n
 comment6.params=
 comment6.target=int\ gibBeschaffungszeit()
 comment6.text=\r\n\ Methode\ zur\ Ausgabe\ der\ gesetzten\ Beschaffungszeit.\r\n

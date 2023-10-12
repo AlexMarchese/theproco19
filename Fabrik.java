@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-// import java.util.List;
 
 /**
  * Beschreiben Sie hier die Klasse Fabrik.
@@ -7,34 +6,33 @@ import java.util.ArrayList;
  * @Gruppe19
  * @Version 1
  */
-public class Fabrik
-{
+public class Fabrik {
     // Die Klasse Fabrik enthält eine Übersicht (Array-liste) über alle Bestellungen
     // Hier wird die Klasse initialisiert und definiert als Array-List
     private ArrayList<Bestellung> bestellungList;
+    private int bestellungsNr; 
 
     /**
      * Konstruktor für Objekte der Klasse Fabrik
      */
-    public Fabrik()
-    {
-        bestellungList = new ArrayList<Bestellung>();
+    public Fabrik() {
+        this.bestellungList = new ArrayList<Bestellung>();
+        this.bestellungsNr = 1; // Attribut für die erste Bestellung gesetzt
     }
 
     /*
      * 
      */
-    public void bestellungAufgeben(int sofa, int chairs)
-    {
-        bestellungList.add(new Bestellung(sofa, chairs));
+    public void bestellungAufgeben(int sofa, int chairs) {
+        bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNr));
+        this.bestellungsNr ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
     }
 
     /*
      * 
      */
-    public void bestellungAusgeben() //bestellungenAusgeben?
-     {
-        for(Bestellung bestellung : bestellungList)
+    public void bestellungenAusgeben() {
+        for(Bestellung bestellung : this.bestellungList)
         {
             System.out.println("Bestellung Nr.: " + bestellung.gibBestellungsNr());
             System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
