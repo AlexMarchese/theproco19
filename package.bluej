@@ -1,4 +1,5 @@
 #BlueJ package file
+<<<<<<< Updated upstream
 dependency1.from=Fabrik
 dependency1.to=Bestellung
 dependency1.type=UsesDependency
@@ -30,6 +31,24 @@ package.frame.height=686
 package.frame.width=1294
 package.numDependencies=5
 package.numTargets=6
+=======
+editor.fx.0.height=751
+editor.fx.0.width=998
+editor.fx.0.x=150
+editor.fx.0.y=25
+objectbench.height=116
+objectbench.width=1263
+package.divider.horizontal=0.6
+package.divider.vertical=0.8483353884093712
+package.editor.height=681
+package.editor.width=1148
+package.editor.x=374
+package.editor.y=25
+package.frame.height=875
+package.frame.width=1287
+package.numDependencies=0
+package.numTargets=5
+>>>>>>> Stashed changes
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
