@@ -61,12 +61,24 @@ public class Produkt {
     public int getHolzeinheiten() {
         return this.holzeinheiten;
     }
+    /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu ändern
+     */
+    public void setHolzeinheiten(int anzahlHolzeinheiten) {
+         this.holzeinheiten = anzahlHolzeinheiten;
+    }
     
     /**
      * Methode, um benötigte Schrauben für einen Stuhl zu erhalten
      */
     public int getSchrauben() {
         return this.schrauben;
+    }
+    /**
+     * Methode, um benötigte Schrauben für einen Stuhl zu ändern
+     */
+    public void setSchrauben(int anzahlSchrauben) {
+        this.schrauben = anzahlSchrauben;
     }
     
     /**
@@ -75,12 +87,24 @@ public class Produkt {
     public int getFarbeinheiten() {
         return this.farbeinheiten;
     }
+    /**
+     * Methode, um benötigte Farbeinheiten für einen Stuhl zu ändern
+     */
+    public void setFarbeinheiten(int anzahlFarbeinheiten) {
+        this.farbeinheiten = anzahlFarbeinheiten;
+    }
     
     /**
      * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
      */
     public int getKartoneinheiten() {
         return this.kartoneinheiten;
+    }
+     /**
+     * Methode, um benötigte Kartoneinheiten für einen Stuhl zu ändern
+     */
+    public void setKartoneinheiten(int anzahlKartoneinheiten) {
+        this.kartoneinheiten = anzahlKartoneinheiten;
     }
     
         /**
@@ -89,5 +113,12 @@ public class Produkt {
      */
     public int getTotalProduktionszeit() { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
         return this.produktionsZeit;
+    }
+    /**
+     * Methode, um Produktionszeit für einen Stuhl zu ändern
+     * 
+     */
+    public void setTotalProduktionszeit(int neueproduktionsZeit) { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
+         this.produktionsZeit = neueproduktionsZeit;
     }
 }
