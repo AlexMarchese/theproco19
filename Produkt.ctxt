@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Produkt
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Produkt.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ @param\ \ \ zustand\ \ \ Das\ ist\ der\ Zustand\r\n
 comment1.params=holzeinheiten\ schrauben\ farbeinheiten\ kartoneinheiten\ produktionsZeit
 comment1.target=Produkt(int,\ int,\ int,\ int,\ int)
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produkt,\ Produkt\ kann\ Zahlenwerte\ annehmen\r\n\ 0\=\ nicht\ gestartet\r\n\ 1\=\ in\ bearbeitung\ (Zuk\u00FCnftig\ denkbar;\ Zustand\ pro\ Maschine/Roboter\ 00\ \=\ nicht\ gestartet,\ 11\ Maschine/Roboter\ 1\ in\ bearbeitung\ 12\ etc)\r\n\ 2\=\ abgeschlossen\r\n

@@ -4,6 +4,12 @@
  * 
  * @author GBI Gruppe 19
  * @version 1.0
+ * 
+ * 
+ */
+
+/**
+ * @param   zustand   Das ist der Zustand
  */
 public class Produkt {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen

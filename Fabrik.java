@@ -20,19 +20,19 @@ public class Fabrik {
         this.bestellungsNr = 1; // Attribut für die erste Bestellung gesetzt
     }
 
-    /*
-     * 
+    /**
+     * Methode, um eine Bestellung aufzugeben
      */
     public void bestellungAufgeben(int sofa, int chairs) {
         bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNr));
         this.bestellungsNr ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
     }
 
-    /*
-     * 
+    /**
+     * Methode zur Ausgabe der Bestellungen
      */
     public void bestellungenAusgeben() {
-        for(Bestellung bestellung : this.bestellungList)
+        for(Bestellung bestellung : this.bestellungList)   //to be improved - more fancyness
         {
             System.out.println("Bestellung Nr.: " + bestellung.gibBestellungsNr());
             System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
@@ -40,7 +40,9 @@ public class Fabrik {
             System.out.println("ArrayList: " + bestellung.gibBestellteProdukte());
         }
 
-
+    /**
+     * Main Methode, wenn es keine Tesklasse gäbe
+     */
     //public static void main(String[] args) {
         // pass
     }
