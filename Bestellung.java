@@ -74,7 +74,7 @@ public class Bestellung {
     }
 
     /*
-     * Methode zur Setzen der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
+     * Methode zum Setzen der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
      * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
      * 
      * @param zeit Zeitangabe in Tagen
@@ -89,7 +89,7 @@ public class Bestellung {
     }
     
     /*
-     * Methode zur Ausgabe der Variable Beschaffungszeit.
+     * Methode zur Ausgabe der Beschaffungszeit.
      * 
      * @return beschaffungsZeit Zeitangabe in Tagen
      */

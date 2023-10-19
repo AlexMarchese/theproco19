@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=Sofa
-comment0.text=\r\n\ Eine\ Klasse,\ welche\ die\ Parameter\ des\ Sofas\ enth\u00E4lt.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Eine\ Klasse,\ welche\ die\ Parameter\ des\ Sofas\ enth\u00E4lt.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=holzeinheiten\ schrauben\ kissen\ farbeinheiten\ kartoneinheiten\ produktionsZeit
 comment1.target=Sofa(int,\ int,\ int,\ int,\ int,\ int)
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Instanzen\ der\ Klasse\ Sofa,\ wenn\ Parameter\ von\ extern\ einfliessen\ sollen.\r\n
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Instanzen\ der\ Klasse\ Sofa,\ wenn\ Parameter\ von\ extern\ einfliessen\ sollen.\n
 comment2.params=
 comment2.target=Sofa()
-comment2.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\r\n
+comment2.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\n
 comment3.params=kissen
 comment3.target=void\ setzeKissen(int)
-comment3.text=\r\n\ Methode,\ um\ die\ Anzahl\ an\ Kissen\ zu\ setzen\r\n
+comment3.text=\n\ Methode,\ um\ die\ Anzahl\ an\ Kissen\ zu\ setzen\n
 comment4.params=
 comment4.target=int\ gibKissen()
-comment4.text=\r\n\ Methode,\ um\ ben\u00F6tigte\ Kissen\ f\u00FCr\ ein\ Sofa\ zu\ erhalten\r\n
+comment4.text=\n\ Methode,\ um\ ben\u00F6tigte\ Kissen\ f\u00FCr\ ein\ Sofa\ zu\ erhalten\n
 numComments=5
