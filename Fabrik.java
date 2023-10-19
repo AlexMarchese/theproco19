@@ -5,7 +5,8 @@ import java.util.ArrayList;
  * 
  * @Gruppe19
  * @Version 1
- */
+*/
+
 public class Fabrik {
     // Die Klasse Fabrik enthält eine Übersicht (Array-liste) über alle Bestellungen
     // Hier wird die Klasse initialisiert und definiert als Array-List
@@ -22,9 +23,10 @@ public class Fabrik {
 
     /**
      * Methode, um eine Bestellung aufzugeben
-     */
-    public void bestellungAufgeben(int sofa, int chairs) {
+    */
+    public void bestellungAufgeben(int sofa, int chairs) throws Exception {
         bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNr));
+
         this.bestellungsNr ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
     }
 
@@ -38,6 +40,7 @@ public class Fabrik {
             System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
             System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
             System.out.println("ArrayList: " + bestellung.gibBestellteProdukte());
+            System.out.println();
         }
 
     /**
@@ -47,4 +50,7 @@ public class Fabrik {
         // pass
     }
 
+    ArrayList<Bestellung> getBestellungen() {
+        return this.bestellungList;
+    }
 }

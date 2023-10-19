@@ -36,14 +36,14 @@ public class Produkt {
         this.produktionsZeit = produktionsZeit;
     }
 
+
+    /// Getters und Setters
+
+
     /**
-     * 
-     * Methode zustandÄndern ersetzt den Zustandswert des Produkts
-     * 
-     * 
-     *
+     * Methode, um den Zustandswert des Produkts zu setzen
      */
-    public void zustandAendern(int zustand) {
+    public void setzeZustand(int zustand) {
         // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
         this.zustand = zustand;
     }
@@ -51,74 +51,80 @@ public class Produkt {
     /**
      * Methode gibt aktuellen Zustand zurück.
      */
-    public int aktuellerZustand() {
+    public int gibZustand() {
         return this.zustand;
+    }
+
+    /**
+     * Methode, um benötigte Holzeinheiten für einen Stuhl zu setzen
+     */
+    public void setzeHolzeinheiten(int anzahlHolzeinheiten) {
+         this.holzeinheiten = anzahlHolzeinheiten;
     }
     
     /**
      * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
      */
-    public int getHolzeinheiten() {
+    public int gibHolzeinheiten() {
         return this.holzeinheiten;
-    }
-    /**
-     * Methode, um benötigte Holzeinheiten für einen Stuhl zu ändern
-     */
-    public void setHolzeinheiten(int anzahlHolzeinheiten) {
-         this.holzeinheiten = anzahlHolzeinheiten;
     }
     
     /**
+     * Methode, um benötigte Schrauben für einen Stuhl zu setzen
+     */
+    public void setzeSchrauben(int anzahlSchrauben) {
+        this.schrauben = anzahlSchrauben;
+    }
+
+    /**
      * Methode, um benötigte Schrauben für einen Stuhl zu erhalten
      */
-    public int getSchrauben() {
+    public int gibSchrauben() {
         return this.schrauben;
     }
+    
     /**
-     * Methode, um benötigte Schrauben für einen Stuhl zu ändern
+     * Methode, um benötigte Farbeinheiten für einen Stuhl zu setzen
      */
-    public void setSchrauben(int anzahlSchrauben) {
-        this.schrauben = anzahlSchrauben;
+    public void setzeFarbeinheiten(int anzahlFarbeinheiten) {
+        this.farbeinheiten = anzahlFarbeinheiten;
     }
     
     /**
      * Methode, um benötigte Farbeinheiten für einen Stuhl zu erhalten
      */
-    public int getFarbeinheiten() {
+    public int gibFarbeinheiten() {
         return this.farbeinheiten;
     }
+    
     /**
-     * Methode, um benötigte Farbeinheiten für einen Stuhl zu ändern
+     * Methode, um benötigte Kartoneinheiten für einen Stuhl zu setzen
      */
-    public void setFarbeinheiten(int anzahlFarbeinheiten) {
-        this.farbeinheiten = anzahlFarbeinheiten;
+    public void setzeKartoneinheiten(int anzahlKartoneinheiten) {
+        this.kartoneinheiten = anzahlKartoneinheiten;
     }
     
     /**
      * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
      */
-    public int getKartoneinheiten() {
+    public int gibKartoneinheiten() {
         return this.kartoneinheiten;
     }
-     /**
-     * Methode, um benötigte Kartoneinheiten für einen Stuhl zu ändern
-     */
-    public void setKartoneinheiten(int anzahlKartoneinheiten) {
-        this.kartoneinheiten = anzahlKartoneinheiten;
-    }
     
-        /**
-     * Methode, um Produktionszeit für einen Stuhl zu erhalten
-     * 
-     */
-    public int getTotalProduktionszeit() { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
-        return this.produktionsZeit;
-    }
     /**
-     * Methode, um Produktionszeit für einen Stuhl zu ändern
+     * Methode, um Produktionszeit für einen Stuhl zu setzen
      * 
      */
-    public void setTotalProduktionszeit(int neueproduktionsZeit) { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist.
+    public void setzeTotalProduktionszeit(int neueproduktionsZeit) { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist. -?
          this.produktionsZeit = neueproduktionsZeit;
     }
+    
+    /**
+     * Methode, um die Produktionszeit für einen Stuhl zu erhalten
+     * 
+     */
+    public int gibTotalProduktionszeit() { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist. -?
+        return this.produktionsZeit;
+    }
+    
 }

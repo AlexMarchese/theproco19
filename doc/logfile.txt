@@ -20,16 +20,118 @@ D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\
 UTF-8
 -charset
 UTF-8
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Produkt.java
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Bestellung.java
 <---- end of javadoc command ---->
-Loading source file D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Produkt.java...
+Loading source file D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Bestellung.java...
 Constructing Javadoc information...
 Standard Doclet version 17.0.4.1+1
 Building tree for all the packages and classes...
-Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\Produkt.html...
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Produkt.java:12: warning: @param argument "zustand" is not the name of a record component.
- * @param   zustand   Das ist der Zustand
-   ^
+Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\Bestellung.html...
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Fabrik.java:28: error: ')' expected
+        bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNr);
+                                                                           ^
+warning: unknown enum constant Status.STABLE
+  reason: class file for org.apiguardian.api.API$Status not found
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
 Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\package-summary.html...
 Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\index.html...
-1 warning
+1 error
+100 warnings

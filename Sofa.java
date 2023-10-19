@@ -31,10 +31,22 @@ public class Sofa extends Produkt {
     }
 
 
+
+    /// Getters und Setters
+
+
+    /**
+     * Methode, um die Anzahl an Kissen zu setzen
+     */
+    public void setzeKissen(int kissen) {
+        // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
+        this.kissen = kissen;
+    }
+
     /**
      * Methode, um benötigte Kissen für ein Sofa zu erhalten
      */
-    public int getKissen() {
+    public int gibKissen() {
         return this.kissen;
     }
     
