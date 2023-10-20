@@ -9,8 +9,14 @@
  */
 
 /**
- * @param   zustand   Das ist der Zustand
- */
+ * @param   zustand   Das ist der Zustand.
+ * @param   holzeinheiten   Das sind die Anzahl Einheiten Hol,z die für das Produkt benötigt werden.
+ * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
+ * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
+ * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
+ * @param   produktionsZeit   Das ist die Zeit welche zur Produktion des Produkts benötigt wird.
+ * 
+*/
 public class Produkt {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     int zustand;
@@ -42,6 +48,7 @@ public class Produkt {
 
     /**
      * Methode, um den Zustandswert des Produkts zu setzen
+     * @param   Den Zustandswert des Produkts in numerischer Form.
      */
     public void setzeZustand(int zustand) {
         // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
@@ -50,6 +57,7 @@ public class Produkt {
     
     /**
      * Methode gibt aktuellen Zustand zurück.
+     * @return  Den aktuellen Zustand des Produkts in numerischer Form.
      */
     public int gibZustand() {
         return this.zustand;
@@ -57,6 +65,7 @@ public class Produkt {
 
     /**
      * Methode, um benötigte Holzeinheiten für einen Stuhl zu setzen
+     * @param   Die benötigten Einheiten Holz für das Produkt.
      */
     public void setzeHolzeinheiten(int anzahlHolzeinheiten) {
          this.holzeinheiten = anzahlHolzeinheiten;
@@ -64,6 +73,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten
+     * @return  Die  benötigten Einheiten Holz für das Produkt.
      */
     public int gibHolzeinheiten() {
         return this.holzeinheiten;
@@ -71,6 +81,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Schrauben für einen Stuhl zu setzen
+     * @param   Die benötigte Anzahl Schrauben für das Produkt.
      */
     public void setzeSchrauben(int anzahlSchrauben) {
         this.schrauben = anzahlSchrauben;
@@ -78,6 +89,7 @@ public class Produkt {
 
     /**
      * Methode, um benötigte Schrauben für einen Stuhl zu erhalten
+     * @return  Die  benötigte Anzahl Schrauben für das Produkt.
      */
     public int gibSchrauben() {
         return this.schrauben;
@@ -85,6 +97,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Farbeinheiten für einen Stuhl zu setzen
+     * @param   Die benötigten Einheiten Farbe für das Produkt.
      */
     public void setzeFarbeinheiten(int anzahlFarbeinheiten) {
         this.farbeinheiten = anzahlFarbeinheiten;
@@ -92,6 +105,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Farbeinheiten für einen Stuhl zu erhalten
+     * @return  Die  benötigten Einheiten Farbe für das Produkt.
      */
     public int gibFarbeinheiten() {
         return this.farbeinheiten;
@@ -99,6 +113,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Kartoneinheiten für einen Stuhl zu setzen
+     * @param   Die benötigten Einheiten Karton für das Produkt.
      */
     public void setzeKartoneinheiten(int anzahlKartoneinheiten) {
         this.kartoneinheiten = anzahlKartoneinheiten;
@@ -106,6 +121,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
+     * @return  Die  benötigten Einheiten Karton für das Produkt.
      */
     public int gibKartoneinheiten() {
         return this.kartoneinheiten;
@@ -113,7 +129,7 @@ public class Produkt {
     
     /**
      * Methode, um Produktionszeit für einen Stuhl zu setzen
-     * 
+     * @param   Die totale Produktionszeit für das Produkt.
      */
     public void setzeTotalProduktionszeit(int neueproduktionsZeit) { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist. -?
          this.produktionsZeit = neueproduktionsZeit;
@@ -121,7 +137,7 @@ public class Produkt {
     
     /**
      * Methode, um die Produktionszeit für einen Stuhl zu erhalten
-     * 
+     * @return  Die totale Produktionszeit für das Produkt.
      */
     public int gibTotalProduktionszeit() { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist. -?
         return this.produktionsZeit;

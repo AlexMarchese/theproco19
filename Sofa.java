@@ -12,6 +12,13 @@ public class Sofa extends Produkt {
 
     /**
      * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
+     * @param   zustand   Das ist der Zustand.
+     * @param   holzeinheiten   Das sind die Anzahl Einheiten Hol,z die für das Produkt benötigt werden.
+     * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
+     * @param   Anzahl Kissen welche zum Produkt gehören.
+     * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
+     * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
+     * @param   produktionsZeit   Das ist die Zeit welche zur Produktion des Produkts benötigt wird.
      */
     public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren
@@ -37,6 +44,7 @@ public class Sofa extends Produkt {
 
     /**
      * Methode, um die Anzahl an Kissen zu setzen
+     * @param   Anzahl Kissen welche zum Produkt gehören.
      */
     public void setzeKissen(int kissen) {
         // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
@@ -45,6 +53,7 @@ public class Sofa extends Produkt {
 
     /**
      * Methode, um benötigte Kissen für ein Sofa zu erhalten
+     * @return  Anzahl Kissen welche zum Produkt gehören.
      */
     public int gibKissen() {
         return this.kissen;
