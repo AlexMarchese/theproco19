@@ -1,7 +1,8 @@
 #BlueJ package file
-dependency1.from=Fabrik
-dependency1.to=Bestellung
+dependency1.from=Bestellung
+dependency1.to=Produkt
 dependency1.type=UsesDependency
+<<<<<<< Updated upstream
 dependency2.from=BestellungTest
 dependency2.to=Fabrik
 dependency2.type=UsesDependency
@@ -42,6 +43,33 @@ package.frame.height=686
 package.frame.width=1294
 package.numDependencies=9
 package.numTargets=11
+=======
+dependency2.from=Bestellung
+dependency2.to=Stuhl
+dependency2.type=UsesDependency
+dependency3.from=Bestellung
+dependency3.to=Sofa
+dependency3.type=UsesDependency
+dependency4.from=Fabrik
+dependency4.to=Bestellung
+dependency4.type=UsesDependency
+editor.fx.0.height=836
+editor.fx.0.width=1131
+editor.fx.0.x=205
+editor.fx.0.y=25
+objectbench.height=116
+objectbench.width=1263
+package.divider.horizontal=0.6
+package.divider.vertical=0.8483353884093712
+package.editor.height=681
+package.editor.width=1148
+package.editor.x=121
+package.editor.y=25
+package.frame.height=875
+package.frame.width=1287
+package.numDependencies=4
+package.numTargets=6
+>>>>>>> Stashed changes
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -52,10 +80,11 @@ readme.x=10
 readme.y=10
 target1.association=SofaTest
 target1.height=70
-target1.name=Sofa
+target1.name=Stuhl
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=120
+<<<<<<< Updated upstream
 target1.x=810
 target1.y=630
 target10.height=70
@@ -73,14 +102,23 @@ target11.width=120
 target11.x=740
 target11.y=340
 target2.association=StuhlTest
+=======
+target1.x=630
+target1.y=430
+>>>>>>> Stashed changes
 target2.height=70
-target2.name=Stuhl
-target2.showInterface=false
+target2.name=Sofa
+target2.showInterface=true
 target2.type=ClassTarget
 target2.width=120
+<<<<<<< Updated upstream
 target2.x=610
 target2.y=580
 target3.association=ProduktTest
+=======
+target2.x=830
+target2.y=470
+>>>>>>> Stashed changes
 target3.height=70
 target3.name=Produkt
 target3.showInterface=false
