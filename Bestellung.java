@@ -40,12 +40,14 @@ public class Bestellung {
         int stuhlCount = 0;
         int sofaCount = 0;
         while(stuhlCount < this.anzahlStuehle) {
-            this.bestellteProdukte.add(new Stuhl());
+            Produkt stuhl = new Stuhl();
+            this.bestellteProdukte.add(stuhl);
             stuhlCount++;
         }
         
         while(sofaCount < this.anzahlSofas) {
-            this.bestellteProdukte.add(new Sofa());
+            Produkt sofa = new Sofa();
+            this.bestellteProdukte.add(sofa);
             sofaCount++;
         }
     }
@@ -54,7 +56,24 @@ public class Bestellung {
 
     /// Getters und Setters
 
-
+    /*
+     * Methode zum Setzen der ArrayList mit den bestellten Produkten.
+     * 
+     * @param   produkte   ArrayList mit den bestellten Produkten
+     */
+    public void setzeBestellteProdukte(ArrayList<Produkt> produkte) { // Würde das rausnehmen, weil das sonst fehleranfällig ist.
+        this.bestellteProdukte = produkte;
+    }    
+    
+    /*
+     * Methode zur Ausgabe der Liste der bestellten Produkte.
+     * 
+     * @return  bestellteProdukte   ArrayList<Produkt> mit den Referenzen zu den bestellten Produkten
+     */
+    public ArrayList gibBestellteProdukte() {
+        return this.bestellteProdukte;
+    }
+    
     /*
      * Methode zum Setzen der Variable bestellBestaetigung.
      * 
@@ -62,6 +81,8 @@ public class Bestellung {
      */
     public void setzeBestellBestaetigung(Boolean zustand) {
         this.bestellBestaetigung = zustand;
+        System.out.println("bestellBestaetigung der Bestellung mit der Nr. " + this.bestellungsNr +
+                            " wurde auf " + zustand + " gesetzt.");
     }
     
     /*
@@ -75,16 +96,16 @@ public class Bestellung {
 
     /*
      * Methode zum Setzen der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
-     * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
+     * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird.
      * 
      * @param zeit Zeitangabe in Tagen
      */
     public void setzeBeschaffungszeit(int zeit) {
-        if(zeit > 0) {
+        if(zeit >= 0) {
             this.beschaffungsZeit = zeit;
         } else {
             System.out.println("\nDer angegebene Wert (" + zeit + ") ist ungültig:"
-                                + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die grösser ist als 0.");
+                                + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die grösser oder gleich 0 ist.");
         }
     }
     
@@ -102,11 +123,11 @@ public class Bestellung {
      * 
      * @param   nummer   die Bestellnummer
      */
-    public void setzeBestellungsNr(int nummer) {
-        if(nummer > 0) {
-            this.bestellungsNr = nummer;
+    public void setzeBestellungsNr(int bestellNummer) {
+        if(bestellNummer > 0) {
+            this.bestellungsNr = bestellNummer;
         } else {
-            System.out.println("\nDer angegebene Wert (" + nummer + ") ist ungültig:"
+            System.out.println("\nDer angegebene Wert (" + bestellNummer + ") ist ungültig:"
                                 + "\n   Bitte geben Sie für die Bestellnummer eine Zahl ein, die grösser ist als 0.");
         }
     }
@@ -168,29 +189,10 @@ public class Bestellung {
         return this.anzahlSofas;
     }
 
-    /*
-     * Methode zum Setzen der Array mit den bestellten Produkten.
-     * 
-     * @param   produkte   Array mit den bestellten Produkten
-     */
-    public void setzeBestellteProdukte(ArrayList<Produkt> produkte) {
-        this.bestellteProdukte = produkte;
-    }
-
-    /*
-     * Methode zur Ausgabe der Array mit den bestellten Produkten.
-     * 
-     * @return  bestellteProdukte   Array mit den bestellten Produkten
-     */
-    public ArrayList<Produkt> gibBestellteProdukte() {
-        return this.bestellteProdukte;
-    }
-
-
     
-
     /// Methoden
 
+    
     /*
      * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
      * gibt die Information aus, dass die Bestellung bestaetigt ist.

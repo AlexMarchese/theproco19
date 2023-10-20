@@ -3,31 +3,31 @@ import java.util.ArrayList;
 /**
  * Beschreiben Sie hier die Klasse Fabrik.
  * 
- * @Gruppe19
- * @Version 1
+ * @author GBI Gruppe 19
+ * @version 1.0
 */
 
 public class Fabrik {
     // Die Klasse Fabrik enthält eine Übersicht (Array-liste) über alle Bestellungen
     // Hier wird die Klasse initialisiert und definiert als Array-List
     private ArrayList<Bestellung> bestellungList;
-    private int bestellungsNr; 
+    private int bestellungsNrCounter; 
 
     /**
      * Konstruktor für Objekte der Klasse Fabrik
      */
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
-        this.bestellungsNr = 1; // Attribut für die erste Bestellung gesetzt
+        this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
     }
 
     /**
      * Methode, um eine Bestellung aufzugeben
     */
     public void bestellungAufgeben(int sofa, int chairs) throws Exception {
-        bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNr));
+        bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNrCounter));
 
-        this.bestellungsNr ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
+        this.bestellungsNrCounter ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
     }
 
     /**
@@ -39,7 +39,7 @@ public class Fabrik {
             System.out.println("Bestellung Nr.: " + bestellung.gibBestellungsNr());
             System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
             System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
-            System.out.println("ArrayList: " + bestellung.gibBestellteProdukte());
+            System.out.println("ArrayList: " + bestellung.gibBestellteProdukte()); //rausnehmen?
             System.out.println();
         }
 
