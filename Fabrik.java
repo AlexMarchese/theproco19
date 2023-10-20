@@ -21,6 +21,50 @@ public class Fabrik {
         this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
     }
 
+
+    /// Getters und Setters
+
+    /**
+     * Methode zum Setzen der Bestellungen
+     * 
+     * @param  bestellungList   ArrayList mit den Bestellungen
+     */
+    public void setzeBestellungsList(ArrayList<Bestellung> bestellungList) {
+        this.bestellungList = bestellungList;
+    }
+
+    /**
+     * Methode zur Ausgabe der Bestellungen
+     * 
+     * @return  bestellungList   Liste mit den Bestellungen
+     */
+    public ArrayList<Bestellung> gibBestellungsList() {
+        return this.bestellungList;
+    }
+
+    /**
+     * Methode zum Setzen des Zählers der Bestellungen
+     * 
+     * @param  bestellungsNrCounter   Zähler der Bestellungen
+     */
+    public void setzebestellungsNrCounter(int bestellungsNrCounter) {
+        this.bestellungsNrCounter = bestellungsNrCounter;
+    }
+
+    /**
+     * Methode zur Ausgabe des Zählers der Bestellungen
+     * 
+     * @return  bestellungsNrCounter   Zähler der Bestellungen
+     */
+    public int gibbestellungsNrCounter() {
+        return this.bestellungsNrCounter;
+    }
+
+    
+
+    /// Methoden
+
+
     /**
      * Methode, um eine Bestellung aufzugeben
     */
@@ -50,7 +94,5 @@ public class Fabrik {
         // pass
     }
 
-    ArrayList<Bestellung> gibBestellungen() {
-        return this.bestellungList;
-    }
+    
 }

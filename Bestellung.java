@@ -32,7 +32,7 @@ public class Bestellung {
         this.bestellteProdukteHinzufuegen();
     }
 
-     /* 
+     /**
       * Methode zum hinzufügen der bestellten Produkte in die zugehörige Liste. 
       * Wird bei der Initialisierung einer Bestellung automatisch ausgeführt.
      */
@@ -56,7 +56,7 @@ public class Bestellung {
 
     /// Getters und Setters
 
-    /*
+    /**
      * Methode zum Setzen der ArrayList mit den bestellten Produkten.
      * 
      * @param   produkte   ArrayList mit den bestellten Produkten
@@ -65,16 +65,16 @@ public class Bestellung {
         this.bestellteProdukte = produkte;
     }    
     
-    /*
+    /**
      * Methode zur Ausgabe der Liste der bestellten Produkte.
      * 
      * @return  bestellteProdukte   ArrayList<Produkt> mit den Referenzen zu den bestellten Produkten
      */
-    public ArrayList gibBestellteProdukte() {
+    public ArrayList<Produkt> gibBestellteProdukte() {
         return this.bestellteProdukte;
     }
     
-    /*
+    /**
      * Methode zum Setzen der Variable bestellBestaetigung.
      * 
      * @param   zustand Zustand der Bestellbestätigung
@@ -85,7 +85,7 @@ public class Bestellung {
                             " wurde auf " + zustand + " gesetzt.");
     }
     
-    /*
+    /**
      * Methode zur Ausgabe der Variable bestellBestaetigung.
      * 
      * @return  bestellBestaetigung Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht
@@ -94,7 +94,7 @@ public class Bestellung {
         return this.bestellBestaetigung;
     }
 
-    /*
+    /**
      * Methode zum Setzen der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
      * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird
      * 
@@ -109,7 +109,7 @@ public class Bestellung {
         }
     }
     
-    /*
+    /**
      * Methode zur Ausgabe der Beschaffungszeit.
      * 
      * @return beschaffungsZeit Zeitangabe in Tagen
@@ -118,7 +118,7 @@ public class Bestellung {
         return this.beschaffungsZeit;
     }
 
-    /*
+    /**
      * Methode zum Setzen der Bestellnummer.
      * 
      * @param   bestellNummer   Bestellnummer, die von Fabrik gegeben wird
@@ -132,7 +132,7 @@ public class Bestellung {
         }
     }
     
-    /*
+    /**
      * Methode zur Ausgabe der Bestellnummer.
      * 
      * @return  bestellungsNr   die Bestellnummer
@@ -141,7 +141,7 @@ public class Bestellung {
         return this.bestellungsNr;
     }
 
-    /*
+    /**
      * Methode zur Anpassung der AnzahlStuehle. Gibt der Variable AnzahlStuehle den
      * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
      * 
@@ -156,7 +156,7 @@ public class Bestellung {
         }
     }
 
-    /*
+    /**
      * Methode zur Ausgabe der Anzahl bestellter Stühle.
      * 
      * @return  anzahlStuehle Anzahl bestellter Stühle
@@ -165,7 +165,7 @@ public class Bestellung {
         return this.anzahlStuehle;
     }
 
-    /*
+    /**
      * Methode zur Anpassung der AnzahlSofas. Gibt der Variable AnzahlSofas den
      * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
      * 
@@ -180,7 +180,7 @@ public class Bestellung {
         }
     }
 
-    /*
+    /**
      * Methode zur Ausgabe der Anzahl bestellter Sofas.
      * 
      * @return  anzahlSofas Anzahl bestellter Sofas
@@ -193,7 +193,7 @@ public class Bestellung {
     /// Methoden
 
     
-    /*
+    /**
      * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
      * gibt die Information aus, dass die Bestellung bestaetigt ist.
      */
