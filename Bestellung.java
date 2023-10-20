@@ -15,7 +15,7 @@ public class Bestellung {
     private int bestellungsNr;
 
     /**
-     * Konstruktor
+     * Konstruktor für die Objekt der Klasse Bestellung
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) throws Exception {
         // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird
