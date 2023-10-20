@@ -61,7 +61,7 @@ public class Bestellung {
      * 
      * @param   produkte   ArrayList mit den bestellten Produkten
      */
-    public void setzeBestellteProdukte(ArrayList<Produkt> produkte) { // Würde das rausnehmen, weil das sonst fehleranfällig ist.
+    public void setzeBestellteProdukte(ArrayList<Produkt> produkte) { // Würde das rausnehmen, weil das System sonst fehleranfällig ist.
         this.bestellteProdukte = produkte;
     }    
     
@@ -88,7 +88,7 @@ public class Bestellung {
     /*
      * Methode zur Ausgabe der Variable bestellBestaetigung.
      * 
-     * @return  bestellBestaetigung Bestellbestätigung
+     * @return  bestellBestaetigung Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht
      */
     public boolean gibBestellBestaetigung() {
         return this.bestellBestaetigung;
@@ -96,7 +96,7 @@ public class Bestellung {
 
     /*
      * Methode zum Setzen der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
-     * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird.
+     * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird
      * 
      * @param zeit Zeitangabe in Tagen
      */
@@ -121,7 +121,7 @@ public class Bestellung {
     /*
      * Methode zum Setzen der Bestellnummer.
      * 
-     * @param   nummer   die Bestellnummer
+     * @param   bestellNummer   Bestellnummer, die von Fabrik gegeben wird
      */
     public void setzeBestellungsNr(int bestellNummer) {
         if(bestellNummer > 0) {
@@ -159,7 +159,7 @@ public class Bestellung {
     /*
      * Methode zur Ausgabe der Anzahl bestellter Stühle.
      * 
-     * @return  anzahlSofas Anzahl bestellter Stühle
+     * @return  anzahlStuehle Anzahl bestellter Stühle
      */
     public int gibAnzahlStuehle() {
         return this.anzahlStuehle;

@@ -50,7 +50,7 @@ public class Fabrik {
         // pass
     }
 
-    ArrayList<Bestellung> getBestellungen() {
+    ArrayList<Bestellung> gibBestellungen() {
         return this.bestellungList;
     }
 }
