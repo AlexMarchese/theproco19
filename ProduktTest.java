@@ -6,19 +6,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testclasse Fabriktest, um Fabrik und dessen Methoden mit den davon abhängigen Klassen zu testen
+ * Testklasse ProduktTest, um den Sofa und dessen Methoden zu testen
  *
  * @author  GBI Gruppe 19
  * @version 1
  */
 
-public class FabrikTest {
-    private Fabrik fabrik;
+public class ProduktTest {
+
+    String nameTestClasse = "ProduktTest"; // Name der Testklasse
     
     /**
-     * Konstruktor von FabrikTest
+     * Konstruktor von ProduktTest
      */
-    public FabrikTest() {
+    public ProduktTest() {
     }
 
     /**
@@ -26,7 +27,7 @@ public class FabrikTest {
      */
     @BeforeEach
     public void setUp() {
-        System.out.println("Testlauf Start");
+        System.out.println("Testlauf " + nameTestClasse + " Start");
         System.out.println();
     }
 
@@ -35,57 +36,52 @@ public class FabrikTest {
      */
     @AfterEach
     public void tearDown() {
-        System.out.println("Testlauf Ende");
+        System.out.println();
+        System.out.println("Testlauf " + nameTestClasse + " Ende");
         System.out.println("------------------------");
     }
+    
 
-    // check if expetion was thrown: assertThrows
-    
-    
     @Test
     /**
      * Ablauf vom Test
      */
-    public void testeFabrik() {
-        fabrik = new Fabrik();
-        
-        // fabrik.bestellungAufgeben(1, 0);
-        // fabrik.bestellungAufgeben(3, 5);
-        fabrik.bestellungenAusgeben();
+    public void testeProduktMitVariablenAngabe() {
+        Produkt testProdukt = new Produkt(5, 6, 7, 8, 9);
 
+        assertEquals(testProdukt.gibHolzeinheiten(), 5);
+        assertEquals(testProdukt.gibSchrauben(), 6);
+        assertEquals(testProdukt.gibFarbeinheiten(), 7);
+        assertEquals(testProdukt.gibKartoneinheiten(), 8);
+        assertEquals(testProdukt.gibZustand(), 0);
+        assertEquals(testProdukt.gibTotalProduktionszeit(), 9);
 
-        // assert 
-        assertEquals(fabrik.getBestellungen().size(), 9);
+        System.out.println("Test Produkt mit Variablenangabe erfolgreich. Initialisierung mit Selbstdefinierten Variablen funktioniert.");
+
     }
-
-    @Test
+    
+    @Test   
     /**
-     * Ablauf vom Test wenn es keine Bestellungen gibt
+     * Ablauf vom Test
      */
-    public void testeFabrikKeineBestellungen() {
-        fabrik = new Fabrik();
-        fabrik.bestellungenAusgeben();
+    public void testeProduktSetters() {
+        Produkt testProdukt = new Produkt(1, 2, 3, 4, 5);
+
+        testProdukt.setzeHolzeinheiten(1);
+        assertEquals(testProdukt.gibHolzeinheiten(), 1);
+        testProdukt.setzeSchrauben(2);
+        assertEquals(testProdukt.gibSchrauben(), 2);
+        testProdukt.setzeFarbeinheiten(3);
+        assertEquals(testProdukt.gibFarbeinheiten(), 3);
+        testProdukt.setzeKartoneinheiten(4);
+        assertEquals(testProdukt.gibKartoneinheiten(), 4);
+        testProdukt.setzeZustand(5);
+        assertEquals(testProdukt.gibZustand(), 5);
+        testProdukt.setzeTotalProduktionszeit(5);
+        assertEquals(testProdukt.gibTotalProduktionszeit(), 5);
+
+        System.out.println("Test Setters von der Klasse Sofa erfolgreich.");
+
     }
 
-    @Test
-    /**
-     * Ablauf vom Test wenn es keine Bestellungen gibt
-     */
-    public void testeFabrikNegativerProduktWert() {
-        fabrik = new Fabrik();
-        // fabrik.bestellungAufgeben(-1, 0);
-        fabrik.bestellungenAusgeben();
-    }
-
-    @Test
-    /**
-     * Ablauf vom Test Wertüberprüfung
-     */
-    public void testeFabrikNormal() {
-        fabrik = new Fabrik();
-        
-        // fabrik.bestellungAufgeben(1, 0);
-        // fabrik.bestellungAufgeben(3, 5);
-        fabrik.bestellungenAusgeben();
-    }
 }

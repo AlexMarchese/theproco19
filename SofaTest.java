@@ -14,8 +14,10 @@ import org.junit.jupiter.api.Test;
 
 public class SofaTest {
     
+    String nameTestClasse = "SofaTest"; // Name der Testklasse
+
     /**
-     * Konstruktor von FabrikTest
+     * Konstruktor von SofaTest
      */
     public SofaTest() {
     }
@@ -25,7 +27,7 @@ public class SofaTest {
      */
     @BeforeEach
     public void setUp() {
-        System.out.println("Testlauf Start");
+        System.out.println("Testlauf " + nameTestClasse + " Start");
         System.out.println();
     }
 
@@ -35,7 +37,7 @@ public class SofaTest {
     @AfterEach
     public void tearDown() {
         System.out.println();
-        System.out.println("Testlauf Ende");
+        System.out.println("Testlauf " + nameTestClasse + " Ende");
         System.out.println("------------------------");
     }
     
@@ -43,15 +45,15 @@ public class SofaTest {
     /**
      * Ablauf vom Test
      */
-    public void testeSofakeineVariablenAngabe() {
+    public void testeSofaKeineVariablenAngabe() {
         Sofa testSofa = new Sofa();
 
-        assertEquals(testSofa.gibHolzeinheiten(), 2);
-        assertEquals(testSofa.gibSchrauben(), 10);
-        assertEquals(testSofa.gibFarbeinheiten(), 2);
-        assertEquals(testSofa.gibKartoneinheiten(), 1);
-        assertEquals(testSofa.gibKissen(), 1);
-        assertEquals(testSofa.gibTotalProduktionszeit(), 22);
+        assertEquals(testSofa.gibHolzeinheiten(), 4);
+        assertEquals(testSofa.gibSchrauben(), 5);
+        assertEquals(testSofa.gibFarbeinheiten(), 1);
+        assertEquals(testSofa.gibKartoneinheiten(), 5);
+        assertEquals(testSofa.gibKissen(), 5);
+        assertEquals(testSofa.gibTotalProduktionszeit(), 20);
 
         System.out.println("Test Sofa ohne Variablenangabe erfolgreich. Defaultinitialisierung und Getters funktionieren.");
     }
@@ -60,7 +62,7 @@ public class SofaTest {
     /**
      * Ablauf vom Test
      */
-    public void testeSofamitVariablenAngabe() {
+    public void testeSofaMitVariablenAngabe() {
         Sofa testSofa = new Sofa(5, 6, 2, 7, 8, 9);
 
         assertEquals(testSofa.gibHolzeinheiten(), 5);
@@ -74,7 +76,7 @@ public class SofaTest {
 
     }
     
-    @Test
+    @Test   
     /**
      * Ablauf vom Test
      */

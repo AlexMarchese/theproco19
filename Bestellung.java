@@ -17,41 +17,25 @@ public class Bestellung {
     /**
      * Konstruktor für die Objekt der Klasse Bestellung
      */
-    public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) throws Exception {
+    public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
         // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird
         if (anzahlSofas < 0 || anzahlStuehle < 0) {
-            throw new Exception("Bitte geben Sie keine negativen Werte für die Anzahl an.");
-        } 
-        // Instanzvariablen initialisieren
-        this.bestellteProdukte = new ArrayList<Produkt>(); //es fehlen ja noch die Stühle und Sofas in der Liste -> weg?
-        this.bestellBestaetigung = false;
-        this.beschaffungsZeit = 1; //Welche Beschaffungszeit? Haben wir das nicht auf Lager? Produktionsdauer? -> ?
-        this.anzahlSofas = anzahlSofas;
-        this.anzahlStuehle = anzahlStuehle;
-        this.bestellungsNr = bestellungsNr; // Wird von Fabrik gegeben 
-        this.bestellteProdukteHinzufuegen();
-    }
+            throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
 
-     /**
-      * Methode zum hinzufügen der bestellten Produkte in die zugehörige Liste. 
-      * Wird bei der Initialisierung einer Bestellung automatisch ausgeführt.
-     */
-    private void bestellteProdukteHinzufuegen() {     
-        int stuhlCount = 0;
-        int sofaCount = 0;
-        while(stuhlCount < this.anzahlStuehle) {
-            Produkt stuhl = new Stuhl();
-            this.bestellteProdukte.add(stuhl);
-            stuhlCount++;
+        } else {
+            // Instanzvariablen initialisieren
+            this.bestellteProdukte = new ArrayList<Produkt>(); //es fehlen ja noch die Stühle und Sofas in der Liste -> weg?
+            this.bestellBestaetigung = false;
+            this.beschaffungsZeit = 1; //Welche Beschaffungszeit? Haben wir das nicht auf Lager? Produktionsdauer? -> ?
+            this.anzahlSofas = anzahlSofas;
+            this.anzahlStuehle = anzahlStuehle;
+            this.bestellungsNr = bestellungsNr; // Wird von Fabrik gegeben 
+            this.bestellteProdukteHinzufuegen();
+        
         }
         
-        while(sofaCount < this.anzahlSofas) {
-            Produkt sofa = new Sofa();
-            this.bestellteProdukte.add(sofa);
-            sofaCount++;
-        }
     }
-    
+  
 
 
     /// Getters und Setters
@@ -192,15 +176,39 @@ public class Bestellung {
     
     /// Methoden
 
-    
+
+    /**
+     * Methode zum hinzufügen der bestellten Produkte in die zugehörige Liste. 
+     * Wird bei der Initialisierung einer Bestellung automatisch ausgeführt.
+     */
+    private void bestellteProdukteHinzufuegen() {     
+        int stuhlCount = 0;
+        int sofaCount = 0;
+        while(stuhlCount < this.anzahlStuehle) {
+            Produkt stuhl = new Stuhl();
+            this.bestellteProdukte.add(stuhl);
+            stuhlCount++;
+        }
+        
+        while(sofaCount < this.anzahlSofas) {
+            Produkt sofa = new Sofa();
+            this.bestellteProdukte.add(sofa);
+            sofaCount++;
+        }
+    }
+
     /**
      * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
      * gibt die Information aus, dass die Bestellung bestaetigt ist.
+     * 
+     * @param   String  Text zur Bestellbestätigung
+     * 
+     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
      */
-    public void bestellungBestaetigen() {
+    public String bestellungBestaetigen() {
         this.bestellBestaetigung = true;
-        System.out.println("Bestellung Nr. " + bestellungsNr + " bestaetigt.");
-    }
+        return "Bestellung Nr. " + bestellungsNr + " bestätigt.";
+    } 
     
         
     

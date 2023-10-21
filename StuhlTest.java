@@ -13,9 +13,11 @@ import org.junit.jupiter.api.Test;
  */
 
 public class StuhlTest {
+
+    String nameTestClasse = "StuhlTest"; // Name der Testklasse
     
     /**
-     * Konstruktor von FabrikTest
+     * Konstruktor von StuhlTest
      */
     public StuhlTest() {
     }
@@ -25,7 +27,7 @@ public class StuhlTest {
      */
     @BeforeEach
     public void setUp() {
-        System.out.println("Testlauf Start");
+        System.out.println("Testlauf " + nameTestClasse + " Start");
         System.out.println();
     }
 
@@ -35,7 +37,7 @@ public class StuhlTest {
     @AfterEach
     public void tearDown() {
         System.out.println();
-        System.out.println("Testlauf Ende");
+        System.out.println("Testlauf " + nameTestClasse + " Ende");
         System.out.println("------------------------");
     }
 
@@ -44,7 +46,7 @@ public class StuhlTest {
     /**
      * Ablauf vom Test
      */
-    public void testeStuhlkeineVariablenAngabe() {
+    public void testeStuhlKeineVariablenAngabe() {
         Stuhl testStuhl = new Stuhl();
 
         assertEquals(testStuhl.gibHolzeinheiten(), 2);
@@ -60,7 +62,7 @@ public class StuhlTest {
     /**
      * Ablauf vom Test
      */
-    public void testeStuhlmitVariablenAngabe() {
+    public void testeStuhlMitVariablenAngabe() {
         Stuhl testStuhl = new Stuhl(5, 6, 7, 8, 9);
 
         assertEquals(testStuhl.gibHolzeinheiten(), 5);
