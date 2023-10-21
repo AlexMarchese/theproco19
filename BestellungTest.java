@@ -93,6 +93,8 @@ public class BestellungTest {
             // This block will be executed if the assertion fails (i.e., exception is not thrown)
             fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
         }
+
+        System.out.println("Kontrolle ob einer der eingegebenen Werte für Stuhl oder Sofa negativ ist funktioniert.");
     }
 
     @Test
@@ -102,10 +104,10 @@ public class BestellungTest {
     public void testeBestellungBestaetigen() {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
-        System.out.println(testBestellung.bestellungBestaetigen());
         assertEquals("Bestellung Nr. 2 bestätigt.", testBestellung.bestellungBestaetigen());
-        
 
+        System.out.println("Bestellbestätigung wird wie erwartet Ausgegeben");
+        
     }
 
 }

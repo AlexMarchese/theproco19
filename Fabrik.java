@@ -68,27 +68,54 @@ public class Fabrik {
     /**
      * Methode, um eine Bestellung aufzugeben
     */
-    public void bestellungAufgeben(int sofa, int chairs) throws Exception {
-        bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNrCounter));
-
-        this.bestellungsNrCounter ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
+    public void bestellungAufgeben(int sofa, int chairs) {
+        // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
+        if (sofa < 0 || chairs < 0) {
+            throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
+        } else {
+            bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNrCounter));
+            this.bestellungsNrCounter ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
+        }
     }
 
     /**
      * Methode zur Ausgabe der Bestellungen
+     * 
+     * @param   ausgabe  Text zur Ausgabe der Bestellungen
+     * 
+     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
      */
-    public void bestellungenAusgeben() {
-        for(Bestellung bestellung : this.bestellungList)   //to be improved - more fancyness
-        {
-            System.out.println("Bestellung Nr.: " + bestellung.gibBestellungsNr());
-            System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
-            System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
-            System.out.println("ArrayList: " + bestellung.gibBestellteProdukte()); //rausnehmen?
-            System.out.println();
+    public String bestellungenAusgeben() {
+
+        String ausgabe = null;
+        String best = " Bestellungen.\n\n";
+
+        // Folgende Zeile gibt das Wort Bestellung im Singular aus, wenn es nur eine ist.
+        if (this.bestellungList.size() == 1) {
+            best = " Bestellung.\n\n";
         }
 
+        // Erster Teil der Ausgabe
+        ausgabe = ("In der Fabrik GBI Gruppe 19 gibt es im Moment " + this.bestellungList.size() + best);
+
+        // Information zur jeder Bestellung
+        for(Bestellung bestellung : this.bestellungList)   //to be improved - more fancyness
+        {
+            ausgabe += 
+                ("Bestellung Nr.: " + bestellung.gibBestellungsNr() + "\n" +
+                "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() + "\n" +
+                "Anzahl Sofas: " + bestellung.gibAnzahlSofas() + "\n" +
+                // "ArrayList: " + bestellung.gibBestellteProdukte() + "\n" + //rausnehmen?
+                "- - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+        }
+
+        // Letzter Teil der Ausgabe
+        // ausgabe += ("Das entspricht insgesamt" + );
+
+        return ausgabe;
+
     /**
-     * Main Methode, wenn es keine Tesklasse gäbe
+     * Main Methode, wenn es keine Tesklasse oder Mainklasse gäbe
      */
     //public static void main(String[] args) {
         // pass
