@@ -18,18 +18,18 @@ public class Bestellung {
      * Konstruktor für die Objekt der Klasse Bestellung
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
-        // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird
+        // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird   //Alex: rausnehmen?
         if (anzahlSofas < 0 || anzahlStuehle < 0) {
             throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
 
         } else {
             // Instanzvariablen initialisieren
-            this.bestellteProdukte = new ArrayList<Produkt>(); //es fehlen ja noch die Stühle und Sofas in der Liste -> weg?
+            this.bestellteProdukte = new ArrayList<Produkt>(); 
             this.bestellBestaetigung = false;
-            this.beschaffungsZeit = 1; //Welche Beschaffungszeit? Haben wir das nicht auf Lager? Produktionsdauer? -> ?
+            this.beschaffungsZeit = 1440; // Minuten
             this.anzahlSofas = anzahlSofas;
             this.anzahlStuehle = anzahlStuehle;
-            this.bestellungsNr = bestellungsNr; // Wird von Fabrik gegeben 
+            this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
             this.bestellteProdukteHinzufuegen();
         
         }
@@ -45,7 +45,7 @@ public class Bestellung {
      * 
      * @param   produkte   ArrayList mit den bestellten Produkten
      */
-    public void setzeBestellteProdukte(ArrayList<Produkt> produkte) { // Würde das rausnehmen, weil das System sonst fehleranfällig ist.
+    public void setzeBestellteProdukte(ArrayList<Produkt> produkte) {
         this.bestellteProdukte = produkte;
     }    
     
@@ -63,7 +63,7 @@ public class Bestellung {
      * 
      * @param   zustand Zustand der Bestellbestätigung
      */
-    public void setzeBestellBestaetigung(Boolean zustand) {
+    public void setzeBestellBestaetigung(Boolean zustand) { //FLo and Alex: runter?
         this.bestellBestaetigung = zustand;
         System.out.println("bestellBestaetigung der Bestellung mit der Nr. " + this.bestellungsNr +
                             " wurde auf " + zustand + " gesetzt.");

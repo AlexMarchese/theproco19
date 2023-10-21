@@ -7,7 +7,7 @@
  */
 public class Stuhl extends Produkt
 {
-    // Instanzvariablen -> keine weiteren
+    // Es werden keine weiteren Instanzvariablen definiert
     
     
 /**
@@ -30,8 +30,6 @@ public class Stuhl extends Produkt
     public Stuhl() {
         // Instanzvariable initialisieren
         super(2, 10, 2, 1, 22); 
-        //muss noch überarbeitet werden, da 22 die Summe ist. //brauchen wie hier noch zusatz "this.xxx"? 
-        //theoretisch 2 Konstruktoren möglich einer Dummy variable / einer mt parameter
     }
     
 }

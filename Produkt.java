@@ -18,7 +18,7 @@
  * 
 */
 public class Produkt {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+    // Instanzvariablen
     int zustand;
     int holzeinheiten;
     int schrauben;
@@ -28,12 +28,12 @@ public class Produkt {
 
     /**
      * Konstruktor für Objekte der Klasse Produkt, Produkt kann Zahlenwerte annehmen
-     * 0= nicht gestartet
-     * 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in bearbeitung 12 etc)
-     * 2= abgeschlossen
-       */
+     */
     public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren
+        /*
+         * 0= nicht gestartet 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in bearbeitung 12 etc) 2= abgeschlossen
+         */ 
         this.zustand = 0;
         this.holzeinheiten = holzeinheiten;
         this.schrauben = schrauben;
@@ -51,7 +51,6 @@ public class Produkt {
      * @param   Den Zustandswert des Produkts in numerischer Form.
      */
     public void setzeZustand(int zustand) {
-        // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
         this.zustand = zustand;
     }
     
@@ -121,7 +120,7 @@ public class Produkt {
     
     /**
      * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten
-     * @return  Die  benötigten Einheiten Karton für das Produkt.
+     * @return  kartoneinheiten Die benötigten Einheiten Karton für das Produkt.
      */
     public int gibKartoneinheiten() {
         return this.kartoneinheiten;
@@ -131,7 +130,7 @@ public class Produkt {
      * Methode, um Produktionszeit für einen Stuhl zu setzen
      * @param   Die totale Produktionszeit für das Produkt.
      */
-    public void setzeTotalProduktionszeit(int neueproduktionsZeit) { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist. -?
+    public void setzeTotalProduktionszeit(int neueproduktionsZeit) {
          this.produktionsZeit = neueproduktionsZeit;
     }
     
@@ -139,7 +138,7 @@ public class Produkt {
      * Methode, um die Produktionszeit für einen Stuhl zu erhalten
      * @return  Die totale Produktionszeit für das Produkt.
      */
-    public int gibTotalProduktionszeit() { //muss noch angepasst werden, falls Produktionszeit nicht Total, sondern für bestimmten Prodktionsschritt ist. -?
+    public int gibTotalProduktionszeit() {
         return this.produktionsZeit;
     }
     

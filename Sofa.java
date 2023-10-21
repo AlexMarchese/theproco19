@@ -13,7 +13,7 @@ public class Sofa extends Produkt {
     /**
      * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
      * @param   zustand   Das ist der Zustand.
-     * @param   holzeinheiten   Das sind die Anzahl Einheiten Hol,z die für das Produkt benötigt werden.
+     * @param   holzeinheiten   Das sind die Anzahl Einheiten Holz, die für das Produkt benötigt werden.
      * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
      * @param   Anzahl Kissen welche zum Produkt gehören.
      * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
@@ -33,8 +33,6 @@ public class Sofa extends Produkt {
         // Instanzvariable initialisieren
         super(4, 5, 1, 5, 20); 
         this.kissen = 5;
-        //muss noch überarbeitet werden, da 20 die Summe ist. //brauchen wie hier noch zusatz "this.xxx"? 
-        //theoretisch 2 Konstruktoren möglich einer Dummy variable / einer mt parameter
     }
 
 
@@ -47,7 +45,6 @@ public class Sofa extends Produkt {
      * @param   Anzahl Kissen welche zum Produkt gehören.
      */
     public void setzeKissen(int kissen) {
-        // fehlt: if loop um zu vermeiden, dass ein ungültiger value eingegeben wird
         this.kissen = kissen;
     }
 

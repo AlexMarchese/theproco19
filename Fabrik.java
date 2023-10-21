@@ -67,6 +67,8 @@ public class Fabrik {
 
     /**
      * Methode, um eine Bestellung aufzugeben
+     * 
+     * @param dcdcsdd ////
     */
     public void bestellungAufgeben(int sofa, int chairs) {
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
@@ -74,14 +76,14 @@ public class Fabrik {
             throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
         } else {
             bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNrCounter));
-            this.bestellungsNrCounter ++; // sodass die folgende Bestellung eine höhere Nummer bekommt
+            this.bestellungsNrCounter ++; // Sodass die folgende Bestellung eine höhere Nummer bekommt
         }
     }
 
     /**
      * Methode zur Ausgabe der Bestellungen
      * 
-     * @param   ausgabe  Text zur Ausgabe der Bestellungen
+     * @return   ausgabe  Text zur Ausgabe der Bestellungen
      * 
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
      */
@@ -99,13 +101,12 @@ public class Fabrik {
         ausgabe = ("In der Fabrik GBI Gruppe 19 gibt es im Moment " + this.bestellungList.size() + best);
 
         // Information zur jeder Bestellung
-        for(Bestellung bestellung : this.bestellungList)   //to be improved - more fancyness
+        for(Bestellung bestellung : this.bestellungList)   
         {
             ausgabe += 
                 ("Bestellung Nr.: " + bestellung.gibBestellungsNr() + "\n" +
                 "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() + "\n" +
                 "Anzahl Sofas: " + bestellung.gibAnzahlSofas() + "\n" +
-                // "ArrayList: " + bestellung.gibBestellteProdukte() + "\n" + //rausnehmen?
                 "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
         }
 
@@ -113,13 +114,7 @@ public class Fabrik {
         // ausgabe += ("Das entspricht insgesamt" + );
 
         return ausgabe;
-
-    /**
-     * Main Methode, wenn es keine Tesklasse oder Mainklasse gäbe
-     */
-    //public static void main(String[] args) {
-        // pass
+        
     }
-
     
 }

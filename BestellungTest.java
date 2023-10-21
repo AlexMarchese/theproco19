@@ -90,11 +90,11 @@ public class BestellungTest {
         try {
             assertThrows(IllegalArgumentException.class, () -> new Bestellung(-2, 3, 123));
         } catch (AssertionError e) {
-            // This block will be executed if the assertion fails (i.e., exception is not thrown)
+            // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
             fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
         }
 
-        System.out.println("Kontrolle ob einer der eingegebenen Werte für Stuhl oder Sofa negativ ist funktioniert.");
+        System.out.println("Kontrolle ob einer der eingegebenen Werte für Stuhl oder Sofa negativ ist funktioniert."); //check Alex
     }
 
     @Test
