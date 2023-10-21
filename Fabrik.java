@@ -106,7 +106,7 @@ public class Fabrik {
                 "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() + "\n" +
                 "Anzahl Sofas: " + bestellung.gibAnzahlSofas() + "\n" +
                 // "ArrayList: " + bestellung.gibBestellteProdukte() + "\n" + //rausnehmen?
-                "- - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
         }
 
         // Letzter Teil der Ausgabe
