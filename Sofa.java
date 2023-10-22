@@ -18,7 +18,7 @@ public class Sofa extends Produkt {
      * @param   Anzahl Kissen welche zum Produkt gehören.
      * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
      * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
-     * @param   produktionsZeit   Das ist die Zeit welche zur Produktion des Produkts benötigt wird.
+     * @param   produktionsZeit   Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
      */
     public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren

@@ -14,7 +14,7 @@
  * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
  * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
  * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
- * @param   produktionsZeit   Das ist die Zeit welche zur Produktion des Produkts benötigt wird.
+ * @param   produktionsZeit   Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
  * 
 */
 public class Produkt {
@@ -128,7 +128,7 @@ public class Produkt {
     
     /**
      * Methode, um Produktionszeit für einen Stuhl zu setzen
-     * @param   Die totale Produktionszeit für das Produkt.
+     * @param   Die totale Produktionszeit (in Minuten) für das Produkt.
      */
     public void setzeTotalProduktionszeit(int neueproduktionsZeit) {
          this.produktionsZeit = neueproduktionsZeit;
@@ -136,7 +136,7 @@ public class Produkt {
     
     /**
      * Methode, um die Produktionszeit für einen Stuhl zu erhalten
-     * @return  Die totale Produktionszeit für das Produkt.
+     * @return  Die totale Produktionszeit (in Minuten) für das Produkt.
      */
     public int gibTotalProduktionszeit() {
         return this.produktionsZeit;

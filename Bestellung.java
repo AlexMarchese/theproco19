@@ -9,7 +9,8 @@ public class Bestellung {
     // Instanzvariablen
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
-    private int beschaffungsZeit;
+    private int beschaffungsZeit; // in Minuten
+    private int beschaffungsZeitInTagen; // zur Ausgabe der beschaffungsZeit in Tagen
     private int anzahlSofas;
     private int anzahlStuehle;
     private int bestellungsNr;
@@ -63,10 +64,8 @@ public class Bestellung {
      * 
      * @param   zustand Zustand der Bestellbestätigung
      */
-    public void setzeBestellBestaetigung(Boolean zustand) { //FLo and Alex: runter?
-        this.bestellBestaetigung = zustand;
-        System.out.println("bestellBestaetigung der Bestellung mit der Nr. " + this.bestellungsNr +
-                            " wurde auf " + zustand + " gesetzt.");
+    public void setzeBestellBestaetigung(Boolean status) {
+        this.bestellBestaetigung = status;
     }
     
     /**
@@ -79,14 +78,14 @@ public class Bestellung {
     }
 
     /**
-     * Methode zum Setzen der Beschaffungszeit. Gibt der Variable beschaffungsZeit den
-     * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird
+     * Methode zum Setzen der Beschaffungszeit. Rechnet die angegebenen Tage in Minuten um und gibt
+     *  der Variable beschaffungsZeit den umgerechneten Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird
      * 
      * @param zeit Zeitangabe in Tagen
      */
     public void setzeBeschaffungszeit(int zeit) {
         if(zeit >= 0) {
-            this.beschaffungsZeit = zeit;
+            this.beschaffungsZeit = zeit * 1140;
         } else {
             System.out.println("\nDer angegebene Wert (" + zeit + ") ist ungültig:"
                                 + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die grösser oder gleich 0 ist.");
@@ -94,12 +93,13 @@ public class Bestellung {
     }
     
     /**
-     * Methode zur Ausgabe der Beschaffungszeit.
+     * Methode zur Ausgabe der Beschaffungszeit in Tagen. Rechnet die Anzahl Minuten in Tage um und gibt diese aus.
      * 
-     * @return beschaffungsZeit Zeitangabe in Tagen
+     * @return beschaffungsZeitInTagen Zeitangabe in Tagen
      */
     public int gibBeschaffungszeit() {
-        return this.beschaffungsZeit;
+        beschaffungsZeitInTagen = this.beschaffungsZeit / 1440;
+        return beschaffungsZeitInTagen;
     }
 
     /**
@@ -208,20 +208,19 @@ public class Bestellung {
     public String bestellungBestaetigen() {
         this.bestellBestaetigung = true;
         return "Bestellung Nr. " + bestellungsNr + " bestätigt.";
-    } 
+    }
     
-        
-    
-    
-   
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
+    /**
+     * Methode zur Überprüfung des Status der Bestellbestaetigung. Gibt Auskunft, ob eine
+     * Bestellung bestaetigt wurde oder nicht.
+     */
+    public void ueberpruefeBestellbestaetigung() {
+        if(this.bestellBestaetigung){
+            System.out.println("Die Bestellung mit der Nr. " + this.bestellungsNr +
+                            " ist bestätigt.");
+            } else {                    
+            System.out.println("Die Bestellung mit der Nr. " + this.bestellungsNr +
+                            " ist nicht bestätigt."); 
+            }
+    }
 }
