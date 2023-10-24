@@ -28,29 +28,7 @@ public class Bestellung {
         this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
         this.bestellteProdukteHinzufuegen();        
     }
-  
-    // /**
-    //  * Konstruktor für die Objekte der Klasse Bestellung
-    //  */
-    // public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
-    //     // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird   //Alex: rausnehmen?
-    //     if (anzahlSofas < 0 || anzahlStuehle < 0) {
-    //         throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
 
-    //     } else {
-    //         // Instanzvariablen initialisieren
-    //         this.bestellteProdukte = new ArrayList<Produkt>(); 
-    //         this.bestellBestaetigung = false;
-    //         this.beschaffungsZeit = 1440; // Minuten
-    //         this.anzahlSofas = anzahlSofas;
-    //         this.anzahlStuehle = anzahlStuehle;
-    //         this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
-    //         this.bestellteProdukteHinzufuegen();
-        
-    //     }
-        
-    // }
-  
 
 
     /// Getters und Setters

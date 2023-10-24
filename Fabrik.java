@@ -91,6 +91,8 @@ public class Fabrik {
     public String bestellungenAusgeben() {
 
         String ausgabe = null;
+        int anzahlSofasGesamt = 0;
+        int anzahlStuehleGesamt = 0;
         String best = " Bestellungen.\n\n";
 
         // Folgende Zeile gibt das Wort Bestellung im Singular aus, wenn es nur eine ist.
@@ -109,10 +111,26 @@ public class Fabrik {
                 "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() + "\n" +
                 "Anzahl Sofas: " + bestellung.gibAnzahlSofas() + "\n" +
                 "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+            anzahlSofasGesamt += bestellung.gibAnzahlSofas();
+            anzahlStuehleGesamt += bestellung.gibAnzahlStuehle();
         }
 
-        // Letzter Teil der Ausgabe
-        // ausgabe += ("Das entspricht insgesamt" + );
+        String st = " Stühlen";
+        String sf = " Sofas.";
+
+        // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.
+        if (anzahlSofasGesamt == 1) {
+            sf = " Sofa.";
+        }
+        if (anzahlStuehleGesamt == 1) {
+            st = " Stuhl";
+        }
+
+
+        // Letzter Teil der Ausgabe (wird nur hinzugefügt, wenn es Bestellungen gab also anzahlSofasGesamt oder anzahlStuehleGesamt größer als 0)
+        if (anzahlSofasGesamt > 0 || anzahlStuehleGesamt > 0) {
+        ausgabe += ("\nDas entspricht insgesamt " + anzahlStuehleGesamt + st + " und " + anzahlSofasGesamt + sf);
+        }
 
         return ausgabe;
         

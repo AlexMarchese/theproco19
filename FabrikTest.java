@@ -91,12 +91,12 @@ import org.junit.jupiter.api.Test;
         // Nach einer Bestellung
         testFabrik.bestellungAufgeben(3, 4);
         assertEquals(testFabrik.gibBestellungsList().size(), 1);
-        assertEquals(testFabrik.gibbestellungsNrCounter(), 1);
+        assertEquals(testFabrik.gibbestellungsNrCounter(), 2);
 
         // Nach einer weiteren Bestellung
         testFabrik.bestellungAufgeben(6, 5);
         assertEquals(testFabrik.gibBestellungsList().size(), 2);
-        assertEquals(testFabrik.gibbestellungsNrCounter(), 2);
+        assertEquals(testFabrik.gibbestellungsNrCounter(), 3);
 
         // Man könnte noch testen, ob die Korrekte Anzahl an Produkten in den entsprechenden
         // Bestellungen erfasst wurde. Dies wurde aber schon durch in BestellungTest.java überprüft
@@ -112,106 +112,53 @@ import org.junit.jupiter.api.Test;
     public void testeBestellungAufgebenNegativeWerte() {
 
         Fabrik testFabrik = new Fabrik();
-        testFabrik.bestellungAufgeben(0, 0);
 
+        // Eine Bestellung mit einem oder beiden Negativwerten soll verhindert werden.
+
+        // Einer der beiden Werte negativ
         try {
-            assertThrows(IllegalArgumentException.class, () -> new Bestellung(-2, 3, 123));
+            assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(-3, 4));
         } catch (AssertionError e) {
             // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
             fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
         }
 
-        System.out.println("Kontrolle ob einer der eingegebenen Werte für Stuhl oder Sofa negativ ist funktioniert.");
+        // Beide Werte negativ
+        try {
+            assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(-3, -4));
+        } catch (AssertionError e) {
+            // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
+            fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
+        }
 
+        System.out.println("Methode bestellungAufgeben verhindert die Eingabe von Negativwerten.");
 
     }
 
-    // @Test TO DELETE
-    // /**
-    //  * Ablauf vom Test.
-    //  * 
-    //  * Dieser Test beweist, dass ein Fehler ausgegeben wird, wenn eine negative Zahl eingegeben werden sollte
-    //  */
-    // public void testeBestellungEingabeNegativeWerte() {
+    @Test   
+    /**
+     * Ablauf vom Test
+     */
+    public void testeBestellungenAusgeben() {
 
-    //      //check Alex
-    // }
+        Fabrik testFabrik = new Fabrik();
 
-    // @Test    ////// to be fixed
-    // /**
-    //  * Ablauf vom Test
-    //  */
-    // public void testeBestellungenAusgeben() {
+        assertEquals(testFabrik.bestellungenAusgeben(), "In der Fabrik GBI Gruppe 19 gibt es im Moment 0 Bestellungen.\n\n");
 
-    //     Fabrik testFabrik = new Fabrik();
+        testFabrik.bestellungAufgeben(1, 2);
+        testFabrik.bestellungAufgeben(0, 3);
 
-    //     // System.err.println(testFabrik.bestellungenAusgeben());
-    //     assertEquals(testFabrik.bestellungenAusgeben(), "In der Fabrik GBI Gruppe 19 gibt es im Moment 0 Bestellungen.\n\n");
+        String erwarteteAusgabe = "In der Fabrik GBI Gruppe 19 gibt es im Moment 2 Bestellungen.\n\n";
+        erwarteteAusgabe += ("Bestellung Nr.: 1\nAnzahl Stühle: 2\nAnzahl Sofas: 1\n" +
+                            "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
+                            "Bestellung Nr.: 2\nAnzahl Stühle: 3\nAnzahl Sofas: 0\n" +
+                            "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n" +
+                            "Das entspricht insgesamt 5 Stühlen und 1 Sofa.");
 
-    //     testFabrik.bestellungAufgeben(1, 2);
-    //     testFabrik.bestellungAufgeben(0, 3);
+        assertEquals(testFabrik.bestellungenAusgeben(), erwarteteAusgabe);
 
-    //     String erwarteteAusgabe = "In der Fabrik GBI Gruppe 19 gibt es im Moment 2 Bestellungen. \n\n";
-    //     erwarteteAusgabe += ("Bestellung Nr.: 1\nAnzahl Stühle: 2\nAnzahl Sofas: 1\n" +
-    //                         "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
-    //                         "Bestellung Nr.: 2\nAnzahl Stühle: 3\nAnzahl Sofas: 0\n" +
-    //                         "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+        System.out.println("Die Methode Bestellungen Ausgeben funktioniert wie erwartet.");
 
-    //     // System.out.println(testFabrik.bestellungenAusgeben());
-    //     // System.out.println(erwarteteAusgabe);
-    //     assertEquals(testFabrik.bestellungenAusgeben(), erwarteteAusgabe);
+    }
 
-    // }
-
-
-
-
-
-    
-    // @Test
-    // /**
-    //  * Ablauf vom Test
-    //  */
-    // public void testeFabrik() {
-    //     fabrik = new Fabrik();
-        
-    //     // fabrik.bestellungAufgeben(1, 0);
-    //     // fabrik.bestellungAufgeben(3, 5);
-    //     fabrik.bestellungenAusgeben();
-
-
-    //     // assert 
-    //     assertEquals(fabrik.getBestellungen().size(), 9);
-    // }
-
-    // @Test
-    // /**
-    //  * Ablauf vom Test wenn es keine Bestellungen gibt
-    //  */
-    // public void testeFabrikKeineBestellungen() {
-    //     fabrik = new Fabrik();
-    //     fabrik.bestellungenAusgeben();
-    // }
-
-    // @Test
-    // /**
-    //  * Ablauf vom Test wenn es keine Bestellungen gibt
-    //  */
-    // public void testeFabrikNegativerProduktWert() {
-    //     fabrik = new Fabrik();
-    //     // fabrik.bestellungAufgeben(-1, 0);
-    //     fabrik.bestellungenAusgeben();
-    // }
-
-    // @Test
-    // /**
-    //  * Ablauf vom Test Wertüberprüfung
-    //  */
-    // public void testeFabrikNormal() {
-    //     fabrik = new Fabrik();
-        
-    //     // fabrik.bestellungAufgeben(1, 0);
-    //     // fabrik.bestellungAufgeben(3, 5);
-    //     fabrik.bestellungenAusgeben();
-    // }
 }
