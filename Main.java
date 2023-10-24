@@ -34,14 +34,19 @@ public class Main
 
         fabrikStart.bestellungAufgeben(anzahlSofas, anzahlStuehle);
 
-        System.out.println("Ihre Bestellung mit " + anzahlSofas + " Sofas und " + 
-                            anzahlStuehle + " wurde erfasst. Vielen Dank!\n\n");
+        // Letze Bestellung abrufen
+        Bestellung letzeBest = fabrikStart.gibBestellungsList().get(fabrikStart.gibBestellungsList().size() - 1);
+
+        System.out.print("\nIhre " + letzeBest.bestellungBestaetigen() + " Vielen Dank!");
+        System.out.println("\n_______________________________________________________");
+        System.out.println("\nEine Bestellung mit 1 Sofa und 1 Stuhl wird automatisch aufgegeben.");
 
         // Bestellung ohne Eingabe durch den Kunden
         fabrikStart.bestellungAufgeben(1, 1);
 
         // Anzeige für den Aeki Mitarbeitenden
-        System.out.println("Lieber Aeki Mitarbeitender.");
+        System.out.println("\n\n_______________________________________________________");
+        System.out.println("\nLieber Aeki Mitarbeitender.");
         System.out.println(fabrikStart.bestellungenAusgeben());
         
     }

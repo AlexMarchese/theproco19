@@ -198,8 +198,21 @@ public class Bestellung {
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
      */
     public String bestellungBestaetigen() {
+
+        // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.
+        String sf = " Sofas ";
+        String st = " Stühlen ";
+
+        if (this.anzahlSofas == 1) {
+            sf = " Sofa ";
+        }
+        if (this.anzahlSofas == 1) {
+            st = " Stuhl ";
+        }
+
         this.bestellBestaetigung = true;
-        return "Bestellung Nr. " + bestellungsNr + " bestätigt.";
+        return "Bestellung (Nr. " + bestellungsNr + ") mit " + this.anzahlSofas + sf +
+        "und " + this.anzahlStuehle + st + "ist bestätigt.";
     }
     
     /**

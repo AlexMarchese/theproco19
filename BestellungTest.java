@@ -86,7 +86,7 @@ public class BestellungTest {
     public void testeBestellungBestaetigen() {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
-        assertEquals("Bestellung Nr. 2 bestätigt.", testBestellung.bestellungBestaetigen());
+        assertEquals("Bestellung (Nr. 2) mit 5 Sofas und 6 Stühlen ist bestätigt.", testBestellung.bestellungBestaetigen());
 
         System.out.println("Bestellbestätigung wird wie erwartet Ausgegeben");
         
