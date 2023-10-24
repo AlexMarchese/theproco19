@@ -81,24 +81,6 @@ public class BestellungTest {
 
     @Test
     /**
-     * Ablauf vom Test.
-     * 
-     * Dieser Test beweist, dass ein Fehler ausgegeben wird, wenn eine negative Zahl eingegeben werden sollte
-     */
-    public void testeBestellungEingabeNegativeWerte() {
-
-        try {
-            assertThrows(IllegalArgumentException.class, () -> new Bestellung(-2, 3, 123));
-        } catch (AssertionError e) {
-            // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
-            fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
-        }
-
-        System.out.println("Kontrolle ob einer der eingegebenen Werte für Stuhl oder Sofa negativ ist funktioniert."); //check Alex
-    }
-
-    @Test
-    /**
      * Ablauf vom Test
      */
     public void testeBestellungBestaetigen() {
@@ -109,5 +91,23 @@ public class BestellungTest {
         System.out.println("Bestellbestätigung wird wie erwartet Ausgegeben");
         
     }
+    
+    @Test
+    /**
+     * Ablauf vom Test
+     */
+    public void testeUeberpreufeBestellbestaetigung() {
+
+        Bestellung testBestellung = new Bestellung(5, 6, 2);
+        // Bei der Initialisierung ist bestellBestaetigung false
+        assertEquals("Die Bestellung mit der Nr. 2 ist nicht bestätigt.", testBestellung.ueberpruefeBestellbestaetigung());
+
+        testBestellung.setzeBestellBestaetigung(true);
+        assertEquals("Die Bestellung mit der Nr. 2 ist bestätigt.", testBestellung.ueberpruefeBestellbestaetigung());
+
+        System.out.println("Die Methode UeberpreufeBestellbestaetigung funktioniert.");
+        
+    }
+
 
 }

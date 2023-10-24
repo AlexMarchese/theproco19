@@ -86,7 +86,22 @@ import org.junit.jupiter.api.Test;
      */
     public void testeBestellungAufgeben() {
 
+        Fabrik testFabrik = new Fabrik();
 
+        // Nach einer Bestellung
+        testFabrik.bestellungAufgeben(3, 4);
+        assertEquals(testFabrik.gibBestellungsList().size(), 1);
+        assertEquals(testFabrik.gibbestellungsNrCounter(), 1);
+
+        // Nach einer weiteren Bestellung
+        testFabrik.bestellungAufgeben(6, 5);
+        assertEquals(testFabrik.gibBestellungsList().size(), 2);
+        assertEquals(testFabrik.gibbestellungsNrCounter(), 2);
+
+        // Man könnte noch testen, ob die Korrekte Anzahl an Produkten in den entsprechenden
+        // Bestellungen erfasst wurde. Dies wurde aber schon durch in BestellungTest.java überprüft
+
+        System.out.println("Methode bestellungAufgeben funktioniert bei positiven Werten.");
 
     }
 
@@ -96,9 +111,31 @@ import org.junit.jupiter.api.Test;
      */
     public void testeBestellungAufgebenNegativeWerte() {
 
+        Fabrik testFabrik = new Fabrik();
+        testFabrik.bestellungAufgeben(0, 0);
+
+        try {
+            assertThrows(IllegalArgumentException.class, () -> new Bestellung(-2, 3, 123));
+        } catch (AssertionError e) {
+            // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
+            fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
+        }
+
+        System.out.println("Kontrolle ob einer der eingegebenen Werte für Stuhl oder Sofa negativ ist funktioniert.");
 
 
     }
+
+    // @Test TO DELETE
+    // /**
+    //  * Ablauf vom Test.
+    //  * 
+    //  * Dieser Test beweist, dass ein Fehler ausgegeben wird, wenn eine negative Zahl eingegeben werden sollte
+    //  */
+    // public void testeBestellungEingabeNegativeWerte() {
+
+    //      //check Alex
+    // }
 
     // @Test    ////// to be fixed
     // /**
@@ -125,6 +162,9 @@ import org.junit.jupiter.api.Test;
     //     assertEquals(testFabrik.bestellungenAusgeben(), erwarteteAusgabe);
 
     // }
+
+
+
 
 
     

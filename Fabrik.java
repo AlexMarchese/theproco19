@@ -68,7 +68,8 @@ public class Fabrik {
     /**
      * Methode, um eine Bestellung aufzugeben
      * 
-     * @param dcdcsdd ////
+     * @param sofa Anzahl Sofas
+     * @param chairs Anzahl Stühle
     */
     public void bestellungAufgeben(int sofa, int chairs) {
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird

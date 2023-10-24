@@ -16,26 +16,40 @@ public class Bestellung {
     private int bestellungsNr;
 
     /**
-     * Konstruktor für die Objekt der Klasse Bestellung
+     * Konstruktor für die Objekte der Klasse Bestellung
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
-        // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird   //Alex: rausnehmen?
-        if (anzahlSofas < 0 || anzahlStuehle < 0) {
-            throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
-
-        } else {
-            // Instanzvariablen initialisieren
-            this.bestellteProdukte = new ArrayList<Produkt>(); 
-            this.bestellBestaetigung = false;
-            this.beschaffungsZeit = 1440; // Minuten
-            this.anzahlSofas = anzahlSofas;
-            this.anzahlStuehle = anzahlStuehle;
-            this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
-            this.bestellteProdukteHinzufuegen();
-        
-        }
-        
+        // Instanzvariablen initialisieren
+        this.bestellteProdukte = new ArrayList<Produkt>(); 
+        this.bestellBestaetigung = false;
+        this.beschaffungsZeit = 1440; // Minuten
+        this.anzahlSofas = anzahlSofas;
+        this.anzahlStuehle = anzahlStuehle;
+        this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
+        this.bestellteProdukteHinzufuegen();        
     }
+  
+    // /**
+    //  * Konstruktor für die Objekte der Klasse Bestellung
+    //  */
+    // public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
+    //     // Stellt sicher, dass die Klasse nicht mit Negativwerten instanziert wird   //Alex: rausnehmen?
+    //     if (anzahlSofas < 0 || anzahlStuehle < 0) {
+    //         throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
+
+    //     } else {
+    //         // Instanzvariablen initialisieren
+    //         this.bestellteProdukte = new ArrayList<Produkt>(); 
+    //         this.bestellBestaetigung = false;
+    //         this.beschaffungsZeit = 1440; // Minuten
+    //         this.anzahlSofas = anzahlSofas;
+    //         this.anzahlStuehle = anzahlStuehle;
+    //         this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
+    //         this.bestellteProdukteHinzufuegen();
+        
+    //     }
+        
+    // }
   
 
 
@@ -213,14 +227,18 @@ public class Bestellung {
     /**
      * Methode zur Überprüfung des Status der Bestellbestaetigung. Gibt Auskunft, ob eine
      * Bestellung bestaetigt wurde oder nicht.
+     * 
+     * @param   String  Text zum Status der Bestellbestätigung
+     * 
+     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
      */
-    public void ueberpruefeBestellbestaetigung() {
+    public String ueberpruefeBestellbestaetigung() {
         if(this.bestellBestaetigung){
-            System.out.println("Die Bestellung mit der Nr. " + this.bestellungsNr +
-                            " ist bestätigt.");
+            return "Die Bestellung mit der Nr. " + this.bestellungsNr +
+                            " ist bestätigt.";
             } else {                    
-            System.out.println("Die Bestellung mit der Nr. " + this.bestellungsNr +
-                            " ist nicht bestätigt."); 
+            return "Die Bestellung mit der Nr. " + this.bestellungsNr +
+                            " ist nicht bestätigt."; 
             }
     }
 }
