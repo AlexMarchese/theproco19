@@ -41,16 +41,16 @@ public class Sofa extends Produkt {
 
 
     /**
-     * Methode, um die Anzahl an Kissen zu setzen
-     * @param   Anzahl Kissen welche zum Produkt gehören.
+     * Methode, um die Anzahl an Kissen zu setzen.
+     * @param   kissen  Anzahl Kissen welche zum Produkt Sofa gehören.
      */
     public void setzeKissen(int kissen) {
         this.kissen = kissen;
     }
 
     /**
-     * Methode, um benötigte Kissen für ein Sofa zu erhalten
-     * @return  Anzahl Kissen welche zum Produkt gehören.
+     * Methode, um benötigte Anzahl Kissen für ein Sofa zu erhalten.
+     * @return  kissen  Anzahl Kissen welche zum Produkt Sofa gehören.
      */
     public int gibKissen() {
         return this.kissen;
