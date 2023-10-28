@@ -16,7 +16,17 @@ public class Bestellung {
     private int bestellungsNr;
 
     /**
-     * Konstruktor für die Objekte der Klasse Bestellung
+     * Konstruktor für die Instanzen der Klasse Bestellung
+     * 
+     * @param bestellteProdukte Die Bestellten Produkten ist eine Array-Liste welche alle bestellten Produkte enthält.
+     * @param bestellBestaetigung Die Bestell Bestätigung ist ein Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht.
+     * @param beschaffungsZeit Die Beschaffungs Zeit gibt die Zeit die es benötigit bis die ???
+     * @param anzahlSofas Die Anzahl Sofas gitb die Anzahl an bestellten Sofas.
+     * @param anzahlStuehle Die Anzahl Stühle gitb die Anzahl an bestellten Stühlen.
+     * @param bestellungsNr Die BestellungsNr gibt eine Bestellungsnummer für die Bestellung.
+     * @param bestellteProdukteHinzufuegen Die BestellteprodukteHinzufügen fügt die gewünschte Anzahl von Stühlen und Sofas der Bestellung hinzu.
+     * 
+     * 
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
         // Instanzvariablen initialisieren
@@ -36,7 +46,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der ArrayList mit den bestellten Produkten.
      * 
-     * @param   produkte   ArrayList mit den bestellten Produkten
+     * @param   produkte   ArrayList mit den bestellten Produkten.
      */
     public void setzeBestellteProdukte(ArrayList<Produkt> produkte) {
         this.bestellteProdukte = produkte;
@@ -45,7 +55,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Liste der bestellten Produkte.
      * 
-     * @return  bestellteProdukte   ArrayList<Produkt> mit den Referenzen zu den bestellten Produkten
+     * @return  bestellteProdukte   ArrayList<Produkt> mit den Referenzen zu den bestellten Produkten.
      */
     public ArrayList<Produkt> gibBestellteProdukte() {
         return this.bestellteProdukte;
@@ -54,7 +64,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Variable bestellBestaetigung.
      * 
-     * @param   zustand Zustand der Bestellbestätigung
+     * @param   zustand Zustand der Bestellbestätigung.
      */
     public void setzeBestellBestaetigung(Boolean status) {
         this.bestellBestaetigung = status;
@@ -63,7 +73,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Variable bestellBestaetigung.
      * 
-     * @return  bestellBestaetigung Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht
+     * @return  bestellBestaetigung Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht.
      */
     public boolean gibBestellBestaetigung() {
         return this.bestellBestaetigung;
@@ -71,9 +81,9 @@ public class Bestellung {
 
     /**
      * Methode zum Setzen der Beschaffungszeit. Rechnet die angegebenen Tage in Minuten um und gibt
-     *  der Variable beschaffungsZeit den umgerechneten Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird
+     *  der Variable beschaffungsZeit den umgerechneten Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird.
      * 
-     * @param zeit Zeitangabe in Tagen
+     * @param zeit Zeitangabe in Tagen.
      */
     public void setzeBeschaffungszeit(int zeit) {
         if(zeit >= 0) {
@@ -87,7 +97,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Beschaffungszeit in Tagen. Rechnet die Anzahl Minuten in Tage um und gibt diese aus.
      * 
-     * @return beschaffungsZeitInTagen Zeitangabe in Tagen
+     * @return beschaffungsZeitInTagen Zeitangabe in Tagen.
      */
     public int gibBeschaffungszeit() {
         beschaffungsZeitInTagen = this.beschaffungsZeit / 1440;
@@ -95,9 +105,9 @@ public class Bestellung {
     }
 
     /**
-     * Methode zum Setzen der Bestellnummer.
+     * Methode zum Setzen der Bestellungsnummer.
      * 
-     * @param   bestellNummer   Bestellnummer, die von Fabrik gegeben wird
+     * @param   bestellungsNummer   Bestellungsnummer, die von Fabrik gegeben wird.
      */
     public void setzeBestellungsNr(int bestellNummer) {
         if(bestellNummer > 0) {
@@ -109,9 +119,9 @@ public class Bestellung {
     }
     
     /**
-     * Methode zur Ausgabe der Bestellnummer.
+     * Methode zur Ausgabe der Bestellungsnummer.
      * 
-     * @return  bestellungsNr   die Bestellnummer
+     * @return  bestellungsNr   die Bestellungsnummer
      */
     public int gibBestellungsNr() {
         return this.bestellungsNr;

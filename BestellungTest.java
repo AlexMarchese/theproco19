@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testklasse ProduktTest, um den Sofa und dessen Methoden zu testen
+ * Testklasse BestellungTest, um die Methoden der Klasse "Bestellung" zu testen. 
  *
  * @author  GBI Gruppe 19
  * @version 1
@@ -22,7 +22,7 @@ public class BestellungTest {
     }
 
     /**
-     * Anweisungen vor jedem Testlauf
+     * Anweisungen vor jedem Testlauf.
      */
     @BeforeEach
     public void setUp() {
@@ -31,7 +31,7 @@ public class BestellungTest {
     }
 
     /**
-     * Anweisungen nach jedem Testlauf
+     * Anweisungen nach jedem Testlauf.
      */
     @AfterEach
     public void tearDown() {
@@ -81,7 +81,7 @@ public class BestellungTest {
 
     @Test
     /**
-     * Ablauf vom Test
+     * Test der Methode "bestellungBestaetige()". Der Test überprüft ob die Methode die erwartete Bestellbestätigung zurück gibt, indem eine Bestellung erstellt wird und die Rückgabe mit der Vorgabe aus dem Test vergliechen wird. 
      */
     public void testeBestellungBestaetigen() {
 

@@ -9,6 +9,7 @@
  */
 
 /**
+ * Konstruktor für Instanzen der Klasse Produkt.
  * @param   zustand   Das ist der Zustand.
  * @param   holzeinheiten   Das sind die Anzahl Einheiten Holz die für das Produkt benötigt werden.
  * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.

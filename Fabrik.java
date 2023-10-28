@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Beschreiben Sie hier die Klasse Fabrik.
+ * Die Klasse Fabrik enthält eine Übersicht (Array-Liste) über alle Bestellungen.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -14,7 +14,12 @@ public class Fabrik {
     private int bestellungsNrCounter; 
 
     /**
-     * Konstruktor für Objekte der Klasse Fabrik
+     * Konstruktor für Instanzen der Klasse Fabrik
+     * 
+     * @param bestellungList Die BestellungList ist eine Array-Liste welche alle getätigten Bestellungen enthält.
+     * @param bestellungsNrCounter Der BestellungsNrCounter stellt die Anzahl der Bestellungen dar.
+     * 
+     * 
      */
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();

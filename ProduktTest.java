@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testklasse ProduktTest, um den Sofa und dessen Methoden zu testen
+ * Testklasse ProduktTest, um den Sofa und dessen Methoden zu testen.
  *
  * @author  GBI Gruppe 19
  * @version 1

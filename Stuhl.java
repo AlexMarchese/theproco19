@@ -11,7 +11,7 @@ public class Stuhl extends Produkt
     
     
 /**
- * Konstruktor für Objekte der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
+ * Konstruktor für Instanzen der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
     * @param   zustand   Das ist der Zustand.
     * @param   holzeinheiten   Das sind die Anzahl Einheiten Hol,z die für das Produkt benötigt werden.
     * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
