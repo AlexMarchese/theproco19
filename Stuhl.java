@@ -13,11 +13,11 @@ public class Stuhl extends Produkt
 /**
  * Konstruktor für Instanzen der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
     * @param   zustand   Das ist der Zustand.
-    * @param   holzeinheiten   Das sind die Anzahl Einheiten Hol,z die für das Produkt benötigt werden.
-    * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
-    * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
-    * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
-    * @param   produktionsZeit   Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
+    * @param   holzeinheiten   Das ist die Anzahl Einheiten Holz, welche für das Produkt benötigt werden.
+    * @param   schrauben   Das ist die Anzahl Schrauben, die für das Produkt benötigt werden.
+    * @param   farbeinheiten   Das ist die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
+    * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
+    * @param   produktionsZeit   Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
      */
     public Stuhl(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren

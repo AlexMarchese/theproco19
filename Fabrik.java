@@ -14,7 +14,7 @@ public class Fabrik {
     private int bestellungsNrCounter; 
 
     /**
-     * Konstruktor für Instanzen der Klasse Fabrik
+     * Konstruktor für Instanzen der Klasse Fabrik.
      * 
      * @param bestellungList Die BestellungList ist eine Array-Liste welche alle getätigten Bestellungen enthält.
      * @param bestellungsNrCounter Der BestellungsNrCounter stellt die Anzahl der Bestellungen dar.
@@ -30,7 +30,7 @@ public class Fabrik {
     /// Getters und Setters
 
     /**
-     * Methode zum Setzen der Bestellungen
+     * Methode zum Setzen der Bestellungen.
      * 
      * @param  bestellungList   ArrayList mit den Bestellungen
      */
@@ -39,7 +39,7 @@ public class Fabrik {
     }
 
     /**
-     * Methode zur Ausgabe der Bestellungen
+     * Methode zur Ausgabe der Bestellungen.
      * 
      * @return  bestellungList   Liste mit den Bestellungen
      */
@@ -48,7 +48,7 @@ public class Fabrik {
     }
 
     /**
-     * Methode zum Setzen des Zählers der Bestellungen
+     * Methode zum Setzen des Zählers der Bestellungen.
      * 
      * @param  bestellungsNrCounter   Zähler der Bestellungen
      */
@@ -71,7 +71,7 @@ public class Fabrik {
 
 
     /**
-     * Methode, um eine Bestellung aufzugeben
+     * Methode, um eine Bestellung aufzugeben.
      * 
      * @param sofa Anzahl Sofas
      * @param chairs Anzahl Stühle
@@ -87,11 +87,11 @@ public class Fabrik {
     }
 
     /**
-     * Methode zur Ausgabe der Bestellungen
+     * Methode zur Ausgabe der Bestellungen.
      * 
      * @return   ausgabe  Text zur Ausgabe der Bestellungen
      * 
-     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
+     * Anstelle der üblichen Ausgabe, wird der Inhalt als String zurückgegeben, was einen einen vereinfachten Unit Test ermöglicht.
      */
     public String bestellungenAusgeben() {
 

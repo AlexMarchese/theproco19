@@ -13,11 +13,11 @@ public class Sofa extends Produkt {
     /**
      * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
      * @param   zustand   Das ist der Zustand.
-     * @param   holzeinheiten   Das sind die Anzahl Einheiten Holz, die für das Produkt benötigt werden.
-     * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
-     * @param   Anzahl Kissen welche zum Produkt gehören.
-     * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
-     * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
+     * @param   holzeinheiten   Das ist die Anzahl Einheiten Holz, die für das Produkt benötigt werden.
+     * @param   schrauben   Das ist die Anzahl Schrauben, die für das Produkt benötigt werden.
+     * @param   kissen   Das ist die Anzahl Kissen welche zum Produkt gehören.
+     * @param   farbeinheiten   Das ist die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
+     * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
      * @param   produktionsZeit   Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
      */
     public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {

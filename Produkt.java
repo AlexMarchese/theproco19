@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Produkt umfasst die Informationen zu den von der Fabrik produzierbaren Produkten. Dies umfasst Sofas und Stühle.
+ * Die Klasse Produkt umfasst die Informationen zu den von der Fabrik produzierbaren Produkten. Diese Produkte umfassen Sofas und Stühle.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -11,11 +11,11 @@
 /**
  * Konstruktor für Instanzen der Klasse Produkt.
  * @param   zustand   Das ist der Zustand.
- * @param   holzeinheiten   Das sind die Anzahl Einheiten Holz die für das Produkt benötigt werden.
- * @param   schrauben   Das sind die Anzahl Schrauben, die für das Produkt benötigt werden.
- * @param   farbeinheiten   Das sind die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
- * @param   kartoneinheiten   Das sind die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
- * @param   produktionsZeit   Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
+ * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
+ * @param   schrauben   Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
+ * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
+ * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
+ * @param   produktionsZeit   Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
  * 
 */
 public class Produkt {
@@ -48,7 +48,7 @@ public class Produkt {
 
 
     /**
-     * Methode, um den Zustandswert des Produkts zu setzen
+     * Methode, um den Zustandswert des Produkts zu setzen.
      * @param   zustand Den Zustandswert des Produkts in numerischer Form.
      */
     public void setzeZustand(int zustand) {
@@ -112,7 +112,7 @@ public class Produkt {
     }
     
     /**
-     * Methode, um benötigte Kartoneinheiten für ein Produkt zu setzen
+     * Methode, um benötigte Kartoneinheiten für ein Produkt zu setzen.
      * @param   anzahlKartoneinheiten   Die benötigten Einheiten Karton für das Produkt.
      */
     public void setzeKartoneinheiten(int anzahlKartoneinheiten) {

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Main
-comment0.text=\r\n\ Main\ Methode.\r\n\r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 1\r\n
+comment0.text=\n\ \n\ Die\ Main\ Klasse\ ist\ der\ Einstiegspunkt\ in\ das\ Programm\ und\ in\ der\ Main\ Methode\ wird\ das\ Programm\ ausgef\u00FChrt.\n\ Hier\ k\u00F6nnen\ Bestellungen\ mit\ individuelle\ Anzahlen\ an\ St\u00FChlen\ und\ Sofas\ aufgegeben\ werden\ oder\ es\ \n\ wird\ eine\ vordefinierte\ Bestellung\ ausgef\u00FChrt.\ \n\ \n\ \n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 numComments=2
