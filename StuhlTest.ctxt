@@ -1,6 +1,10 @@
 #BlueJ class context
 comment0.target=StuhlTest
+<<<<<<< Updated upstream
 comment0.text=\n\ Testklasse\ StuhlTest,\ um\ den\ Stuhl\ und\ dessen\ Methoden\ zu\ testen.\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
+=======
+comment0.text=\n\ Testklasse\ StuhlTest,\ um\ den\ Stuhl\ und\ dessen\ Methoden\ zu\ testen\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
+>>>>>>> Stashed changes
 comment1.params=
 comment1.target=StuhlTest()
 comment1.text=\n\ Konstruktor\ von\ StuhlTest\n

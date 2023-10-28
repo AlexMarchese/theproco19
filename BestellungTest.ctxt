@@ -1,15 +1,26 @@
 #BlueJ class context
 comment0.target=BestellungTest
+<<<<<<< Updated upstream
 comment0.text=\n\ Testklasse\ BestellungTest,\ um\ die\ Methoden\ der\ Klasse\ "Bestellung"\ zu\ testen.\ \n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
+=======
+comment0.text=\n\ Testklasse\ ProduktTest,\ um\ den\ Sofa\ und\ dessen\ Methoden\ zu\ testen\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
+>>>>>>> Stashed changes
 comment1.params=
 comment1.target=BestellungTest()
 comment1.text=\n\ Konstruktor\ von\ BestellungTest\n
 comment2.params=
 comment2.target=void\ setUp()
+<<<<<<< Updated upstream
 comment2.text=\n\ Anweisungen\ vor\ jedem\ Testlauf.\n
 comment3.params=
 comment3.target=void\ tearDown()
 comment3.text=\n\ Anweisungen\ nach\ jedem\ Testlauf.\n
+=======
+comment2.text=\n\ Anweisungen\ vor\ jedem\ Testlauf\n
+comment3.params=
+comment3.target=void\ tearDown()
+comment3.text=\n\ Anweisungen\ nach\ jedem\ Testlauf\n
+>>>>>>> Stashed changes
 comment4.params=
 comment4.target=void\ testeBestellung()
 comment5.params=
