@@ -10,8 +10,8 @@ public class Stuhl extends Produkt
     // Es werden keine weiteren Instanzvariablen definiert
     
     
-/**
- * Konstruktor für Instanzen der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
+    /**
+     * Konstruktor für Instanzen der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
     * @param   zustand   Das ist der Zustand.
     * @param   holzeinheiten   Das ist die Anzahl Einheiten Holz, welche für das Produkt benötigt werden.
     * @param   schrauben   Das ist die Anzahl Schrauben, die für das Produkt benötigt werden.

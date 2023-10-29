@@ -42,10 +42,15 @@ public class StuhlTest {
     }
 
     
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Der Test überprüft, ob die Erstellung eines Stuhls ohne die Angabe von Variablenwerten funktioniert. 
+     * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe zuerwarteten Standartwerte  
+     * mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
+    @Test
     public void testeStuhlKeineVariablenAngabe() {
         Stuhl testStuhl = new Stuhl();
 
@@ -58,10 +63,15 @@ public class StuhlTest {
         System.out.println("Test Stuhl ohne Variablenangabe erfolgreich. Defaultinitialisierung und Getters funktionieren.");
     }
 
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Der Test überprüft, ob die Erstellung eines Stuhls mit der Angabe von Variablenwerten funktioniert. 
+     * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe der initialisierten Werte   
+     * mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
+    @Test
     public void testeStuhlMitVariablenAngabe() {
         Stuhl testStuhl = new Stuhl(5, 6, 7, 8, 9);
 
@@ -75,10 +85,15 @@ public class StuhlTest {
 
     }
     
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Test der Setter-Methoden. 
+     * Der Test überprüft, ob die Methoden die Werte richtig aktualisieren und diese dann richtig zurückgegeben werden,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird.
+     * 
      */
+    @Test
     public void testeStuhlSetters() {
         Stuhl testStuhl = new Stuhl(5, 6, 7, 8, 9);
 

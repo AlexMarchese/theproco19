@@ -1,23 +1,22 @@
 #BlueJ class context
 comment0.target=SofaTest
-<<<<<<< Updated upstream
-comment0.text=\n\ Testklasse\ SofaTest,\ um\ das\ Sofa\ und\ deren\ Methoden\ zu\ testen.\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
-=======
-comment0.text=\n\ Testklasse\ SofaTest,\ um\ den\ Sofa\ und\ dessen\ Methoden\ zu\ testen\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1\n
->>>>>>> Stashed changes
+comment0.text=\r\n\ Testklasse\ SofaTest,\ um\ das\ Sofa\ und\ deren\ Methoden\ zu\ testen.\r\n\r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 1\r\n
 comment1.params=
 comment1.target=SofaTest()
-comment1.text=\n\ Konstruktor\ von\ SofaTest\n
+comment1.text=\r\n\ Konstruktor\ von\ SofaTest\r\n
 comment2.params=
 comment2.target=void\ setUp()
-comment2.text=\n\ Anweisungen\ vor\ jedem\ Testlauf\n
+comment2.text=\r\n\ Anweisungen\ vor\ jedem\ Testlauf\r\n
 comment3.params=
 comment3.target=void\ tearDown()
-comment3.text=\n\ Anweisungen\ nach\ jedem\ Testlauf\n
+comment3.text=\r\n\ Anweisungen\ nach\ jedem\ Testlauf\r\n
 comment4.params=
 comment4.target=void\ testeSofaKeineVariablenAngabe()
+comment4.text=\r\n\r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Sofas\ ohne\ die\ Angabe\ von\ Variablenwerten\ funktioniert.\ \r\n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neues\ Sofa\ erstellt\ wird\ und\ die\ R\u00FCckgabe\ zuerwarteten\ Standartwerte\ \ \r\n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\ \r\n\ \r\n
 comment5.params=
 comment5.target=void\ testeSofaMitVariablenAngabe()
+comment5.text=\r\n\ \r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Sofas\ mit\ der\ Angabe\ von\ Variablenwerten\ funktioniert.\ \r\n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neues\ Sofa\ erstellt\ wird\ und\ die\ R\u00FCckgabe\ der\ initialisierten\ Werte\ \ \ \r\n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\ \r\n\ \ \r\n
 comment6.params=
 comment6.target=void\ testeSofaSetters()
+comment6.text=\r\n\ \r\n\ Test\ der\ Setter-Methoden.\ \r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Methoden\ die\ Werte\ richtig\ aktualisieren\ und\ diese\ dann\ richtig\ zur\u00FCckgegeben\ werden,\r\n\ indem\ die\ R\u00FCckgabe\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\r\n\ \r\n
 numComments=7

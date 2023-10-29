@@ -44,10 +44,15 @@ import org.junit.jupiter.api.Test;
         System.out.println("------------------------");
     }
 
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Der Test überprüft, ob die Erstellung einer Fabrik funktioniert. 
+     * Dies wird überprüft, indem eine neue Fabrik erstellt wird und die initialisierten Werte
+     * ("leere Liste" und "BestellungsNrCounter auf 1")  mit der Vorgabe aus dem Test vergliechen werden. 
+     *  
      */
+    @Test
     public void testeFabrik() {
 
         Fabrik testFabrik = new Fabrik();
@@ -59,10 +64,14 @@ import org.junit.jupiter.api.Test;
 
     }
     
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * Test der Setter-Methoden. 
+     * Der Test überprüft, ob die Methoden (1) BestellungsListe auf Null setzt  2) die BestellungsListe befüllt wird) 
+     * wie erwartet ausgeführt wird, indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird.
+     *  
      */
+    @Test
     public void testeSetters() {
 
         Fabrik testFabrik = new Fabrik();
@@ -80,10 +89,16 @@ import org.junit.jupiter.api.Test;
 
     }
 
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Test der Methode "bestellungAufgeben()". 
+     * Der Test überprüft, ob nach Ausführung der Mehtode die Liste korrekt befüllt  
+     * und der BestellungsNrCounter erhöht wird, 
+     * indem eine Fabrik erstellt wird und die Ausführung mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
+    @Test
     public void testeBestellungAufgeben() {
 
         Fabrik testFabrik = new Fabrik();
@@ -105,10 +120,15 @@ import org.junit.jupiter.api.Test;
 
     }
 
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Test der Methode "bestellungAufgebenNegativWerte()". 
+     * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
+    @Test
     public void testeBestellungAufgebenNegativeWerte() {
 
         Fabrik testFabrik = new Fabrik();
@@ -135,10 +155,17 @@ import org.junit.jupiter.api.Test;
 
     }
 
-    @Test   
+       
     /**
-     * Ablauf vom Test
+     * 
+     * Test der Methode "bestellungAusgeben()". 
+     * Der Test überprüft, ob erstens bei der Ausführung der Methode ohne aufgegebene Bestellung 
+     * der richtige Text zurückgegeben wird und zweitens bei der Ausführung der Methode 
+     * mit zurvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
+    @Test
     public void testeBestellungenAusgeben() {
 
         Fabrik testFabrik = new Fabrik();

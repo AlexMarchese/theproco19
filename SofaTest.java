@@ -41,10 +41,15 @@ public class SofaTest {
         System.out.println("------------------------");
     }
     
-    @Test
+    
     /**
-     * Ablauf vom Test
+     *
+     * Der Test überprüft, ob die Erstellung eines Sofas ohne die Angabe von Variablenwerten funktioniert. 
+     * Dies wird überprüft, indem ein neues Sofa erstellt wird und die Rückgabe zuerwarteten Standartwerte  
+     * mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
+    @Test
     public void testeSofaKeineVariablenAngabe() {
         Sofa testSofa = new Sofa();
 
@@ -58,10 +63,15 @@ public class SofaTest {
         System.out.println("Test Sofa ohne Variablenangabe erfolgreich. Defaultinitialisierung und Getters funktionieren.");
     }
 
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * 
+     * Der Test überprüft, ob die Erstellung eines Sofas mit der Angabe von Variablenwerten funktioniert. 
+     * Dies wird überprüft, indem ein neues Sofa erstellt wird und die Rückgabe der initialisierten Werte   
+     * mit der Vorgabe aus dem Test verglichen wird. 
+     *  
      */
+    @Test
     public void testeSofaMitVariablenAngabe() {
         Sofa testSofa = new Sofa(5, 6, 2, 7, 8, 9);
 
@@ -76,10 +86,15 @@ public class SofaTest {
 
     }
     
-    @Test   
+       
     /**
-     * Ablauf vom Test
+     * 
+     * Test der Setter-Methoden. 
+     * Der Test überprüft, ob die Methoden die Werte richtig aktualisieren und diese dann richtig zurückgegeben werden,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird.
+     * 
      */
+    @Test
     public void testeSofaSetters() {
         Sofa testSofa = new Sofa(5, 6, 2, 7, 8, 9);
 

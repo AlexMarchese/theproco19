@@ -13,29 +13,44 @@ C:\Program Files\BlueJ\jdk\bin\javadoc.exe
 -source
 17
 -classpath
-C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-fxml-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-swing-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-web-20.0.1-win.jar;C:\Program Files\BlueJ\lib\junit-4.12.jar;C:\Program Files\BlueJ\lib\junit-jupiter-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-api-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-params-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-commons-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-engine-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-launcher-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-suite-api-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-vintage-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ\lib\opentest4j-1.2.0.jar;C:\Program Files\BlueJ\lib\lang-stride.jar;D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19
+C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-fxml-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-swing-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-web-20.0.1-win.jar;C:\Program Files\BlueJ\lib\junit-4.12.jar;C:\Program Files\BlueJ\lib\junit-jupiter-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-api-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-params-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-commons-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-engine-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-launcher-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-suite-api-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-vintage-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ\lib\opentest4j-1.2.0.jar;C:\Program Files\BlueJ\lib\lang-stride.jar;C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19
 -d
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc
 -encoding
 UTF-8
 -charset
 UTF-8
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Sofa.java
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java
 <---- end of javadoc command ---->
-Loading source file D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Sofa.java...
+Loading source file C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java...
 Constructing Javadoc information...
 Standard Doclet version 17.0.4.1+1
 Building tree for all the packages and classes...
-Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\Sofa.html...
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Sofa.java:15: warning: @param argument "zustand" is not a parameter name.
-     * @param   zustand   Das ist der Zustand.
+Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\Bestellung.html...
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:21: warning: @param argument "bestellteProdukte" is not a parameter name.
+     * @param bestellteProdukte Die Bestellten Produkten ist eine Array-Liste welche alle bestellten Produkte enthält.
        ^
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Sofa.java:18: warning: @param argument "Anzahl" is not a parameter name.
-     * @param   Anzahl Kissen welche zum Produkt gehören.
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:22: warning: @param argument "bestellBestaetigung" is not a parameter name.
+     * @param bestellBestaetigung Die Bestell Bestätigung ist ein Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht.
        ^
-D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Sofa.java:47: warning: @param argument "Anzahl" is not a parameter name.
-     * @param   Anzahl Kissen welche zum Produkt gehören.
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:23: warning: @param argument "beschaffungsZeit" is not a parameter name.
+     * @param beschaffungsZeit Die Beschaffungs Zeit gibt die Zeit, die es benötigit, um die bestellten Produkte zu produzieren.
        ^
-Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\package-summary.html...
-Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\index.html...
-3 warnings
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:27: warning: @param argument "bestellteProdukteHinzufuegen" is not a parameter name.
+     * @param bestellteProdukteHinzufuegen Die BestellteprodukteHinzufügen fügt die gewünschte Anzahl von Stühlen und Sofas der Bestellung hinzu.
+       ^
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:67: warning: @param argument "zustand" is not a parameter name.
+     * @param   zustand Zustand der Bestellbestätigung.
+       ^
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:110: warning: @param argument "bestellungsNummer" is not a parameter name.
+     * @param   bestellungsNummer   Bestellungsnummer, die von Fabrik gegeben wird.
+       ^
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:208: warning: @param argument "String" is not a parameter name.
+     * @param   String  Text zur Bestellbestätigung
+       ^
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:235: warning: @param argument "String" is not a parameter name.
+     * @param   String  Text zum Status der Bestellbestätigung
+       ^
+Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\package-summary.html...
+Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\index.html...
+8 warnings

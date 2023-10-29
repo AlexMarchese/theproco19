@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testklasse ProduktTest, um das Sofa und den Stuhl und deren Methoden zu testen.
+ * Testklasse ProduktTest, um die Methoden der Klasse "Produkt" zu testen.
  *
  * @author  GBI Gruppe 19
  * @version 1
@@ -41,11 +41,14 @@ public class ProduktTest {
         System.out.println("------------------------");
     }
     
-
-    @Test
     /**
-     * Ablauf vom Test
+     * 
+     * Der Test überprüft, ob die Erstellung eines Produkts funktioniert. 
+     * Dies wird überprüft, indem ein neues Produkt erstellt wird und die initialisierten Werte 
+     * mit der Vorgabe aus dem Test vergliechen werden. 
+     * 
      */
+    @Test
     public void testeProduktMitVariablenAngabe() {
         Produkt testProdukt = new Produkt(5, 6, 7, 8, 9);
 
@@ -60,10 +63,15 @@ public class ProduktTest {
 
     }
     
-    @Test   
+     
     /**
-     * Ablauf vom Test
+     * 
+     * Test der Setter-Methoden. 
+     * Der Test überprüft, ob die Methoden die Werte richtig aktualisieren und diese dann richtig zurückgegeben werden,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird.
+     * 
      */
+    @Test  
     public void testeProduktSetters() {
         Produkt testProdukt = new Produkt(1, 2, 3, 4, 5);
 

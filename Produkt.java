@@ -8,16 +8,6 @@
  * 
  */
 
-/**
- * Konstruktor für Instanzen der Klasse Produkt.
- * @param   zustand   Das ist der Zustand.
- * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
- * @param   schrauben   Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
- * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
- * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
- * @param   produktionsZeit   Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
- * 
-*/
 public class Produkt {
     // Instanzvariablen
     int zustand;
@@ -28,7 +18,15 @@ public class Produkt {
     int produktionsZeit; 
 
     /**
-     * Konstruktor für Objekte der Klasse Produkt, Produkt kann Zahlenwerte annehmen
+     * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
+     * 
+     * @param   zustand   Das ist der Zustand.
+     * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
+     * @param   schrauben   Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
+     * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
+     * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
+     * @param   produktionsZeit   Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
+     * 
      */
     public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren

@@ -40,10 +40,14 @@ public class BestellungTest {
         System.out.println("------------------------");
     }
 
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * Der Test überprüft, ob die Erstellung einer Bestellung funktioniert. 
+     * Dies wird überprüft, indem eine neue Bestellung erstellt wird und die initialisierten Werte 
+     * mit der Vorgabe aus dem Test verglichen werden. 
+     * 
      */
+    @Test
     public void testeBestellung() {
 
         // Instanzierung einer Bestellung
@@ -79,10 +83,13 @@ public class BestellungTest {
 
     }
 
-    @Test
+    
     /**
-     * Test der Methode "bestellungBestaetige()". Der Test überprüft ob die Methode die erwartete Bestellbestätigung zurück gibt, indem eine Bestellung erstellt wird und die Rückgabe mit der Vorgabe aus dem Test vergliechen wird. 
+     * Test der Methode "bestellungBestaetige()". 
+     * Der Test überprüft, ob die Methode die erwartete Bestellbestätigung zurück gibt, 
+     * indem eine Bestellung erstellt wird und die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
      */
+    @Test
     public void testeBestellungBestaetigen() {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
@@ -92,11 +99,16 @@ public class BestellungTest {
         
     }
     
-    @Test
+    
     /**
-     * Ablauf vom Test
+     * Test der Methode "ueberpruefeBestellbestaetigung()". 
+     * Der Test überprüft, ob die Methode für eine nicht-bestätigte Bestellung 
+     * und für eine bestätigte Bestellung den richtigen Text zurück gibt, 
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
      */
-    public void testeUeberpreufeBestellbestaetigung() {
+    @Test
+    public void testeUeberpruefeBestellbestaetigung() {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
         // Bei der Initialisierung ist bestellBestaetigung false
@@ -105,7 +117,7 @@ public class BestellungTest {
         testBestellung.setzeBestellBestaetigung(true);
         assertEquals("Die Bestellung mit der Nr. 2 ist bestätigt.", testBestellung.ueberpruefeBestellbestaetigung());
 
-        System.out.println("Die Methode UeberpreufeBestellbestaetigung funktioniert.");
+        System.out.println("Die Methode UeberpruefeBestellbestaetigung funktioniert.");
         
     }
 

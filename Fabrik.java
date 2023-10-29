@@ -89,9 +89,11 @@ public class Fabrik {
     /**
      * Methode zur Ausgabe der Bestellungen.
      * 
-     * @return   ausgabe  Text zur Ausgabe der Bestellungen
+     * Anstelle der üblichen Ausgabe, wird der Inhalt als String zurückgegeben, 
+     * was einen einen vereinfachten Unit Test ermöglicht.
      * 
-     * Anstelle der üblichen Ausgabe, wird der Inhalt als String zurückgegeben, was einen einen vereinfachten Unit Test ermöglicht.
+     * @return   ausgabe  Text zur Ausgabe der Bestellungen
+     *
      */
     public String bestellungenAusgeben() {
 

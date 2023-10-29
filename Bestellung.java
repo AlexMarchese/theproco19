@@ -20,7 +20,7 @@ public class Bestellung {
      * 
      * @param bestellteProdukte Die Bestellten Produkten ist eine Array-Liste welche alle bestellten Produkte enthält.
      * @param bestellBestaetigung Die Bestell Bestätigung ist ein Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht.
-     * @param beschaffungsZeit Die Beschaffungs Zeit gibt die Zeit die es benötigit bis die ???
+     * @param beschaffungsZeit Die Beschaffungs Zeit gibt die Zeit, die es benötigit, um die bestellten Produkte zu produzieren.
      * @param anzahlSofas Die Anzahl Sofas gitb die Anzahl an bestellten Sofas.
      * @param anzahlStuehle Die Anzahl Stühle gitb die Anzahl an bestellten Stühlen.
      * @param bestellungsNr Die BestellungsNr gibt eine Bestellungsnummer für die Bestellung.
@@ -202,10 +202,11 @@ public class Bestellung {
     /**
      * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
      * gibt die Information aus, dass die Bestellung bestaetigt ist.
+     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
+     * Es ermöglicht ein vereinfachter Unit Test.
      * 
      * @param   String  Text zur Bestellbestätigung
      * 
-     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
      */
     public String bestellungBestaetigen() {
 
@@ -226,12 +227,14 @@ public class Bestellung {
     }
     
     /**
-     * Methode zur Überprüfung des Status der Bestellbestaetigung. Gibt Auskunft, ob eine
-     * Bestellung bestaetigt wurde oder nicht.
+     * Methode zur Überprüfung des Status der Bestellbestaetigung. 
+     * Gibt Auskunft, ob eine Bestellung bestaetigt wurde oder nicht.
+     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
+     * Es ermöglicht ein vereinfachter Unit Test.
      * 
      * @param   String  Text zum Status der Bestellbestätigung
      * 
-     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. Es ermöglicht ein vereinfachter Unit Test.
+     * 
      */
     public String ueberpruefeBestellbestaetigung() {
         if(this.bestellBestaetigung){
