@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Stuhl
-comment0.text=\r\n\ Eine\ Klasse,\ welche\ die\ Parameter\ des\ Stuhls\ enth\u00E4lt.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Die\ Klasse\ Stuhl\ umfasst\ die\ Informationen\ zum\ Stuhl\ und\ die\ dazugeh\u00F6rige\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=holzeinheiten\ schrauben\ farbeinheiten\ kartoneinheiten\ produktionsZeit
 comment1.target=Stuhl(int,\ int,\ int,\ int,\ int)
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Instanzen\ der\ Klasse\ Stuhl,\ wenn\ Parameter\ von\ extern\ einfliessen\ sollen.\r\n\ @param\ \ \ zustand\ \ \ Das\ ist\ der\ Zustand.\r\n\ @param\ \ \ holzeinheiten\ \ \ Das\ ist\ die\ Anzahl\ Einheiten\ Holz,\ welche\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ schrauben\ \ \ Das\ ist\ die\ Anzahl\ Schrauben,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ farbeinheiten\ \ \ Das\ ist\ die\ Anzahl\ Einheiten\ Farbe,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ kartoneinheiten\ \ \ Das\ ist\ die\ Anzahl\ Einheiten\ Karton,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ produktionsZeit\ \ \ Das\ ist\ die\ Zeit\ (in\ Minuten),\ welche\ zur\ Produktion\ des\ Produkts\ ben\u00F6tigt\ wird.\r\n
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Instanzen\ der\ Klasse\ Stuhl,\ wenn\ Parameter\ von\ extern\ einfliessen\ sollen.\n\ @param\ \ \ holzeinheiten\ \ \ \ Das\ ist\ die\ Anzahl\ der\ Einheiten\ Holz,\ welche\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ schrauben\ \ \ \ \ \ \ \ Das\ ist\ die\ Anzahl\ der\ Schrauben,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ farbeinheiten\ \ \ \ Das\ ist\ die\ Anzahl\ der\ Einheiten\ Farbe,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ kartoneinheiten\ \ Das\ ist\ die\ Anzahl\ der\ Einheiten\ Karton,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ produktionsZeit\ \ Das\ ist\ die\ Zeit\ (in\ Minuten),\ welche\ zur\ Produktion\ des\ Produkts\ ben\u00F6tigt\ wird.\n
 comment2.params=
 comment2.target=Stuhl()
-comment2.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Stuhl,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\r\n
+comment2.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Stuhl,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\n
 numComments=3

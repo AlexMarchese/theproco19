@@ -1,56 +1,175 @@
-Class documentation
+Project documentation
 <---- javadoc command: ---->
-C:\Program Files\BlueJ\jdk\bin\javadoc.exe
+javadoc
+-sourcepath
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19
+-source
+17
+-classpath
+/Applications/BlueJ.app/Contents/Java/bluejcore.jar:/Applications/BlueJ.app/Contents/Java/javafx-base-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-graphics-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-controls-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-fxml-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-controls-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-web-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-media-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-base-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-media-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-graphics-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-swing-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/junit-4.12.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-params-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-api-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-engine-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-suite-api-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-vintage-engine-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-engine-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-launcher-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-commons-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/hamcrest-core-1.3.jar:/Applications/BlueJ.app/Contents/Java/opentest4j-1.2.0.jar:/Applications/BlueJ.app/Contents/Java/lang-stride.jar:/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19
+-d
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-doctitle
+theproco19
+-windowtitle
+theproco19
 -author
 -version
 -nodeprecated
 -package
 -Xdoclint:none
--noindex
--notree
--nohelp
--nonavbar
--source
-17
--classpath
-C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-fxml-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-swing-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-web-20.0.1-win.jar;C:\Program Files\BlueJ\lib\junit-4.12.jar;C:\Program Files\BlueJ\lib\junit-jupiter-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-api-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-params-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-commons-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-engine-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-launcher-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-suite-api-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-vintage-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ\lib\opentest4j-1.2.0.jar;C:\Program Files\BlueJ\lib\lang-stride.jar;C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19
--d
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc
--encoding
-UTF-8
--charset
-UTF-8
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java
+-link
+https://docs.oracle.com/en/java/javase/17/docs/api/
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Stuhl.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Sofa.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Produkt.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Fabrik.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/StuhlTest.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/BestellungTest.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Bestellung.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/SofaTest.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/FabrikTest.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Main.java
+/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/ProduktTest.java
 <---- end of javadoc command ---->
-Loading source file C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Stuhl.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Sofa.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Produkt.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Fabrik.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/StuhlTest.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/BestellungTest.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Bestellung.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/SofaTest.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/FabrikTest.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Main.java...
+Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/ProduktTest.java...
 Constructing Javadoc information...
+warning: unknown enum constant Status.STABLE
+  reason: class file for org.apiguardian.api.API$Status not found
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+Building index for all the packages and classes...
 Standard Doclet version 17.0.4.1+1
 Building tree for all the packages and classes...
-Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\Bestellung.html...
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:21: warning: @param argument "bestellteProdukte" is not a parameter name.
-     * @param bestellteProdukte Die Bestellten Produkten ist eine Array-Liste welche alle bestellten Produkte enthält.
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:22: warning: @param argument "bestellBestaetigung" is not a parameter name.
-     * @param bestellBestaetigung Die Bestell Bestätigung ist ein Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht.
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:23: warning: @param argument "beschaffungsZeit" is not a parameter name.
-     * @param beschaffungsZeit Die Beschaffungs Zeit gibt die Zeit, die es benötigit, um die bestellten Produkte zu produzieren.
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:27: warning: @param argument "bestellteProdukteHinzufuegen" is not a parameter name.
-     * @param bestellteProdukteHinzufuegen Die BestellteprodukteHinzufügen fügt die gewünschte Anzahl von Stühlen und Sofas der Bestellung hinzu.
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:67: warning: @param argument "zustand" is not a parameter name.
-     * @param   zustand Zustand der Bestellbestätigung.
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:110: warning: @param argument "bestellungsNummer" is not a parameter name.
-     * @param   bestellungsNummer   Bestellungsnummer, die von Fabrik gegeben wird.
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:208: warning: @param argument "String" is not a parameter name.
-     * @param   String  Text zur Bestellbestätigung
-       ^
-C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\Bestellung.java:235: warning: @param argument "String" is not a parameter name.
-     * @param   String  Text zum Status der Bestellbestätigung
-       ^
-Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\package-summary.html...
-Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\index.html...
-8 warnings
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/Bestellung.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/BestellungTest.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/Fabrik.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/FabrikTest.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/Main.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/Produkt.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/ProduktTest.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/Sofa.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/SofaTest.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/Stuhl.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/StuhlTest.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/package-summary.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/package-tree.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/overview-tree.html...
+Building index for all classes...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/allclasses-index.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/allpackages-index.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/index-all.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/index.html...
+Generating /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc/help-doc.html...
+100 warnings

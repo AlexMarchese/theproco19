@@ -1,6 +1,6 @@
 
 /**
- * Eine Klasse, welche die Parameter des Sofas enthält.
+ * Die Klasse Sofa umfasst die Informationen zum Sofa und die dazugehörigen Methoden.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -12,13 +12,12 @@ public class Sofa extends Produkt {
 
     /**
      * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
-     * @param   zustand   Das ist der Zustand.
-     * @param   holzeinheiten   Das ist die Anzahl Einheiten Holz, die für das Produkt benötigt werden.
-     * @param   schrauben   Das ist die Anzahl Schrauben, die für das Produkt benötigt werden.
-     * @param   kissen   Das ist die Anzahl Kissen welche zum Produkt gehören.
-     * @param   farbeinheiten   Das ist die Anzahl Einheiten Farbe, die für das Produkt benötigt werden.
-     * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, die für das Produkt benötigt werden.
-     * @param   produktionsZeit   Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
+     * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, die für das Produkt benötigt werden.
+     * @param   schrauben       Das ist die Anzahl der Schrauben, die für das Produkt benötigt werden.
+     * @param   kissen          Das ist die Anzahl der Kissen, welche zum Produkt gehören.
+     * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, die für das Produkt benötigt werden.
+     * @param   kartoneinheiten Das ist die Anzahl der Einheiten Karton, die für das Produkt benötigt werden.
+     * @param   produktionsZeit Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
      */
     public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren

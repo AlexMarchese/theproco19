@@ -6,10 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testklasse StuhlTest, um den Stuhl und dessen Methoden zu testen.
+ * Testklasse StuhlTest, um die Methoden der Klasse "Stuhl" zu testen.
  *
  * @author  GBI Gruppe 19
- * @version 1
+ * @version 1.0
  */
 
 public class StuhlTest {

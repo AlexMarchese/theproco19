@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * Testklasse ProduktTest, um die Methoden der Klasse "Produkt" zu testen.
  *
  * @author  GBI Gruppe 19
- * @version 1
+ * @version 1.0
  */
 
 public class ProduktTest {

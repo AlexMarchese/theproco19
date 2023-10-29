@@ -2,13 +2,13 @@ import java.util.Scanner; // Wird benötigt, um eine Eingabe vom Terminal zu bek
 
 /**
  * 
- * Die Main Klasse ist der Einstiegspunkt in das Programm und in der Main Methode wird das Programm ausgeführt.
+ * Die Klasse Main ist der Einstiegspunkt in das Programm und in der Main Methode wird das Programm ausgeführt.
  * Hier können Bestellungen mit individuellen Anzahlen an Stühlen und Sofas aufgegeben werden oder es 
  * wird eine vordefinierte Bestellung ausgeführt. 
  * 
  * 
  * @author  GBI Gruppe 19
- * @version 1
+ * @version 1.0
  */
 public class Main
 {

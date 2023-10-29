@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=ProduktTest
-comment0.text=\r\n\ Testklasse\ ProduktTest,\ um\ die\ Methoden\ der\ Klasse\ "Produkt"\ zu\ testen.\r\n\r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 1\r\n
+comment0.text=\n\ Testklasse\ ProduktTest,\ um\ die\ Methoden\ der\ Klasse\ "Produkt"\ zu\ testen.\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=
 comment1.target=ProduktTest()
-comment1.text=\r\n\ Konstruktor\ von\ ProduktTest\r\n
+comment1.text=\n\ Konstruktor\ von\ ProduktTest\n
 comment2.params=
 comment2.target=void\ setUp()
-comment2.text=\r\n\ Anweisungen\ vor\ jedem\ Testlauf\r\n
+comment2.text=\n\ Anweisungen\ vor\ jedem\ Testlauf\n
 comment3.params=
 comment3.target=void\ tearDown()
-comment3.text=\r\n\ Anweisungen\ nach\ jedem\ Testlauf\r\n
+comment3.text=\n\ Anweisungen\ nach\ jedem\ Testlauf\n
 comment4.params=
 comment4.target=void\ testeProduktMitVariablenAngabe()
-comment4.text=\r\n\ \r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Produkts\ funktioniert.\ \r\n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neues\ Produkt\ erstellt\ wird\ und\ die\ initialisierten\ Werte\ \r\n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ vergliechen\ werden.\ \r\n\ \r\n
+comment4.text=\n\ \n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Produkts\ funktioniert.\ \n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neues\ Produkt\ erstellt\ wird\ und\ die\ initialisierten\ Werte\ \n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ vergliechen\ werden.\ \n\ \n
 comment5.params=
 comment5.target=void\ testeProduktSetters()
-comment5.text=\r\n\ \r\n\ Test\ der\ Setter-Methoden.\ \r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Methoden\ die\ Werte\ richtig\ aktualisieren\ und\ diese\ dann\ richtig\ zur\u00FCckgegeben\ werden,\r\n\ indem\ die\ R\u00FCckgabe\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\r\n\ \r\n
+comment5.text=\n\ \n\ Test\ der\ Setter-Methoden.\ \n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Methoden\ die\ Werte\ richtig\ aktualisieren\ und\ diese\ dann\ richtig\ zur\u00FCckgegeben\ werden,\n\ indem\ die\ R\u00FCckgabe\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\n\ \n
 numComments=6

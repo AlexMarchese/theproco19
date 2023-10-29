@@ -1,6 +1,7 @@
 
 /**
- * Die Klasse Produkt umfasst die Informationen zu den von der Fabrik produzierbaren Produkten. Diese Produkte umfassen Sofas und Stühle.
+ * Die Klasse Produkt umfasst die Informationen zu den von der Fabrik produzierbaren Produkten und die dazugehörige Methoden.
+ * Diese Produkte umfassen Sofas und Stühle.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -20,12 +21,11 @@ public class Produkt {
     /**
      * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
      * 
-     * @param   zustand   Das ist der Zustand.
      * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
-     * @param   schrauben   Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
+     * @param   schrauben       Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
      * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
-     * @param   kartoneinheiten   Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
-     * @param   produktionsZeit   Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
+     * @param   kartoneinheiten Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
+     * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
      * 
      */
     public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
@@ -47,7 +47,7 @@ public class Produkt {
 
     /**
      * Methode, um den Zustandswert des Produkts zu setzen.
-     * @param   zustand Den Zustandswert des Produkts in numerischer Form.
+     * @param   zustand Der Zustandswert des Produkts in numerischer Form.
      */
     public void setzeZustand(int zustand) {
         this.zustand = zustand;

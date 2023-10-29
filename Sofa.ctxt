@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=Sofa
-comment0.text=\r\n\ Eine\ Klasse,\ welche\ die\ Parameter\ des\ Sofas\ enth\u00E4lt.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Die\ Klasse\ Sofa\ umfasst\ die\ Informationen\ zum\ Sofa\ und\ die\ dazugeh\u00F6rigen\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=holzeinheiten\ schrauben\ kissen\ farbeinheiten\ kartoneinheiten\ produktionsZeit
 comment1.target=Sofa(int,\ int,\ int,\ int,\ int,\ int)
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Instanzen\ der\ Klasse\ Sofa,\ wenn\ Parameter\ von\ extern\ einfliessen\ sollen.\r\n\ @param\ \ \ zustand\ \ \ Das\ ist\ der\ Zustand.\r\n\ @param\ \ \ holzeinheiten\ \ \ Das\ ist\ die\ Anzahl\ Einheiten\ Holz,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ schrauben\ \ \ Das\ ist\ die\ Anzahl\ Schrauben,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ kissen\ \ \ Das\ ist\ die\ Anzahl\ Kissen\ welche\ zum\ Produkt\ geh\u00F6ren.\r\n\ @param\ \ \ farbeinheiten\ \ \ Das\ ist\ die\ Anzahl\ Einheiten\ Farbe,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ kartoneinheiten\ \ \ Das\ ist\ die\ Anzahl\ Einheiten\ Karton,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\r\n\ @param\ \ \ produktionsZeit\ \ \ Das\ ist\ die\ Zeit\ (in\ Minuten)\ welche\ zur\ Produktion\ des\ Produkts\ ben\u00F6tigt\ wird.\r\n
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Instanzen\ der\ Klasse\ Sofa,\ wenn\ Parameter\ von\ extern\ einfliessen\ sollen.\n\ @param\ \ \ holzeinheiten\ \ \ Das\ ist\ die\ Anzahl\ der\ Einheiten\ Holz,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ schrauben\ \ \ \ \ \ \ Das\ ist\ die\ Anzahl\ der\ Schrauben,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ kissen\ \ \ \ \ \ \ \ \ \ Das\ ist\ die\ Anzahl\ der\ Kissen,\ welche\ zum\ Produkt\ geh\u00F6ren.\n\ @param\ \ \ farbeinheiten\ \ \ Das\ ist\ die\ Anzahl\ der\ Einheiten\ Farbe,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ kartoneinheiten\ Das\ ist\ die\ Anzahl\ der\ Einheiten\ Karton,\ die\ f\u00FCr\ das\ Produkt\ ben\u00F6tigt\ werden.\n\ @param\ \ \ produktionsZeit\ Das\ ist\ die\ Zeit\ (in\ Minuten)\ welche\ zur\ Produktion\ des\ Produkts\ ben\u00F6tigt\ wird.\n
 comment2.params=
 comment2.target=Sofa()
-comment2.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\r\n
+comment2.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa,\ wenn\ Default-Parameter\ verwendet\ werden\ sollen.\n
 comment3.params=kissen
 comment3.target=void\ setzeKissen(int)
-comment3.text=\r\n\ Methode,\ um\ die\ Anzahl\ an\ Kissen\ zu\ setzen.\r\n\ @param\ \ \ kissen\ \ Anzahl\ Kissen\ welche\ zum\ Produkt\ Sofa\ geh\u00F6ren.\r\n
+comment3.text=\n\ Methode,\ um\ die\ Anzahl\ an\ Kissen\ zu\ setzen.\n\ @param\ \ \ kissen\ \ Anzahl\ Kissen\ welche\ zum\ Produkt\ Sofa\ geh\u00F6ren.\n
 comment4.params=
 comment4.target=int\ gibKissen()
-comment4.text=\r\n\ Methode,\ um\ ben\u00F6tigte\ Anzahl\ Kissen\ f\u00FCr\ ein\ Sofa\ zu\ erhalten.\r\n\ @return\ \ kissen\ \ Anzahl\ Kissen\ welche\ zum\ Produkt\ Sofa\ geh\u00F6ren.\r\n
+comment4.text=\n\ Methode,\ um\ ben\u00F6tigte\ Anzahl\ Kissen\ f\u00FCr\ ein\ Sofa\ zu\ erhalten.\n\ @return\ \ kissen\ \ Anzahl\ Kissen\ welche\ zum\ Produkt\ Sofa\ geh\u00F6ren.\n
 numComments=5

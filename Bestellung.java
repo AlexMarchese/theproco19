@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 /**
- * Klasse zur Erstellung von Bestellungen, die Sofas und Stühle beinhalten.
+ * Die Klasse Bestellung umfasst die Informationen zu den Bestellungen und die dazugehörigen Methoden.
+ * Sie dient zur Erstellung von Bestellungen, die Sofas und Stühle beinhalten.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
@@ -18,21 +19,16 @@ public class Bestellung {
     /**
      * Konstruktor für die Instanzen der Klasse Bestellung
      * 
-     * @param bestellteProdukte Die Bestellten Produkten ist eine Array-Liste welche alle bestellten Produkte enthält.
-     * @param bestellBestaetigung Die Bestell Bestätigung ist ein Boolean zur Identifizierung, ob eine Bestellung bestätigt ist oder nicht.
-     * @param beschaffungsZeit Die Beschaffungs Zeit gibt die Zeit, die es benötigit, um die bestellten Produkte zu produzieren.
-     * @param anzahlSofas Die Anzahl Sofas gitb die Anzahl an bestellten Sofas.
-     * @param anzahlStuehle Die Anzahl Stühle gitb die Anzahl an bestellten Stühlen.
-     * @param bestellungsNr Die BestellungsNr gibt eine Bestellungsnummer für die Bestellung.
-     * @param bestellteProdukteHinzufuegen Die BestellteprodukteHinzufügen fügt die gewünschte Anzahl von Stühlen und Sofas der Bestellung hinzu.
-     * 
+     * @param   anzahlSofas     Die Anzahl Sofas gibt die Anzahl an bestellten Sofas.
+     * @param   anzahlStuehle   Die Anzahl Stühle gibt die Anzahl an bestellten Stühlen.
+     * @param   bestellungsNr   Die BestellungsNr gibt eine Bestellungsnummer für die Bestellung.
      * 
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
         // Instanzvariablen initialisieren
         this.bestellteProdukte = new ArrayList<Produkt>(); 
         this.bestellBestaetigung = false;
-        this.beschaffungsZeit = 1440; // Minuten
+        this.beschaffungsZeit = 1440; // Minuten - Zeit, die es braucht, um alle Produkte einer Bestellung zu produzieren.
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
         this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
@@ -64,7 +60,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Variable bestellBestaetigung.
      * 
-     * @param   zustand Zustand der Bestellbestätigung.
+     * @param   status Zustand der Bestellbestätigung.
      */
     public void setzeBestellBestaetigung(Boolean status) {
         this.bestellBestaetigung = status;
@@ -107,7 +103,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Bestellungsnummer.
      * 
-     * @param   bestellungsNummer   Bestellungsnummer, die von Fabrik gegeben wird.
+     * @param   bestellNummer   Bestellungsnummer, die von Fabrik gegeben wird.
      */
     public void setzeBestellungsNr(int bestellNummer) {
         if(bestellNummer > 0) {
@@ -205,7 +201,7 @@ public class Bestellung {
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
      * Es ermöglicht ein vereinfachter Unit Test.
      * 
-     * @param   String  Text zur Bestellbestätigung
+     * @return   String  Text zur Bestellbestätigung
      * 
      */
     public String bestellungBestaetigen() {
@@ -232,7 +228,7 @@ public class Bestellung {
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
      * Es ermöglicht ein vereinfachter Unit Test.
      * 
-     * @param   String  Text zum Status der Bestellbestätigung
+     * @return   String  Text zum Status der Bestellbestätigung
      * 
      * 
      */

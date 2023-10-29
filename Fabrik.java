@@ -1,25 +1,19 @@
 import java.util.ArrayList;
 
 /**
- * Die Klasse Fabrik enthält eine Übersicht (Array-Liste) über alle Bestellungen.
+ * Die Klasse Fabrik enthält eine Übersicht (Array-Liste) über alle Bestellungen und dient zur Verwaltung von Produktion und Bestellungen.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
 */
 
 public class Fabrik {
-    // Die Klasse Fabrik enthält eine Übersicht (Array-liste) über alle Bestellungen
-    // Hier wird die Klasse initialisiert und definiert als Array-List
+    // Hier wird die Klasse initialisiert und als Array-List definiert
     private ArrayList<Bestellung> bestellungList;
     private int bestellungsNrCounter; 
 
     /**
      * Konstruktor für Instanzen der Klasse Fabrik.
-     * 
-     * @param bestellungList Die BestellungList ist eine Array-Liste welche alle getätigten Bestellungen enthält.
-     * @param bestellungsNrCounter Der BestellungsNrCounter stellt die Anzahl der Bestellungen dar.
-     * 
-     * 
      */
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
@@ -30,7 +24,7 @@ public class Fabrik {
     /// Getters und Setters
 
     /**
-     * Methode zum Setzen der Bestellungen.
+     * Methode zum Setzen der ArrayList mit den Bestellungen.
      * 
      * @param  bestellungList   ArrayList mit den Bestellungen
      */
@@ -73,8 +67,8 @@ public class Fabrik {
     /**
      * Methode, um eine Bestellung aufzugeben.
      * 
-     * @param sofa Anzahl Sofas
-     * @param chairs Anzahl Stühle
+     * @param   sofa    Anzahl Sofas
+     * @param   chairs  Anzahl Stühle
     */
     public void bestellungAufgeben(int sofa, int chairs) {
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
@@ -92,7 +86,7 @@ public class Fabrik {
      * Anstelle der üblichen Ausgabe, wird der Inhalt als String zurückgegeben, 
      * was einen einen vereinfachten Unit Test ermöglicht.
      * 
-     * @return   ausgabe  Text zur Ausgabe der Bestellungen
+     * @return  ausgabe Text zur Ausgabe der Bestellungen
      *
      */
     public String bestellungenAusgeben() {

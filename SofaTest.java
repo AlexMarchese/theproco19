@@ -6,10 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testklasse SofaTest, um das Sofa und deren Methoden zu testen.
+ * Testklasse SofaTest, um die Methoden der Klasse "Sofa" zu testen.
  *
  * @author  GBI Gruppe 19
- * @version 1
+ * @version 1.0
  */
 
 public class SofaTest {
