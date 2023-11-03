@@ -1,6 +1,7 @@
 
 /**
- * Die Klasse Lager umfasst die Informationen zu den von der Fabrik benötigten Materialien und die dazugehörige Methoden um das Lager zu verwalten.
+ * Die Klasse Lager umfasst die Informationen zu den von der Fabrik benötigten Materialien 
+ * und die dazugehörige Methoden um das Lager zu verwalten.
  * 
  * 
  * @author GBI Gruppe 19
@@ -132,4 +133,80 @@ public class Lager{
     public int gibvorhandeneKissen() {
         return this.vorhandeneKissen;
     }     
+    
+    /// Methoden
+
+
+    /**
+     * Methode, XXX.
+     * 
+     * @return   BeschaffungsZeit    XXX
+     * 
+    */
+    public int gibBeschaffungsZeit(Bestellung kundenBestellung) {      
+        
+        int beschaffungszeit = 0;
+        int benötigteHolzeinheiten = 0;
+        int benötigteSchrauben = 0;
+        int benötigteFarbeinheiten = 0;
+        int benötigteKartoneinheite = 0;
+        int benötigteKissen = 0;   
+
+        for (Produkt produkt : kundenBestellung.gibBestellteProdukte()) {
+            if (produkt instanceof Stuhl) {
+               benötigteHolzeinheiten = benötigteHolzeinheiten + ((Stuhl) produkt).gibHolzeinheiten();
+               benötigteSchrauben = benötigteSchrauben + ((Stuhl) produkt).gibSchrauben();
+               benötigteFarbeinheiten = benötigteFarbeinheiten + ((Stuhl) produkt).gibFarbeinheiten();
+               benötigteKartoneinheite = benötigteKartoneinheite + ((Stuhl) produkt).gibKartoneinheiten();
+
+            } else if (produkt instanceof Sofa) {
+               benötigteHolzeinheiten = benötigteHolzeinheiten + ((Sofa) produkt).gibHolzeinheiten();
+               benötigteSchrauben = benötigteSchrauben + ((Sofa) produkt).gibSchrauben();
+               benötigteFarbeinheiten = benötigteFarbeinheiten + ((Sofa) produkt).gibFarbeinheiten();
+               benötigteKartoneinheite = benötigteKartoneinheite + ((Sofa) produkt).gibKartoneinheiten();
+               benötigteKissen = benötigteKissen + ((Sofa) produkt).gibKissen();              
+                
+            }
+        }
+            
+        if (gibvorhandeneHolzeinheiten() < benötigteHolzeinheiten
+              || gibvorhandeneSchrauben() < benötigteSchrauben
+              || gibvorhandeneFarbeeinheiten() < benötigteFarbeinheiten 
+              || gibvorhandeneKartoneinheiten() < benötigteKartoneinheite
+              || gibvorhandeneKissen() < benötigteKissen) {
+              beschaffungszeit = 2;
+        } else {beschaffungszeit = 0;}
+            // muss man noch einen Stop (break) einbauen?? 
+    
+    return beschaffungszeit;
+        
+    }
+    
+    
+    /**
+     * Methode, XXX.
+     * 
+     * @param   XX    XXX
+     * 
+    */
+
+    //public int lagerAuffuellen() {
+        
+    //}
+
+    
+    /**
+     * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
+     * 
+     * @return   Sting    Text zum Lagerbestand
+     * 
+    */
+     public void lagerBestandAusgeben() {
+        System.out.println("Aktueller Lagerbestand:");
+        System.out.println("Im Lgaer befinden sich " + vorhandeneHolzeinheiten + " Holzeinheiten von maximal " + maxHolzeinheiten + " Holzeinheiten.");
+        System.out.println("Im Lgaer befinden sich " + vorhandeneSchrauben + " Schrauben von maximal " + maxSchrauben + " Schrauben.");
+        System.out.println("Im Lager befinden sich " + vorhandeneFarbeeinheiten + " Farbeeinheiten von maximal " + maxFarbeeinheiten + " Farbeeinheiten.");
+        System.out.println("Im Lager befinden sich " + vorhandeneKartoneinheiten + "Kartoneinheiten von maximal " + maxKartoneinheiten + " Kartoneinheiten.");
+        System.out.println("Im Lager befinden sich " + vorhandeneKissen + "Kissen von maximal" + maxKissen + "Kissen.");
+    }
 }

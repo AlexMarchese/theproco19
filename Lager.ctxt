@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Lager
-comment0.text=\r\n\ Die\ Klasse\ Lager\ umfasst\ die\ Informationen\ zu\ den\ von\ der\ Fabrik\ ben\u00F6tigten\ Materialien\ und\ die\ dazugeh\u00F6rige\ Methoden\ um\ das\ Lager\ zu\ verwalten.\r\n\ \r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n\ \r\n
+comment0.text=\r\n\ Die\ Klasse\ Lager\ umfasst\ die\ Informationen\ zu\ den\ von\ der\ Fabrik\ ben\u00F6tigten\ Materialien\ \r\n\ und\ die\ dazugeh\u00F6rige\ Methoden\ um\ das\ Lager\ zu\ verwalten.\r\n\ \r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n\ \r\n
 comment1.params=maxHolzeinheiten\ maxSchrauben\ maxFarbeeinheiten\ maxKartoneinheiten\ maxKissen\ vorhandeneHolzeinheiten\ vorhandenSchrauben\ vorhandeneFarbeeinheiten\ vorhandeneKartoneinheiten\ vorhandeneKissen
 comment1.target=Lager(int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Lager\r\n@param\ \ \ \ maxHolzeinheiten\ \ \ \ Die\ maximale\ Kapazit\u00E4t\ des\ Lagers\ f\u00FCr\ Holzeinheiten.\r\n@param\ \ \ \ maxSchrauben\ \ \ \ Die\ maximale\ Kapazit\u00E4t\ des\ Lagers\ f\u00FCr\ Schrauben.\ \r\n@param\ \ \ \ maxFarbeeinheiten\ \ \ Die\ maximale\ Kapazit\u00E4t\ des\ Lagers\ f\u00FCr\ Farbeinheiten.\r\n@param\ \ \ \ maxKartoneinheiten\ \ Die\ maximale\ Kapazit\u00E4t\ des\ Lagers\ f\u00FCr\ Kartoneinheiten.\r\n@param\ \ \ \ maxKissen\ \ \ Die\ maximale\ Kapazit\u00E4t\ des\ Lagers\ f\u00FCr\ Kissen.\r\n@param\ \ \ \ vorhandeneHolzeinheiten\ Die\ aktuelle\ Anzahl\ Holzeinheiten\ im\ Lager.\r\n@param\ \ \ \ vorhandenSchrauben\ \ Die\ aktuelle\ Anzahl\ Schrauben\ im\ Lager.\r\n@param\ \ \ \ vorhandeneFarbeeinheiten\ \ \ \ Die\ aktuelle\ Anzahl\ Farbeinheiten\ im\ Lager.\r\n@param\ \ \ \ vorhandeneKartoneinheiten\ \ \ Die\ aktuelle\ Anzahl\ Kartoneinheiten\ im\ Lager.\r\n@param\ \ \ \ vorhandeneKissen\ \ \ \ Die\ aktuelle\ Anzahl\ Kissen\ im\ Lager.\ \r\n
@@ -10,6 +10,12 @@ comment10.text=\r\n\ Methode,\ um\ die\ maximale\ Lagerkapazit\u00E4t\ an\ Kisse
 comment11.params=
 comment11.target=int\ gibvorhandeneKissen()
 comment11.text=\r\n\ Methode,\ um\ die\ momentane\ Anzahl\ an\ Kissen\ im\ Lager\ auszugeben.\r\n\ @return\ \ \ vorhandeneKissen\ \ \ \ Die\ momentane\ Anzahl\ an\ Kissen\ im\ Lager\ in\ numerischer\ Form.\r\n
+comment12.params=kundenBestellung
+comment12.target=int\ gibBeschaffungsZeit(Bestellung)
+comment12.text=\r\n\ Methode,\ XXX.\r\n\ \r\n\ @return\ \ \ BeschaffungsZeit\ \ \ \ XXX\r\n\ \r\n
+comment13.params=
+comment13.target=void\ lagerBestandAusgeben()
+comment13.text=\r\n\ Die\ Methode\ lagerBestandAusgeben\ gibt\ den\ aktuellen\ Lagerbestand\ aus.\r\n\ \r\n\ @return\ \ \ Sting\ \ \ \ Text\ zum\ Lagerbestand\r\n\ \r\n
 comment2.params=maxHolzeinheiten
 comment2.target=void\ setzemaxHolzeinheiten(int)
 comment2.text=\r\n\ Methode,\ um\ die\ maximale\ Lagerkapazit\u00E4t\ an\ Holzeinheiten\ anzupassen.\r\n\ @param\ \ \ maxHolzeinheiten\ \ \ \ Die\ maximale\ Anzahl\ Holzeinheiten\ in\ numerischer\ Form\ (Lagerkapazit\u00E4t).\r\n
@@ -34,4 +40,4 @@ comment8.text=\r\n\ Methode,\ um\ die\ maximale\ Lagerkapazit\u00E4t\ an\ Karton
 comment9.params=
 comment9.target=int\ gibvorhandeneKartoneinheiten()
 comment9.text=\r\n\ Methode,\ um\ die\ momentane\ Anzahl\ an\ Kartoneinheiten\ im\ Lager\ auszugeben.\r\n\ @return\ \ \ vorhandeneKartoneinheiten\ \ \ \ Die\ momentane\ Anzahl\ an\ Kartoneinheiten\ im\ Lager\ in\ numerischer\ Form.\r\n
-numComments=12
+numComments=14
