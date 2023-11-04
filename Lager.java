@@ -22,6 +22,11 @@ public class Lager{
     int vorhandeneKartoneinheiten;
     int vorhandeneKissen;
     Lieferant lieferant; 
+    int benötigteHolzeinheiten;
+    int benötigteSchrauben;
+    int benötigteFarbeinheiten;
+    int benötigteKartoneinheite;
+    int benötigteKissen; 
 
     /**
      * Konstruktor für Objekte der Klasse Lager
@@ -48,6 +53,11 @@ public class Lager{
         this.vorhandeneFarbeeinheiten = vorhandeneFarbeeinheiten;
         this.vorhandeneKartoneinheiten = vorhandeneKartoneinheiten;
         this.vorhandeneKissen = vorhandeneKissen;
+        this.benötigteHolzeinheiten = 0;
+        this.benötigteSchrauben = 0;
+        this.benötigteFarbeinheiten = 0;
+        this.benötigteKartoneinheite = 0;
+        this.benötigteKissen = 0; 
     }
 
 
@@ -138,19 +148,16 @@ public class Lager{
 
 
     /**
-     * Methode, XXX.
+     * Methode, BescahffungZeit schaut für eine Bestellung alle Produkte an und addiert die benötigten Materialien, wenn diese im Lager vorhanden sind 
+     * bleibt die BeschaffungsZeit bei 0 anderenfalls erhöht sie sich auf 2. 
      * 
-     * @return   BeschaffungsZeit    XXX
+     * @return   BeschaffungsZeit    0 oder 2 für die Tage an geschaffungszeit
      * 
     */
     public int gibBeschaffungsZeit(Bestellung kundenBestellung) {      
         
         int beschaffungszeit = 0;
-        int benötigteHolzeinheiten = 0;
-        int benötigteSchrauben = 0;
-        int benötigteFarbeinheiten = 0;
-        int benötigteKartoneinheite = 0;
-        int benötigteKissen = 0;   
+          
 
         for (Produkt produkt : kundenBestellung.gibBestellteProdukte()) {
             if (produkt instanceof Stuhl) {
@@ -184,17 +191,48 @@ public class Lager{
     
     
     /**
-     * Methode, XXX.
+     * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager Kapazität überschreiten und reduziert diese ggf und bestellt anschließend über den Methode wareBestellen die zu Bestellenden Materialien nach.
      * 
-     * @param   XX    XXX
+     * @param   lagerAuffuellen    Füllt den Lagerbestand.
      * 
     */
 
-    //public int lagerAuffuellen() {
+    public void lagerAuffuellen() {
+        Lieferant lieferant = new Lieferant(); 
         
-    //}
+        // Überprüfen, ob die Bestellmenge die Lagerkapazität überschreitet.
+        if (gibvorhandeneHolzeinheiten() + benötigteHolzeinheiten > maxHolzeinheiten) {
+            // Bestellmenge reduzieren, um die Lagerkapazität nicht zu überschreiten.
+            benötigteHolzeinheiten = maxHolzeinheiten - gibvorhandeneHolzeinheiten();
+        } 
 
-    
+        if (gibvorhandeneSchrauben() + benötigteSchrauben > maxSchrauben) {
+            benötigteSchrauben = maxSchrauben - gibvorhandeneSchrauben();
+        }
+
+        if (gibvorhandeneFarbeeinheiten() + benötigteFarbeinheiten > maxFarbeeinheiten) {
+            benötigteFarbeinheiten = maxFarbeeinheiten - gibvorhandeneFarbeeinheiten();
+        }
+
+        if (gibvorhandeneKartoneinheiten() + benötigteKartoneinheite > maxKartoneinheiten) {
+            benötigteKartoneinheite = maxKartoneinheiten - gibvorhandeneKartoneinheiten();
+        }
+
+        if (gibvorhandeneKissen() + benötigteKissen > maxKissen) {
+            benötigteKissen = maxKissen - gibvorhandeneKissen();
+        }
+
+        // Bestellung beim Lieferanten aufgeben und auf die Lieferung warten (2 Tage Lieferzeit).
+        lieferant.wareBestellen(benötigteHolzeinheiten, benötigteSchrauben, benötigteFarbeinheiten, benötigteKartoneinheite, benötigteKissen);
+
+        // Lagerbestände aktualisieren.
+        vorhandeneHolzeinheiten += benötigteHolzeinheiten;
+        vorhandeneSchrauben += benötigteSchrauben;
+        vorhandeneFarbeeinheiten += benötigteFarbeinheiten;
+        vorhandeneKartoneinheiten += benötigteKartoneinheite;
+        vorhandeneKissen += benötigteKissen;
+    }
+            
     /**
      * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
      * 
