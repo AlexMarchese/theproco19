@@ -1,7 +1,7 @@
 
 /**
  * Die Klasse Lager umfasst die Informationen zu den von der Fabrik benötigten Materialien 
- * und die dazugehörige Methoden um das Lager zu verwalten.
+ * und die dazugehörigen Methoden um das Lager zu verwalten.
  * 
  * 
  * @author GBI Gruppe 19
@@ -25,21 +25,21 @@ public class Lager{
     int benötigteHolzeinheiten;
     int benötigteSchrauben;
     int benötigteFarbeinheiten;
-    int benötigteKartoneinheite;
+    int benötigteKartoneinheiten;
     int benötigteKissen; 
 
     /**
      * Konstruktor für Objekte der Klasse Lager
-     *@param    maxHolzeinheiten    Die maximale Kapazität des Lagers für Holzeinheiten.
-     *@param    maxSchrauben    Die maximale Kapazität des Lagers für Schrauben. 
-     *@param    maxFarbeeinheiten   Die maximale Kapazität des Lagers für Farbeinheiten.
-     *@param    maxKartoneinheiten  Die maximale Kapazität des Lagers für Kartoneinheiten.
-     *@param    maxKissen   Die maximale Kapazität des Lagers für Kissen.
-     *@param    vorhandeneHolzeinheiten Die aktuelle Anzahl Holzeinheiten im Lager.
-     *@param    vorhandenSchrauben  Die aktuelle Anzahl Schrauben im Lager.
+     *@param    maxHolzeinheiten            Die maximale Kapazität des Lagers für Holzeinheiten.
+     *@param    maxSchrauben                Die maximale Kapazität des Lagers für Schrauben. 
+     *@param    maxFarbeeinheiten           Die maximale Kapazität des Lagers für Farbeinheiten.
+     *@param    maxKartoneinheiten          Die maximale Kapazität des Lagers für Kartoneinheiten.
+     *@param    maxKissen                   Die maximale Kapazität des Lagers für Kissen.
+     *@param    vorhandeneHolzeinheiten     Die aktuelle Anzahl Holzeinheiten im Lager.
+     *@param    vorhandenSchrauben          Die aktuelle Anzahl Schrauben im Lager.
      *@param    vorhandeneFarbeeinheiten    Die aktuelle Anzahl Farbeinheiten im Lager.
      *@param    vorhandeneKartoneinheiten   Die aktuelle Anzahl Kartoneinheiten im Lager.
-     *@param    vorhandeneKissen    Die aktuelle Anzahl Kissen im Lager. 
+     *@param    vorhandeneKissen            Die aktuelle Anzahl Kissen im Lager. 
      */
     public Lager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
         // Instanzvariable initialisieren
@@ -56,7 +56,7 @@ public class Lager{
         this.benötigteHolzeinheiten = 0;
         this.benötigteSchrauben = 0;
         this.benötigteFarbeinheiten = 0;
-        this.benötigteKartoneinheite = 0;
+        this.benötigteKartoneinheiten = 0;
         this.benötigteKissen = 0; 
     }
 
@@ -144,33 +144,34 @@ public class Lager{
         return this.vorhandeneKissen;
     }     
     
+    
     /// Methoden
 
 
     /**
-     * Methode, BescahffungZeit schaut für eine Bestellung alle Produkte an und addiert die benötigten Materialien, wenn diese im Lager vorhanden sind 
+     * Methode, berechneBeschaffungsZeit schaut für eine Bestellung alle Produkte an und addiert die benötigten Materialien, wenn diese im Lager vorhanden sind 
      * bleibt die BeschaffungsZeit bei 0 anderenfalls erhöht sie sich auf 2. 
      * 
-     * @return   BeschaffungsZeit    0 oder 2 für die Tage an geschaffungszeit
+     * @return   beschaffungszeit    0 oder 2 für die Anzahl Tage an Beschaffungszeit
      * 
     */
-    public int gibBeschaffungsZeit(Bestellung kundenBestellung) {      
+    public int berechneBeschaffungsZeit(Bestellung kundenBestellung) {      
         
         int beschaffungszeit = 0;
           
 
         for (Produkt produkt : kundenBestellung.gibBestellteProdukte()) {
             if (produkt instanceof Stuhl) {
-               benötigteHolzeinheiten = benötigteHolzeinheiten + ((Stuhl) produkt).gibHolzeinheiten();
-               benötigteSchrauben = benötigteSchrauben + ((Stuhl) produkt).gibSchrauben();
-               benötigteFarbeinheiten = benötigteFarbeinheiten + ((Stuhl) produkt).gibFarbeinheiten();
-               benötigteKartoneinheite = benötigteKartoneinheite + ((Stuhl) produkt).gibKartoneinheiten();
+               benötigteHolzeinheiten += produkt.gibHolzeinheiten();
+               benötigteSchrauben += produkt.gibSchrauben();
+               benötigteFarbeinheiten += produkt.gibFarbeinheiten();
+               benötigteKartoneinheiten += produkt.gibKartoneinheiten();
 
             } else if (produkt instanceof Sofa) {
-               benötigteHolzeinheiten = benötigteHolzeinheiten + ((Sofa) produkt).gibHolzeinheiten();
-               benötigteSchrauben = benötigteSchrauben + ((Sofa) produkt).gibSchrauben();
-               benötigteFarbeinheiten = benötigteFarbeinheiten + ((Sofa) produkt).gibFarbeinheiten();
-               benötigteKartoneinheite = benötigteKartoneinheite + ((Sofa) produkt).gibKartoneinheiten();
+               benötigteHolzeinheiten += produkt.gibHolzeinheiten();
+               benötigteSchrauben += produkt.gibSchrauben();
+               benötigteFarbeinheiten += produkt.gibFarbeinheiten();
+               benötigteKartoneinheiten += produkt.gibKartoneinheiten();
                benötigteKissen = benötigteKissen + ((Sofa) produkt).gibKissen();              
                 
             }
@@ -179,11 +180,11 @@ public class Lager{
         if (gibvorhandeneHolzeinheiten() < benötigteHolzeinheiten
               || gibvorhandeneSchrauben() < benötigteSchrauben
               || gibvorhandeneFarbeeinheiten() < benötigteFarbeinheiten 
-              || gibvorhandeneKartoneinheiten() < benötigteKartoneinheite
+              || gibvorhandeneKartoneinheiten() < benötigteKartoneinheiten
               || gibvorhandeneKissen() < benötigteKissen) {
               beschaffungszeit = 2;
         } else {beschaffungszeit = 0;}
-            // muss man noch einen Stop (break) einbauen?? 
+            //muss man noch einen Stop (break) einbauen?? Glaube nicht, das braucht es doch nur bei while, falls es keine stop condition gibt (flo);
     
     return beschaffungszeit;
         
@@ -198,7 +199,7 @@ public class Lager{
     */
 
     public void lagerAuffuellen() {
-        Lieferant lieferant = new Lieferant(); 
+        Lieferant lieferant = new Lieferant(); //das muss weg. Die Lieferantenklasse wird in main erstellt.
         
         // Überprüfen, ob die Bestellmenge die Lagerkapazität überschreitet.
         if (gibvorhandeneHolzeinheiten() + benötigteHolzeinheiten > maxHolzeinheiten) {
@@ -214,8 +215,8 @@ public class Lager{
             benötigteFarbeinheiten = maxFarbeeinheiten - gibvorhandeneFarbeeinheiten();
         }
 
-        if (gibvorhandeneKartoneinheiten() + benötigteKartoneinheite > maxKartoneinheiten) {
-            benötigteKartoneinheite = maxKartoneinheiten - gibvorhandeneKartoneinheiten();
+        if (gibvorhandeneKartoneinheiten() + benötigteKartoneinheiten > maxKartoneinheiten) {
+            benötigteKartoneinheiten = maxKartoneinheiten - gibvorhandeneKartoneinheiten();
         }
 
         if (gibvorhandeneKissen() + benötigteKissen > maxKissen) {
@@ -223,13 +224,13 @@ public class Lager{
         }
 
         // Bestellung beim Lieferanten aufgeben und auf die Lieferung warten (2 Tage Lieferzeit).
-        lieferant.wareBestellen(benötigteHolzeinheiten, benötigteSchrauben, benötigteFarbeinheiten, benötigteKartoneinheite, benötigteKissen);
+        lieferant.wareBestellen(benötigteHolzeinheiten, benötigteSchrauben, benötigteFarbeinheiten, benötigteKartoneinheiten, benötigteKissen);
 
         // Lagerbestände aktualisieren.
         vorhandeneHolzeinheiten += benötigteHolzeinheiten;
         vorhandeneSchrauben += benötigteSchrauben;
         vorhandeneFarbeeinheiten += benötigteFarbeinheiten;
-        vorhandeneKartoneinheiten += benötigteKartoneinheite;
+        vorhandeneKartoneinheiten += benötigteKartoneinheiten;
         vorhandeneKissen += benötigteKissen;
     }
             

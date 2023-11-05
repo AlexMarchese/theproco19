@@ -10,11 +10,11 @@ public class Bestellung {
     // Instanzvariablen
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
-    private int beschaffungsZeit; // in Minuten
-    private int beschaffungsZeitInTagen; // zur Ausgabe der beschaffungsZeit in Tagen
+    private int beschaffungsZeit; // in Tagen
     private int anzahlSofas;
     private int anzahlStuehle;
     private int bestellungsNr;
+    private float lieferzeit;
 
     /**
      * Konstruktor für die Instanzen der Klasse Bestellung
@@ -28,10 +28,11 @@ public class Bestellung {
         // Instanzvariablen initialisieren
         this.bestellteProdukte = new ArrayList<Produkt>(); 
         this.bestellBestaetigung = false;
-        this.beschaffungsZeit = 1440; // Minuten - Zeit, die es braucht, um alle Produkte einer Bestellung zu produzieren.
+        this.beschaffungsZeit = 0; // Zeit die es braucht, um die Materialien für die bestellten Produkte zu beschaffen
         this.anzahlSofas = anzahlSofas;
         this.anzahlStuehle = anzahlStuehle;
-        this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben 
+        this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben
+        this.lieferzeit = 1;
         this.bestellteProdukteHinzufuegen();        
     }
 
@@ -76,14 +77,13 @@ public class Bestellung {
     }
 
     /**
-     * Methode zum Setzen der Beschaffungszeit. Rechnet die angegebenen Tage in Minuten um und gibt
-     *  der Variable beschaffungsZeit den umgerechneten Wert. Fehlermeldung, wenn ein negativer Wert angegeben wird.
+     * Methode zum Setzen der Beschaffungszeit in Tagen. Fehlermeldung, wenn ein negativer Wert angegeben wird.
      * 
      * @param zeit Zeitangabe in Tagen.
      */
     public void setzeBeschaffungszeit(int zeit) {
         if(zeit >= 0) {
-            this.beschaffungsZeit = zeit * 1140;
+            this.beschaffungsZeit = zeit;
         } else {
             System.out.println("\nDer angegebene Wert (" + zeit + ") ist ungültig:"
                                 + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die grösser oder gleich 0 ist.");
@@ -93,11 +93,10 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Beschaffungszeit in Tagen. Rechnet die Anzahl Minuten in Tage um und gibt diese aus.
      * 
-     * @return beschaffungsZeitInTagen Zeitangabe in Tagen.
+     * @return beschaffungsZeit Zeitangabe in Tagen.
      */
     public int gibBeschaffungszeit() {
-        beschaffungsZeitInTagen = this.beschaffungsZeit / 1440;
-        return beschaffungsZeitInTagen;
+        return this.beschaffungsZeit;
     }
 
     /**
@@ -170,6 +169,24 @@ public class Bestellung {
     public int gibAnzahlSofas() {
         return this.anzahlSofas;
     }
+    
+        /**
+     * Methode zum Setzen der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
+     * 
+     * @param   lieferzeit   Lieferzeit in Tagen
+     */
+    public void setzeLieferzeit(float lieferzeit) {
+        this.lieferzeit = lieferzeit;
+    }    
+    
+    /**
+     * Methode zur Ausgabe der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
+     * 
+     * @return  lieferzeit  Lieferzeit in Tagen
+     */
+    public float gibLieferzeit() {
+        return this.lieferzeit;
+    }
 
     
     /// Methoden
@@ -240,5 +257,56 @@ public class Bestellung {
             return "Die Bestellung mit der Nr. " + this.bestellungsNr +
                             " ist nicht bestätigt."; 
             }
+    }
+    
+    /**
+     * Methode zur Berechnung der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
+     */
+    public void berechneLieferzeit() {
+        float produktionszeit = 0;
+        int standardlieferzeit = 1;
+        
+        for (Produkt produkt : this.gibBestellteProdukte()) {
+            if (produkt instanceof Stuhl) {
+                produktionszeit += produkt.gibTotalProduktionszeit();
+
+            } else if (produkt instanceof Sofa) {            
+                produktionszeit += produkt.gibTotalProduktionszeit();
+            }   
+        }
+        
+        produktionszeit /= 1440; // in Tagen
+        
+        this.setzeLieferzeit(produktionszeit + this.beschaffungsZeit + standardlieferzeit);
+        
+    }
+    
+    /**
+     * Methode zur Ausgabe der Auftragsbestaetigung, welche angibt, wann die bestellten Produkte geliefert werden.
+     * 
+     * @return   String
+     * 
+     */
+    public String auftragsBestaetigung() {
+        String text;
+        
+        berechneLieferzeit();
+        this.bestellBestaetigung = true;
+        
+        
+        if(this.bestellBestaetigung){
+            text = " Die Lieferzeit beträgt " + this.gibLieferzeit() + " Tage.";
+            return this.bestellungBestaetigen() + text;
+            } else {                    
+            text = "Die Bestellung Nr. " + this.bestellungsNr + " konnte nicht bestaetigt werden. Bitte wenden Sie sich an den Kundendienst.";
+            return text;
+            }
+    }
+    
+    /**
+     * Methode zur Ausgabe der Methode auftragsBestaetigung() an die Konsole.
+     */
+    public void auftragsBestaetigungAnKonsole() {
+        System.out.println(this.auftragsBestaetigung());
     }
 }

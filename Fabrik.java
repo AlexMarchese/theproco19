@@ -71,12 +71,18 @@ public class Fabrik {
      * @param   chairs  Anzahl Stühle
     */
     public void bestellungAufgeben(int sofa, int chairs) {
+        Bestellung neueBestellung;
+        
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
         if (sofa < 0 || chairs < 0) {
             throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
         } else {
-            bestellungList.add(new Bestellung(sofa, chairs, this.bestellungsNrCounter));
+            neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
+            bestellungList.add(neueBestellung);
             this.bestellungsNrCounter ++; // Sodass die folgende Bestellung eine höhere Nummer bekommt
+            setzeBeschaffungszeit(berechneBeschaffungsZeit(neueBestellung));
+            neueBestellung.berechneLieferzeit();
+            
         }
     }
 
