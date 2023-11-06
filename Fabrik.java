@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class Fabrik {
     // Hier wird die Klasse initialisiert und als Array-List definiert
     private ArrayList<Bestellung> bestellungList;
-    private int bestellungsNrCounter; 
+    private int bestellungsNrCounter;
+    private Lager lager;
 
     /**
      * Konstruktor für Instanzen der Klasse Fabrik.
@@ -63,9 +64,41 @@ public class Fabrik {
 
     /// Methoden
 
+    
+    /**
+     * Methode zum erstellen eines Lagers. Wird von main aufgerufen.
+     * 
+     *@param    maxHolzeinheiten            Die maximale Kapazität des Lagers für Holzeinheiten.
+     *@param    maxSchrauben                Die maximale Kapazität des Lagers für Schrauben. 
+     *@param    maxFarbeeinheiten           Die maximale Kapazität des Lagers für Farbeinheiten.
+     *@param    maxKartoneinheiten          Die maximale Kapazität des Lagers für Kartoneinheiten.
+     *@param    maxKissen                   Die maximale Kapazität des Lagers für Kissen.
+     *@param    vorhandeneHolzeinheiten     Die aktuelle Anzahl Holzeinheiten im Lager.
+     *@param    vorhandenSchrauben          Die aktuelle Anzahl Schrauben im Lager.
+     *@param    vorhandeneFarbeeinheiten    Die aktuelle Anzahl Farbeinheiten im Lager.
+     *@param    vorhandeneKartoneinheiten   Die aktuelle Anzahl Kartoneinheiten im Lager.
+     *@param    vorhandeneKissen            Die aktuelle Anzahl Kissen im Lager. 
+     */
+    public void erstelleLager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
+        lager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen);
+    }
 
     /**
-     * Methode, um eine Bestellung aufzugeben.
+     * Methode, die überprüft, ob das Lager aufgefüllt werden muss und ggf. die zugehörige Methode der Klasse Lager ausführt.
+     */
+    public void lagerAuffuellen(){    
+        // Fülle das Lager auf, falls ein Material nicht ausreicht.
+        if (lager.gibvorhandeneHolzeinheiten() < lager.benötigteHolzeinheiten
+            || lager.gibvorhandeneSchrauben() < lager.benötigteSchrauben
+            || lager.gibvorhandeneFarbeeinheiten() < lager.benötigteFarbeinheiten 
+            || lager.gibvorhandeneKartoneinheiten() < lager.benötigteKartoneinheiten
+            || lager.gibvorhandeneKissen() < lager.benötigteKissen) {
+                lager.lagerAuffuellen();
+        }
+    }
+    
+    /**
+     * Methode, um eine Bestellung aufzugeben, die Lieferzeit festzulegen und die Bestellung zu bestaetigen.
      * 
      * @param   sofa    Anzahl Sofas
      * @param   chairs  Anzahl Stühle
@@ -80,9 +113,15 @@ public class Fabrik {
             neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
             bestellungList.add(neueBestellung);
             this.bestellungsNrCounter ++; // Sodass die folgende Bestellung eine höhere Nummer bekommt
-            setzeBeschaffungszeit(berechneBeschaffungsZeit(neueBestellung));
-            neueBestellung.berechneLieferzeit();
             
+            // Beschaffungszeit wird berechnet, abgespeichert und Materialen werden ggf. nachbestellt.
+            neueBestellung.setzeBeschaffungszeit(lager.berechneBeschaffungsZeit(neueBestellung));
+            
+            // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
+            neueBestellung.berechneLieferzeit();
+            neueBestellung.bestellungBestaetigen();
+            
+            lagerAuffuellen();
         }
     }
 

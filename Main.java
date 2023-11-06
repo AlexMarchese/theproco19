@@ -15,6 +15,8 @@ public class Main
     public static void main(String[] args) {
         
         Fabrik fabrikStart = new Fabrik();
+        
+        fabrikStart.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
 
         // Bestellung Eingabe durch den Kunden
         Scanner myObj = new Scanner(System.in);

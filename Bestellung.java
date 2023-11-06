@@ -216,7 +216,7 @@ public class Bestellung {
      * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
      * gibt die Information aus, dass die Bestellung bestaetigt ist.
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
-     * Es ermöglicht ein vereinfachter Unit Test.
+     * Es ermöglicht einen vereinfachten Unit Test.
      * 
      * @return   String  Text zur Bestellbestätigung
      * 
@@ -236,14 +236,15 @@ public class Bestellung {
 
         this.bestellBestaetigung = true;
         return "Bestellung (Nr. " + bestellungsNr + ") mit " + this.anzahlSofas + sf +
-        "und " + this.anzahlStuehle + st + "ist bestätigt.";
+        "und " + this.anzahlStuehle + st + "ist bestätigt." +
+            "\nDie Lieferzeit beträgt " + this.lieferzeit + " Tage.";
     }
     
     /**
      * Methode zur Überprüfung des Status der Bestellbestaetigung. 
      * Gibt Auskunft, ob eine Bestellung bestaetigt wurde oder nicht.
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
-     * Es ermöglicht ein vereinfachter Unit Test.
+     * Es ermöglicht einen vereinfachten Unit Test.
      * 
      * @return   String  Text zum Status der Bestellbestätigung
      * 
@@ -261,6 +262,7 @@ public class Bestellung {
     
     /**
      * Methode zur Berechnung der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
+     * Das Ergebnis wird in der Variable abgespeichert.
      */
     public void berechneLieferzeit() {
         float produktionszeit = 0;
@@ -277,36 +279,7 @@ public class Bestellung {
         
         produktionszeit /= 1440; // in Tagen
         
-        this.setzeLieferzeit(produktionszeit + this.beschaffungsZeit + standardlieferzeit);
+        this.lieferzeit = produktionszeit + this.beschaffungsZeit + standardlieferzeit;
         
-    }
-    
-    /**
-     * Methode zur Ausgabe der Auftragsbestaetigung, welche angibt, wann die bestellten Produkte geliefert werden.
-     * 
-     * @return   String
-     * 
-     */
-    public String auftragsBestaetigung() {
-        String text;
-        
-        berechneLieferzeit();
-        this.bestellBestaetigung = true;
-        
-        
-        if(this.bestellBestaetigung){
-            text = " Die Lieferzeit beträgt " + this.gibLieferzeit() + " Tage.";
-            return this.bestellungBestaetigen() + text;
-            } else {                    
-            text = "Die Bestellung Nr. " + this.bestellungsNr + " konnte nicht bestaetigt werden. Bitte wenden Sie sich an den Kundendienst.";
-            return text;
-            }
-    }
-    
-    /**
-     * Methode zur Ausgabe der Methode auftragsBestaetigung() an die Konsole.
-     */
-    public void auftragsBestaetigungAnKonsole() {
-        System.out.println(this.auftragsBestaetigung());
     }
 }

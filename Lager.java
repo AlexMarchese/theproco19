@@ -194,12 +194,12 @@ public class Lager{
     /**
      * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager Kapazität überschreiten und reduziert diese ggf und bestellt anschließend über den Methode wareBestellen die zu Bestellenden Materialien nach.
      * 
-     * @param   lagerAuffuellen    Füllt den Lagerbestand.
+     * @param   lagerAuffuellen    Füllt den Lagerbestand. //WIESO? wo ist der param?
      * 
     */
 
     public void lagerAuffuellen() {
-        Lieferant lieferant = new Lieferant(); //das muss weg. Die Lieferantenklasse wird in main erstellt.
+        Lieferant lieferant = new Lieferant();
         
         // Überprüfen, ob die Bestellmenge die Lagerkapazität überschreitet.
         if (gibvorhandeneHolzeinheiten() + benötigteHolzeinheiten > maxHolzeinheiten) {
@@ -232,6 +232,13 @@ public class Lager{
         vorhandeneFarbeeinheiten += benötigteFarbeinheiten;
         vorhandeneKartoneinheiten += benötigteKartoneinheiten;
         vorhandeneKissen += benötigteKissen;
+        
+        // bwnötigte Einheiten zurücksetzen, um von 0 anzufangen.
+        benötigteHolzeinheiten = 0;
+        benötigteSchrauben = 0;
+        benötigteFarbeinheiten = 0;
+        benötigteKartoneinheiten = 0;
+        benötigteKissen = 0;
     }
             
     /**
@@ -242,8 +249,8 @@ public class Lager{
     */
      public void lagerBestandAusgeben() {
         System.out.println("Aktueller Lagerbestand:");
-        System.out.println("Im Lgaer befinden sich " + vorhandeneHolzeinheiten + " Holzeinheiten von maximal " + maxHolzeinheiten + " Holzeinheiten.");
-        System.out.println("Im Lgaer befinden sich " + vorhandeneSchrauben + " Schrauben von maximal " + maxSchrauben + " Schrauben.");
+        System.out.println("Im Lager befinden sich " + vorhandeneHolzeinheiten + " Holzeinheiten von maximal " + maxHolzeinheiten + " Holzeinheiten.");
+        System.out.println("Im Lager befinden sich " + vorhandeneSchrauben + " Schrauben von maximal " + maxSchrauben + " Schrauben.");
         System.out.println("Im Lager befinden sich " + vorhandeneFarbeeinheiten + " Farbeeinheiten von maximal " + maxFarbeeinheiten + " Farbeeinheiten.");
         System.out.println("Im Lager befinden sich " + vorhandeneKartoneinheiten + "Kartoneinheiten von maximal " + maxKartoneinheiten + " Kartoneinheiten.");
         System.out.println("Im Lager befinden sich " + vorhandeneKissen + "Kissen von maximal" + maxKissen + "Kissen.");
