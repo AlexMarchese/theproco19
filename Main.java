@@ -29,10 +29,19 @@ public class Main
                             " Hier können Sie direkt eine oder mehrere Produkte wählen. Tragen Sie einfach direkt die gewünschte Anzahl ein.\n" +
                             "N.B. Es wird eine ganze Zahl erwartet.\n");
 
-        System.out.print("Anzahl Stühle: ");
-        anzahlStuehle = myObj.nextInt();
-        System.out.print("Anzahl Sofas: ");
-        anzahlSofas = myObj.nextInt();
+
+
+        //TO BE REMOVED
+        anzahlSofas = 2;
+        anzahlStuehle = 2;
+    
+
+
+        // System.out.print("Anzahl Stühle: ");
+        // anzahlStuehle = myObj.nextInt();
+        // System.out.print("Anzahl Sofas: ");
+        // anzahlSofas = myObj.nextInt();
+
         // Theoretisch kann man die Eingabe des Kundens überprüfen. Wir haben aber schon eine Fehler der bei Negativen Werten aufgerufen wird.
         // Bei einem typ der nicht anders als ein int ist, gibt es die Java Standardmeldung. Dadurch wir auf weitere Einschränkungen verzichtet.
 

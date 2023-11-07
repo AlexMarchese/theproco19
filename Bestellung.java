@@ -15,6 +15,7 @@ public class Bestellung {
     private int anzahlStuehle;
     private int bestellungsNr;
     private float lieferzeit;
+    private float produktionszeit;
 
     /**
      * Konstruktor für die Instanzen der Klasse Bestellung
@@ -33,6 +34,7 @@ public class Bestellung {
         this.anzahlStuehle = anzahlStuehle;
         this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben
         this.lieferzeit = 1;
+        this.produktionszeit = 0;
         this.bestellteProdukteHinzufuegen();        
     }
 
@@ -170,7 +172,7 @@ public class Bestellung {
         return this.anzahlSofas;
     }
     
-        /**
+    /**
      * Methode zum Setzen der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
      * 
      * @param   lieferzeit   Lieferzeit in Tagen
@@ -186,6 +188,24 @@ public class Bestellung {
      */
     public float gibLieferzeit() {
         return this.lieferzeit;
+    }
+
+    /**
+     * Methode zum Setzen der Produktionszeit.
+     * 
+     * @param   produktionszeit   Produktionszeit in Tagen
+     */
+    public void setzeProduktionszeit(float produktionszeit) {
+        this.produktionszeit = produktionszeit;
+    }    
+    
+    /**
+     * Methode zur Ausgabe der Produktionszeit.
+     * 
+     * @return  produktionszeit  Produktionszeit in Tagen
+     */
+    public float gibProduktionszeit() {
+        return this.produktionszeit;
     }
 
     
@@ -234,10 +254,18 @@ public class Bestellung {
             st = " Stuhl ";
         }
 
+        // Folgende Zeilen geben das Wort Tag im Singular aus, wenn es nur eins ist.
+        int liefzeit = (int)Math.floor(this.lieferzeit);
+        String tg = " Tage.";
+
+        if (liefzeit == 1) {
+            tg = " Tag.";
+        }
+
         this.bestellBestaetigung = true;
         return "Bestellung (Nr. " + bestellungsNr + ") mit " + this.anzahlSofas + sf +
         "und " + this.anzahlStuehle + st + "ist bestätigt." +
-            "\nDie Lieferzeit beträgt " + this.lieferzeit + " Tage.";
+            "\nDie Lieferzeit beträgt " + liefzeit + tg;
     }
     
     /**
@@ -265,21 +293,22 @@ public class Bestellung {
      * Das Ergebnis wird in der Variable abgespeichert.
      */
     public void berechneLieferzeit() {
-        float produktionszeit = 0;
-        int standardlieferzeit = 1;
+        // float produktionszeit = 0;
+        int standardlieferzeit = 1; //wie wissen wir, dass es 1 ist? -> eher 0
         
         for (Produkt produkt : this.gibBestellteProdukte()) {
+            //Unterscheidung hier ist unnoetig!!
             if (produkt instanceof Stuhl) {
-                produktionszeit += produkt.gibTotalProduktionszeit();
+                this.produktionszeit += produkt.gibTotalProduktionszeit();
 
             } else if (produkt instanceof Sofa) {            
-                produktionszeit += produkt.gibTotalProduktionszeit();
+                this.produktionszeit += produkt.gibTotalProduktionszeit();
             }   
         }
         
-        produktionszeit /= 1440; // in Tagen
+        this.produktionszeit /= 1440; // in Tagen
         
-        this.lieferzeit = produktionszeit + this.beschaffungsZeit + standardlieferzeit;
+        this.lieferzeit = this.produktionszeit + this.beschaffungsZeit + standardlieferzeit;
         
     }
 }

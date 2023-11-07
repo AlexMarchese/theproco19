@@ -88,11 +88,11 @@ public class Fabrik {
      */
     public void lagerAuffuellen(){    
         // Fülle das Lager auf, falls ein Material nicht ausreicht.
-        if (lager.gibvorhandeneHolzeinheiten() < lager.benötigteHolzeinheiten
-            || lager.gibvorhandeneSchrauben() < lager.benötigteSchrauben
-            || lager.gibvorhandeneFarbeeinheiten() < lager.benötigteFarbeinheiten 
-            || lager.gibvorhandeneKartoneinheiten() < lager.benötigteKartoneinheiten
-            || lager.gibvorhandeneKissen() < lager.benötigteKissen) {
+        if (lager.gibvorhandeneHolzeinheiten() < lager.benoetigteHolzeinheiten
+            || lager.gibvorhandeneSchrauben() < lager.benoetigteSchrauben
+            || lager.gibvorhandeneFarbeeinheiten() < lager.benoetigteFarbeinheiten 
+            || lager.gibvorhandeneKartoneinheiten() < lager.benoetigteKartoneinheiten
+            || lager.gibvorhandeneKissen() < lager.benoetigteKissen) {
                 lager.lagerAuffuellen();
         }
     }
@@ -119,7 +119,7 @@ public class Fabrik {
             
             // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
             neueBestellung.berechneLieferzeit();
-            neueBestellung.bestellungBestaetigen();
+            neueBestellung.bestellungBestaetigen(); //noetig? / Muss in der Main Methode ausgegeben werden
             
             lagerAuffuellen();
         }
@@ -139,6 +139,8 @@ public class Fabrik {
         String ausgabe = null;
         int anzahlSofasGesamt = 0;
         int anzahlStuehleGesamt = 0;
+        int produktionsZeitGesamt = 0;
+        int beschaffungsZeitGesamt = 0;
         String best = " Bestellungen.\n\n";
 
         // Folgende Zeile gibt das Wort Bestellung im Singular aus, wenn es nur eine ist.
@@ -152,13 +154,19 @@ public class Fabrik {
         // Information zur jeder Bestellung
         for(Bestellung bestellung : this.bestellungList)   
         {
+            // Berechnung der Produktionszeit zur Angabe in Minuten
+            int prodzeit = (int)Math.floor(bestellung.gibProduktionszeit() * 1440);
             ausgabe += 
                 ("Bestellung Nr.: " + bestellung.gibBestellungsNr() + "\n" +
                 "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() + "\n" +
                 "Anzahl Sofas: " + bestellung.gibAnzahlSofas() + "\n" +
+                "Produktionszeit: " + prodzeit + " Minuten\n" +
+                "Beschaffungszeit: " + bestellung.gibBeschaffungszeit() + " Tage\n" +
                 "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
             anzahlSofasGesamt += bestellung.gibAnzahlSofas();
             anzahlStuehleGesamt += bestellung.gibAnzahlStuehle();
+            produktionsZeitGesamt += prodzeit;
+            beschaffungsZeitGesamt += bestellung.gibBeschaffungszeit();
         }
 
         String st = " Stühlen";
@@ -176,6 +184,8 @@ public class Fabrik {
         // Letzter Teil der Ausgabe (wird nur hinzugefügt, wenn es Bestellungen gab also anzahlSofasGesamt oder anzahlStuehleGesamt größer als 0)
         if (anzahlSofasGesamt > 0 || anzahlStuehleGesamt > 0) {
         ausgabe += ("\nDas entspricht insgesamt " + anzahlStuehleGesamt + st + " und " + anzahlSofasGesamt + sf);
+        ausgabe += (" Die totale Produktionszeit und die totale Beschaffungszeit sind entsprechend " +
+        produktionsZeitGesamt + " Minuten und " + beschaffungsZeitGesamt + " Tage.");
         }
 
         return ausgabe;

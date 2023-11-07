@@ -22,11 +22,11 @@ public class Lager{
     int vorhandeneKartoneinheiten;
     int vorhandeneKissen;
     Lieferant lieferant; 
-    int benötigteHolzeinheiten;
-    int benötigteSchrauben;
-    int benötigteFarbeinheiten;
-    int benötigteKartoneinheiten;
-    int benötigteKissen; 
+    int benoetigteHolzeinheiten;
+    int benoetigteSchrauben;
+    int benoetigteFarbeinheiten;
+    int benoetigteKartoneinheiten;
+    int benoetigteKissen; 
 
     /**
      * Konstruktor für Objekte der Klasse Lager
@@ -53,11 +53,11 @@ public class Lager{
         this.vorhandeneFarbeeinheiten = vorhandeneFarbeeinheiten;
         this.vorhandeneKartoneinheiten = vorhandeneKartoneinheiten;
         this.vorhandeneKissen = vorhandeneKissen;
-        this.benötigteHolzeinheiten = 0;
-        this.benötigteSchrauben = 0;
-        this.benötigteFarbeinheiten = 0;
-        this.benötigteKartoneinheiten = 0;
-        this.benötigteKissen = 0; 
+        this.benoetigteHolzeinheiten = 0;
+        this.benoetigteSchrauben = 0;
+        this.benoetigteFarbeinheiten = 0;
+        this.benoetigteKartoneinheiten = 0;
+        this.benoetigteKissen = 0; 
     }
 
 
@@ -162,26 +162,26 @@ public class Lager{
 
         for (Produkt produkt : kundenBestellung.gibBestellteProdukte()) {
             if (produkt instanceof Stuhl) {
-               benötigteHolzeinheiten += produkt.gibHolzeinheiten();
-               benötigteSchrauben += produkt.gibSchrauben();
-               benötigteFarbeinheiten += produkt.gibFarbeinheiten();
-               benötigteKartoneinheiten += produkt.gibKartoneinheiten();
+               benoetigteHolzeinheiten += produkt.gibHolzeinheiten();
+               benoetigteSchrauben += produkt.gibSchrauben();
+               benoetigteFarbeinheiten += produkt.gibFarbeinheiten();
+               benoetigteKartoneinheiten += produkt.gibKartoneinheiten();
 
             } else if (produkt instanceof Sofa) {
-               benötigteHolzeinheiten += produkt.gibHolzeinheiten();
-               benötigteSchrauben += produkt.gibSchrauben();
-               benötigteFarbeinheiten += produkt.gibFarbeinheiten();
-               benötigteKartoneinheiten += produkt.gibKartoneinheiten();
-               benötigteKissen = benötigteKissen + ((Sofa) produkt).gibKissen();              
+               benoetigteHolzeinheiten += produkt.gibHolzeinheiten();
+               benoetigteSchrauben += produkt.gibSchrauben();
+               benoetigteFarbeinheiten += produkt.gibFarbeinheiten();
+               benoetigteKartoneinheiten += produkt.gibKartoneinheiten();
+               benoetigteKissen = benoetigteKissen + ((Sofa) produkt).gibKissen();              
                 
             }
         }
             
-        if (gibvorhandeneHolzeinheiten() < benötigteHolzeinheiten
-              || gibvorhandeneSchrauben() < benötigteSchrauben
-              || gibvorhandeneFarbeeinheiten() < benötigteFarbeinheiten 
-              || gibvorhandeneKartoneinheiten() < benötigteKartoneinheiten
-              || gibvorhandeneKissen() < benötigteKissen) {
+        if (gibvorhandeneHolzeinheiten() < benoetigteHolzeinheiten
+              || gibvorhandeneSchrauben() < benoetigteSchrauben
+              || gibvorhandeneFarbeeinheiten() < benoetigteFarbeinheiten 
+              || gibvorhandeneKartoneinheiten() < benoetigteKartoneinheiten
+              || gibvorhandeneKissen() < benoetigteKissen) {
               beschaffungszeit = 2;
         } else {beschaffungszeit = 0;}
             //muss man noch einen Stop (break) einbauen?? Glaube nicht, das braucht es doch nur bei while, falls es keine stop condition gibt (flo);
@@ -198,61 +198,92 @@ public class Lager{
      * 
     */
 
-    public void lagerAuffuellen() {
+public void lagerAuffuellen() {      //Methode wird getriggert sobald irgendetwas benoetigt wird und es nicht vorhanden ist
         Lieferant lieferant = new Lieferant();
-        
-        // Überprüfen, ob die Bestellmenge die Lagerkapazität überschreitet.
-        if (gibvorhandeneHolzeinheiten() + benötigteHolzeinheiten > maxHolzeinheiten) {
-            // Bestellmenge reduzieren, um die Lagerkapazität nicht zu überschreiten.
-            benötigteHolzeinheiten = maxHolzeinheiten - gibvorhandeneHolzeinheiten();
-        } 
 
-        if (gibvorhandeneSchrauben() + benötigteSchrauben > maxSchrauben) {
-            benötigteSchrauben = maxSchrauben - gibvorhandeneSchrauben();
-        }
-
-        if (gibvorhandeneFarbeeinheiten() + benötigteFarbeinheiten > maxFarbeeinheiten) {
-            benötigteFarbeinheiten = maxFarbeeinheiten - gibvorhandeneFarbeeinheiten();
-        }
-
-        if (gibvorhandeneKartoneinheiten() + benötigteKartoneinheiten > maxKartoneinheiten) {
-            benötigteKartoneinheiten = maxKartoneinheiten - gibvorhandeneKartoneinheiten();
-        }
-
-        if (gibvorhandeneKissen() + benötigteKissen > maxKissen) {
-            benötigteKissen = maxKissen - gibvorhandeneKissen();
-        }
+        int zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten;
+        int zuBestellendeSchrauben = maxSchrauben - vorhandeneSchrauben;
+        int zuBestellendeFarbeinheiten = maxFarbeeinheiten - vorhandeneFarbeeinheiten;
+        int zuBestellendeKartoneinheiten = maxKartoneinheiten - vorhandeneKartoneinheiten;
+        int zuBestellendeKissen = maxKissen - vorhandeneKissen;
 
         // Bestellung beim Lieferanten aufgeben und auf die Lieferung warten (2 Tage Lieferzeit).
-        lieferant.wareBestellen(benötigteHolzeinheiten, benötigteSchrauben, benötigteFarbeinheiten, benötigteKartoneinheiten, benötigteKissen);
-
+        lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
         // Lagerbestände aktualisieren.
-        vorhandeneHolzeinheiten += benötigteHolzeinheiten;
-        vorhandeneSchrauben += benötigteSchrauben;
-        vorhandeneFarbeeinheiten += benötigteFarbeinheiten;
-        vorhandeneKartoneinheiten += benötigteKartoneinheiten;
-        vorhandeneKissen += benötigteKissen;
+        //Das muesste vllcht erst nach 2 Tagen passieren, sonst ist die Angabe beim Kunden falsch
+        //vllcht am besten eine wirdgeliefert Variable zu haben
+        vorhandeneHolzeinheiten += zuBestellendeHolzeinheiten;
+        vorhandeneSchrauben += zuBestellendeSchrauben;
+        vorhandeneFarbeeinheiten += zuBestellendeFarbeinheiten;
+        vorhandeneKartoneinheiten += zuBestellendeKartoneinheiten;
+        vorhandeneKissen += zuBestellendeKissen;
         
-        // bwnötigte Einheiten zurücksetzen, um von 0 anzufangen.
-        benötigteHolzeinheiten = 0;
-        benötigteSchrauben = 0;
-        benötigteFarbeinheiten = 0;
-        benötigteKartoneinheiten = 0;
-        benötigteKissen = 0;
+        // benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist.
+        benoetigteHolzeinheiten = Math.max(0, benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
+        benoetigteSchrauben = Math.max(0, benoetigteSchrauben - zuBestellendeSchrauben);
+        benoetigteFarbeinheiten = Math.max(0, benoetigteFarbeinheiten - zuBestellendeFarbeinheiten);
+        benoetigteKartoneinheiten = Math.max(0, benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
+        benoetigteKissen = Math.max(0, benoetigteKissen - zuBestellendeKissen);
+
+        //kann vllt auch vereinfacht werden (alex)
+        //ich wuerde die Methode wie in den Notes geschrieben implementieren, alles Bestellen bis zum Max
+        //Begruenden: der Preis veraendert sich nicht im Laufe der Zeit, noch kostet es Materialiern am Lager
+        //zu haben, noch gehen sie kaputt. Vorteil: weniger warten fuer den Kunden.
+        //Impliziert, dass diese Methode nicht bei jeder Bestellung aufgerufen wird.
+        //wenn etwas benötigt wird (e.g. für  1k Stühle verlieren wir so die info)
+        //bei jeder Best an den Lieferer sollte die Menge bei benötgt verringert werden.
+        
+        // // Überprüfen, ob die Bestellmenge die Lagerkapazität überschreitet.
+        // if (gibvorhandeneHolzEinheiten() + benötigteHolzeinheiten > maxHolzeinheiten) {
+        //     // Bestellmenge reduzieren, um die Lagerkapazität nicht zu überschreiten.
+        //     benötigteHolzeinheiten = maxHolzeinheiten - gibvorhandeneHolzEinheiten(); // ist es nicht this.methode()?
+        // } 
+
+        // if (gibvorhandeneSchrauben() + benötigteSchrauben > maxSchrauben) {
+        //     benötigteSchrauben = maxSchrauben - gibvorhandeneSchrauben();
+        // }
+
+        // if (gibvorhandeneFarbeEinheiten() + benötigteFarbeinheiten > maxFarbeeinheiten) { //FarbeEinheiten eigentlich
+        //     benötigteFarbeinheiten = maxFarbeeinheiten - gibvorhandeneFarbeEinheiten();
+        // }
+
+        // if (gibvorhandeneKartonEinheiten() + benötigteKartoneinheiten > maxKartoneinheiten) {
+        //     benötigteKartoneinheiten = maxKartoneinheiten - gibvorhandeneKartonEinheiten();
+        // }
+
+        // if (gibvorhandeneKissen() + benötigteKissen > maxKissen) {
+        //     benötigteKissen = maxKissen - gibvorhandeneKissen();
+        // }
+
+        // // Bestellung beim Lieferanten aufgeben und auf die Lieferung warten (2 Tage Lieferzeit).
+        // lieferant.wareBestellen(benötigteHolzeinheiten, benötigteSchrauben, benötigteFarbeinheiten, benötigteKartoneinheiten, benötigteKissen);
+
+        // // Lagerbestände aktualisieren.
+        // vorhandeneHolzeinheiten += benötigteHolzeinheiten;
+        // vorhandeneSchrauben += benötigteSchrauben;
+        // vorhandeneFarbeeinheiten += benötigteFarbeinheiten;
+        // vorhandeneKartoneinheiten += benötigteKartoneinheiten;
+        // vorhandeneKissen += benötigteKissen;
+        
+        // // benötigte Einheiten zurücksetzen, um von 0 anzufangen.
+        // benötigteHolzeinheiten = 0;
+        // benötigteSchrauben = 0;
+        // benötigteFarbeinheiten = 0;
+        // benötigteKartoneinheiten = 0;
+        // benötigteKissen = 0;
     }
             
     /**
      * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
      * 
-     * @return   Sting    Text zum Lagerbestand
+     * @return   String    Text zum Lagerbestand
      * 
     */
-     public void lagerBestandAusgeben() {
-        System.out.println("Aktueller Lagerbestand:");
-        System.out.println("Im Lager befinden sich " + vorhandeneHolzeinheiten + " Holzeinheiten von maximal " + maxHolzeinheiten + " Holzeinheiten.");
-        System.out.println("Im Lager befinden sich " + vorhandeneSchrauben + " Schrauben von maximal " + maxSchrauben + " Schrauben.");
-        System.out.println("Im Lager befinden sich " + vorhandeneFarbeeinheiten + " Farbeeinheiten von maximal " + maxFarbeeinheiten + " Farbeeinheiten.");
-        System.out.println("Im Lager befinden sich " + vorhandeneKartoneinheiten + "Kartoneinheiten von maximal " + maxKartoneinheiten + " Kartoneinheiten.");
-        System.out.println("Im Lager befinden sich " + vorhandeneKissen + "Kissen von maximal" + maxKissen + "Kissen.");
+     public String lagerBestandAusgeben() {
+        return "Aktueller Lagerbestand:\nIm Lager befinden sich " + vorhandeneHolzeinheiten + " Holzeinheiten von maximal " + 
+        maxHolzeinheiten + " Holzeinheiten.\nIm Lager befinden sich " + vorhandeneSchrauben + " Schrauben von maximal " + maxSchrauben + 
+        " Schrauben.\nIm Lager befinden sich " + vorhandeneFarbeeinheiten + " Farbeeinheiten von maximal " + maxFarbeeinheiten + 
+        " Farbeeinheiten.\nIm Lager befinden sich " + vorhandeneKartoneinheiten + "Kartoneinheiten von maximal " + maxKartoneinheiten + 
+        " Kartoneinheiten.\nIm Lager befinden sich " + vorhandeneKissen + "Kissen von maximal" + maxKissen + "Kissen.";
     }
 }
