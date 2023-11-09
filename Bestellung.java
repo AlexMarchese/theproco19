@@ -56,7 +56,7 @@ public class Bestellung {
      * 
      * @return  bestellteProdukte   ArrayList<Produkt> mit den Referenzen zu den bestellten Produkten.
      */
-    public ArrayList<Produkt> gibBestellteProdukte() {
+    public ArrayList<Produkt> gibBestellteProdukte() { // N.B. Entspricht liefereBestellteProdukte() in der Musterlösung
         return this.bestellteProdukte;
     }
     
@@ -267,6 +267,30 @@ public class Bestellung {
         "und " + this.anzahlStuehle + st + "ist bestätigt." +
             "\nDie Lieferzeit beträgt " + liefzeit + tg;
     }
+
+    // /**
+    //  * Methode zur Lieferung der Bestellung. Gibt die Information aus, dass die Bestellung geliefert wird.
+    //  * 
+    //  * @return   String  Text zur Bestelllieferung
+    //  * 
+    //  */
+    // public String bestellungLiefern() {
+
+    //     // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.
+    //     String sf = " Sofas ";
+    //     String st = " Stühlen ";
+
+    //     if (this.anzahlSofas == 1) {
+    //         sf = " Sofa ";
+    //     }
+    //     if (this.anzahlSofas == 1) {
+    //         st = " Stuhl ";
+    //     }
+
+    //     this.bestellBestaetigung = true;
+    //     return "Bestellung (Nr. " + bestellungsNr + ") mit " + this.anzahlSofas + sf +
+    //     "und " + this.anzahlStuehle + st + "wird geliefert";
+    // }
     
     /**
      * Methode zur Überprüfung des Status der Bestellbestaetigung. 

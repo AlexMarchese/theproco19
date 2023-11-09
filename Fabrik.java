@@ -88,11 +88,11 @@ public class Fabrik {
      */
     public void lagerAuffuellen(){    
         // Fülle das Lager auf, falls ein Material nicht ausreicht.
-        if (lager.gibvorhandeneHolzeinheiten() < lager.benoetigteHolzeinheiten
-            || lager.gibvorhandeneSchrauben() < lager.benoetigteSchrauben
-            || lager.gibvorhandeneFarbeeinheiten() < lager.benoetigteFarbeinheiten 
-            || lager.gibvorhandeneKartoneinheiten() < lager.benoetigteKartoneinheiten
-            || lager.gibvorhandeneKissen() < lager.benoetigteKissen) {
+        if (lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten() < lager.benoetigteHolzeinheiten
+            || lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben() < lager.benoetigteSchrauben
+            || lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten() < lager.benoetigteFarbeeinheiten 
+            || lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten() < lager.benoetigteKartoneinheiten
+            || lager.gibvorhandeneKissen() + lager.gibInLieferungKissen() < lager.benoetigteKissen) {
                 lager.lagerAuffuellen();
         }
     }
@@ -119,9 +119,10 @@ public class Fabrik {
             
             // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
             neueBestellung.berechneLieferzeit();
-            neueBestellung.bestellungBestaetigen(); //noetig? / Muss in der Main Methode ausgegeben werden
+            // neueBestellung.bestellungBestaetigen(); //noetig? 
             
             lagerAuffuellen();
+            // erstelleProdukte();
         }
     }
 
@@ -186,10 +187,104 @@ public class Fabrik {
         ausgabe += ("\nDas entspricht insgesamt " + anzahlStuehleGesamt + st + " und " + anzahlSofasGesamt + sf);
         ausgabe += (" Die totale Produktionszeit und die totale Beschaffungszeit sind entsprechend " +
         produktionsZeitGesamt + " Minuten und " + beschaffungsZeitGesamt + " Tage.");
+        
         }
 
         return ausgabe;
         
     }
+
+    /**
+     * Methode zur Ausgabe der Situation des Lagers.
+     * @return  ausgabe Text zur Ausgabe der Situation des Lagers
+     *
+     */
+    public String lagerSituation(){
+        String ausgabe = "Lagersituation";
+
+        ausgabe += ("\nLager:               Holzeinheiten - " + lager.gibvorhandeneHolzeinheiten() + " | Schrauben - " + lager.gibvorhandeneSchrauben() + 
+        " | Farbeeineiten - " + lager.gibvorhandeneFarbeeinheiten() + " | Kartoneineiten - " + lager.gibvorhandeneKartoneinheiten() + 
+        " | Kissen - " + lager.gibvorhandeneKissen());
+        ausgabe += ("\nWird noch geliefert: Holzeinheiten - " + lager.gibInLieferungHolzeinheiten() + "  | Schrauben - " + lager.gibInLieferungSchrauben() + 
+        "  | Farbeeineiten - " + lager.gibInLieferungFarbeeinheiten() + "  | Kartoneineiten - " + lager.gibInLieferungKartoneinheiten() + 
+        "  | Kissen - " + lager.gibInLieferungKissen());
+
+        return ausgabe;
+    }
+    
+    /**
+     * Methode der Erstellung der Produkte aus den Bestellungen. 
+     * Solange es genug Einheiten für die Bestellungen gibt, werden die Produkte erstellt und geliefert.
+     */
+    public void erstelleProdukte(){
+
+        // Variablen zur Ermittlung der für jede Bestellung benötigte Einheiten
+        int bestHolz = 0;
+        int bestSchrauben = 0;
+        int bestFarbe = 0;
+        int bestKarton = 0;
+        int bestKissen = 0;
+
+        // Variable zur Ermittlung der Anzahl an Bestellungen, die entfernt werden sollen
+        int anzahl = 0;
+
+
+        for(Bestellung bestellung : this.bestellungList){
+
+            // Ermittlung der Werte
+            for (Produkt produkt : bestellung.gibBestellteProdukte()) {
+                if (produkt instanceof Stuhl) {
+                   bestHolz += produkt.gibHolzeinheiten();
+                   bestSchrauben += produkt.gibSchrauben();
+                   bestFarbe += produkt.gibFarbeinheiten();
+                   bestKarton += produkt.gibKartoneinheiten();
+    
+                } else if (produkt instanceof Sofa) {
+                   bestHolz += produkt.gibHolzeinheiten();
+                   bestSchrauben += produkt.gibSchrauben();
+                   bestFarbe += produkt.gibFarbeinheiten();
+                   bestKarton += produkt.gibKartoneinheiten();
+                   bestKissen = bestKissen + ((Sofa) produkt).gibKissen();              
+                    
+                }
+            }
+            // Überprüfung, ob genug Einheiten vorhanden sind
+            if (lager.gibvorhandeneHolzeinheiten() < bestHolz || lager.gibvorhandeneSchrauben() < bestSchrauben || lager.gibvorhandeneFarbeeinheiten() < bestFarbe || lager.gibvorhandeneKartoneinheiten() < bestKarton || lager.gibvorhandeneKissen() < bestKissen) {
+                break;
+            } else {
+                // Benötigte Einheiten werden zur Produktion eingesetzt und somit von den verfügbaren weggenommen.
+                lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() - bestHolz);
+                lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() - bestSchrauben);
+                lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() - bestFarbe);
+                lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() - bestKarton);
+                lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() - bestKissen);
+                
+                anzahl ++;
+                // liefereBestellung(bestellung);
+            }
+        
+        }
+
+        // // this.bestellungList.remove(0);
+        for (int i = 0; i < anzahl; i++) {
+            this.bestellungList.remove(0);
+        }
+
+
+    }
+    
+    // /** TO COMPLETE
+    //  * Methode der Lieferung der Produkte aus den Bestellungen.
+    //  * 
+    //  * @param   best    
+    //  * @return 
+    //  */
+    // public void liefereBestellung(Bestellung best){
+
+    //     // Bestellung wird von der Liste entfernt
+    //     this.bestellungList.remove(0);
+    //     // Und geliefert
+    //     best.bestellungLiefern();
+    // }
     
 }

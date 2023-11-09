@@ -59,11 +59,21 @@ public class Main
         // Bestellung ohne Eingabe durch den Kunden
         fabrikStart.bestellungAufgeben(1, 1);
 
+        // Weitere Bestellung
+        System.out.println("\nEine weitere Bestellung mit 7 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        fabrikStart.bestellungAufgeben(9, 1);
+
         // Anzeige für den Aeki Mitarbeitenden
         System.out.println("\n\n_______________________________________________________");
         System.out.println("\nLieber Aeki Mitarbeitender.");
         System.out.println(fabrikStart.bestellungenAusgeben());
+        System.out.println(fabrikStart.lagerSituation());
         
+
+        System.out.println("Produkte werden erstellt");
+        fabrikStart.erstelleProdukte();
+        System.out.println(fabrikStart.bestellungenAusgeben());
+        System.out.println(fabrikStart.lagerSituation());
     }
 
 }
