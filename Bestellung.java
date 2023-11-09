@@ -335,4 +335,45 @@ public class Bestellung {
         this.lieferzeit = this.produktionszeit + this.beschaffungsZeit + standardlieferzeit;
         
     }
+
+    /**
+     * Methode um festzustellen, wieviele Einheiten der jeweiligen Produkte für die Bestellung nötig sind.
+     * 
+     * @return 
+     */
+
+     public int[] anzahlEinheiten(){
+
+        // Variablen zur Ermittlung der für jede Bestellung benötigte Einheiten
+        int totHolz = 0;
+        int totSchrauben = 0;
+        int totFarbe = 0;
+        int totKarton = 0;
+        int totKissen = 0;
+
+        // Ermittlung der Werte
+        for (Produkt produkt : this.gibBestellteProdukte()) {
+
+            
+
+            if (produkt instanceof Stuhl) {
+            totHolz += produkt.gibHolzeinheiten();
+            totSchrauben += produkt.gibSchrauben();
+            totFarbe += produkt.gibFarbeinheiten();
+            totKarton += produkt.gibKartoneinheiten();
+
+            } else if (produkt instanceof Sofa) {
+            totHolz += produkt.gibHolzeinheiten();
+            totSchrauben += produkt.gibSchrauben();
+            totFarbe += produkt.gibFarbeinheiten();
+            totKarton += produkt.gibKartoneinheiten();
+            totKissen = totKissen + ((Sofa) produkt).gibKissen();              
+                
+                }
+
+            }
+        return new int[]{totHolz, totSchrauben, totFarbe, totKarton, totKissen};
+        }
+
+        
 }

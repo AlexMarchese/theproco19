@@ -112,6 +112,14 @@ public class Lager{
     }
 
     /**
+     * Methode, um die Anzahl an Holzeinheiten in Lieferung zu setzen.
+     * @param   inLieferungHolzeinheiten    Die momentane Anzahl an Holzeinheiten in Lieferung in numerischer Form.
+     */
+    public void setzeInLieferungHolzeinheiten(int inLieferungHolzeinheiten) {
+        this.inLieferungHolzeinheiten = inLieferungHolzeinheiten;
+    }
+
+    /**
      * Methode, um die maximale Lagerkapazität an Schrauben anzupassen.
      * @param   maxSchrauben    Die maximale Anzahl Schrauben in numerischer Form (Lagerkapazität).
      */
@@ -144,6 +152,14 @@ public class Lager{
     }
 
     /**
+     * Methode, um die Anzahl an Schrauben in Lieferung zu setzen.
+     * @param   inLieferungSchrauben    Die momentane Anzahl an Schrauben in Lieferung in numerischer Form.
+     */
+    public void setzeInLieferungSchrauben(int inLieferungSchrauben) {
+        this.inLieferungSchrauben = inLieferungSchrauben;
+    }
+
+    /**
      * Methode, um die maximale Lagerkapazität an Farbeeinheiten anzupassen.
      * @param   maxFarbeeinheiten    Die maximale Anzahl Farbeeinheiten in numerischer Form (Lagerkapazität).
      */
@@ -173,6 +189,14 @@ public class Lager{
      */
     public int gibInLieferungFarbeeinheiten() {
         return this.inLieferungFarbeeinheiten;
+    }
+
+    /**
+     * Methode, um die Anzahl an Farbeinheiten in Lieferung zu setzen.
+     * @param   inLieferungFarbeeinheiten    Die momentane Anzahl an Farbeinheiten in Lieferung in numerischer Form.
+     */
+    public void setzeInLieferungFarbeeinheiten(int inLieferungFarbeeinheiten) {
+        this.inLieferungFarbeeinheiten = inLieferungFarbeeinheiten;
     }
     
     /**
@@ -208,6 +232,14 @@ public class Lager{
     }
 
     /**
+     * Methode, um die Anzahl an Kartoneinheiten in Lieferung zu setzen.
+     * @param   inLieferungKartoneinheiten    Die momentane Anzahl an Kartoneinheiten in Lieferung in numerischer Form.
+     */
+    public void setzeInLieferungKartoneinheiten(int inLieferungKartoneinheiten) {
+        this.inLieferungKartoneinheiten = inLieferungKartoneinheiten;
+    }
+
+    /**
      * Methode, um die maximale Lagerkapazität an Kissen anzupassen.
      * @param   maxKissen    Die maximale Anzahl Kissen in numerischer Form (Lagerkapazität).
      */
@@ -238,6 +270,14 @@ public class Lager{
     public int gibInLieferungKissen() {
         return this.inLieferungKissen;
     }
+
+    /**
+     * Methode, um die Anzahl an Kissen in Lieferung zu setzen.
+     * @param   inLieferungKissen    Die momentane Anzahl an Kissen in Lieferung in numerischer Form.
+     */
+    public void setzeInLieferungKissen(int inLieferungKissen) {
+        this.inLieferungKissen = inLieferungKissen;
+    }
     
     
     /// Methoden
@@ -253,38 +293,44 @@ public class Lager{
     public int berechneBeschaffungsZeit(Bestellung kundenBestellung) {      
         
         int beschaffungszeit = 0;
-          
+        
+        int [] benoetigteEinheiten = kundenBestellung.anzahlEinheiten();
+        this.benoetigteHolzeinheiten = benoetigteEinheiten[0];
+        this.benoetigteSchrauben = benoetigteEinheiten[1];
+        this.benoetigteFarbeeinheiten = benoetigteEinheiten[2];
+        this.benoetigteKartoneinheiten = benoetigteEinheiten[3];
+        this.benoetigteKissen = benoetigteEinheiten[4];
 
-        for (Produkt produkt : kundenBestellung.gibBestellteProdukte()) {
-            if (produkt instanceof Stuhl) {
-               benoetigteHolzeinheiten += produkt.gibHolzeinheiten();
-               benoetigteSchrauben += produkt.gibSchrauben();
-               benoetigteFarbeeinheiten += produkt.gibFarbeinheiten();
-               benoetigteKartoneinheiten += produkt.gibKartoneinheiten();
+        // for (Produkt produkt : kundenBestellung.gibBestellteProdukte()) {
+        //     if (produkt instanceof Stuhl) {
+        //        this.benoetigteHolzeinheiten += produkt.gibHolzeinheiten();
+        //        this.benoetigteSchrauben += produkt.gibSchrauben();
+        //        this.benoetigteFarbeeinheiten += produkt.gibFarbeinheiten();
+        //        this.benoetigteKartoneinheiten += produkt.gibKartoneinheiten();
 
-            } else if (produkt instanceof Sofa) {
-               benoetigteHolzeinheiten += produkt.gibHolzeinheiten();
-               benoetigteSchrauben += produkt.gibSchrauben();
-               benoetigteFarbeeinheiten += produkt.gibFarbeinheiten();
-               benoetigteKartoneinheiten += produkt.gibKartoneinheiten();
-               benoetigteKissen = benoetigteKissen + ((Sofa) produkt).gibKissen();              
+        //     } else if (produkt instanceof Sofa) {
+        //        this.benoetigteHolzeinheiten += produkt.gibHolzeinheiten();
+        //        this.benoetigteSchrauben += produkt.gibSchrauben();
+        //        this.benoetigteFarbeeinheiten += produkt.gibFarbeinheiten();
+        //        this.benoetigteKartoneinheiten += produkt.gibKartoneinheiten();
+        //        this.benoetigteKissen = this.benoetigteKissen + ((Sofa) produkt).gibKissen();              
                 
-            }
-        }
+        //     }
+        // }
         
         // Produkte die benötigt werden sind weder im Lager noch unterwegs.
-        if (gibvorhandeneHolzeinheiten() + inLieferungHolzeinheiten < benoetigteHolzeinheiten
-              || gibvorhandeneSchrauben() + inLieferungSchrauben < benoetigteSchrauben
-              || gibvorhandeneFarbeeinheiten() + inLieferungFarbeeinheiten < benoetigteFarbeeinheiten 
-              || gibvorhandeneKartoneinheiten() + inLieferungKartoneinheiten < benoetigteKartoneinheiten
-              || gibvorhandeneKissen() + inLieferungKissen < benoetigteKissen) {
+        if (this.gibvorhandeneHolzeinheiten() + this.inLieferungHolzeinheiten < this.benoetigteHolzeinheiten
+              || this.gibvorhandeneSchrauben() + this.inLieferungSchrauben < this.benoetigteSchrauben
+              || this.gibvorhandeneFarbeeinheiten() + this.inLieferungFarbeeinheiten < this.benoetigteFarbeeinheiten 
+              || this.gibvorhandeneKartoneinheiten() + this.inLieferungKartoneinheiten < this.benoetigteKartoneinheiten
+              || this.gibvorhandeneKissen() + this.inLieferungKissen < this.benoetigteKissen) {
               beschaffungszeit = 2;
         // Produkte die benötigt werden sind noch nicht im Lager aber unterwegs.
-        } else if (gibvorhandeneHolzeinheiten() < benoetigteHolzeinheiten
-              || gibvorhandeneSchrauben() < benoetigteSchrauben
-              || gibvorhandeneFarbeeinheiten() < benoetigteFarbeeinheiten
-              || gibvorhandeneKartoneinheiten() < benoetigteKartoneinheiten
-              || gibvorhandeneKissen() < benoetigteKissen){beschaffungszeit = 1;}
+        } else if (this.gibvorhandeneHolzeinheiten() < this.benoetigteHolzeinheiten
+              || this.gibvorhandeneSchrauben() < this.benoetigteSchrauben
+              || this.gibvorhandeneFarbeeinheiten() < this.benoetigteFarbeeinheiten
+              || this.gibvorhandeneKartoneinheiten() < this.benoetigteKartoneinheiten
+              || this.gibvorhandeneKissen() < this.benoetigteKissen){beschaffungszeit = 1;}
         
         // Benötigte Produkte sind im Lager
         else {beschaffungszeit = 0;}
@@ -305,29 +351,29 @@ public class Lager{
 public void lagerAuffuellen() {      //Methode wird getriggert sobald irgendetwas benoetigt wird und es nicht vorhanden ist
         Lieferant lieferant = new Lieferant();
 
-        int zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten;
-        int zuBestellendeSchrauben = maxSchrauben - vorhandeneSchrauben;
-        int zuBestellendeFarbeinheiten = maxFarbeeinheiten - vorhandeneFarbeeinheiten;
-        int zuBestellendeKartoneinheiten = maxKartoneinheiten - vorhandeneKartoneinheiten;
-        int zuBestellendeKissen = maxKissen - vorhandeneKissen;
+        int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
+        int zuBestellendeSchrauben = this.maxSchrauben - this.vorhandeneSchrauben;
+        int zuBestellendeFarbeinheiten = this.maxFarbeeinheiten - this.vorhandeneFarbeeinheiten;
+        int zuBestellendeKartoneinheiten = this.maxKartoneinheiten - this.vorhandeneKartoneinheiten;
+        int zuBestellendeKissen = this.maxKissen - this.vorhandeneKissen;
 
         // Bestellung beim Lieferanten aufgeben und auf die Lieferung warten (2 Tage Lieferzeit).
         lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
         // Lagerbestände aktualisieren.
         //Das muesste vllcht erst nach 2 Tagen passieren, sonst ist die Angabe beim Kunden falsch
         //vllcht am besten eine wirdgeliefert Variable zu haben
-        inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
-        inLieferungSchrauben += zuBestellendeSchrauben;
-        inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
-        inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
-        inLieferungKissen += zuBestellendeKissen;
+        this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
+        this.inLieferungSchrauben += zuBestellendeSchrauben;
+        this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
+        this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
+        this.inLieferungKissen += zuBestellendeKissen;
         
         // benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist.
-        benoetigteHolzeinheiten = Math.max(0, benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
-        benoetigteSchrauben = Math.max(0, benoetigteSchrauben - zuBestellendeSchrauben);
-        benoetigteFarbeeinheiten = Math.max(0, benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
-        benoetigteKartoneinheiten = Math.max(0, benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
-        benoetigteKissen = Math.max(0, benoetigteKissen - zuBestellendeKissen);
+        this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
+        this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
+        this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
+        this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
+        this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
 
         //kann vllt auch vereinfacht werden (alex)
         //ich wuerde die Methode wie in den Notes geschrieben implementieren, alles Bestellen bis zum Max
@@ -389,5 +435,49 @@ public void lagerAuffuellen() {      //Methode wird getriggert sobald irgendetwa
         " Schrauben.\nIm Lager befinden sich " + vorhandeneFarbeeinheiten + " Farbeeinheiten von maximal " + maxFarbeeinheiten + 
         " Farbeeinheiten.\nIm Lager befinden sich " + vorhandeneKartoneinheiten + "Kartoneinheiten von maximal " + maxKartoneinheiten + 
         " Kartoneinheiten.\nIm Lager befinden sich " + vorhandeneKissen + "Kissen von maximal" + maxKissen + "Kissen.";
+    }
+
+    /**
+     * Die Methode überprüft, dass die Bestellung (entsprechend der Größe des Lagers) produziert werden kann, wenn es die einzige wäre.
+     * 
+     * @param TO DO
+     * @return TO DO
+     */
+    public boolean anzahlBasierendAufLager(int sofa, int chairs){
+
+        // Zählt Einheiten, die für eine Bestellung benötigt werden
+        Bestellung testBest = new Bestellung(sofa, chairs, 0);
+        int [] noetig = testBest.anzahlEinheiten();
+        int [] lagerMax = {this.maxHolzeinheiten, this.maxSchrauben, this.maxFarbeeinheiten, this.maxKartoneinheiten, this.maxKissen};
+        
+        for (int i = 0; i < noetig.length; i++) {
+            if (noetig[i] > lagerMax[i]) {
+                return true; // Irgendeinwert ist höher als das Maximum am Lager
+                }
+            }
+        return false;
+    
+    }
+
+    /**
+     * Die Methode überprüft, dass die Bestellung (entsprechend der Größe des Lagers und den verfügbaren Materialien) produziert werden kann.
+     * 
+     * @param TO DO
+     * @return TO DO
+     */
+    public boolean anzahlBasierendAufMaterialien(int sofa, int chairs){
+
+        // Zählt Einheiten, die für eine Bestellung benötigt werden
+        Bestellung testBest = new Bestellung(sofa, chairs, 0);
+        int [] noetig = testBest.anzahlEinheiten();
+        int [] lagerVerfuegbar = {this.vorhandeneHolzeinheiten, this.vorhandeneSchrauben, this.vorhandeneFarbeeinheiten, this.vorhandeneKartoneinheiten, this.vorhandeneKissen};
+        
+        for (int i = 0; i < noetig.length; i++) {
+            if (noetig[i] > lagerVerfuegbar[i]) {
+                return true; // Irgendeinwert ist höher als das verfügbare im Lager
+                }
+            }
+        return false;
+    
     }
 }

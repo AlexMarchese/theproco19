@@ -109,7 +109,16 @@ public class Fabrik {
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
         if (sofa < 0 || chairs < 0) {
             throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
-        } else {
+        } 
+        // Überprüft, dass die Bestellung (entsprechend der Größe des Lagers) produziert werden kann, wenn es die einzige wäre.
+        else if (lager.anzahlBasierendAufLager(sofa, chairs)){
+            throw new IllegalArgumentException("Bitte bestellen Sie eine Kleinere Menge. Wir sind leider nicht ausgerüstet, um so viel auf einmal zu produzieren.");
+        } 
+        // Überprüft, dass die Bestellung (entsprechend der Größe des Lagers und den verfügbaren Materialien) produziert werden kann.
+        else if (lager.anzahlBasierendAufLager(sofa, chairs)){
+            throw new IllegalArgumentException("Bitte bestellen Sie eine Kleinere Menge. Heute haben wir nicht mehr genug Materialien, um die angegebene Menge fristgerecht zu erstellen.");
+        }
+        else { //2 else if hier einbauen!
             neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
             bestellungList.add(neueBestellung);
             this.bestellungsNrCounter ++; // Sodass die folgende Bestellung eine höhere Nummer bekommt
@@ -215,15 +224,12 @@ public class Fabrik {
     /**
      * Methode der Erstellung der Produkte aus den Bestellungen. 
      * Solange es genug Einheiten für die Bestellungen gibt, werden die Produkte erstellt und geliefert.
+     * 
+     * @return //TO DO
      */
-    public void erstelleProdukte(){
+    public String erstelleProdukte(){
 
-        // Variablen zur Ermittlung der für jede Bestellung benötigte Einheiten
-        int bestHolz = 0;
-        int bestSchrauben = 0;
-        int bestFarbe = 0;
-        int bestKarton = 0;
-        int bestKissen = 0;
+        
 
         // Variable zur Ermittlung der Anzahl an Bestellungen, die entfernt werden sollen
         int anzahl = 0;
@@ -231,45 +237,63 @@ public class Fabrik {
 
         for(Bestellung bestellung : this.bestellungList){
 
-            // Ermittlung der Werte
-            for (Produkt produkt : bestellung.gibBestellteProdukte()) {
-                if (produkt instanceof Stuhl) {
-                   bestHolz += produkt.gibHolzeinheiten();
-                   bestSchrauben += produkt.gibSchrauben();
-                   bestFarbe += produkt.gibFarbeinheiten();
-                   bestKarton += produkt.gibKartoneinheiten();
-    
-                } else if (produkt instanceof Sofa) {
-                   bestHolz += produkt.gibHolzeinheiten();
-                   bestSchrauben += produkt.gibSchrauben();
-                   bestFarbe += produkt.gibFarbeinheiten();
-                   bestKarton += produkt.gibKartoneinheiten();
-                   bestKissen = bestKissen + ((Sofa) produkt).gibKissen();              
-                    
-                }
-            }
+            int [] benoetigteEinheiten = bestellung.anzahlEinheiten();
+
+
             // Überprüfung, ob genug Einheiten vorhanden sind
-            if (lager.gibvorhandeneHolzeinheiten() < bestHolz || lager.gibvorhandeneSchrauben() < bestSchrauben || lager.gibvorhandeneFarbeeinheiten() < bestFarbe || lager.gibvorhandeneKartoneinheiten() < bestKarton || lager.gibvorhandeneKissen() < bestKissen) {
+            // String outp = "";
+            // outp += (lager.gibvorhandeneHolzeinheiten() + " " + lager.gibvorhandeneSchrauben() + " " + lager.gibvorhandeneFarbeeinheiten() + " " + lager.gibvorhandeneKartoneinheiten() + " " + lager.gibvorhandeneKissen());
+            // outp += ("\n" + benoetigteEinheiten[0] + " " + benoetigteEinheiten[1] + " " + benoetigteEinheiten[2] + " " + benoetigteEinheiten[3] + " " + benoetigteEinheiten[4] + "\n");
+            // System.out.println(outp);
+
+            if (lager.gibvorhandeneHolzeinheiten() < benoetigteEinheiten[0] || lager.gibvorhandeneSchrauben() < benoetigteEinheiten[1] || lager.gibvorhandeneFarbeeinheiten() < benoetigteEinheiten[2] || lager.gibvorhandeneKartoneinheiten() < benoetigteEinheiten[3] || lager.gibvorhandeneKissen() < benoetigteEinheiten[4]) {
                 break;
             } else {
                 // Benötigte Einheiten werden zur Produktion eingesetzt und somit von den verfügbaren weggenommen.
-                lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() - bestHolz);
-                lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() - bestSchrauben);
-                lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() - bestFarbe);
-                lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() - bestKarton);
-                lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() - bestKissen);
+                lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() - benoetigteEinheiten[0]);
+                lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() - benoetigteEinheiten[1]);
+                lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() - benoetigteEinheiten[2]);
+                lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() - benoetigteEinheiten[3]);
+                lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() - benoetigteEinheiten[4]);
                 
                 anzahl ++;
                 // liefereBestellung(bestellung);
             }
+            
         
         }
 
-        // // this.bestellungList.remove(0);
-        for (int i = 0; i < anzahl; i++) {
+        if (anzahl != 0){
+            for (int i = 0; i < anzahl; i++) {
             this.bestellungList.remove(0);
+            }
+            return "Die Produkte der ersten " + anzahl + " Bestellungen wurden erstellt und geliefert.\nWeitere werden hergestellt, sobald neue Bestellungen einkommen und genug Material im Lager ist.";
         }
 
+        return "Keine Produkte konnten hergestellt werden. Dafür braucht es mindestens eine Bestellung und genug Material im Lager.";
+
+
+    }
+
+    /** 
+     * Diese Methode simuliert das vergehen eines Tages. Das hat einen Einfluss auf die Liferung der Produkte des Lagers.
+     * Die Materialien in Lieferung werden zum Vorrat hinzugefügt
+    */
+    public void naechsterTag(){
+
+        // Materialien in Lieferung kommen an und werden dem Vorrat hinzugefügt
+        lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten());
+        lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben());
+        lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten());
+        lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten());
+        lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() + lager.gibInLieferungKissen());
+
+        // Diese sind also nicht mehr in Lieferung
+        lager.setzeInLieferungHolzeinheiten(0);
+        lager.setzeInLieferungSchrauben(0);
+        lager.setzeInLieferungFarbeeinheiten(0);
+        lager.setzeInLieferungKartoneinheiten(0);
+        lager.setzeInLieferungKissen(0);
 
     }
     

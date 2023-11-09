@@ -32,15 +32,15 @@ public class Main
 
 
         //TO BE REMOVED
-        anzahlSofas = 2;
-        anzahlStuehle = 2;
+        // anzahlSofas = 2;
+        // anzahlStuehle = 2;
     
 
 
-        // System.out.print("Anzahl Stühle: ");
-        // anzahlStuehle = myObj.nextInt();
-        // System.out.print("Anzahl Sofas: ");
-        // anzahlSofas = myObj.nextInt();
+        System.out.print("Anzahl Stühle: ");
+        anzahlStuehle = myObj.nextInt();
+        System.out.print("Anzahl Sofas: ");
+        anzahlSofas = myObj.nextInt();
 
         // Theoretisch kann man die Eingabe des Kundens überprüfen. Wir haben aber schon eine Fehler der bei Negativen Werten aufgerufen wird.
         // Bei einem typ der nicht anders als ein int ist, gibt es die Java Standardmeldung. Dadurch wir auf weitere Einschränkungen verzichtet.
@@ -48,20 +48,25 @@ public class Main
         myObj.close();
 
         fabrikStart.bestellungAufgeben(anzahlSofas, anzahlStuehle);
+        
 
         // Letze Bestellung abrufen
         Bestellung letzeBest = fabrikStart.gibBestellungsList().get(fabrikStart.gibBestellungsList().size() - 1);
 
         System.out.print("\nIhre " + letzeBest.bestellungBestaetigen() + " Vielen Dank!");
+        System.out.println(fabrikStart.lagerSituation());
+
         System.out.println("\n_______________________________________________________");
         System.out.println("\nEine Bestellung mit 1 Sofa und 1 Stuhl wird automatisch aufgegeben.");
 
         // Bestellung ohne Eingabe durch den Kunden
         fabrikStart.bestellungAufgeben(1, 1);
+        System.out.println(fabrikStart.lagerSituation());
 
         // Weitere Bestellung
         System.out.println("\nEine weitere Bestellung mit 7 Sofas und 1 Stuhl wird automatisch aufgegeben.");
         fabrikStart.bestellungAufgeben(9, 1);
+        System.out.println(fabrikStart.lagerSituation());
 
         // Anzeige für den Aeki Mitarbeitenden
         System.out.println("\n\n_______________________________________________________");
@@ -71,9 +76,20 @@ public class Main
         
 
         System.out.println("Produkte werden erstellt");
-        fabrikStart.erstelleProdukte();
+        System.out.println(fabrikStart.erstelleProdukte());
         System.out.println(fabrikStart.bestellungenAusgeben());
         System.out.println(fabrikStart.lagerSituation());
+
+        // Weitere Bestellung
+        System.out.println("\nEine weitere Bestellung mit 7 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        fabrikStart.bestellungAufgeben(9, 1);
+        System.out.println(fabrikStart.erstelleProdukte());
+        System.out.println(fabrikStart.lagerSituation());
+
+        // Tag vergeht
+        fabrikStart.naechsterTag();
+        System.out.println(fabrikStart.lagerSituation());
+        
     }
 
 }
