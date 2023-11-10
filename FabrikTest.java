@@ -102,6 +102,7 @@ import org.junit.jupiter.api.Test;
     public void testeBestellungAufgeben() {
 
         Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
 
         // Nach einer Bestellung
         testFabrik.bestellungAufgeben(3, 4);
@@ -139,7 +140,7 @@ import org.junit.jupiter.api.Test;
         try {
             assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(-3, 4));
         } catch (AssertionError e) {
-            // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
+            // Fehler wird angegeben, falls die Operation unzulässig ist
             fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
         }
 
@@ -147,11 +148,72 @@ import org.junit.jupiter.api.Test;
         try {
             assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(-3, -4));
         } catch (AssertionError e) {
-            // This block will be executed if the assertion fails (i.e., exception is not thrown) -> auf DE!!!!!!!!!
+            // Fehler wird angegeben, falls die Operation unzulässig ist
             fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
         }
 
         System.out.println("Methode bestellungAufgeben verhindert die Eingabe von Negativwerten.");
+
+    }
+
+    /** TO DO
+     * 
+     * Test der Methode "bestellungAufgebenNegativWerte()". 
+     * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeBestellungAufgebenZuVielAufEinmal() {
+
+        Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+
+        // Eine Bestellung mit zu großer Menge (entsprechend der Größe des Lagers) soll verhindert werden.
+
+        // Werte sind zu gross
+        try {
+            assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(55, 4));
+        } catch (AssertionError e) {
+            // Fehler wird angegeben, falls die Operation unzulässig ist
+            fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
+        }
+
+        System.out.println("Methode testeBestellungAufgebenZuVielAufEinmal verhindert die Eingabe von zu hohen Werten, entsprechend der maximalen Kapazität des Lagers.");
+
+    }
+
+    /** TO DO
+     * 
+     * Test der Methode "bestellungAufgebenNegativWerte()". 
+     * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar() {
+
+        Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+
+        // Einige Bestellungen im Laufe des Tages
+        testFabrik.bestellungAufgeben(3, 4);
+        testFabrik.bestellungAufgeben(1, 4);
+
+        // Produkte werden erstellt
+        testFabrik.erstelleProdukte();
+
+        System.out.println(testFabrik.lagerSituation());
+
+        // Eine weitere Bestellung sollte nicht mehr möglich sein, da keine Schrauben mehr verfügbar sind
+        try {
+            assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(1, 2));
+        } catch (AssertionError e) {
+            // Fehler wird angegeben, falls die Operation unzulässig ist
+            fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
+        }
+
+        System.out.println("Methode testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar verhindert die Eingabe von neuen Werten wenn für den spezifischen Tag keine Resourcen mehr auf Lager verfügbar sind. In diesem Fall gibt es keine Schrauben mehr.");
 
     }
 
@@ -169,6 +231,7 @@ import org.junit.jupiter.api.Test;
     public void testeBestellungenAusgeben() {
 
         Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
 
         assertEquals(testFabrik.bestellungenAusgeben(), "In der Fabrik GBI Gruppe 19 gibt es im Moment 0 Bestellungen.\n\n");
 
@@ -176,15 +239,53 @@ import org.junit.jupiter.api.Test;
         testFabrik.bestellungAufgeben(0, 3);
 
         String erwarteteAusgabe = "In der Fabrik GBI Gruppe 19 gibt es im Moment 2 Bestellungen.\n\n";
-        erwarteteAusgabe += ("Bestellung Nr.: 1\nAnzahl Stühle: 2\nAnzahl Sofas: 1\n" +
+        erwarteteAusgabe += ("Bestellung Nr.: 1\nAnzahl Stühle: 2\nAnzahl Sofas: 1\nProduktionszeit: 64 Minuten\nBeschaffungszeit: 0 Tage\n" +
                             "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
-                            "Bestellung Nr.: 2\nAnzahl Stühle: 3\nAnzahl Sofas: 0\n" +
+                            "Bestellung Nr.: 2\nAnzahl Stühle: 3\nAnzahl Sofas: 0\nProduktionszeit: 66 Minuten\nBeschaffungszeit: 0 Tage\n" +
                             "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n" +
-                            "Das entspricht insgesamt 5 Stühlen und 1 Sofa.");
+                            "Das entspricht insgesamt 5 Stühlen und 1 Sofa." +
+                            " Die totale Produktionszeit und die totale Beschaffungszeit sind entsprechend 130 Minuten und 0 Tage.");
 
         assertEquals(testFabrik.bestellungenAusgeben(), erwarteteAusgabe);
 
         System.out.println("Die Methode Bestellungen Ausgeben funktioniert wie erwartet.");
+
+    }
+
+    /**
+     * TO DO
+     * Test der Methode "bestellungAusgeben()". 
+     * Der Test überprüft, ob erstens bei der Ausführung der Methode ohne aufgegebene Bestellung 
+     * der richtige Text zurückgegeben wird und zweitens bei der Ausführung der Methode 
+     * mit zurvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeErstelleProdukte() {
+
+        Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+
+         // Einige Bestellungen im Laufe des Tages
+        testFabrik.bestellungAufgeben(3, 4);
+        testFabrik.bestellungAufgeben(1, 4);
+        testFabrik.bestellungAufgeben(6, 2);
+
+        // Überprüfung, dass die Liste 3 Bestellungen enthält
+        assertEquals(testFabrik.gibBestellungsList().size(), 3);
+
+        // Produkte werden erstellt und Überprüfung der Meldung
+        assertEquals(testFabrik.erstelleProdukte(), "Die Produkte der ersten 2 Bestellungen wurden erstellt und geliefert.\nWeitere werden hergestellt, sobald neue Bestellungen einkommen und genug Material im Lager ist.");
+
+        // Aufgrund des Mangels in Elementen können nur die Produkte von den ersten beiden Bestellungen erstellt werden.
+        // Es bleibt noch eine
+        assertEquals(testFabrik.gibBestellungsList().size(), 1);
+
+        // Es ist die Nummer drei
+        assertEquals(testFabrik.gibBestellungsList().get(0).gibBestellungsNr(), 3);
+
+        System.out.println("Die Methode erstelleProdukte funktioniert wie erwartet.");
 
     }
 

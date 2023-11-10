@@ -1,4 +1,4 @@
-import java.util.Scanner; // Wird benötigt, um eine Eingabe vom Terminal zu bekommen
+
 
 /**
  * 
@@ -17,46 +17,12 @@ public class Main
         Fabrik fabrikStart = new Fabrik();
         
         fabrikStart.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
-
-        // Bestellung Eingabe durch den Kunden
-        Scanner myObj = new Scanner(System.in);
-        int anzahlStuehle;
-        int anzahlSofas;
         
         System.out.println("Herzlich Willkommen zu der Fabrik GBI Gruppe 19.\n");
-        System.out.println("Seit 1954 stellen wir Mobiliar großer Qualität her." +
-                            " Aktuell haben Sie die Möglichkeit zwischen unseren Klassikern Sofa und Stuhl zu wählen." +
-                            " Hier können Sie direkt eine oder mehrere Produkte wählen. Tragen Sie einfach direkt die gewünschte Anzahl ein.\n" +
-                            "N.B. Es wird eine ganze Zahl erwartet.\n");
-
-
-
-        //TO BE REMOVED
-        // anzahlSofas = 2;
-        // anzahlStuehle = 2;
-    
-
-
-        System.out.print("Anzahl Stühle: ");
-        anzahlStuehle = myObj.nextInt();
-        System.out.print("Anzahl Sofas: ");
-        anzahlSofas = myObj.nextInt();
-
-        // Theoretisch kann man die Eingabe des Kundens überprüfen. Wir haben aber schon eine Fehler der bei Negativen Werten aufgerufen wird.
-        // Bei einem typ der nicht anders als ein int ist, gibt es die Java Standardmeldung. Dadurch wir auf weitere Einschränkungen verzichtet.
-
-        myObj.close();
-
-        fabrikStart.bestellungAufgeben(anzahlSofas, anzahlStuehle);
+        System.out.println("Seit 1954 stellen wir Mobiliar großer Qualität her. Aktuell bieten wir unsere Klassiker Sofa und Stuhl an." );
         
 
-        // Letze Bestellung abrufen
-        Bestellung letzeBest = fabrikStart.gibBestellungsList().get(fabrikStart.gibBestellungsList().size() - 1);
-
-        System.out.print("\nIhre " + letzeBest.bestellungBestaetigen() + " Vielen Dank!");
-        System.out.println(fabrikStart.lagerSituation());
-
-        System.out.println("\n_______________________________________________________");
+        // System.out.println("\n_______________________________________________________");
         System.out.println("\nEine Bestellung mit 1 Sofa und 1 Stuhl wird automatisch aufgegeben.");
 
         // Bestellung ohne Eingabe durch den Kunden
@@ -64,8 +30,13 @@ public class Main
         System.out.println(fabrikStart.lagerSituation());
 
         // Weitere Bestellung
-        System.out.println("\nEine weitere Bestellung mit 7 Sofas und 1 Stuhl wird automatisch aufgegeben.");
-        fabrikStart.bestellungAufgeben(9, 1);
+        System.out.println("\nEine weitere Bestellung mit 3 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        fabrikStart.bestellungAufgeben(3, 1);
+        System.out.println(fabrikStart.lagerSituation());
+
+        // Weitere Bestellung
+        System.out.println("\nEine weitere Bestellung mit 2 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        fabrikStart.bestellungAufgeben(2, 1);
         System.out.println(fabrikStart.lagerSituation());
 
         // Anzeige für den Aeki Mitarbeitenden
@@ -75,14 +46,14 @@ public class Main
         System.out.println(fabrikStart.lagerSituation());
         
 
-        System.out.println("Produkte werden erstellt");
+        System.out.println("\nProdukte werden erstellt\n");
         System.out.println(fabrikStart.erstelleProdukte());
         System.out.println(fabrikStart.bestellungenAusgeben());
         System.out.println(fabrikStart.lagerSituation());
 
         // Weitere Bestellung
-        System.out.println("\nEine weitere Bestellung mit 7 Sofas und 1 Stuhl wird automatisch aufgegeben.");
-        fabrikStart.bestellungAufgeben(9, 1);
+        System.out.println("\nEine weitere Bestellung mit 3 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        fabrikStart.bestellungAufgeben(3, 1);
         System.out.println(fabrikStart.erstelleProdukte());
         System.out.println(fabrikStart.lagerSituation());
 

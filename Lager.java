@@ -73,6 +73,7 @@ public class Lager{
         this.inLieferungFarbeeinheiten = 0;
         this.inLieferungKartoneinheiten = 0;
         this.inLieferungKissen = 0; 
+        this.lieferant = new Lieferant();
     }
 
 
@@ -345,11 +346,12 @@ public class Lager{
      * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager Kapazität überschreiten und reduziert diese ggf und bestellt anschließend über den Methode wareBestellen die zu Bestellenden Materialien nach.
      * 
      * @param   lagerAuffuellen    Füllt den Lagerbestand. //WIESO? wo ist der param?
+     * @return String TO DO
      * 
     */
 
-public void lagerAuffuellen() {      //Methode wird getriggert sobald irgendetwas benoetigt wird und es nicht vorhanden ist
-        Lieferant lieferant = new Lieferant();
+    public String lagerAuffuellen() {  // Wird momentan bei jeder Bestellung getriggert  
+        
 
         int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
         int zuBestellendeSchrauben = this.maxSchrauben - this.vorhandeneSchrauben;
@@ -357,23 +359,34 @@ public void lagerAuffuellen() {      //Methode wird getriggert sobald irgendetwa
         int zuBestellendeKartoneinheiten = this.maxKartoneinheiten - this.vorhandeneKartoneinheiten;
         int zuBestellendeKissen = this.maxKissen - this.vorhandeneKissen;
 
-        // Bestellung beim Lieferanten aufgeben und auf die Lieferung warten (2 Tage Lieferzeit).
-        lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
-        // Lagerbestände aktualisieren.
-        //Das muesste vllcht erst nach 2 Tagen passieren, sonst ist die Angabe beim Kunden falsch
-        //vllcht am besten eine wirdgeliefert Variable zu haben
-        this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
-        this.inLieferungSchrauben += zuBestellendeSchrauben;
-        this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
-        this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
-        this.inLieferungKissen += zuBestellendeKissen;
+        // Bestellung beim Lieferanten aufgeben, wenn es vom Lieferanten aus möglich ist
+        if (lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen)){
+
+            // Bestellung
+            lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
+
+            // Variablen aktualisieren.
+            this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
+            this.inLieferungSchrauben += zuBestellendeSchrauben;
+            this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
+            this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
+            this.inLieferungKissen += zuBestellendeKissen;
+            
+            // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige EInheiten bei großen Bestellungen.
+            this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
+            this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
+            this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
+            this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
+            this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
+
+            return "Lager konnte aufgefüllt werden";
+        } else {
+            return "Lager kann momentan nicht aufgefüllt werden";
+        }
+
         
-        // benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist.
-        this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
-        this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
-        this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
-        this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
-        this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
+        
+        
 
         //kann vllt auch vereinfacht werden (alex)
         //ich wuerde die Methode wie in den Notes geschrieben implementieren, alles Bestellen bis zum Max

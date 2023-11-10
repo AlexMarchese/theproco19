@@ -59,7 +59,7 @@ public class BestellungTest {
 
         // Testen von automatisch initialisierten Werten
         assertEquals(testBestellung.gibBestellBestaetigung(), false);
-        assertEquals(testBestellung.gibBeschaffungszeit(), 1);
+        assertEquals(testBestellung.gibBeschaffungszeit(), 0);
 
         // Überprüfung, dass die Arraylist die Produkte enthält
         assertEquals(testBestellung.gibBestellteProdukte().size(), 11);
@@ -93,7 +93,7 @@ public class BestellungTest {
     public void testeBestellungBestaetigen() {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
-        assertEquals("Bestellung (Nr. 2) mit 5 Sofas und 6 Stühlen ist bestätigt.", testBestellung.bestellungBestaetigen());
+        assertEquals("Bestellung (Nr. 2) mit 5 Sofas und 6 Stühlen ist bestätigt.\nDie Lieferzeit beträgt 1 Tag.", testBestellung.bestellungBestaetigen());
 
         System.out.println("Bestellbestätigung wird wie erwartet Ausgegeben");
         

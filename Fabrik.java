@@ -104,6 +104,7 @@ public class Fabrik {
      * @param   chairs  Anzahl Stühle
     */
     public void bestellungAufgeben(int sofa, int chairs) {
+
         Bestellung neueBestellung;
         
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
@@ -112,13 +113,13 @@ public class Fabrik {
         } 
         // Überprüft, dass die Bestellung (entsprechend der Größe des Lagers) produziert werden kann, wenn es die einzige wäre.
         else if (lager.anzahlBasierendAufLager(sofa, chairs)){
-            throw new IllegalArgumentException("Bitte bestellen Sie eine Kleinere Menge. Wir sind leider nicht ausgerüstet, um so viel auf einmal zu produzieren.");
+            throw new IllegalArgumentException("Bitte bestellen Sie eine kleinere Menge. Wir sind leider nicht ausgerüstet, um so viel auf einmal zu produzieren.");
         } 
         // Überprüft, dass die Bestellung (entsprechend der Größe des Lagers und den verfügbaren Materialien) produziert werden kann.
-        else if (lager.anzahlBasierendAufLager(sofa, chairs)){
-            throw new IllegalArgumentException("Bitte bestellen Sie eine Kleinere Menge. Heute haben wir nicht mehr genug Materialien, um die angegebene Menge fristgerecht zu erstellen.");
+        else if (lager.anzahlBasierendAufMaterialien(sofa, chairs)){
+            throw new IllegalArgumentException("Bitte bestellen Sie eine kleinere Menge. Heute haben wir nicht mehr genug Materialien, um die angegebene Menge fristgerecht zu erstellen.");
         }
-        else { //2 else if hier einbauen!
+        else { 
             neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
             bestellungList.add(neueBestellung);
             this.bestellungsNrCounter ++; // Sodass die folgende Bestellung eine höhere Nummer bekommt
@@ -130,6 +131,7 @@ public class Fabrik {
             neueBestellung.berechneLieferzeit();
             // neueBestellung.bestellungBestaetigen(); //noetig? 
             
+            // Bei jeder Bestellung wird das Lager aufgefüllt.
             lagerAuffuellen();
             // erstelleProdukte();
         }
@@ -209,9 +211,9 @@ public class Fabrik {
      *
      */
     public String lagerSituation(){
-        String ausgabe = "Lagersituation";
+        String ausgabe = "\nLagersituation";
 
-        ausgabe += ("\nLager:               Holzeinheiten - " + lager.gibvorhandeneHolzeinheiten() + " | Schrauben - " + lager.gibvorhandeneSchrauben() + 
+        ausgabe += ("\nIm Lager:            Holzeinheiten - " + lager.gibvorhandeneHolzeinheiten() + " | Schrauben - " + lager.gibvorhandeneSchrauben() + 
         " | Farbeeineiten - " + lager.gibvorhandeneFarbeeinheiten() + " | Kartoneineiten - " + lager.gibvorhandeneKartoneinheiten() + 
         " | Kissen - " + lager.gibvorhandeneKissen());
         ausgabe += ("\nWird noch geliefert: Holzeinheiten - " + lager.gibInLieferungHolzeinheiten() + "  | Schrauben - " + lager.gibInLieferungSchrauben() + 
@@ -257,7 +259,6 @@ public class Fabrik {
                 lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() - benoetigteEinheiten[4]);
                 
                 anzahl ++;
-                // liefereBestellung(bestellung);
             }
             
         
@@ -296,19 +297,5 @@ public class Fabrik {
         lager.setzeInLieferungKissen(0);
 
     }
-    
-    // /** TO COMPLETE
-    //  * Methode der Lieferung der Produkte aus den Bestellungen.
-    //  * 
-    //  * @param   best    
-    //  * @return 
-    //  */
-    // public void liefereBestellung(Bestellung best){
-
-    //     // Bestellung wird von der Liste entfernt
-    //     this.bestellungList.remove(0);
-    //     // Und geliefert
-    //     best.bestellungLiefern();
-    // }
     
 }
