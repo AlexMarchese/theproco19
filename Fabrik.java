@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Fabrik {
     // Hier wird die Klasse initialisiert und als Array-List definiert
-    private ArrayList<Bestellung> bestellungList;
+    private ArrayList <Bestellung> bestellungList;
     private int bestellungsNrCounter;
     private Lager lager;
 
@@ -73,11 +73,11 @@ public class Fabrik {
      *@param    maxFarbeeinheiten           Die maximale Kapazität des Lagers für Farbeinheiten.
      *@param    maxKartoneinheiten          Die maximale Kapazität des Lagers für Kartoneinheiten.
      *@param    maxKissen                   Die maximale Kapazität des Lagers für Kissen.
-     *@param    vorhandeneHolzeinheiten     Die aktuelle Anzahl Holzeinheiten im Lager.
-     *@param    vorhandenSchrauben          Die aktuelle Anzahl Schrauben im Lager.
-     *@param    vorhandeneFarbeeinheiten    Die aktuelle Anzahl Farbeinheiten im Lager.
-     *@param    vorhandeneKartoneinheiten   Die aktuelle Anzahl Kartoneinheiten im Lager.
-     *@param    vorhandeneKissen            Die aktuelle Anzahl Kissen im Lager. 
+     *@param    vorhandeneHolzeinheiten     Die aktuell vorhandene Anzahl Holzeinheiten im Lager.
+     *@param    vorhandenSchrauben          Die aktuell vorhandene Anzahl Schrauben im Lager.
+     *@param    vorhandeneFarbeeinheiten    Die aktuell vorhandene Anzahl Farbeinheiten im Lager.
+     *@param    vorhandeneKartoneinheiten   Die aktuell vorhandene Anzahl Kartoneinheiten im Lager.
+     *@param    vorhandeneKissen            Die aktuell vorhandene Anzahl Kissen im Lager. 
      */
     public void erstelleLager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
         lager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen);
@@ -278,7 +278,7 @@ public class Fabrik {
 
     /** 
      * Diese Methode simuliert das vergehen eines Tages. Das hat einen Einfluss auf die Liferung der Produkte des Lagers.
-     * Die Materialien in Lieferung werden zum Vorrat hinzugefügt
+     * Die Materialien in Lieferung werden zum Vorrat hinzugefügt.
     */
     public void naechsterTag(){
 

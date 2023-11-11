@@ -45,11 +45,11 @@ public class Lager{
      *@param    maxFarbeeinheiten           Die maximale Kapazität des Lagers für Farbeinheiten.
      *@param    maxKartoneinheiten          Die maximale Kapazität des Lagers für Kartoneinheiten.
      *@param    maxKissen                   Die maximale Kapazität des Lagers für Kissen.
-     *@param    vorhandeneHolzeinheiten     Die aktuelle Anzahl Holzeinheiten im Lager.
-     *@param    vorhandenSchrauben          Die aktuelle Anzahl Schrauben im Lager.
-     *@param    vorhandeneFarbeeinheiten    Die aktuelle Anzahl Farbeinheiten im Lager.
-     *@param    vorhandeneKartoneinheiten   Die aktuelle Anzahl Kartoneinheiten im Lager.
-     *@param    vorhandeneKissen            Die aktuelle Anzahl Kissen im Lager. 
+     *@param    vorhandeneHolzeinheiten     Die aktuell vorhandene Anzahl Holzeinheiten im Lager.
+     *@param    vorhandenSchrauben          Die aktuell vorhandene Anzahl Schrauben im Lager.
+     *@param    vorhandeneFarbeeinheiten    Die aktuell vorhandene Anzahl Farbeinheiten im Lager.
+     *@param    vorhandeneKartoneinheiten   Die aktuell vorhandene Anzahl Kartoneinheiten im Lager.
+     *@param    vorhandeneKissen            Die aktuell vorhandene Anzahl Kissen im Lager. 
      */
     public Lager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
         // Instanzvariable initialisieren
@@ -129,7 +129,7 @@ public class Lager{
     }
     
     /**
-     * Methode, um die momentane Anzahl an Schrauben im Lager auszugeben.
+     * Methode, um die aktuelle Anzahl an Schrauben im Lager auszugeben.
      * @return   vorhandeneSchrauben    Die momentane Anzahl an Schrauben im Lager in numerischer Form.
      */
     public int gibvorhandeneSchrauben() {
@@ -451,7 +451,7 @@ public class Lager{
     }
 
     /**
-     * Die Methode überprüft, dass die Bestellung (entsprechend der Größe des Lagers) produziert werden kann, wenn es die einzige wäre.
+     * Die Methode überprüft, ob die Bestellung (entsprechend der Größe des Lagers) produziert werden könnte, wenn es die einzige wäre.
      * 
      * @param TO DO
      * @return TO DO
@@ -473,7 +473,7 @@ public class Lager{
     }
 
     /**
-     * Die Methode überprüft, dass die Bestellung (entsprechend der Größe des Lagers und den verfügbaren Materialien) produziert werden kann.
+     * Die Methode überprüft, ob die Bestellung (entsprechend der Grösse des Lagers und den verfügbaren Materialien) produziert werden kann.
      * 
      * @param TO DO
      * @return TO DO

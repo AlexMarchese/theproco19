@@ -26,7 +26,7 @@ public class Lieferant {
      * Methode, um zu überprüfen, ob eine Bestellung an den Lieferanten erzeugt werden kann.
      * Momentan gibt es keine Bedingungen, die dies hindern -> der Wert ist immer "true".
      * Man könnte gut einstellen, dass nur gewisse Mengen bestellt werden können oder Bestellungen verhindern,
-     * wenn der Lieferant keine Einnehmen kann.
+     * wenn der Lieferant keine einnehmen kann.
      * 
      * @param holzeinheiten
      * @param schrauben

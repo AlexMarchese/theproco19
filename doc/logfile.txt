@@ -20,114 +20,22 @@ javadoc
 UTF-8
 -charset
 UTF-8
-/Users/fionaleuzinger/Documents/GitHub/theproco19/FabrikTest.java
+/Users/fionaleuzinger/Documents/GitHub/theproco19/Lager.java
 <---- end of javadoc command ---->
-Loading source file /Users/fionaleuzinger/Documents/GitHub/theproco19/FabrikTest.java...
+Loading source file /Users/fionaleuzinger/Documents/GitHub/theproco19/Lager.java...
 Constructing Javadoc information...
-warning: unknown enum constant Status.STABLE
-  reason: class file for org.apiguardian.api.API$Status not found
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
-warning: unknown enum constant Status.STABLE
 Standard Doclet version 17.0.4.1+1
 Building tree for all the packages and classes...
-Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/FabrikTest.html...
+Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/Lager.html...
+/Users/fionaleuzinger/Documents/GitHub/theproco19/Lager.java:348: warning: @param argument "lagerAuffuellen" is not a parameter name.
+     * @param   lagerAuffuellen    Füllt den Lagerbestand. //WIESO? wo ist der param?
+       ^
+/Users/fionaleuzinger/Documents/GitHub/theproco19/Lager.java:456: warning: @param argument "TO" is not a parameter name.
+     * @param TO DO
+       ^
+/Users/fionaleuzinger/Documents/GitHub/theproco19/Lager.java:478: warning: @param argument "TO" is not a parameter name.
+     * @param TO DO
+       ^
 Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/package-summary.html...
 Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/index.html...
-100 warnings
+3 warnings
