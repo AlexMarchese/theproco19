@@ -5,5 +5,5 @@ comment1.params=
 comment1.target=Lieferant()
 comment2.params=holzeinheiten\ schrauben\ farbeeinheiten\ kartoneinheiten\ kissen
 comment2.target=boolean\ wareBestellen(int,\ int,\ int,\ int,\ int)
-comment2.text=\n\ Methode,\ um\ zu\ \u00FCberpr\u00FCfen,\ ob\ eine\ Bestellung\ an\ den\ Lieferanten\ erzeugt\ werden\ kann.\n\ Momentan\ gibt\ es\ keine\ Bedingungen,\ die\ dies\ hindern\ ->\ der\ Wert\ ist\ immer\ "true".\n\ Man\ k\u00F6nnte\ gut\ einstellen,\ dass\ nur\ gewisse\ Mengen\ bestellt\ werden\ k\u00F6nnen\ oder\ Bestellungen\ verhindern,\n\ wenn\ der\ Lieferant\ keine\ Einnehmen\ kann.\n\ \n\ @param\ holzeinheiten\n\ @param\ schrauben\n\ @param\ farbeeinheiten\n\ @param\ kartoneinheiten\n\ @param\ kissen\n\ @return\n
+comment2.text=\n\ Methode,\ um\ zu\ \u00FCberpr\u00FCfen,\ ob\ eine\ Bestellung\ an\ den\ Lieferanten\ erzeugt\ werden\ kann.\n\ Momentan\ gibt\ es\ keine\ Bedingungen,\ die\ dies\ hindern\ ->\ der\ Wert\ ist\ immer\ "true".\n\ Man\ k\u00F6nnte\ gut\ einstellen,\ dass\ nur\ gewisse\ Mengen\ bestellt\ werden\ k\u00F6nnen\ oder\ Bestellungen\ verhindern,\n\ wenn\ der\ Lieferant\ keine\ einnehmen\ kann.\n\ \n\ @param\ holzeinheiten\n\ @param\ schrauben\n\ @param\ farbeeinheiten\n\ @param\ kartoneinheiten\n\ @param\ kissen\n\ @return\n
 numComments=3
