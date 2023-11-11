@@ -19,7 +19,7 @@ public class Main
         fabrikStart.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
         
         System.out.println("Herzlich Willkommen zu der Fabrik GBI Gruppe 19.\n");
-        System.out.println("Seit 1954 stellen wir Mobiliar großer Qualität her. Aktuell bieten wir unsere Klassiker Sofa und Stuhl an." );
+        System.out.println("Seit 1954 stellen wir Mobiliar bester Qualität her. Aktuell bieten wir unsere Klassiker Sofa und Stuhl an." );
         
 
         // System.out.println("\n_______________________________________________________");

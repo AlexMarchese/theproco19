@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testklasse Fabriktest, um Fabrik und dessen Methoden mit den davon abhängigen Klassen zu testen.
+ * Testklasse Fabriktest, um Fabrik und deren Methoden mit den davon abhängigen Klassen zu testen.
  *
  * @author  GBI Gruppe 19
  * @version 1.0

@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\r\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ f\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ f\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=
 comment1.target=Lieferant()
 comment2.params=holzeinheiten\ schrauben\ farbeeinheiten\ kartoneinheiten\ kissen
 comment2.target=boolean\ wareBestellen(int,\ int,\ int,\ int,\ int)
-comment2.text=\r\n\ Methode,\ um\ zu\ \u00FCberpr\u00FCfen,\ ob\ eine\ Bestellung\ an\ den\ Lieferanten\ erzeugt\ werden\ kann.\r\n\ Momentan\ gibt\ es\ keine\ Bedingungen,\ die\ dies\ hindern\ ->\ der\ Wert\ ist\ immer\ "true".\r\n\ Man\ k\u00F6nnte\ gut\ einstellen,\ dass\ nur\ gewisse\ Mengen\ bestellt\ werden\ k\u00F6nnen\ oder\ Bestellungen\ verhindern,\r\n\ wenn\ der\ Lieferant\ keine\ Einnehmen\ kann.\r\n\ \r\n\ @param\ holzeinheiten\r\n\ @param\ schrauben\r\n\ @param\ farbeeinheiten\r\n\ @param\ kartoneinheiten\r\n\ @param\ kissen\r\n\ @return\r\n
+comment2.text=\n\ Methode,\ um\ zu\ \u00FCberpr\u00FCfen,\ ob\ eine\ Bestellung\ an\ den\ Lieferanten\ erzeugt\ werden\ kann.\n\ Momentan\ gibt\ es\ keine\ Bedingungen,\ die\ dies\ hindern\ ->\ der\ Wert\ ist\ immer\ "true".\n\ Man\ k\u00F6nnte\ gut\ einstellen,\ dass\ nur\ gewisse\ Mengen\ bestellt\ werden\ k\u00F6nnen\ oder\ Bestellungen\ verhindern,\n\ wenn\ der\ Lieferant\ keine\ Einnehmen\ kann.\n\ \n\ @param\ holzeinheiten\n\ @param\ schrauben\n\ @param\ farbeeinheiten\n\ @param\ kartoneinheiten\n\ @param\ kissen\n\ @return\n
 numComments=3
