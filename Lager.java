@@ -372,7 +372,7 @@ public class Lager{
             this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
             this.inLieferungKissen += zuBestellendeKissen;
             
-            // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige EInheiten bei großen Bestellungen.
+            // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige Einheiten bei großen Bestellungen.
             this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
             this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
             this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);

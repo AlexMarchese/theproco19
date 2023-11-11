@@ -14,8 +14,8 @@ public class Bestellung {
     private int anzahlSofas;
     private int anzahlStuehle;
     private int bestellungsNr;
-    private float lieferzeit;
-    private float produktionszeit;
+    private float lieferzeit; // in Tagen
+    private float produktionszeit; // in Tagen
 
     /**
      * Konstruktor für die Instanzen der Klasse Bestellung
@@ -317,18 +317,11 @@ public class Bestellung {
      * Das Ergebnis wird in der Variable abgespeichert.
      */
     public void berechneLieferzeit() {
-        // float produktionszeit = 0;
-        int standardlieferzeit = 1; //wie wissen wir, dass es 1 ist? -> eher 0
+        int standardlieferzeit = 1;
         
-        for (Produkt produkt : this.gibBestellteProdukte()) {
-            //Unterscheidung hier ist unnoetig!!
-            if (produkt instanceof Stuhl) {
+        for (Produkt produkt : this.gibBestellteProdukte()) {           
                 this.produktionszeit += produkt.gibTotalProduktionszeit();
-
-            } else if (produkt instanceof Sofa) {            
-                this.produktionszeit += produkt.gibTotalProduktionszeit();
-            }   
-        }
+            }
         
         this.produktionszeit /= 1440; // in Tagen
         
