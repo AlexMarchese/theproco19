@@ -18,7 +18,7 @@ public class Bestellung {
     private float produktionszeit; // in Tagen
 
     /**
-     * Konstruktor für die Instanzen der Klasse Bestellung
+     * Konstruktor für die Instanzen der Klasse Bestellung.
      * 
      * @param   anzahlSofas     Die Anzahl Sofas gibt die Anzahl an bestellten Sofas.
      * @param   anzahlStuehle   Die Anzahl Stühle gibt die Anzahl an bestellten Stühlen.
