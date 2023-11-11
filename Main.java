@@ -26,24 +26,20 @@ public class Main
         System.out.println("\nEine Bestellung mit 1 Sofa und 1 Stuhl wird automatisch aufgegeben.");
 
         // Bestellung ohne Eingabe durch den Kunden
-        fabrikStart.bestellungAufgeben(1, 1);
-        System.out.println(fabrikStart.lagerSituation());
+        System.out.println(fabrikStart.bestellungAufgeben(1, 1));
 
         // Weitere Bestellung
-        System.out.println("\nEine weitere Bestellung mit 3 Sofas und 1 Stuhl wird automatisch aufgegeben.");
-        fabrikStart.bestellungAufgeben(3, 1);
-        System.out.println(fabrikStart.lagerSituation());
+        System.out.println("\nEine weitere Bestellung mit 7 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        System.out.println(fabrikStart.bestellungAufgeben(7, 1));
 
         // Weitere Bestellung
-        System.out.println("\nEine weitere Bestellung mit 2 Sofas und 1 Stuhl wird automatisch aufgegeben.");
-        fabrikStart.bestellungAufgeben(2, 1);
-        System.out.println(fabrikStart.lagerSituation());
+        System.out.println("\nEine weitere Bestellung mit 16 Sofas und 1 Stuhl wird automatisch aufgegeben.");
+        System.out.println(fabrikStart.bestellungAufgeben(16, 1));
 
         // Anzeige für den Aeki Mitarbeitenden
         System.out.println("\n\n_______________________________________________________");
         System.out.println("\nLieber Aeki Mitarbeitender.");
         System.out.println(fabrikStart.bestellungenAusgeben());
-        System.out.println(fabrikStart.lagerSituation());
         
 
         System.out.println("\nProdukte werden erstellt\n");
@@ -53,12 +49,14 @@ public class Main
 
         // Weitere Bestellung
         System.out.println("\nEine weitere Bestellung mit 3 Sofas und 1 Stuhl wird automatisch aufgegeben.");
-        fabrikStart.bestellungAufgeben(3, 1);
+        System.out.println(fabrikStart.bestellungAufgeben(3, 1));
+        System.out.println("\nProdukte werden erstellt\n");
         System.out.println(fabrikStart.erstelleProdukte());
         System.out.println(fabrikStart.lagerSituation());
 
-        // Tag vergeht
-        fabrikStart.naechsterTag();
+        // 2 Tage vergehen
+        System.out.println("\nNach zwei Tagen.");
+        fabrikStart.nachZweiTagen();
         System.out.println(fabrikStart.lagerSituation());
         
     }

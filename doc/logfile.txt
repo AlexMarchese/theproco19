@@ -1,6 +1,6 @@
 Class documentation
 <---- javadoc command: ---->
-javadoc
+C:\Program Files\BlueJ\jdk\bin\javadoc.exe
 -author
 -version
 -nodeprecated
@@ -13,19 +13,29 @@ javadoc
 -source
 17
 -classpath
-/Applications/BlueJ.app/Contents/Java/bluejcore.jar:/Applications/BlueJ.app/Contents/Java/javafx-base-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-graphics-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-controls-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-fxml-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-controls-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-web-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-media-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-base-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-media-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-graphics-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-swing-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/junit-4.12.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-params-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-api-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-engine-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-suite-api-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-vintage-engine-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-engine-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-launcher-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-commons-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/hamcrest-core-1.3.jar:/Applications/BlueJ.app/Contents/Java/opentest4j-1.2.0.jar:/Applications/BlueJ.app/Contents/Java/lang-stride.jar:/Users/fionaleuzinger/Documents/GitHub/theproco19
+C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-fxml-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-swing-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-web-20.0.1-win.jar;C:\Program Files\BlueJ\lib\junit-4.12.jar;C:\Program Files\BlueJ\lib\junit-jupiter-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-api-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-params-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-commons-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-engine-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-launcher-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-suite-api-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-vintage-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ\lib\opentest4j-1.2.0.jar;C:\Program Files\BlueJ\lib\lang-stride.jar;D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19
 -d
-/Users/fionaleuzinger/Documents/GitHub/theproco19/doc
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc
 -encoding
 UTF-8
 -charset
 UTF-8
-/Users/fionaleuzinger/Documents/GitHub/theproco19/Bestellung.java
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Lager.java
 <---- end of javadoc command ---->
-Loading source file /Users/fionaleuzinger/Documents/GitHub/theproco19/Bestellung.java...
+Loading source file D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Lager.java...
 Constructing Javadoc information...
 Standard Doclet version 17.0.4.1+1
 Building tree for all the packages and classes...
-Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/Bestellung.html...
-Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/package-summary.html...
-Generating /Users/fionaleuzinger/Documents/GitHub/theproco19/doc/index.html...
+Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\Lager.html...
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Lager.java:348: warning: @param argument "lagerAuffuellen" is not a parameter name.
+     * @param   lagerAuffuellen    Füllt den Lagerbestand. //WIESO? wo ist der param?
+       ^
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Lager.java:456: warning: @param argument "TO" is not a parameter name.
+     * @param TO DO
+       ^
+D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\Lager.java:478: warning: @param argument "TO" is not a parameter name.
+     * @param TO DO
+       ^
+Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\package-summary.html...
+Generating D:\Desktop 2\HSG\MBI\Grundlagen Business Innovation\groupproject\Git\theproco19\doc\index.html...
+3 warnings

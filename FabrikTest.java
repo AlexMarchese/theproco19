@@ -183,39 +183,39 @@ import org.junit.jupiter.api.Test;
 
     }
 
-    /** TO DO
-     * 
-     * Test der Methode "bestellungAufgebenNegativWerte()". 
-     * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
-     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
-     * 
-     */
-    @Test
-    public void testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar() {
+    // /** TO DO
+    //  * 
+    //  * Test der Methode "bestellungAufgebenNegativWerte()". 
+    //  * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
+    //  * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+    //  * 
+    //  */
+    // @Test
+    // public void testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar() {
 
-        Fabrik testFabrik = new Fabrik();
-        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+    //     Fabrik testFabrik = new Fabrik();
+    //     testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
 
-        // Einige Bestellungen im Laufe des Tages
-        testFabrik.bestellungAufgeben(3, 4);
-        testFabrik.bestellungAufgeben(1, 4);
+    //     // Einige Bestellungen im Laufe des Tages
+    //     testFabrik.bestellungAufgeben(3, 4);
+    //     testFabrik.bestellungAufgeben(1, 4);
 
-        // Produkte werden erstellt
-        testFabrik.erstelleProdukte();
+    //     // Produkte werden erstellt
+    //     testFabrik.erstelleProdukte();
 
-        System.out.println(testFabrik.lagerSituation());
+    //     System.out.println(testFabrik.lagerSituation());
 
-        // Eine weitere Bestellung sollte nicht mehr möglich sein, da keine Schrauben mehr verfügbar sind
-        try {
-            assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(1, 2));
-        } catch (AssertionError e) {
-            // Fehler wird angegeben, falls die Operation unzulässig ist
-            fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
-        }
+    //     // Eine weitere Bestellung sollte nicht mehr möglich sein, da keine Schrauben mehr verfügbar sind
+    //     try {
+    //         assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(1, 2));
+    //     } catch (AssertionError e) {
+    //         // Fehler wird angegeben, falls die Operation unzulässig ist
+    //         fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
+    //     }
 
-        System.out.println("Methode testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar verhindert die Eingabe von neuen Werten wenn für den spezifischen Tag keine Resourcen mehr auf Lager verfügbar sind. In diesem Fall gibt es keine Schrauben mehr.");
+    //     System.out.println("Methode testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar verhindert die Eingabe von neuen Werten wenn für den spezifischen Tag keine Resourcen mehr auf Lager verfügbar sind. In diesem Fall gibt es keine Schrauben mehr.");
 
-    }
+    // }
 
        
     /**
@@ -232,8 +232,9 @@ import org.junit.jupiter.api.Test;
 
         Fabrik testFabrik = new Fabrik();
         testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
-
+        
         assertEquals(testFabrik.bestellungenAusgeben(), "In der Fabrik GBI Gruppe 19 gibt es im Moment 0 Bestellungen.\n\n");
+
 
         testFabrik.bestellungAufgeben(1, 2);
         testFabrik.bestellungAufgeben(0, 3);

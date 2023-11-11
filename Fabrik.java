@@ -103,7 +103,7 @@ public class Fabrik {
      * @param   sofa    Anzahl Sofas
      * @param   chairs  Anzahl Stühle
     */
-    public void bestellungAufgeben(int sofa, int chairs) {
+    public String bestellungAufgeben(int sofa, int chairs) {
 
         Bestellung neueBestellung;
         
@@ -115,10 +115,6 @@ public class Fabrik {
         else if (lager.anzahlBasierendAufLager(sofa, chairs)){
             throw new IllegalArgumentException("Bitte bestellen Sie eine kleinere Menge. Wir sind leider nicht ausgerüstet, um so viel auf einmal zu produzieren.");
         } 
-        // Überprüft, dass die Bestellung (entsprechend der Größe des Lagers und den verfügbaren Materialien) produziert werden kann.
-        else if (lager.anzahlBasierendAufMaterialien(sofa, chairs)){
-            throw new IllegalArgumentException("Bitte bestellen Sie eine kleinere Menge. Heute haben wir nicht mehr genug Materialien, um die angegebene Menge fristgerecht zu erstellen.");
-        }
         else { 
             neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
             bestellungList.add(neueBestellung);
@@ -129,11 +125,11 @@ public class Fabrik {
             
             // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
             neueBestellung.berechneLieferzeit();
-            // neueBestellung.bestellungBestaetigen(); //noetig? 
             
             // Bei jeder Bestellung wird das Lager aufgefüllt.
-            lagerAuffuellen();
-            // erstelleProdukte();
+            lager.lagerAuffuellen();
+
+            return neueBestellung.bestellungBestaetigen();
         }
     }
 
@@ -153,15 +149,15 @@ public class Fabrik {
         int anzahlStuehleGesamt = 0;
         int produktionsZeitGesamt = 0;
         int beschaffungsZeitGesamt = 0;
-        String best = " Bestellungen.\n\n";
+        String best = " Bestellungen.\n";
 
         // Folgende Zeile gibt das Wort Bestellung im Singular aus, wenn es nur eine ist.
         if (this.bestellungList.size() == 1) {
-            best = " Bestellung.\n\n";
+            best = " Bestellung.\n";
         }
 
         // Erster Teil der Ausgabe
-        ausgabe = ("In der Fabrik GBI Gruppe 19 gibt es im Moment " + this.bestellungList.size() + best);
+        ausgabe = ("In der Fabrik GBI Gruppe 19 gibt es im Moment " + this.bestellungList.size() + best + "\n");
 
         // Information zur jeder Bestellung
         for(Bestellung bestellung : this.bestellungList)   
@@ -205,22 +201,15 @@ public class Fabrik {
         
     }
 
-    /**
-     * Methode zur Ausgabe der Situation des Lagers.
+    /** TO DO
+     * 
+     * Methode zur Ausgabe der Situation des Lagers. Ruft die Methode vom Lager auf
      * @return  ausgabe Text zur Ausgabe der Situation des Lagers
      *
      */
     public String lagerSituation(){
-        String ausgabe = "\nLagersituation";
-
-        ausgabe += ("\nIm Lager:            Holzeinheiten - " + lager.gibvorhandeneHolzeinheiten() + " | Schrauben - " + lager.gibvorhandeneSchrauben() + 
-        " | Farbeeineiten - " + lager.gibvorhandeneFarbeeinheiten() + " | Kartoneineiten - " + lager.gibvorhandeneKartoneinheiten() + 
-        " | Kissen - " + lager.gibvorhandeneKissen());
-        ausgabe += ("\nWird noch geliefert: Holzeinheiten - " + lager.gibInLieferungHolzeinheiten() + "  | Schrauben - " + lager.gibInLieferungSchrauben() + 
-        "  | Farbeeineiten - " + lager.gibInLieferungFarbeeinheiten() + "  | Kartoneineiten - " + lager.gibInLieferungKartoneinheiten() + 
-        "  | Kissen - " + lager.gibInLieferungKissen());
-
-        return ausgabe;
+      
+        return lager.lagerBestandAusgeben();
     }
     
     /**
@@ -242,12 +231,6 @@ public class Fabrik {
             int [] benoetigteEinheiten = bestellung.anzahlEinheiten();
 
 
-            // Überprüfung, ob genug Einheiten vorhanden sind
-            // String outp = "";
-            // outp += (lager.gibvorhandeneHolzeinheiten() + " " + lager.gibvorhandeneSchrauben() + " " + lager.gibvorhandeneFarbeeinheiten() + " " + lager.gibvorhandeneKartoneinheiten() + " " + lager.gibvorhandeneKissen());
-            // outp += ("\n" + benoetigteEinheiten[0] + " " + benoetigteEinheiten[1] + " " + benoetigteEinheiten[2] + " " + benoetigteEinheiten[3] + " " + benoetigteEinheiten[4] + "\n");
-            // System.out.println(outp);
-
             if (lager.gibvorhandeneHolzeinheiten() < benoetigteEinheiten[0] || lager.gibvorhandeneSchrauben() < benoetigteEinheiten[1] || lager.gibvorhandeneFarbeeinheiten() < benoetigteEinheiten[2] || lager.gibvorhandeneKartoneinheiten() < benoetigteEinheiten[3] || lager.gibvorhandeneKissen() < benoetigteEinheiten[4]) {
                 break;
             } else {
@@ -268,10 +251,14 @@ public class Fabrik {
             for (int i = 0; i < anzahl; i++) {
             this.bestellungList.remove(0);
             }
+
+            if (anzahl == 1) {
+                return "Die Produkte der ersten Bestellung wurden erstellt und geliefert.\nWeitere werden hergestellt, sobald neue Bestellungen einkommen und genug Material im Lager ist.";
+            }
             return "Die Produkte der ersten " + anzahl + " Bestellungen wurden erstellt und geliefert.\nWeitere werden hergestellt, sobald neue Bestellungen einkommen und genug Material im Lager ist.";
         }
 
-        return "Keine Produkte konnten hergestellt werden. Dafür braucht es mindestens eine Bestellung und genug Material im Lager.";
+        return "Keine Produkte konnten hergestellt werden. Dafür braucht es mindestens eine Bestellung und/oder genug Material im Lager.";
 
 
     }
@@ -280,7 +267,7 @@ public class Fabrik {
      * Diese Methode simuliert das vergehen eines Tages. Das hat einen Einfluss auf die Liferung der Produkte des Lagers.
      * Die Materialien in Lieferung werden zum Vorrat hinzugefügt.
     */
-    public void naechsterTag(){
+    public void nachZweiTagen(){
 
         // Materialien in Lieferung kommen an und werden dem Vorrat hinzugefügt
         lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten());
