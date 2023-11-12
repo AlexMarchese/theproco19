@@ -8,7 +8,7 @@ import java.util.ArrayList;
 */
 
 public class Fabrik {
-    // Hier wird die Klasse initialisiert und als Array-List definiert
+    // Hier wird die Klasse initialisiert und eine Array-List definiert
     private ArrayList <Bestellung> bestellungList;
     private int bestellungsNrCounter;
     private Lager lager;

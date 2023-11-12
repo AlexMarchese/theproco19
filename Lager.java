@@ -319,7 +319,7 @@ public class Lager{
         
         // Benötigte Produkte sind im Lager
         else {beschaffungszeit = 0;}
-            //muss man noch einen Stop (break) einbauen?? Glaube nicht, das braucht es doch nur bei while, falls es keine stop condition gibt (flo);
+        
     
     return beschaffungszeit;
         

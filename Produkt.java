@@ -31,7 +31,7 @@ public class Produkt {
     public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren
         /*
-         * 0= nicht gestartet 1= in bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in bearbeitung 12 etc) 2= abgeschlossen
+         * 0= nicht gestartet 1= in Bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in Bearbeitung 12 etc) 2= abgeschlossen
          */ 
         this.zustand = 0;
         this.holzeinheiten = holzeinheiten;
