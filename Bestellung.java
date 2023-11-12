@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Sie dient zur Erstellung von Bestellungen, die Sofas und Stühle beinhalten.
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 public class Bestellung {
     // Instanzvariablen
@@ -63,7 +63,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Variable bestellBestaetigung.
      * 
-     * @param   status Zustand der Bestellbestätigung.
+     * @param   status  Zustand der Bestellbestätigung.
      */
     public void setzeBestellBestaetigung(Boolean status) {
         this.bestellBestaetigung = status;
@@ -81,7 +81,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Beschaffungszeit in Tagen. Fehlermeldung, wenn ein negativer Wert angegeben wird.
      * 
-     * @param zeit Zeitangabe in Tagen.
+     * @param   zeit    Zeitangabe in Tagen.
      */
     public void setzeBeschaffungszeit(int zeit) {
         if(zeit >= 0) {
@@ -95,7 +95,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Beschaffungszeit in Tagen. Rechnet die Anzahl Minuten in Tage um und gibt diese aus.
      * 
-     * @return beschaffungsZeit Zeitangabe in Tagen.
+     * @return  beschaffungsZeit    Zeitangabe in Tagen.
      */
     public int gibBeschaffungszeit() {
         return this.beschaffungsZeit;
@@ -104,7 +104,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Bestellungsnummer.
      * 
-     * @param   bestellNummer   Bestellungsnummer, die von Fabrik gegeben wird.
+     * @param   bestellNummer   Die Bestellungsnummer, die von Fabrik gegeben wird.
      */
     public void setzeBestellungsNr(int bestellNummer) {
         if(bestellNummer > 0) {
@@ -118,7 +118,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Bestellungsnummer.
      * 
-     * @return  bestellungsNr   die Bestellungsnummer
+     * @return  bestellungsNr   Die Bestellungsnummer.
      */
     public int gibBestellungsNr() {
         return this.bestellungsNr;
@@ -128,7 +128,7 @@ public class Bestellung {
      * Methode zur Anpassung der AnzahlStuehle. Gibt der Variable AnzahlStuehle den
      * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
      * 
-     * @param   menge   Menge an Stühlen
+     * @param   menge   Menge an Stühlen.
      */
     public void setzeAnzahlStuehle(int menge) {
         if(menge >= 0) {
@@ -142,7 +142,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Anzahl bestellter Stühle.
      * 
-     * @return  anzahlStuehle Anzahl bestellter Stühle
+     * @return  anzahlStuehle   Anzahl bestellter Stühle.
      */
     public int gibAnzahlStuehle() {
         return this.anzahlStuehle;
@@ -152,7 +152,7 @@ public class Bestellung {
      * Methode zur Anpassung der AnzahlSofas. Gibt der Variable AnzahlSofas den
      * angegebenen Wert. Fehlermeldung, wenn ein negativer Wert (oder 0) angegeben wird.
      * 
-     * @param menge Menge an Sofas
+     * @param   menge   Menge an Sofas
      */
     public void setzeAnzahlSofas(int menge) {
         if(menge >= 0) {
@@ -166,7 +166,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Anzahl bestellter Sofas.
      * 
-     * @return  anzahlSofas Anzahl bestellter Sofas
+     * @return  anzahlSofas Anzahl bestellter Sofas.
      */
     public int gibAnzahlSofas() {
         return this.anzahlSofas;
@@ -175,7 +175,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
      * 
-     * @param   lieferzeit   Lieferzeit in Tagen
+     * @param   lieferzeit  Lieferzeit in Tagen.
      */
     public void setzeLieferzeit(float lieferzeit) {
         this.lieferzeit = lieferzeit;
@@ -184,7 +184,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Lieferzeit. Die Lieferzeit errechnet sich aus Produktionszeit, Beschaffungszeit und Standardlieferzeit.
      * 
-     * @return  lieferzeit  Lieferzeit in Tagen
+     * @return  lieferzeit  Lieferzeit in Tagen.
      */
     public float gibLieferzeit() {
         return this.lieferzeit;
@@ -193,7 +193,7 @@ public class Bestellung {
     /**
      * Methode zum Setzen der Produktionszeit.
      * 
-     * @param   produktionszeit   Produktionszeit in Tagen
+     * @param   produktionszeit   Produktionszeit in Tagen.
      */
     public void setzeProduktionszeit(float produktionszeit) {
         this.produktionszeit = produktionszeit;
@@ -202,7 +202,7 @@ public class Bestellung {
     /**
      * Methode zur Ausgabe der Produktionszeit.
      * 
-     * @return  produktionszeit  Produktionszeit in Tagen
+     * @return  produktionszeit  Produktionszeit in Tagen.
      */
     public float gibProduktionszeit() {
         return this.produktionszeit;
@@ -238,7 +238,7 @@ public class Bestellung {
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
      * Es ermöglicht einen vereinfachten Unit Test.
      * 
-     * @return   String  Text zur Bestellbestätigung
+     * @return   String  Text zur Bestellbestätigung.
      * 
      */
     public String bestellungBestaetigen() {
@@ -275,7 +275,7 @@ public class Bestellung {
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
      * Es ermöglicht einen vereinfachten Unit Test.
      * 
-     * @return   String  Text zum Status der Bestellbestätigung
+     * @return   String  Text zum Status der Bestellbestätigung.
      * 
      * 
      */
@@ -309,7 +309,11 @@ public class Bestellung {
     /**
      * Methode um festzustellen, wieviele Einheiten der jeweiligen Produkte für die Bestellung nötig sind.
      * 
-     * @return 
+     * @return totHolz  Gesamtmenge an Einheiten Holz, die für die Bestellung nötig sind.
+     * @return totSchrauben Gesamtmenge an Einheiten Schrauben, die für die Bestellung nötig sind.
+     * @return totFarbe Gesamtmenge an Einheiten Farbe, die für die Bestellung nötig sind.
+     * @return totKarton Gesamtmenge an Einheiten Karton, die für die Bestellung nötig sind.
+     * @return totKissen Gesamtmenge an Einheiten Kissen, die für die Bestellung nötig sind.
      */
 
      public int[] anzahlEinheiten(){

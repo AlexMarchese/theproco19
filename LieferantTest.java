@@ -41,9 +41,9 @@ public class LieferantTest {
     }
 
     
-    /** TO DO
+    /**
      * Der Test überprüft, ob die Erstellung eines Lieferants funktioniert. 
-     * Dies wird überprüft, indem eine neue Lieferant erstellt wird und die initialisierten Werte 
+     * Dies wird überprüft, indem ein neuer Lieferant erstellt wird und die initialisierten Werte 
      * mit der Vorgabe aus dem Test verglichen werden. 
      * 
      */

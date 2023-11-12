@@ -28,12 +28,12 @@ public class Lieferant {
      * Man könnte gut einstellen, dass nur gewisse Mengen bestellt werden können oder Bestellungen verhindern,
      * wenn der Lieferant keine einnehmen kann.
      * 
-     * @param holzeinheiten
-     * @param schrauben
-     * @param farbeeinheiten
-     * @param kartoneinheiten
-     * @param kissen
-     * @return
+     * @param   holzeinheiten   Anzahl Holzeinheiten die bestellt werden möchten.
+     * @param   schrauben   Anzahl Schrauben die bestellt werden möchten.
+     * @param   farbeeinheiten  Anzahl Farbeinheiten die bestellt werden möchten.
+     * @param   kartoneinheiten Anzahl Kartoneinheiten die bestellt werden möchten.
+     * @param   kissen  Anzahl Kissen die bestellt werden möchten.
+     * @return  boolean Gibt an, ob eine Bestellung beim Lieferanten erzeut werden kann. Momentan gibt es noch keine Bedingungen, die dies verhindern. Deswegen ist der Wert momentan immer "true".
      */
     public boolean wareBestellen(int holzeinheiten, int schrauben, int farbeeinheiten, int kartoneinheiten, int kissen)
     {

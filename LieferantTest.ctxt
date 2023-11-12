@@ -12,5 +12,5 @@ comment3.target=void\ tearDown()
 comment3.text=\r\n\ Anweisungen\ nach\ jedem\ Testlauf.\r\n
 comment4.params=
 comment4.target=void\ testeLieferantWareBestellen()
-comment4.text=\ TO\ DO\r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Lieferants\ funktioniert.\ \r\n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ eine\ neue\ Lieferant\ erstellt\ wird\ und\ die\ initialisierten\ Werte\ \r\n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ werden.\ \r\n\ \r\n
+comment4.text=\r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Lieferants\ funktioniert.\ \r\n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neuer\ Lieferant\ erstellt\ wird\ und\ die\ initialisierten\ Werte\ \r\n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ werden.\ \r\n\ \r\n
 numComments=5

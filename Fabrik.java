@@ -27,7 +27,7 @@ public class Fabrik {
     /**
      * Methode zum Setzen der ArrayList mit den Bestellungen.
      * 
-     * @param  bestellungList   ArrayList mit den Bestellungen
+     * @param  bestellungList   ArrayList mit den Bestellungen.
      */
     public void setzeBestellungsList(ArrayList<Bestellung> bestellungList) {
         this.bestellungList = bestellungList;
@@ -36,7 +36,7 @@ public class Fabrik {
     /**
      * Methode zur Ausgabe der Bestellungen.
      * 
-     * @return  bestellungList   Liste mit den Bestellungen
+     * @return  bestellungList   Liste mit den Bestellungen.
      */
     public ArrayList<Bestellung> gibBestellungsList() {
         return this.bestellungList;
@@ -45,16 +45,16 @@ public class Fabrik {
     /**
      * Methode zum Setzen des Zählers der Bestellungen.
      * 
-     * @param  bestellungsNrCounter   Zähler der Bestellungen
+     * @param  bestellungsNrCounter   Zähler der Bestellungen.
      */
     public void setzebestellungsNrCounter(int bestellungsNrCounter) {
         this.bestellungsNrCounter = bestellungsNrCounter;
     }
 
     /**
-     * Methode zur Ausgabe des Zählers der Bestellungen
+     * Methode zur Ausgabe des Zählers der Bestellungen.
      * 
-     * @return  bestellungsNrCounter   Zähler der Bestellungen
+     * @return  bestellungsNrCounter   Zähler der Bestellungen.
      */
     public int gibbestellungsNrCounter() {
         return this.bestellungsNrCounter;
@@ -98,7 +98,7 @@ public class Fabrik {
     }
     
     /**
-     * Methode, um eine Bestellung aufzugeben, die Lieferzeit festzulegen und die Bestellung zu bestaetigen.
+     * Methode, um eine Bestellung aufzugeben, die Lieferzeit festzulegen und die Bestellung zu bestätigen.
      * 
      * @param   sofa    Anzahl Sofas
      * @param   chairs  Anzahl Stühle
@@ -107,7 +107,7 @@ public class Fabrik {
 
         Bestellung neueBestellung;
         
-        // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird
+        // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird.
         if (sofa < 0 || chairs < 0) {
             throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
         } 
@@ -201,10 +201,9 @@ public class Fabrik {
         
     }
 
-    /** TO DO
-     * 
-     * Methode zur Ausgabe der Situation des Lagers. Ruft die Methode vom Lager auf
-     * @return  ausgabe Text zur Ausgabe der Situation des Lagers
+    /**  
+     * Methode zur Ausgabe der Situation des Lagers. Ruft die Methode vom Lager auf.
+     * @return  String  Text zum Lagerbestand.
      *
      */
     public String lagerSituation(){
@@ -213,10 +212,10 @@ public class Fabrik {
     }
     
     /**
-     * Methode der Erstellung der Produkte aus den Bestellungen. 
+     * Methode zur Erstellung der Produkte aus den Bestellungen. 
      * Solange es genug Einheiten für die Bestellungen gibt, werden die Produkte erstellt und geliefert.
      * 
-     * @return //TO DO
+     * @return  String  Text zur Erstellung der Produkte. In Abhängigkeit der Anzahl Bestellungen und Material an Lager werden unterschiedliche return statements zurückgegeben.
      */
     public String erstelleProdukte(){
 
@@ -264,7 +263,7 @@ public class Fabrik {
     }
 
     /** 
-     * Diese Methode simuliert das vergehen eines Tages. Das hat einen Einfluss auf die Liferung der Produkte des Lagers.
+     * Diese Methode simuliert das vergehen von zwei Tagen. Das hat einen Einfluss auf die Lieferung der Produkte des Lagers.
      * Die Materialien in Lieferung werden zum Vorrat hinzugefügt.
     */
     public void nachZweiTagen(){

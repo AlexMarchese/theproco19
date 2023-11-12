@@ -288,7 +288,7 @@ public class Lager{
      * Methode, berechneBeschaffungsZeit schaut für eine Bestellung alle Produkte an und addiert die benötigten Materialien, wenn diese im Lager vorhanden sind 
      * bleibt die BeschaffungsZeit bei 0 anderenfalls erhöht sie sich auf 2. 
      * 
-     * @return   beschaffungszeit    0 oder 2 für die Anzahl Tage an Beschaffungszeit
+     * @return   beschaffungszeit    0 oder 2 für die Anzahl Tage an Beschaffungszeit.
      * 
     */
     public int berechneBeschaffungsZeit(Bestellung kundenBestellung) {      
@@ -329,8 +329,7 @@ public class Lager{
     /**
      * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager Kapazität überschreiten und reduziert diese ggf und bestellt anschließend über den Methode wareBestellen die zu Bestellenden Materialien nach.
      * 
-     * @param   lagerAuffuellen    Füllt den Lagerbestand. //WIESO? wo ist der param?
-     * @return String TO DO
+     * @return  String  Text bezüglich dem Auffüllen des Lagers. Je nachdem ob das Lager gefüllt werden konnte oder nicht wird der entsprechende Text ausgegeben.
      * 
     */
 
@@ -375,7 +374,7 @@ public class Lager{
     /**
      * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
      * 
-     * @return   String    Text zum Lagerbestand
+     * @return   String    Text zum Lagerbestand.
      * 
     */
      public String lagerBestandAusgeben() {
@@ -404,8 +403,9 @@ public class Lager{
     /**
      * Die Methode überprüft, ob die Bestellung (entsprechend der Größe des Lagers) produziert werden könnte, wenn es die einzige wäre.
      * 
-     * @param TO DO
-     * @return TO DO
+     * @param   sofa  Anzahl Sofas die prodzuiert werden sollen.
+     * @param   chairs  Anzahl Stühle die produziert werden sollen.
+     * @return  boolean Ob die Bestellung produziert werden könnte.
      */
     public boolean anzahlBasierendAufLager(int sofa, int chairs){
 

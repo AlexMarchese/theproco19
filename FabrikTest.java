@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * Testklasse Fabriktest, um Fabrik und deren Methoden mit den davon abhängigen Klassen zu testen.
  *
  * @author  GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 
  public class FabrikTest {
@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
     }
 
     /**
-     * Anweisungen vor jedem Testlauf
+     * Anweisungen vor jedem Testlauf.
      */
     @BeforeEach
     public void setUp() {
@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
     }
 
     /**
-     * Anweisungen nach jedem Testlauf
+     * Anweisungen nach jedem Testlauf.
      */
     @AfterEach
     public void tearDown() {
@@ -156,11 +156,9 @@ import org.junit.jupiter.api.Test;
 
     }
 
-    /** TO DO
-     * 
-     * Test der Methode "bestellungAufgebenNegativWerte()". 
-     * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
-     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+    /** 
+     * Test der Methode "bestellungAufgebenZuVielAufEinmal()". 
+     * Der Test überprüft, ob die Eingabe zu grossen Werten verhindert wird, indem versucht wird eine zu grosse Bestellung aufzugeben und prüft ob dabei ein Fehler ausgegeben wird. 
      * 
      */
     @Test
@@ -223,7 +221,7 @@ import org.junit.jupiter.api.Test;
      * Test der Methode "bestellungAusgeben()". 
      * Der Test überprüft, ob erstens bei der Ausführung der Methode ohne aufgegebene Bestellung 
      * der richtige Text zurückgegeben wird und zweitens bei der Ausführung der Methode 
-     * mit zurvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
+     * mit zuvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
      * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
      * 
      */
@@ -254,11 +252,10 @@ import org.junit.jupiter.api.Test;
     }
 
     /**
-     * TO DO
-     * Test der Methode "bestellungAusgeben()". 
-     * Der Test überprüft, ob erstens bei der Ausführung der Methode ohne aufgegebene Bestellung 
-     * der richtige Text zurückgegeben wird und zweitens bei der Ausführung der Methode 
-     * mit zurvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
+     * Test der Methode "erstelleProdukte()". 
+     * Der Test überprüft, ob erstens bei der Ausführung der Methode die Bestellungen in der Bestellungsliste korrekt erfasst werden, 
+     * die Produkte erstellt werden und der richtige Text zurückgegeben wird. Zweitens bei der Ausführung der Methode 
+     * mit zuvor aufgegebenen Bestellungen geprüft ob das System die Lagerkapazitäten einhält und somit nur die produzierbaren Bestellungen bestätigt und der richtige Text zurückgegeben wird,
      * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
      * 
      */
