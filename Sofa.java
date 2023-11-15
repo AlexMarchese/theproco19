@@ -7,44 +7,31 @@
  */
 public class Sofa extends Produkt {
     // Instanzvariablen
-    private static int kissen;
-    private static int holzeinheiten;
-    private static int schrauben;
-    private static int farbeinheiten;
-    private static int kartoneinheiten;
-    private static int produktionsZeit;
+    private int kissen;
     
 
-    // /**
-    //  * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
-    //  * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, die für das Produkt benötigt werden.
-    //  * @param   schrauben       Das ist die Anzahl der Schrauben, die für das Produkt benötigt werden.
-    //  * @param   kissen          Das ist die Anzahl der Kissen, welche zum Produkt gehören.
-    //  * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, die für das Produkt benötigt werden.
-    //  * @param   kartoneinheiten Das ist die Anzahl der Einheiten Karton, die für das Produkt benötigt werden.
-    //  * @param   produktionsZeit Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
-    //  */
-    // public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
-    //     // Instanzvariable initialisieren
-    //    super(holzeinheiten, schrauben, farbeinheiten, kartoneinheiten, produktionsZeit);
-    //    this.kissen = kissen;
-    // }
+    /**
+     * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
+     * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, die für das Produkt benötigt werden.
+     * @param   schrauben       Das ist die Anzahl der Schrauben, die für das Produkt benötigt werden.
+     * @param   kissen          Das ist die Anzahl der Kissen, welche zum Produkt gehören.
+     * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, die für das Produkt benötigt werden.
+     * @param   kartoneinheiten Das ist die Anzahl der Einheiten Karton, die für das Produkt benötigt werden.
+     * @param   produktionsZeit Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
+     */
+    public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
+        // Instanzvariable initialisieren
+       super(holzeinheiten, schrauben, farbeinheiten, kartoneinheiten, produktionsZeit);
+       this.kissen = kissen;
+    }
 
     /**
     * Konstruktor für Objekte der Klasse Sofa, wenn Default-Parameter verwendet werden sollen.
     */
     public Sofa() {
-        super();
         // Instanzvariable initialisieren
-        holzeinheiten = 2;
-        schrauben = 10;
-        farbeinheiten = 2;
-        kartoneinheiten = 1;
-        produktionsZeit = 22;
-        
-        // Instanzvariable initialisieren
-        // super(4, 5, 1, 5, 20); 
-        // this.kissen = 5;
+        super(4, 5, 1, 5, 20); 
+        this.kissen = 5;
     }
 
 
