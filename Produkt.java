@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 
 /**
  * Die Klasse Produkt umfasst die Informationen zu den von der Fabrik produzierbaren Produkten und die dazugehörige Methoden.
@@ -16,7 +17,8 @@ public class Produkt {
     int schrauben;
     int farbeinheiten;
     int kartoneinheiten;
-    int produktionsZeit; 
+    int produktionsZeit;
+    LinkedList produktionsAblauf; //muss noch zu LinkedList <Roboter> geändert werden
 
     /**
      * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
@@ -31,14 +33,16 @@ public class Produkt {
     public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren
         /*
-         * 0= nicht gestartet 1= in Bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet, 11 Maschine/Roboter 1 in Bearbeitung 12 etc) 2= abgeschlossen
+         * 0= nicht gestartet 1= in Bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet,
+         * 11 Maschine/Roboter 1 in Bearbeitung 12 etc) 2= abgeschlossen
          */ 
-        this.zustand = 0;
+        this.zustand = 0; // 0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen
         this.holzeinheiten = holzeinheiten;
         this.schrauben = schrauben;
         this.farbeinheiten = farbeinheiten;
         this.kartoneinheiten = kartoneinheiten;
         this.produktionsZeit = produktionsZeit;
+        this.produktionsAblauf = new LinkedList(); //muss noch zu LinkedList <Roboter> geändert werden
     }
 
 
@@ -47,15 +51,15 @@ public class Produkt {
 
     /**
      * Methode, um den Zustandswert des Produkts zu setzen.
-     * @param   zustand Der Zustandswert des Produkts in numerischer Form.
+     * @param   zustand Der Zustand des Produkts in numerischer Form (0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen)
      */
     public void setzeZustand(int zustand) {
         this.zustand = zustand;
     }
     
     /**
-     * Methode gibt aktuellen Zustand zurück.
-     * @return  zustand Den aktuellen Zustand des Produkts in numerischer Form.
+     * Methode gibt aktuellen Zustand zurück (0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen).
+     * @return  zustand Der aktuelle Zustand des Produkts in numerischer Form
      */
     public int gibZustand() {
         return this.zustand;
@@ -139,6 +143,31 @@ public class Produkt {
      */
     public int gibTotalProduktionszeit() {
         return this.produktionsZeit;
+    }
+    
+        /**
+     * Methode, um den Produktionsablauf für ein Produkt zu setzen.
+     * @param   produktionsAblauf Die Reihenfolge der Produktionsstationen (Roboter) in einer LinkedList
+     */
+    public void setzeProduktionsAblauf(LinkedList produktionsAblauf) { //muss noch zu LinkedList <Roboter> geändert werden
+         this.produktionsAblauf = produktionsAblauf;
+    }
+    
+    /**
+     * Methode, um den Produktionsablauf für ein Produkt zu erhalten.
+     * @return  produktionsAblauf Die Reihenfolge der Produktionsstationen (Roboter) in einer LinkedList
+     */
+    public LinkedList gibProduktionsAblauf() { //muss noch zu LinkedList <Roboter> geändert werden
+        return this.produktionsAblauf;
+    }
+    
+        /**
+     * Methode, um die Produktionsstation (Roboter) eines Produkts zu wechseln. Nimmt aus der Liste der zu durchlaufenden
+     * Roboter den jeweils nächsten heraus und fügt dem Roboter das aktuelle Produkt in der Liste der
+     * zu produzierenden Produkte hinzu.
+     */
+    public void naechsteProduktionsStation() {
+        ;
     }
     
 }
