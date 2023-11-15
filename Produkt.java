@@ -23,25 +23,26 @@ public class Produkt {
     /**
      * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
      * 
-     * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
-     * @param   schrauben       Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
-     * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
-     * @param   kartoneinheiten Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
-     * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
-     * 
-     */
-    public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
+    //  * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
+    //  * @param   schrauben       Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
+    //  * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
+    //  * @param   kartoneinheiten Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
+    //  * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
+    //  * 
+    //  */
+    // public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
+    public Produkt() {
         // Instanzvariable initialisieren
         /*
          * 0= nicht gestartet 1= in Bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet,
          * 11 Maschine/Roboter 1 in Bearbeitung 12 etc) 2= abgeschlossen
          */ 
         this.zustand = 0; // 0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen
-        this.holzeinheiten = holzeinheiten;
-        this.schrauben = schrauben;
-        this.farbeinheiten = farbeinheiten;
-        this.kartoneinheiten = kartoneinheiten;
-        this.produktionsZeit = produktionsZeit;
+        // this.holzeinheiten = holzeinheiten;
+        // this.schrauben = schrauben;
+        // this.farbeinheiten = farbeinheiten;
+        // this.kartoneinheiten = kartoneinheiten;
+        // this.produktionsZeit = produktionsZeit;
         this.produktionsAblauf = new LinkedList(); //muss noch zu LinkedList <Roboter> geändert werden
     }
 
