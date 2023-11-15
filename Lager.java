@@ -319,7 +319,6 @@ public class Lager{
         
         // Benötigte Produkte sind im Lager
         else {beschaffungszeit = 0;}
-        
     
     return beschaffungszeit;
         
@@ -361,7 +360,7 @@ public class Lager{
             this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
             this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
             this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
-
+            
             return "Lager konnte aufgefüllt werden";
         } else {
             return "Lager kann momentan nicht aufgefüllt werden";
@@ -413,7 +412,7 @@ public class Lager{
         Bestellung testBest = new Bestellung(sofa, chairs, 0);
         int [] noetig = testBest.anzahlEinheiten();
         int [] lagerMax = {this.maxHolzeinheiten, this.maxSchrauben, this.maxFarbeeinheiten, this.maxKartoneinheiten, this.maxKissen};
-        
+       
         for (int i = 0; i < noetig.length; i++) {
             if (noetig[i] > lagerMax[i]) {
                 return true; // Irgendeinwert ist höher als das Maximum am Lager

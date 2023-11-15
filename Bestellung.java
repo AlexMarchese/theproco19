@@ -26,16 +26,24 @@ public class Bestellung {
      * 
      */
     public Bestellung(int anzahlSofas, int anzahlStuehle, int bestellungsNr) {
-        // Instanzvariablen initialisieren
-        this.bestellteProdukte = new ArrayList<Produkt>(); 
-        this.bestellBestaetigung = false;
-        this.beschaffungsZeit = 0; // Zeit die es braucht, um die Materialien für die bestellten Produkte zu beschaffen
-        this.anzahlSofas = anzahlSofas;
-        this.anzahlStuehle = anzahlStuehle;
-        this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben
-        this.lieferzeit = 1;
-        this.produktionszeit = 0;
-        this.bestellteProdukteHinzufuegen();        
+           
+        
+        // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird.
+        if (anzahlSofas < 0 || anzahlStuehle < 0) {
+            throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl der Stühle und Sofas an.");
+        } else {
+            // Instanzvariablen initialisieren
+            this.anzahlSofas = anzahlSofas;
+            this.anzahlStuehle = anzahlStuehle;
+            this.bestellteProdukte = new ArrayList<Produkt>(); 
+            this.bestellBestaetigung = false;
+            this.beschaffungsZeit = 0; // Zeit die es braucht, um die Materialien für die bestellten Produkte zu beschaffen
+            this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben
+            this.lieferzeit = 1;
+            this.produktionszeit = 0;
+            this.bestellteProdukteHinzufuegen();
+            
+        }
     }
 
 

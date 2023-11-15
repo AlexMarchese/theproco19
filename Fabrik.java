@@ -122,7 +122,7 @@ public class Fabrik {
             
             // Beschaffungszeit wird berechnet, abgespeichert und Materialen werden ggf. nachbestellt.
             neueBestellung.setzeBeschaffungszeit(lager.berechneBeschaffungsZeit(neueBestellung));
-            
+         
             // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
             neueBestellung.berechneLieferzeit();
             
@@ -228,7 +228,6 @@ public class Fabrik {
         for(Bestellung bestellung : this.bestellungList){
 
             int [] benoetigteEinheiten = bestellung.anzahlEinheiten();
-
 
             if (lager.gibvorhandeneHolzeinheiten() < benoetigteEinheiten[0] || lager.gibvorhandeneSchrauben() < benoetigteEinheiten[1] || lager.gibvorhandeneFarbeeinheiten() < benoetigteEinheiten[2] || lager.gibvorhandeneKartoneinheiten() < benoetigteEinheiten[3] || lager.gibvorhandeneKissen() < benoetigteEinheiten[4]) {
                 break;
