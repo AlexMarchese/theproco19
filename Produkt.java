@@ -18,7 +18,7 @@ public class Produkt {
     int farbeinheiten;
     int kartoneinheiten;
     int produktionsZeit;
-    LinkedList produktionsAblauf; //muss noch zu LinkedList <Roboter> geändert werden
+    LinkedList<Roboter> produktionsAblauf;
 
     /**
      * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
@@ -32,17 +32,13 @@ public class Produkt {
      */
     public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
         // Instanzvariable initialisieren
-        /*
-         * 0= nicht gestartet 1= in Bearbeitung (Zukünftig denkbar; Zustand pro Maschine/Roboter 00 = nicht gestartet,
-         * 11 Maschine/Roboter 1 in Bearbeitung 12 etc) 2= abgeschlossen
-         */ 
         this.zustand = 0; // 0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen
         this.holzeinheiten = holzeinheiten;
         this.schrauben = schrauben;
         this.farbeinheiten = farbeinheiten;
         this.kartoneinheiten = kartoneinheiten;
         this.produktionsZeit = produktionsZeit;
-        this.produktionsAblauf = new LinkedList(); //muss noch zu LinkedList <Roboter> geändert werden
+        this.produktionsAblauf = new LinkedList<Roboter>();
     }
 
 
@@ -149,7 +145,7 @@ public class Produkt {
      * Methode, um den Produktionsablauf für ein Produkt zu setzen.
      * @param   produktionsAblauf Die Reihenfolge der Produktionsstationen (Roboter) in einer LinkedList
      */
-    public void setzeProduktionsAblauf(LinkedList produktionsAblauf) { //muss noch zu LinkedList <Roboter> geändert werden
+    public void setzeProduktionsAblauf(LinkedList<Roboter> produktionsAblauf) {
          this.produktionsAblauf = produktionsAblauf;
     }
     
@@ -157,7 +153,7 @@ public class Produkt {
      * Methode, um den Produktionsablauf für ein Produkt zu erhalten.
      * @return  produktionsAblauf Die Reihenfolge der Produktionsstationen (Roboter) in einer LinkedList
      */
-    public LinkedList gibProduktionsAblauf() { //muss noch zu LinkedList <Roboter> geändert werden
+    public LinkedList<Roboter> gibProduktionsAblauf() {
         return this.produktionsAblauf;
     }
     

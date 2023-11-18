@@ -74,6 +74,7 @@ public class Lager{
         this.inLieferungKartoneinheiten = 0;
         this.inLieferungKissen = 0; 
         this.lieferant = new Lieferant();
+        lieferant.start();
     }
 
 
@@ -320,17 +321,86 @@ public class Lager{
         // Benötigte Produkte sind im Lager
         else {beschaffungszeit = 0;}
     
-    return beschaffungszeit;
+        return beschaffungszeit;
+    }
+    
+    /**
+     * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager-Kapazität überschreiten, reduziert diese ggf.,
+     * und bestellt anschließend über die Methode wareBestellen die zu Bestellenden Materialien nach.
+     * 
+     * @return  String  Text bezüglich dem Auffüllen des Lagers. Je nachdem ob das Lager gefüllt werden konnte oder nicht wird der entsprechende Text ausgegeben.
+     * 
+    */
+
+    public void lagerAuffuellen() {  // Wird momentan bei jeder Bestellung getriggert
+        if (lieferant.gibLieferungInArbeit()){
+            
+        } else {
+            // zu bestellende Einheiten berechnen
+            int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
+            int zuBestellendeSchrauben = this.maxSchrauben - this.vorhandeneSchrauben;
+            int zuBestellendeFarbeinheiten = this.maxFarbeeinheiten - this.vorhandeneFarbeeinheiten;
+            int zuBestellendeKartoneinheiten = this.maxKartoneinheiten - this.vorhandeneKartoneinheiten;
+            int zuBestellendeKissen = this.maxKissen - this.vorhandeneKissen;
+
+            // Bestellung  
+            lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen, this);
         
+            System.out.println("Ware wurde bestellt");
+            // Variablen aktualisieren
+            this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
+            this.inLieferungSchrauben += zuBestellendeSchrauben;
+            this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
+            this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
+            this.inLieferungKissen += zuBestellendeKissen;
+            System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
+            
+            
+            // verstehe das nicht. Habe es derzeit rausgenommen, weil das Lager jetzt erst in der wareLiefern() Methode aufgefüllt wird.
+            /*
+            
+            // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige Einheiten bei großen Bestellungen.
+            this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
+            this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
+            this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
+            this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
+            this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
+            
+            return "Lager konnte aufgefüllt werden";
+            } else {
+            return "Lager kann momentan nicht aufgefüllt werden";
+            }
+
+        
+            */
+        }
+    }
+ 
+    /**
+     * Methode, die vom Lieferanten aufgerufen wird, um die bestellte Ware zu liefern.
+     * @param   tbd
+     * 
+    */
+            //muss noch die params adden
+    public void wareLiefern(int gelieferteHolzeinheiten, int gelieferteSchrauben, int gelieferteFarbeinheiten, int gelieferteKartoneinheiten, int gelieferteKissen) {
+        vorhandeneHolzeinheiten += gelieferteHolzeinheiten;
+        vorhandeneSchrauben += gelieferteSchrauben;
+        vorhandeneFarbeeinheiten += gelieferteFarbeinheiten;
+        vorhandeneKartoneinheiten += gelieferteKartoneinheiten;
+        vorhandeneKissen += gelieferteKissen;
+        System.out.println("Ware wurde geliefert.");
     }
     
     
+    /* alte Lager-Auffüll-Methode (für den Fall das davon noch etwas gebraucht wird.
+     * 
+     * 
     /**
      * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager Kapazität überschreiten und reduziert diese ggf und bestellt anschließend über den Methode wareBestellen die zu Bestellenden Materialien nach.
      * 
      * @return  String  Text bezüglich dem Auffüllen des Lagers. Je nachdem ob das Lager gefüllt werden konnte oder nicht wird der entsprechende Text ausgegeben.
      * 
-    */
+    
 
     public String lagerAuffuellen() {  // Wird momentan bei jeder Bestellung getriggert  
         
@@ -342,7 +412,7 @@ public class Lager{
         int zuBestellendeKissen = this.maxKissen - this.vorhandeneKissen;
 
         // Bestellung beim Lieferanten aufgeben, wenn es vom Lieferanten aus möglich ist
-        if (lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen)){
+        if (lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen, this)){
 
             // Bestellung
             lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
@@ -369,6 +439,7 @@ public class Lager{
         
         
     }
+    */
             
     /**
      * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
@@ -376,6 +447,7 @@ public class Lager{
      * @return   String    Text zum Lagerbestand.
      * 
     */
+   
      public String lagerBestandAusgeben() {
 
         String ausgabe = "\nLagersituation";

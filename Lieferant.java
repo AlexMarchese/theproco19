@@ -5,46 +5,80 @@
  * @author GBI Gruppe 19
  * @version 1.0
  */
-public class Lieferant {
+public class Lieferant extends Thread {
     // Instanzvariablen
-    int versendeteHolzeinheiten;
-    int versendeteSchrauben;
-    int versendeteFarbeeinheiten;
-    int versendeteKartoneinheiten;
-    int versendeteKissen;
+    private int bestellteHolzeinheiten;
+    private int bestellteSchrauben;
+    private int bestellteFarbeeinheiten;
+    private int bestellteKartoneinheiten;
+    private int bestellteKissen;
+    private boolean lieferungInArbeit;
+    private Lager bestellendesLager;
         
     public Lieferant(){
-        this.versendeteHolzeinheiten = 0; 
-        this.versendeteSchrauben = 0;
-        this.versendeteFarbeeinheiten = 0;
-        this.versendeteKartoneinheiten = 0;
-        this.versendeteKissen = 0;
-
+        this.bestellteHolzeinheiten = 0; 
+        this.bestellteSchrauben = 0;
+        this.bestellteFarbeeinheiten = 0;
+        this.bestellteKartoneinheiten = 0;
+        this.bestellteKissen = 0;
+        this.lieferungInArbeit = false;
     }
-
     /**
-     * Methode, um zu überprüfen, ob eine Bestellung an den Lieferanten erzeugt werden kann.
-     * Momentan gibt es keine Bedingungen, die dies hindern -> der Wert ist immer "true".
-     * Man könnte gut einstellen, dass nur gewisse Mengen bestellt werden können oder Bestellungen verhindern,
-     * wenn der Lieferant keine einnehmen kann.
-     * 
-     * @param   holzeinheiten   Anzahl Holzeinheiten die bestellt werden möchten.
-     * @param   schrauben   Anzahl Schrauben die bestellt werden möchten.
-     * @param   farbeeinheiten  Anzahl Farbeinheiten die bestellt werden möchten.
-     * @param   kartoneinheiten Anzahl Kartoneinheiten die bestellt werden möchten.
-     * @param   kissen  Anzahl Kissen die bestellt werden möchten.
-     * @return  boolean Gibt an, ob eine Bestellung beim Lieferanten erzeut werden kann. Momentan gibt es noch keine Bedingungen, die dies verhindern. Deswegen ist der Wert momentan immer "true".
+     * Methode zur Ausgabe der Variable lieferungInArbeit.
+     * @return lieferungInArbeit    Ein boolean Wert, welcher besagt ob eine Lieferung in Arbeit ist (true) oder nicht (false).
      */
-    public boolean wareBestellen(int holzeinheiten, int schrauben, int farbeeinheiten, int kartoneinheiten, int kissen)
+    public boolean gibLieferungInArbeit(){
+        return this.lieferungInArbeit;
+    }
+    
+    /**
+     * Methode, um Ware zu bestellen.
+     * 
+     * @param   holzeinheiten   Anzahl Holzeinheiten, die bestellt werden
+     * @param   schrauben       Anzahl Schrauben, die bestellt werden
+     * @param   farbeeinheiten  Anzahl Farbeinheiten, die bestellt werden
+     * @param   kartoneinheiten Anzahl Kartoneinheiten, die bestellt werden
+     * @param   kissen          Anzahl Kissen, die bestellt werden
+     * @param   lager           Das Lager, welches die Methode aufruft
+     */
+    public void wareBestellen(int holzeinheiten, int schrauben, int farbeeinheiten, int kartoneinheiten, int kissen, Lager lager)
     {
-        // Zähler wächst um die bestellte Menge
-        this.versendeteHolzeinheiten += holzeinheiten; 
-        this.versendeteSchrauben += schrauben;
-        this.versendeteFarbeeinheiten += farbeeinheiten;
-        this.versendeteKartoneinheiten += kartoneinheiten;
-        this.versendeteKissen += kissen;
-
-        return true;
+        // Bestellte Holzmenge wird abgespeichert
+        lieferungInArbeit = true;
+        this.bestellteHolzeinheiten = holzeinheiten; 
+        this.bestellteSchrauben = schrauben;
+        this.bestellteFarbeeinheiten = farbeeinheiten;
+        this.bestellteKartoneinheiten = kartoneinheiten;
+        this.bestellteKissen = kissen;
+        this.bestellendesLager = lager;
     }
 
+    
+    /**
+     *  
+     */
+    public void run(){
+        System.out.println("Lieferant thread started...");
+         
+        while(true){
+            if(lieferungInArbeit){
+                try{
+                    System.out.println("Lieferant hat eine Bestellung erhalten...");
+                    this.sleep(8000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
+                
+                bestellendesLager.wareLiefern(bestellteHolzeinheiten, bestellteSchrauben, bestellteFarbeeinheiten, bestellteKartoneinheiten, bestellteKissen);
+                lieferungInArbeit = false;
+                System.out.println("Bestellung geliefert.");
+            } else {
+                try{
+                    this.sleep(1000); // Damit jede Stunde gechecked wird, ob eine Bestellung eingetroffen ist.
+                } catch (InterruptedException ie){
+                    ie.printStackTrace();
+                }
+            }
+        }
+    }
 }

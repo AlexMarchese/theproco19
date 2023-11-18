@@ -1,9 +1,15 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\r\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ f\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ f\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=
 comment1.target=Lieferant()
-comment2.params=holzeinheiten\ schrauben\ farbeeinheiten\ kartoneinheiten\ kissen
-comment2.target=boolean\ wareBestellen(int,\ int,\ int,\ int,\ int)
-comment2.text=\r\n\ Methode,\ um\ zu\ \u00FCberpr\u00FCfen,\ ob\ eine\ Bestellung\ an\ den\ Lieferanten\ erzeugt\ werden\ kann.\r\n\ Momentan\ gibt\ es\ keine\ Bedingungen,\ die\ dies\ hindern\ ->\ der\ Wert\ ist\ immer\ "true".\r\n\ Man\ k\u00F6nnte\ gut\ einstellen,\ dass\ nur\ gewisse\ Mengen\ bestellt\ werden\ k\u00F6nnen\ oder\ Bestellungen\ verhindern,\r\n\ wenn\ der\ Lieferant\ keine\ einnehmen\ kann.\r\n\ \r\n\ @param\ \ \ holzeinheiten\ \ \ Anzahl\ Holzeinheiten\ die\ bestellt\ werden\ m\u00F6chten.\r\n\ @param\ \ \ schrauben\ \ \ Anzahl\ Schrauben\ die\ bestellt\ werden\ m\u00F6chten.\r\n\ @param\ \ \ farbeeinheiten\ \ Anzahl\ Farbeinheiten\ die\ bestellt\ werden\ m\u00F6chten.\r\n\ @param\ \ \ kartoneinheiten\ Anzahl\ Kartoneinheiten\ die\ bestellt\ werden\ m\u00F6chten.\r\n\ @param\ \ \ kissen\ \ Anzahl\ Kissen\ die\ bestellt\ werden\ m\u00F6chten.\r\n\ @return\ \ boolean\ Gibt\ an,\ ob\ eine\ Bestellung\ beim\ Lieferanten\ erzeut\ werden\ kann.\ Momentan\ gibt\ es\ noch\ keine\ Bedingungen,\ die\ dies\ verhindern.\ Deswegen\ ist\ der\ Wert\ momentan\ immer\ "true".\r\n
-numComments=3
+comment2.params=
+comment2.target=boolean\ gibLieferungInArbeit()
+comment2.text=\n\ Methode\ zur\ Ausgabe\ der\ Variable\ lieferungInArbeit.\n\ @return\ lieferungInArbeit\ \ \ \ Ein\ boolean\ Wert,\ welcher\ besagt\ ob\ eine\ Lieferung\ in\ Arbeit\ ist\ (true)\ oder\ nicht\ (false).\n
+comment3.params=holzeinheiten\ schrauben\ farbeeinheiten\ kartoneinheiten\ kissen\ lager
+comment3.target=void\ wareBestellen(int,\ int,\ int,\ int,\ int,\ Lager)
+comment3.text=\n\ Methode,\ um\ Ware\ zu\ bestellen.\n\ \n\ @param\ \ \ holzeinheiten\ \ \ Anzahl\ Holzeinheiten,\ die\ bestellt\ werden\n\ @param\ \ \ schrauben\ \ \ \ \ \ \ Anzahl\ Schrauben,\ die\ bestellt\ werden\n\ @param\ \ \ farbeeinheiten\ \ Anzahl\ Farbeinheiten,\ die\ bestellt\ werden\n\ @param\ \ \ kartoneinheiten\ Anzahl\ Kartoneinheiten,\ die\ bestellt\ werden\n\ @param\ \ \ kissen\ \ \ \ \ \ \ \ \ \ Anzahl\ Kissen,\ die\ bestellt\ werden\n\ @param\ \ \ lager\ \ \ \ \ \ \ \ \ \ \ Das\ Lager,\ welches\ die\ Methode\ aufruft\n
+comment4.params=
+comment4.target=void\ run()
+comment4.text=\n\ \ \n
+numComments=5
