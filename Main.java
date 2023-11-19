@@ -58,7 +58,7 @@ public class Main
         System.out.println("\nNach zwei Tagen.");
         fabrikStart.nachZweiTagen();
         System.out.println(fabrikStart.lagerSituation());
-        
+
     }
 
 }

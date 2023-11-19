@@ -1,58 +1,92 @@
 
 /**
- * Die Klasse Sofa umfasst die Informationen zum Sofa und die dazugehörigen Methoden.
+ * Die Klasse Sofa umfasst die Informationen zum Sofa und die dazugehörige Methoden.
  * 
  * @author GBI Gruppe 19
  * @version 1.0
  */
-public class Sofa extends Produkt {
-    // Instanzvariablen
-    private int kissen;
+public class Sofa extends Produkt
+{
+    private final static int holzeinheiten = 2;
+    private final static int schrauben = 10;
+    private final static int farbeinheiten = 2;
+    private final static int kartoneinheiten = 1;
+    private final static int kissen = 5;
+    private final static int produktionsZeit = 22;
     
+    // /**
+    //  * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
+    // * @param   holzeinheiten    Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
+    // * @param   schrauben        Das ist die Anzahl der Schrauben, die für das Produkt benötigt werden.
+    // * @param   farbeinheiten    Das ist die Anzahl der Einheiten Farbe, die für das Produkt benötigt werden.
+    // * @param   kartoneinheiten  Das ist die Anzahl der Einheiten Karton, die für das Produkt benötigt werden.
+    // * @param   produktionsZeit  Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
+    //  */
+    // public Sofa(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
+    //     // Instanzvariable initialisieren
+    //     super(holzeinheiten, schrauben, farbeinheiten, kartoneinheiten, produktionsZeit);
+    // }
 
     /**
-     * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
-     * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, die für das Produkt benötigt werden.
-     * @param   schrauben       Das ist die Anzahl der Schrauben, die für das Produkt benötigt werden.
-     * @param   kissen          Das ist die Anzahl der Kissen, welche zum Produkt gehören.
-     * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, die für das Produkt benötigt werden.
-     * @param   kartoneinheiten Das ist die Anzahl der Einheiten Karton, die für das Produkt benötigt werden.
-     * @param   produktionsZeit Das ist die Zeit (in Minuten) welche zur Produktion des Produkts benötigt wird.
+     * Konstruktor für Objekte der Klasse Sofa
      */
-    public Sofa(int holzeinheiten, int schrauben, int kissen, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
-        // Instanzvariable initialisieren
-       super(holzeinheiten, schrauben, farbeinheiten, kartoneinheiten, produktionsZeit);
-       this.kissen = kissen;
-    }
-
-    /**
-    * Konstruktor für Objekte der Klasse Sofa, wenn Default-Parameter verwendet werden sollen.
-    */
     public Sofa() {
-        // Instanzvariable initialisieren
-        super(4, 5, 1, 5, 20); 
-        this.kissen = 5;
+        super();       // check the difference with not writing it!!
+                        // setters away | getters change, but do not add static!
+        
+
     }
 
 
 
     /// Getters und Setters
 
-
     /**
-     * Methode, um die Anzahl an Kissen zu setzen.
-     * @param   kissen  Anzahl Kissen welche zum Produkt Sofa gehören.
+     * Methode, um benötigte Holzeinheiten für ein Sofa zu erhalten.
+     * @return  holzeinheiten   Die  benötigten Einheiten Holz für das Sofa.
      */
-    public void setzeKissen(int kissen) {
-        this.kissen = kissen;
+    public int gibHolzeinheiten() {
+        return Sofa.holzeinheiten;
     }
 
     /**
-     * Methode, um benötigte Anzahl Kissen für ein Sofa zu erhalten.
-     * @return  kissen  Anzahl Kissen welche zum Produkt Sofa gehören.
+     * Methode, um benötigte Schrauben für ein Sofa zu erhalten.
+     * @return  schrauben   Die  benötigte Anzahl Schrauben für das Sofa.
+     */
+    public int gibSchrauben() {
+        return Sofa.schrauben;
+    }
+    
+    /**
+     * Methode, um benötigte Farbeinheiten für ein Sofa zu erhalten.
+     * @return  farbeinheiten   Die  benötigten Einheiten Farbe für das Sofa.
+     */
+    public int gibFarbeinheiten() {
+        return Sofa.farbeinheiten;
+    }
+
+    /**
+     * Methode, um benötigte Kartoneinheiten für ein Sofa zu erhalten.
+     * @return  kartoneinheiten Die benötigten Einheiten Karton für das Sofa.
+     */
+    public int gibKartoneinheiten() {
+        return Sofa.kartoneinheiten;
+    }
+
+    /**
+     * Methode, um benötigte Kissen für ein Sofa zu erhalten.
+     * @return  Kissen Die benötigten Kissen für das Sofa.
      */
     public int gibKissen() {
-        return this.kissen;
+        return Sofa.kissen;
+    }
+    
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
+     * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für das Sofa.
+     */
+    public int gibTotalProduktionszeit() {
+        return Sofa.produktionsZeit;
     }
     
 }

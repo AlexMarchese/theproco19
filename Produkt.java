@@ -13,14 +13,15 @@ import java.util.LinkedList;
 public class Produkt {
     // Instanzvariablen
     int zustand;
-    int holzeinheiten;
-    int schrauben;
-    int farbeinheiten;
-    int kartoneinheiten;
-    int produktionsZeit;
+    // int holzeinheiten;
+    // int schrauben;
+    // int farbeinheiten;
+    // int kartoneinheiten;
+    // int produktionsZeit;
     LinkedList<Roboter> produktionsAblauf;
 
-    /**
+    //TO DO
+    /** 
      * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
      * 
      * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
@@ -30,20 +31,20 @@ public class Produkt {
      * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
      * 
      */
-    public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
+    // public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
+    public Produkt() {
         // Instanzvariable initialisieren
         this.zustand = 0; // 0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen
-        this.holzeinheiten = holzeinheiten;
-        this.schrauben = schrauben;
-        this.farbeinheiten = farbeinheiten;
-        this.kartoneinheiten = kartoneinheiten;
-        this.produktionsZeit = produktionsZeit;
+        // this.holzeinheiten = holzeinheiten;
+        // this.schrauben = schrauben;
+        // this.farbeinheiten = farbeinheiten;
+        // this.kartoneinheiten = kartoneinheiten;
+        // this.produktionsZeit = produktionsZeit;
         this.produktionsAblauf = new LinkedList<Roboter>();
     }
 
 
     /// Getters und Setters
-
 
     /**
      * Methode, um den Zustandswert des Produkts zu setzen.
@@ -60,88 +61,8 @@ public class Produkt {
     public int gibZustand() {
         return this.zustand;
     }
-
-    /**
-     * Methode, um benötigte Holzeinheiten für ein Produkt zu setzen.
-     * @param   anzahlHolzeinheiten Die benötigten Einheiten Holz für das Produkt.
-     */
-    public void setzeHolzeinheiten(int anzahlHolzeinheiten) {
-         this.holzeinheiten = anzahlHolzeinheiten;
-    }
     
     /**
-     * Methode, um benötigte Holzeinheiten für ein Produkt zu erhalten.
-     * @return  holzeinheiten   Die  benötigten Einheiten Holz für das Produkt.
-     */
-    public int gibHolzeinheiten() {
-        return this.holzeinheiten;
-    }
-    
-    /**
-     * Methode, um benötigte Schrauben für ein Produkt zu setzen.
-     * @param   anzahlSchrauben Die benötigte Anzahl Schrauben für das Produkt.
-     */
-    public void setzeSchrauben(int anzahlSchrauben) {
-        this.schrauben = anzahlSchrauben;
-    }
-
-    /**
-     * Methode, um benötigte Schrauben für ein Produkt zu erhalten.
-     * @return  schrauben   Die  benötigte Anzahl Schrauben für das Produkt.
-     */
-    public int gibSchrauben() {
-        return this.schrauben;
-    }
-    
-    /**
-     * Methode, um benötigte Farbeinheiten für ein Produkt zu setzen.
-     * @param   anzahlFarbeinheiten Die benötigten Einheiten Farbe für das Produkt.
-     */
-    public void setzeFarbeinheiten(int anzahlFarbeinheiten) {
-        this.farbeinheiten = anzahlFarbeinheiten;
-    }
-    
-    /**
-     * Methode, um benötigte Farbeinheiten für ein Produkt zu erhalten.
-     * @return  farbeinheiten   Die  benötigten Einheiten Farbe für das Produkt.
-     */
-    public int gibFarbeinheiten() {
-        return this.farbeinheiten;
-    }
-    
-    /**
-     * Methode, um benötigte Kartoneinheiten für ein Produkt zu setzen.
-     * @param   anzahlKartoneinheiten   Die benötigten Einheiten Karton für das Produkt.
-     */
-    public void setzeKartoneinheiten(int anzahlKartoneinheiten) {
-        this.kartoneinheiten = anzahlKartoneinheiten;
-    }
-    
-    /**
-     * Methode, um benötigte Kartoneinheiten für ein Produkt zu erhalten.
-     * @return  kartoneinheiten Die benötigten Einheiten Karton für das Produkt.
-     */
-    public int gibKartoneinheiten() {
-        return this.kartoneinheiten;
-    }
-    
-    /**
-     * Methode, um die Produktionszeit für ein Produkt zu setzen.
-     * @param   neueproduktionsZeit Die totale Produktionszeit (in Minuten) für das Produkt.
-     */
-    public void setzeTotalProduktionszeit(int neueproduktionsZeit) {
-         this.produktionsZeit = neueproduktionsZeit;
-    }
-    
-    /**
-     * Methode, um die Produktionszeit für ein Produkt zu erhalten.
-     * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für das Produkt.
-     */
-    public int gibTotalProduktionszeit() {
-        return this.produktionsZeit;
-    }
-    
-        /**
      * Methode, um den Produktionsablauf für ein Produkt zu setzen.
      * @param   produktionsAblauf Die Reihenfolge der Produktionsstationen (Roboter) in einer LinkedList
      */
@@ -157,7 +78,7 @@ public class Produkt {
         return this.produktionsAblauf;
     }
     
-        /**
+    /**
      * Methode, um die Produktionsstation (Roboter) eines Produkts zu wechseln. Nimmt aus der Liste der zu durchlaufenden
      * Roboter den jeweils nächsten heraus und fügt dem Roboter das aktuelle Produkt in der Liste der
      * zu produzierenden Produkte hinzu.

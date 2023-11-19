@@ -45,13 +45,13 @@ public class StuhlTest {
     
     /**
      * 
-     * Der Test überprüft, ob die Erstellung eines Stuhls ohne die Angabe von Variablenwerten funktioniert. 
+     * Der Test überprüft, ob die Erstellung eines Stuhls funktioniert. 
      * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe zuerwarteten Standartwerte  
      * mit der Vorgabe aus dem Test verglichen wird. 
      * 
      */
     @Test
-    public void testeStuhlKeineVariablenAngabe() {
+    public void testeStuhl() {
         Stuhl testStuhl = new Stuhl();
 
         assertEquals(testStuhl.gibHolzeinheiten(), 2);
@@ -60,56 +60,7 @@ public class StuhlTest {
         assertEquals(testStuhl.gibKartoneinheiten(), 1);
         assertEquals(testStuhl.gibTotalProduktionszeit(), 22);
 
-        System.out.println("Test Stuhl ohne Variablenangabe erfolgreich. Defaultinitialisierung und Getters funktionieren.");
-    }
-
-    
-    /**
-     * 
-     * Der Test überprüft, ob die Erstellung eines Stuhls mit der Angabe von Variablenwerten funktioniert. 
-     * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe der initialisierten Werte   
-     * mit der Vorgabe aus dem Test verglichen wird. 
-     * 
-     */
-    @Test
-    public void testeStuhlMitVariablenAngabe() {
-        Stuhl testStuhl = new Stuhl(5, 6, 7, 8, 9);
-
-        assertEquals(testStuhl.gibHolzeinheiten(), 5);
-        assertEquals(testStuhl.gibSchrauben(), 6);
-        assertEquals(testStuhl.gibFarbeinheiten(), 7);
-        assertEquals(testStuhl.gibKartoneinheiten(), 8);
-        assertEquals(testStuhl.gibTotalProduktionszeit(), 9);
-
-        System.out.println("Test Stuhl mit Variablenangabe erfolgreich. Initialisierung mit Selbstdefinierten Variablen funktioniert.");
-
-    }
-    
-    
-    /**
-     * 
-     * Test der Setter-Methoden. 
-     * Der Test überprüft, ob die Methoden die Werte richtig aktualisieren und diese dann richtig zurückgegeben werden,
-     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird.
-     * 
-     */
-    @Test
-    public void testeStuhlSetters() {
-        Stuhl testStuhl = new Stuhl(5, 6, 7, 8, 9);
-
-        testStuhl.setzeHolzeinheiten(1);
-        assertEquals(testStuhl.gibHolzeinheiten(), 1);
-        testStuhl.setzeSchrauben(2);
-        assertEquals(testStuhl.gibSchrauben(), 2);
-        testStuhl.setzeFarbeinheiten(3);
-        assertEquals(testStuhl.gibFarbeinheiten(), 3);
-        testStuhl.setzeKartoneinheiten(4);
-        assertEquals(testStuhl.gibKartoneinheiten(), 4);
-        testStuhl.setzeTotalProduktionszeit(5);
-        assertEquals(testStuhl.gibTotalProduktionszeit(), 5);
-
-        System.out.println("Test Setters von der Klasse Stuhl erfolgreich.");
-
+        System.out.println("Test Stuhl erfolgreich. Defaultinitialisierung und Getters funktionieren.");
     }
 
 }
