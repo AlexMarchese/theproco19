@@ -86,15 +86,16 @@ public class Fabrik {
     /**
      * Methode, die überprüft, ob das Lager aufgefüllt werden muss und ggf. die zugehörige Methode der Klasse Lager ausführt.
      */
-    public void lagerAuffuellen(){    
-        // Fülle das Lager auf, falls ein Material nicht ausreicht.
-        if (lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten() < lager.benoetigteHolzeinheiten
-            || lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben() < lager.benoetigteSchrauben
-            || lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten() < lager.benoetigteFarbeeinheiten 
-            || lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten() < lager.benoetigteKartoneinheiten
-            || lager.gibvorhandeneKissen() + lager.gibInLieferungKissen() < lager.benoetigteKissen) {
-                lager.lagerAuffuellen();
-        }
+    public String lagerAuffuellen(){    
+        // // Fülle das Lager auf, falls ein Material nicht ausreicht.
+        // if (lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten() < lager.benoetigteHolzeinheiten
+        //     || lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben() < lager.benoetigteSchrauben
+        //     || lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten() < lager.benoetigteFarbeeinheiten 
+        //     || lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten() < lager.benoetigteKartoneinheiten
+        //     || lager.gibvorhandeneKissen() + lager.gibInLieferungKissen() < lager.benoetigteKissen) {
+        //         System.out.println(lager.lagerAuffuellen() instanceof String); 
+        // } 
+        return lager.lagerAuffuellen();
     }
     
     /**
@@ -126,8 +127,12 @@ public class Fabrik {
             // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
             neueBestellung.berechneLieferzeit();
             
-            // Bei jeder Bestellung wird das Lager aufgefüllt.
-            lager.lagerAuffuellen();
+            // OLD
+            // // Bei jeder Bestellung wird das Lager aufgefüllt.
+            // lager.lagerAuffuellen();
+
+            // // Bei jeder Bestellung wird überprüft, ob das Lager aufgefüllt werden kann.
+            // this.lagerAuffuellen();
 
             return neueBestellung.bestellungBestaetigen();
         }
@@ -261,26 +266,26 @@ public class Fabrik {
 
     }
 
-    /** 
-     * Diese Methode simuliert das vergehen von zwei Tagen. Das hat einen Einfluss auf die Lieferung der Produkte des Lagers.
-     * Die Materialien in Lieferung werden zum Vorrat hinzugefügt.
-    */
-    public void nachZweiTagen(){
+    // /** 
+    //  * Diese Methode simuliert das vergehen von zwei Tagen. Das hat einen Einfluss auf die Lieferung der Produkte des Lagers.
+    //  * Die Materialien in Lieferung werden zum Vorrat hinzugefügt.
+    // */
+    // public void nachZweiTagen(){
 
-        // Materialien in Lieferung kommen an und werden dem Vorrat hinzugefügt
-        lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten());
-        lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben());
-        lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten());
-        lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten());
-        lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() + lager.gibInLieferungKissen());
+    //     // Materialien in Lieferung kommen an und werden dem Vorrat hinzugefügt
+    //     lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten());
+    //     lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben());
+    //     lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten());
+    //     lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten());
+    //     lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() + lager.gibInLieferungKissen());
 
-        // Diese sind also nicht mehr in Lieferung
-        lager.setzeInLieferungHolzeinheiten(0);
-        lager.setzeInLieferungSchrauben(0);
-        lager.setzeInLieferungFarbeeinheiten(0);
-        lager.setzeInLieferungKartoneinheiten(0);
-        lager.setzeInLieferungKissen(0);
+    //     // Diese sind also nicht mehr in Lieferung
+    //     lager.setzeInLieferungHolzeinheiten(0);
+    //     lager.setzeInLieferungSchrauben(0);
+    //     lager.setzeInLieferungFarbeeinheiten(0);
+    //     lager.setzeInLieferungKartoneinheiten(0);
+    //     lager.setzeInLieferungKissen(0);
 
-    }
+    // }
     
 }

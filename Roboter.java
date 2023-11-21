@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * @version 1.0
  * 
  */
-public class Roboter
+public class Roboter extends Thread
 {
     // Instanzvariablen 
     LinkedList <Produkt> warteschlange;

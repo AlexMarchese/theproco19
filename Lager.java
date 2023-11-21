@@ -332,9 +332,9 @@ public class Lager{
      * 
     */
 
-    public void lagerAuffuellen() {  // Wird momentan bei jeder Bestellung getriggert
+    public String lagerAuffuellen() {  // Wird am Ende jedes Tages getriggert und nicht bei jeder Bestellung
         if (lieferant.gibLieferungInArbeit()){
-            
+            return "Lager kann momentan nicht aufgefüllt werden";
         } else {
             // zu bestellende Einheiten berechnen
             int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
@@ -343,20 +343,30 @@ public class Lager{
             int zuBestellendeKartoneinheiten = this.maxKartoneinheiten - this.vorhandeneKartoneinheiten;
             int zuBestellendeKissen = this.maxKissen - this.vorhandeneKissen;
 
-            // Bestellung  
-            lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen, this);
-        
-            System.out.println("Ware wurde bestellt");
-            // Variablen aktualisieren
-            this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
-            this.inLieferungSchrauben += zuBestellendeSchrauben;
-            this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
-            this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
-            this.inLieferungKissen += zuBestellendeKissen;
-            System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
+            // Überprüfung, dass mindestens einer der Werte nicht 0 ist
+            if (zuBestellendeHolzeinheiten != 0 || zuBestellendeSchrauben != 0 || zuBestellendeFarbeinheiten != 0 || zuBestellendeKartoneinheiten != 0 || zuBestellendeKissen != 0) {
+                // Bestellung  
+                lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen, this);
+            
+                // System.out.println("Ware wurde bestellt");
+
+                // Variablen aktualisieren
+                this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
+                this.inLieferungSchrauben += zuBestellendeSchrauben;
+                this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
+                this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
+                this.inLieferungKissen += zuBestellendeKissen;
+                // System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
+
+                return "Lager konnte aufgefüllt werden";
+            } else { // Falls alle Werte 0 sind
+                return "Lager hat gerade die maximale Anzahl an Einheiten";
+            }
+            
+
+            //Je nachdem können wir mit folgendem Teil auch sehr große Bestellungen (Menge ist größer als die Lagerkapazität) annehmen
             
             
-            // verstehe das nicht. Habe es derzeit rausgenommen, weil das Lager jetzt erst in der wareLiefern() Methode aufgefüllt wird.
             /*
             
             // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige Einheiten bei großen Bestellungen.
@@ -376,70 +386,36 @@ public class Lager{
         }
     }
  
-    /**
-     * Methode, die vom Lieferanten aufgerufen wird, um die bestellte Ware zu liefern.
+    /** TO DO
+     * Methode, die vom Lieferanten aufgerufen wird, um die bestellte Ware zu liefern. Im konkreten, wird die Ware den vorhandenen Materialien hinzugefügt
      * @param   tbd
      * 
     */
             //muss noch die params adden
     public void wareLiefern(int gelieferteHolzeinheiten, int gelieferteSchrauben, int gelieferteFarbeinheiten, int gelieferteKartoneinheiten, int gelieferteKissen) {
+        // Vorhandene Materialien nehmen um den gelieferten Wert zu
         vorhandeneHolzeinheiten += gelieferteHolzeinheiten;
         vorhandeneSchrauben += gelieferteSchrauben;
         vorhandeneFarbeeinheiten += gelieferteFarbeinheiten;
         vorhandeneKartoneinheiten += gelieferteKartoneinheiten;
         vorhandeneKissen += gelieferteKissen;
+
+        // Materialien in Lieferung sinken um den gelieferten Wert 
+        inLieferungHolzeinheiten -= gelieferteHolzeinheiten;
+        inLieferungSchrauben -= gelieferteSchrauben;
+        inLieferungFarbeeinheiten -= gelieferteFarbeinheiten;
+        inLieferungKartoneinheiten -= gelieferteKartoneinheiten;
+        inLieferungKissen -= gelieferteKissen;
+
+        // Benötigte Materialien sinken um den gelieferten Wert 
+        benoetigteHolzeinheiten -= gelieferteHolzeinheiten;
+        benoetigteSchrauben -= gelieferteSchrauben;
+        benoetigteFarbeeinheiten -= gelieferteFarbeinheiten;
+        benoetigteKartoneinheiten -= gelieferteKartoneinheiten;
+        benoetigteKissen -= gelieferteKissen;
         System.out.println("Ware wurde geliefert.");
     }
     
-    
-    /* alte Lager-Auffüll-Methode (für den Fall das davon noch etwas gebraucht wird.
-     * 
-     * 
-    /**
-     * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager Kapazität überschreiten und reduziert diese ggf und bestellt anschließend über den Methode wareBestellen die zu Bestellenden Materialien nach.
-     * 
-     * @return  String  Text bezüglich dem Auffüllen des Lagers. Je nachdem ob das Lager gefüllt werden konnte oder nicht wird der entsprechende Text ausgegeben.
-     * 
-    
-
-    public String lagerAuffuellen() {  // Wird momentan bei jeder Bestellung getriggert  
-        
-
-        int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
-        int zuBestellendeSchrauben = this.maxSchrauben - this.vorhandeneSchrauben;
-        int zuBestellendeFarbeinheiten = this.maxFarbeeinheiten - this.vorhandeneFarbeeinheiten;
-        int zuBestellendeKartoneinheiten = this.maxKartoneinheiten - this.vorhandeneKartoneinheiten;
-        int zuBestellendeKissen = this.maxKissen - this.vorhandeneKissen;
-
-        // Bestellung beim Lieferanten aufgeben, wenn es vom Lieferanten aus möglich ist
-        if (lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen, this)){
-
-            // Bestellung
-            lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
-
-            // Variablen aktualisieren.
-            this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
-            this.inLieferungSchrauben += zuBestellendeSchrauben;
-            this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
-            this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
-            this.inLieferungKissen += zuBestellendeKissen;
-            
-            // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige Einheiten bei großen Bestellungen.
-            this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
-            this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
-            this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
-            this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
-            this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
-            
-            return "Lager konnte aufgefüllt werden";
-        } else {
-            return "Lager kann momentan nicht aufgefüllt werden";
-        }
-
-        
-        
-    }
-    */
             
     /**
      * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
@@ -455,6 +431,9 @@ public class Lager{
         ausgabe += ("\nIm Lager:                Holzeinheiten - " + this.vorhandeneHolzeinheiten + " | Schrauben - " + this.vorhandeneSchrauben + 
         " | Farbeeineiten - " + this.vorhandeneFarbeeinheiten + " | Kartoneineiten - " + this.vorhandeneKartoneinheiten + 
         " | Kissen - " + this.vorhandeneKissen);
+        // ausgabe += ("\nWird benötigt:           Holzeinheiten - " + this.benoetigteHolzeinheiten + " | Schrauben - " + this.benoetigteSchrauben + 
+        // " | Farbeeineiten - " + this.benoetigteFarbeeinheiten + " | Kartoneineiten - " + this.benoetigteKartoneinheiten + 
+        // " | Kissen - " + this.benoetigteKissen);
         ausgabe += ("\nWird noch geliefert:     Holzeinheiten - " + this.inLieferungHolzeinheiten + "  | Schrauben - " + this.inLieferungSchrauben + 
         "  | Farbeeineiten - " + this.inLieferungFarbeeinheiten + "  | Kartoneineiten - " + this.inLieferungKartoneinheiten + 
         "  | Kissen - " + this.inLieferungKissen);

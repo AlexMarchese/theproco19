@@ -23,6 +23,11 @@ public class Lieferant extends Thread {
         this.bestellteKissen = 0;
         this.lieferungInArbeit = false;
     }
+
+
+    //Es wäre noch cool eine Variable zu haben, in der die bisher je Bestellten Materialien gespeichert werden, auch mit einer Bestellnummer
+
+
     /**
      * Methode zur Ausgabe der Variable lieferungInArbeit.
      * @return lieferungInArbeit    Ein boolean Wert, welcher besagt ob eine Lieferung in Arbeit ist (true) oder nicht (false).
@@ -57,6 +62,7 @@ public class Lieferant extends Thread {
     /**
      *  
      */
+    @Override //es ist eine good practice
     public void run(){
         System.out.println("Lieferant thread started...");
          
@@ -64,7 +70,8 @@ public class Lieferant extends Thread {
             if(lieferungInArbeit){
                 try{
                     System.out.println("Lieferant hat eine Bestellung erhalten...");
-                    this.sleep(8000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
+                    // this.sleep(8000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
+                    this.sleep(20000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }

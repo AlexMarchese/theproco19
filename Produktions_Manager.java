@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * @version 1.0
  * 
  */
-public class Produktions_Manager
+public class Produktions_Manager extends Thread
 {
     // Instanzvariablen 
     
