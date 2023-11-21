@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Produktions_Manager
 comment0.text=\r\n\ Die\ Klasse\ Produktions_Manager\ \r\n\ \r\n\ \r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n\ \r\n
-comment1.params=maxHolzeinheiten\ maxSchrauben\ maxFarbeeinheiten\ maxKartoneinheiten\ maxKissen\ vorhandeneHolzeinheiten\ vorhandenSchrauben\ vorhandeneFarbeeinheiten\ vorhandeneKartoneinheiten\ vorhandeneKissen
-comment1.target=Produktions_Manager(int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produktions_Manager\r\n
+comment1.params=meinLager
+comment1.target=Produktions_Manager(Lager)
+comment1.text=\ TO\ DO\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Produktions_Manager\r\n
 comment2.params=
 comment2.target=void\ run()
 comment2.text=\r\n\ Methode,\ \r\n

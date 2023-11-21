@@ -40,7 +40,7 @@ public class Produkt {
         // this.farbeinheiten = farbeinheiten;
         // this.kartoneinheiten = kartoneinheiten;
         // this.produktionsZeit = produktionsZeit;
-        this.produktionsAblauf = new LinkedList<Roboter>();
+        // this.produktionsAblauf = new LinkedList<Roboter>();
     }
 
 

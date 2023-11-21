@@ -12,6 +12,7 @@ public class Fabrik {
     private ArrayList <Bestellung> bestellungList;
     private int bestellungsNrCounter;
     private Lager lager;
+    private Produktions_Manager produktions_manager;
 
     /**
      * Konstruktor für Instanzen der Klasse Fabrik.
@@ -81,6 +82,11 @@ public class Fabrik {
      */
     public void erstelleLager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
         lager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen);
+    }
+
+    
+    public void erstelleProduktions_Manager() {
+        produktions_manager = new Produktions_Manager(this.lager);
     }
 
     /**
