@@ -334,7 +334,7 @@ public class Lager{
 
     public String lagerAuffuellen() {  // Wird am Ende jedes Tages getriggert und nicht bei jeder Bestellung
         if (lieferant.gibLieferungInArbeit()){
-            return "Lager kann momentan nicht aufgefüllt werden";
+            return "Lager kann momentan nicht aufgefüllt werden"; //fix this
         } else {
             // zu bestellende Einheiten berechnen
             int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
@@ -358,9 +358,9 @@ public class Lager{
                 this.inLieferungKissen += zuBestellendeKissen;
                 // System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
 
-                return "Lager konnte aufgefüllt werden";
+                return "Lager konnte aufgefüllt werden"; //fix this
             } else { // Falls alle Werte 0 sind
-                return "Lager hat gerade die maximale Anzahl an Einheiten";
+                return "Lager hat gerade die maximale Anzahl an Einheiten"; //check this
             }
             
 
