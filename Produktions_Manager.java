@@ -13,30 +13,29 @@ public class Produktions_Manager extends Thread
 {
     // Instanzvariablen 
     
-    // Holzarbeitungs_Roboter holzRoboter;
-    // Montage_Roboter montageRoboter;
-    // Lackier_Roboter lackierRoboter; 
-    // Verpackungs_Roboter verpackungsRoboter;
-    Fabrik meineFabrik; 
-    Lager meinLager; 
-    LinkedList <Bestellung> zuVerabreitendeBestellungen;
-    LinkedList <Bestellung> bestellungInProduktion; 
+    // private Holzarbeitungs_Roboter holzRoboter;
+    // private Montage_Roboter montageRoboter;
+    // private Lackier_Roboter lackierRoboter; 
+    // private Verpackungs_Roboter verpackungsRoboter;
+    private Fabrik meineFabrik; 
+    private Lager meinLager; 
+    private LinkedList <Bestellung> zuVerabreitendeBestellungen;
+    private LinkedList <Bestellung> bestellungInProduktion; 
     
 
     /** TO DO
      * Konstruktor für Objekte der Klasse Produktions_Manager
      */
-    // public Produktions_Manager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen)
-    public Produktions_Manager(Lager meinLager)
+    
+    public Produktions_Manager(Lager meinLager, Fabrik meineFabrik)
     {
-        //TEMP
+        //TEMPorär
         // this.holzRoboter = new Holzarbeitungs_Roboter();
         // this.montageRoboter = new Montage_Roboter();
         // this.lackierRoboter = new Lackier_Roboter();
         // this.verpackungsRoboter = new Verpackungs_Roboter();
 
-        this.meineFabrik = new Fabrik(); 
-        // this.meinLager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen); //to delete?
+        this.meineFabrik = meineFabrik;
         this.meinLager = meinLager; 
         this.zuVerabreitendeBestellungen = new LinkedList<Bestellung>();
         this.bestellungInProduktion = new LinkedList<Bestellung>();

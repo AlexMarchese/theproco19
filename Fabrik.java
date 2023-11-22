@@ -86,7 +86,7 @@ public class Fabrik {
 
     
     public void erstelleProduktions_Manager() {
-        produktions_manager = new Produktions_Manager(this.lager);
+        produktions_manager = new Produktions_Manager(this.lager, this);
     }
 
     /**

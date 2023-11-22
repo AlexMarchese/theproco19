@@ -11,22 +11,20 @@ import java.util.LinkedList;
 public class Roboter extends Thread
 {
     // Instanzvariablen 
-    LinkedList <Produkt> warteschlange;
+    private LinkedList <Produkt> warteschlange;
     private String name; 
     private int produktionsZeit;
 
     /**
      * Konstruktor für Objekte der Klasse Roboter
-     * 
-     * @param    name            Der Name der Bestellung.
-     * @param    produktionszeit Die Zeit die es benöitgt, um die Bestellung zu produzieren.
+     *  
      */
-    public Roboter(String name, int produktionsZeit)
+    public Roboter()
     {
         // Instanzvariable initialisieren
         this.warteschlange = new LinkedList<Produkt>();
-        this.name = name;
-        this.produktionsZeit = produktionsZeit; 
+        String name;
+        int produktionsZeit; 
     }
 
     
