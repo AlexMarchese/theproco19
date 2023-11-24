@@ -12,8 +12,8 @@ public class Roboter extends Thread
 {
     // Instanzvariablen 
     LinkedList <Produkt> warteschlange;
-    private String name; 
-    private int produktionsZeit;
+    public String name; 
+    public int produktionsZeit;
 
     /**
      * Konstruktor für Objekte der Klasse Roboter

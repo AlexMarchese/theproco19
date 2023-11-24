@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Lager Lackier_Roboter 
+ * Die Klasse Lager Montage_Roboter
  * 
  * 
  * @author GBI Gruppe 19
@@ -9,17 +9,35 @@
  */
 public class Lackier_Roboter extends Roboter
 {
-    // Instanzvariablen 
     
-
     /**
-     * Konstruktor für Objekte der Klasse Lackier_Roboter
+     * Konstruktor für Objekte der Klasse Montage_Roboter
      */
-    public Lackier_Roboter()
+    public Lackier_Roboter(Lager lager)
     {
-        // Instanzvariable initialisieren
-       
+        super(lager);
+        // Zeit wird in Millisekunden angegeben
+        stuhlZeit = 1000*5/60; 
+        sofaZeit = 1000*5/60;
+        name = "Lackierroboter";
     }
 
-      /// Methoden
+   /**
+     //Produziert Produkt - benutzt die Materialien (in diesem Fall Farbe), dann ruft super.produziereProdukt
+     */
+    public void produziereProdukt(Produkt produkt)
+    {
+        if(produkt instanceof Stuhl)
+        {
+            Lager.benutzeFarbeinheiten(Stuhl.gibAnzahlFarbeinheiten());
+        }
+        else if(produkt instanceof Sofa)
+        {
+            Lager.benutzeFarbeinheiten(Sofa.gibAnzahlFarbeinheiten());
+        }
+        else
+        {
+        }
+        super.produziereProdukt(produkt);
+    }
 }
