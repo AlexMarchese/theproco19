@@ -9,7 +9,6 @@
  */
 public class Holzarbeitungs_Roboter extends Roboter
 {
-    // Instanzvariablen 
 
     /**
      * Konstruktor für Objekte der Klasse Holzarbeitungs_Roboter
@@ -18,8 +17,8 @@ public class Holzarbeitungs_Roboter extends Roboter
     {
         super(lager);
         // Zeit wird in Millisekunden angegeben
-        stuhlZeit = 1000*10/60; 
-        sofaZeit = 1000*30/60;
+        produktionsZeit = 1000*10/60; // Zeit Stuhl
+        produktionsZeit = 1000*30/60; // Zeit Sofa
         name = "Holzbearbeitungsroboter";
     }
         
@@ -28,13 +27,13 @@ public class Holzarbeitungs_Roboter extends Roboter
     {
         if(produkt instanceof Stuhl)
         {
-            Lager.benutzeHolzeinheiten(Stuhl.gibAnzahlHolzeinheiten());
-            Lager.benutzeSchrauben(Stuhl.gibAnzahlSchrauben());
+            meinLager.benutzeHolzeinheiten(Stuhl.gibAnzahlHolzeinheiten());
+            meinLager.benutzeSchrauben(Stuhl.gibAnzahlSchrauben());
         }
         else if(produkt instanceof Sofa)
         {
-            Lager.benutzeHolzeinheiten(Sofa.gibAnzahlHolzeinheiten());
-            Lager.benutzeSchrauben(Sofa.gibAnzahlSchrauben());
+            meinLager.benutzeHolzeinheiten(Sofa.gibAnzahlHolzeinheiten());
+            meinLager.benutzeSchrauben(Sofa.gibAnzahlSchrauben());
         }
         else
         {

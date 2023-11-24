@@ -17,8 +17,8 @@ public class Lackier_Roboter extends Roboter
     {
         super(lager);
         // Zeit wird in Millisekunden angegeben
-        stuhlZeit = 1000*5/60; 
-        sofaZeit = 1000*5/60;
+        produktionsZeit = 1000*2/60; // Zeit Stuhl
+        produktionsZeit = 1000*5/60; // Zeit Sofa
         name = "Lackierroboter";
     }
 

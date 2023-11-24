@@ -18,8 +18,8 @@ public class Montage_Roboter extends Roboter
     {
         super(lager);
         // Zeit wird in Millisekunden angegeben
-        stuhlZeit = 1000*5/60; 
-        sofaZeit = 1000*15/60;
+        produktionsZeit = 1000*5/60; // Zeit Stuhl
+        produktionsZeit = 1000*15/60; // Zeit Sofa
         name = "Montageroboter";
     }
 
@@ -36,7 +36,7 @@ public class Montage_Roboter extends Roboter
         {
             // in der Aufgabenstellung wird nicht gesagt, in welchem Schritt
             // Kissen verwendet werden. Montage schien uns sinnvoll zu sein
-            Lager.benutzteKissen(Sofa.gibKissen());
+            Lager.benutzeKissen(Sofa.gibKissen());
         }
         else
         {
