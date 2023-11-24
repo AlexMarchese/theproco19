@@ -1,10 +1,4 @@
 #BlueJ class context
 comment0.target=Verpackungs_Roboter
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Verpackungs_Roboter.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
-comment1.params=
-comment1.target=Verpackungs_Roboter()
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Verpackungs_Roboter\r\n
-comment2.params=y
-comment2.target=int\ beispielMethode(int)
-comment2.text=\r\n\ Ein\ Beispiel\ einer\ Methode\ -\ ersetzen\ Sie\ diesen\ Kommentar\ mit\ Ihrem\ eigenen\r\n\ \r\n\ @param\ \ y\ \ \ \ ein\ Beispielparameter\ f\u00FCr\ eine\ Methode\r\n\ @return\ \ \ \ \ \ \ \ die\ Summe\ aus\ x\ und\ y\r\n
-numComments=3
+comment0.text=\r\n\ Die\ Klasse\ Lager\ Verpackungs_Roboter\ \r\n\ \r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n\ \r\n
+numComments=1
