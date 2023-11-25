@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Lager Holzarbeitungs_Roboter 
+ * Die Klasse Holzarbeitungs_Roboter stellt eine Erweiterung der Klasse Roboter dar und bearbeitet Holz.
  * 
  * 
  * @author GBI Gruppe 19
@@ -9,10 +9,10 @@
  */
 public class Holzarbeitungs_Roboter extends Roboter
 {
-
-    /**
+}
+/*    /**
      * Konstruktor für Objekte der Klasse Holzarbeitungs_Roboter
-     */
+
     public Holzarbeitungs_Roboter(Lager lager)
     {
         super(lager);
@@ -41,6 +41,6 @@ public class Holzarbeitungs_Roboter extends Roboter
         super.produziereProdukt(produkt);
     }
 }
-
+**/
 
 

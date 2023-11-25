@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Lager Verpackungs_Roboter 
+ * Die Klasse Verpackungs_Roboter stellt eine Erweiterung der Klasse Roboter dar und Verpackt die montierten Produkte.
  * 
  * 
  * @author GBI Gruppe 19
@@ -9,11 +9,13 @@
  */
 public class Verpackungs_Roboter extends Roboter
 {
+}
+
     // Instanzvariablen 
 
    /**
      * Konstruktor für Objekte der Klasse Verpackungs_Roboter
-     */
+     *
    public Verpackungs_Roboter(Lager lager)
    {super(lager);
         // Zeit wird in Millisekunden angegeben
@@ -24,7 +26,7 @@ public class Verpackungs_Roboter extends Roboter
    
    /**
      * Verpackt Produkt - benutzt die Materialien (in diesem Fall Kartoneinheiten), dann ruft super.produziereProdukt
-     */
+     *
    public void produziereProdukt(Produkt produkt)
    { if (produkt instanceof Stuhl)
         {
@@ -40,3 +42,4 @@ public class Verpackungs_Roboter extends Roboter
         super.produziereProdukt(produkt);
     }
 }
+**/

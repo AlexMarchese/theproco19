@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=StuhlTest
-comment0.text=\n\ Testklasse\ StuhlTest,\ um\ die\ Methoden\ der\ Klasse\ "Stuhl"\ zu\ testen.\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
+comment0.text=\r\n\ Testklasse\ StuhlTest,\ um\ die\ Methoden\ der\ Klasse\ "Stuhl"\ zu\ testen.\r\n\r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=StuhlTest()
-comment1.text=\n\ Konstruktor\ von\ StuhlTest\n
+comment1.text=\r\n\ Konstruktor\ von\ StuhlTest\r\n
 comment2.params=
 comment2.target=void\ setUp()
-comment2.text=\n\ Anweisungen\ vor\ jedem\ Testlauf\n
+comment2.text=\r\n\ Anweisungen\ vor\ jedem\ Testlauf\r\n
 comment3.params=
 comment3.target=void\ tearDown()
-comment3.text=\n\ Anweisungen\ nach\ jedem\ Testlauf\n
+comment3.text=\r\n\ Anweisungen\ nach\ jedem\ Testlauf\r\n
 comment4.params=
 comment4.target=void\ testeStuhl()
-comment4.text=\n\ \n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Stuhls\ funktioniert.\ \n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neuer\ Stuhl\ erstellt\ wird\ und\ die\ R\u00FCckgabe\ zuerwarteten\ Standartwerte\ \ \n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\ \n\ \n
+comment4.text=\r\n\ \r\n\ Der\ Test\ \u00FCberpr\u00FCft,\ ob\ die\ Erstellung\ eines\ Stuhls\ funktioniert.\ \r\n\ Dies\ wird\ \u00FCberpr\u00FCft,\ indem\ ein\ neuer\ Stuhl\ erstellt\ wird\ und\ die\ R\u00FCckgabe\ zuerwarteten\ Standartwerte\ \ \r\n\ mit\ der\ Vorgabe\ aus\ dem\ Test\ verglichen\ wird.\ \r\n\ \r\n
 numComments=5

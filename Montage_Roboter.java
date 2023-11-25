@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Lager Montage_Roboter
+ * Die Klasse Montage_Roboter stellt eine Erweiterung der Klasse Roboter dar und verarbeitet die einzelnen Bestandteile des Produkts (Montage).
  * 
  * 
  * @author GBI Gruppe 19
@@ -9,11 +9,12 @@
  */
 public class Montage_Roboter extends Roboter
 {
-    // Instanzvariablen
+}
+/** // Instanzvariablen
 
     /**
      * Konstruktor für Objekte der Klasse Montage_Roboter
-     */
+     *
     public Montage_Roboter(Lager lager)
     {
         super(lager);
@@ -25,7 +26,7 @@ public class Montage_Roboter extends Roboter
 
    /**
      * Produziere Produkt - benutzt die Materialien (in diesem Fall Kissen), dann ruft super.produziereProdukt
-     */
+     *
    public void produziereProdukt(Produkt produkt)
  {
         if(produkt instanceof Stuhl)
@@ -44,3 +45,4 @@ public class Montage_Roboter extends Roboter
         super.produziereProdukt(produkt);
     }
 }
+*/

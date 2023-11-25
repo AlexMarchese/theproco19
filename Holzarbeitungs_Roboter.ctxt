@@ -1,7 +1,4 @@
 #BlueJ class context
 comment0.target=Holzarbeitungs_Roboter
-comment0.text=\r\n\ Die\ Klasse\ Lager\ Holzarbeitungs_Roboter\ \r\n\ \r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n\ \r\n
-comment1.params=
-comment1.target=Holzarbeitungs_Roboter()
-comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Holzarbeitungs_Roboter\r\n
-numComments=2
+comment0.text=\r\n\ Die\ Klasse\ Holzarbeitungs_Roboter\ stellt\ eine\ Erweiterung\ der\ Klasse\ Roboter\ dar\ und\ bearbeitet\ Holz.\r\n\ \r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n\ \r\n
+numComments=1

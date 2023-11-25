@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Lager Montage_Roboter
+ * Die Klasse Lackier_Roboter stellt eine Erweiterung der Klasse Roboter dar und lackiert das Produkt.
  * 
  * 
  * @author GBI Gruppe 19
@@ -9,10 +9,11 @@
  */
 public class Lackier_Roboter extends Roboter
 {
+}
     
     /**
      * Konstruktor für Objekte der Klasse Montage_Roboter
-     */
+     *
     public Lackier_Roboter(Lager lager)
     {
         super(lager);
@@ -24,7 +25,7 @@ public class Lackier_Roboter extends Roboter
 
    /**
      //Produziert Produkt - benutzt die Materialien (in diesem Fall Farbe), dann ruft super.produziereProdukt
-     */
+     *
     public void produziereProdukt(Produkt produkt)
     {
         if(produkt instanceof Stuhl)
@@ -41,3 +42,4 @@ public class Lackier_Roboter extends Roboter
         super.produziereProdukt(produkt);
     }
 }
+*/

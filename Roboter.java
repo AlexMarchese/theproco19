@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 /**
- * Die Klasse Roboter 
+ * Die Klasse Roboter produziert die Bestellungen, welche vom Produktionsmanager in Auftrag gegeben werden und gibt die Info 
  * 
  * 
  * @author GBI Gruppe 19
@@ -11,9 +11,10 @@ import java.util.LinkedList;
 public class Roboter extends Thread
 {
     // Instanzvariablen 
-    LinkedList <Produkt> warteschlange;
+    /*LinkedList <Produkt> warteschlange;
     public String name; 
     public int produktionsZeit;
+    */
     private LinkedList <Produkt> warteschlange;
     private String name; 
     private int produktionsZeit;

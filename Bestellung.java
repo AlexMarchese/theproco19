@@ -345,8 +345,6 @@ public class Bestellung {
         // Ermittlung der Werte
         for (Produkt produkt : this.gibBestellteProdukte()) {
 
-            
-
             if (produkt instanceof Stuhl) {
                 // Damit man das Produkt wie einen Stuhl behandeln kann
                 Stuhl stuhl = (Stuhl)produkt;
