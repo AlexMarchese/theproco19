@@ -17,7 +17,8 @@ public class Roboter extends Thread
     */
     private LinkedList <Produkt> warteschlange;
     private String name; 
-    private int produktionsZeit;
+    private int produktionsZeitStuhl;
+    private int produktionsZeitSofa;
 
     /**
      * Konstruktor für Objekte der Klasse Roboter
@@ -28,7 +29,8 @@ public class Roboter extends Thread
         // Instanzvariable initialisieren
         this.warteschlange = new LinkedList<Produkt>();
         String name;
-        int produktionsZeit; 
+        int produktionsZeitStuhl; 
+        int produktionsZeitSofa;
     }
 
     
@@ -38,16 +40,32 @@ public class Roboter extends Thread
      * Methode, um die Produktionszeit zu setzen.
      * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
      */
-    public void setzeProduktionsZeit(int produktionsZeit) {
-        this.produktionsZeit = produktionsZeit;
+    public void setzeProduktionsZeitStuhl(int produktionsZeitStuhl) {
+        this.produktionsZeitStuhl = produktionsZeitStuhl;
     }
     
     /**
      * Methode, um die Produktionszeit zu setzen.
      * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
      */
-    public int gibProduktionsZeit() {
-        return this.produktionsZeit;
+    public void setzeProduktionsZeitSofa(int produktionsZeitSofa) {
+        this.produktionsZeitSofa = produktionsZeitSofa;
+    }
+    
+    /**
+     * Methode, um die Produktionszeit zu setzen.
+     * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
+     */
+    public int gibProduktionsZeitStuhl() {
+        return this.produktionsZeitStuhl;
+    }
+    
+    /**
+     * Methode, um die Produktionszeit zu setzen.
+     * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
+     */
+    public int gibProduktionsZeitSofa() {
+        return this.produktionsZeitSofa;
     }
     
     /**
@@ -71,23 +89,76 @@ public class Roboter extends Thread
     /**
      * Methode, 
      */
-    public void run(){
-        //muss noch im Rahmen des Threads eingefügt werden
-    }
-    
-    /**
-     * Methode, 
-     */
-    public void fuegeProduktHinzu(Produkt produkt){
-        //
+    public void run()
+    {
+        while(true)
+        {
+            // Schaut, ob neue Produkte in Warteschlange sind, und produziert die dann.
+            if(!warteschlange.isEmpty()){
+                produziereProdukt(warteschlange.poll());
+            }
+            else
+            {
+                // Falls nichts in Warteschlange, wartet der Roboter 10 Millisekunden, bevor nochmals schaut
+                try{
+                    Thread.sleep(10);
+                }catch(InterruptedException ie)
+                {
+                    ie.printStackTrace();
+                }
+            }
+        }
     }
     
     /**
      * Methode, 
      */
     public void produziereProdukt(Produkt produkt){
+        if(produktionsZeitStuhl == 0 || produktionsZeitSofa == 0)
+        {
+            throw new IllegalArgumentException("Stuhl-/Sofaproduktionszeit gleich 0 ist unmöglich.");
+        }
+        
+        if(produkt instanceof Stuhl)
+        {
+            try{
+                Thread.sleep(produktionsZeitStuhl);
+            }catch(InterruptedException ie)
+            {
+                ie.printStackTrace();
+            }
+        }
+        else if(produkt instanceof Sofa)
+        {
+            try{
+                Thread.sleep(produktionsZeitSofa); 
+            }catch(InterruptedException ie)
+            {
+                ie.printStackTrace();
+            }
+        }
+        else
+        {
+            throw new IllegalArgumentException("produziereProdukt() nicht implementiert für das gewählte Produkt");
+        }
+        
+        produkt.naechsteProduktionsStation();
+        
+    }        
+    }
+
+    
+    /**
+     * Methode, 
+     *
+   // public void fuegeProduktHinzu(Produkt produkt){
         //
     }
+     **/
+
+  
     
+  
+        //}
     
-}
+   
