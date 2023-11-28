@@ -20,6 +20,7 @@ public class Fabrik {
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
         this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
+        this.produktions_manager = new Produktions_Manager(lager, this);
     }
 
 
@@ -132,6 +133,9 @@ public class Fabrik {
          
             // Lieferzeit wird berechnet und Bestellung wird bestaetigt.
             neueBestellung.berechneLieferzeit();
+
+            // Bestellung wird dem Produktionsmanager gegeben
+            produktions_manager.fuegeZuVerarbeitendeBestellungenHinzu(neueBestellung);
             
             // OLD
             // // Bei jeder Bestellung wird das Lager aufgefüllt.

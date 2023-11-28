@@ -12,7 +12,11 @@ public class Sofa extends Produkt
     private final static int farbeinheiten = 2;
     private final static int kartoneinheiten = 1;
     private final static int kissen = 5;
-    private final static int produktionsZeit = 22;
+
+    private final int produktionsZeitHolz = 10;
+    private final int produktionsZeitMontage = 5;
+    private final int produktionsZeitSpritzung = 2;
+    private final int produktionsZeitVerpackung = 5;
     
     // /**
     //  * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
@@ -31,8 +35,11 @@ public class Sofa extends Produkt
      * Konstruktor für Objekte der Klasse Sofa
      */
     public Sofa() {
-        super();       // check the difference with not writing it!!
-                        // setters away | getters change, but do not add static!
+        super();       
+        this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
+        this.produktionsAblauf.add(new Lackier_Roboter());
+        this.produktionsAblauf.add(new Montage_Roboter());
+        this.produktionsAblauf.add(new Verpackungs_Roboter());
         
 
     }
@@ -79,14 +86,6 @@ public class Sofa extends Produkt
      */
     public int gibKissen() {
         return Sofa.kissen;
-    }
-    
-    /**
-     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
-     * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für das Sofa.
-     */
-    public int gibTotalProduktionszeit() {
-        return Sofa.produktionsZeit;
     }
     
 }

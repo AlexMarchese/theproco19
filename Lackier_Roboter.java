@@ -9,6 +9,17 @@
  */
 public class Lackier_Roboter extends Roboter
 {
+    // Instanzvariablen
+    String name; 
+  
+    /**
+     * Konstruktor für Objekte der Klasse Lackier_Roboter
+     */
+    // public Lackier_Roboter(Lager lager){
+    public Lackier_Roboter(){
+      super();
+      this.name = "Lackierroboter";
+      }
 }
     
     /**

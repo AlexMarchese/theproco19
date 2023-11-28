@@ -9,7 +9,18 @@
  */
 public class Montage_Roboter extends Roboter
 {
-}
+  // Instanzvariablen
+  String name; 
+
+  /**
+   * Konstruktor für Objekte der Klasse Montage_Roboter
+   */
+  // public Montage_Roboter(Lager lager){
+  public Montage_Roboter(){
+    super();
+    this.name = "Montageroboter";
+    }
+}    
 /** // Instanzvariablen
 
     /**

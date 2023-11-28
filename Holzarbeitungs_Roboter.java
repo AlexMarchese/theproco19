@@ -9,6 +9,17 @@
  */
 public class Holzarbeitungs_Roboter extends Roboter
 {
+    // Instanzvariablen
+    String name; 
+  
+    /**
+     * Konstruktor für Objekte der Klasse Holzarbeitungs_Roboter
+     */
+    // public Holzarbeitungs_Roboter(Lager lager){
+    public Holzarbeitungs_Roboter(){
+      super();
+      this.name = "Holzarbeitungsroboter";
+      }
 }
 /*    /**
      * Konstruktor für Objekte der Klasse Holzarbeitungs_Roboter

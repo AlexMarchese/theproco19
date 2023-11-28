@@ -11,7 +11,12 @@ public class Stuhl extends Produkt
     private final static int schrauben = 10;
     private final static int farbeinheiten = 2;
     private final static int kartoneinheiten = 1;
-    private final static int produktionsZeit = 22;
+
+    // private final static int produktionsZeitHolz;
+    private final int produktionsZeitHolz = 30;
+    private final int produktionsZeitMontage = 5;
+    private final int produktionsZeitSpritzung = 15;
+    private final int produktionsZeitVerpackung = 10;
     
     // /**
     //  * Konstruktor für Instanzen der Klasse Stuhl, wenn Parameter von extern einfliessen sollen.
@@ -30,9 +35,12 @@ public class Stuhl extends Produkt
      * Konstruktor für Objekte der Klasse Stuhl
      */
     public Stuhl() {
-        super();       // check the difference with not writing it!!
-                        // setters away | getters change, but do not add static!
-        
+        super();       
+        this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
+        this.produktionsAblauf.add(new Montage_Roboter());
+        this.produktionsAblauf.add(new Lackier_Roboter());
+        this.produktionsAblauf.add(new Verpackungs_Roboter());
+
 
     }
 
@@ -70,12 +78,6 @@ public class Stuhl extends Produkt
         return Stuhl.kartoneinheiten;
     }
     
-    /**
-     * Methode, um die Produktionszeit für einen Stuhl zu erhalten.
-     * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für den Stuhl.
-     */
-    public int gibTotalProduktionszeit() {
-        return Stuhl.produktionsZeit;
-    }
+   
     
 }

@@ -9,37 +9,40 @@
  */
 public class Verpackungs_Roboter extends Roboter
 {
-}
+  // Instanzvariablen
+  String name; 
 
-    // Instanzvariablen 
-
-   /**
-     * Konstruktor für Objekte der Klasse Verpackungs_Roboter
-     *
-   public Verpackungs_Roboter(Lager lager)
-   {super(lager);
-        // Zeit wird in Millisekunden angegeben
-        produktionsZeit  = 1000*5/60; // Zeit Stuhl
-        produktionsZeit  = 1000*10/60; // Zeit Sofa
-        name = "Verpackungsroboter";
-   }
-   
-   /**
-     * Verpackt Produkt - benutzt die Materialien (in diesem Fall Kartoneinheiten), dann ruft super.produziereProdukt
-     *
-   public void produziereProdukt(Produkt produkt)
-   { if (produkt instanceof Stuhl)
-        {
-            Lager.benutzeKartoneinheiten(Stuhl.gibKartoneinheiten());
-        }
-        else if(produkt instanceof Sofa)
-        {
-            Lager.benutzeKartoneinheiten(Sofa.gibKartoneinheiten());
-        }
-        else
-        {
-        }
-        super.produziereProdukt(produkt);
+  /**
+   * Konstruktor für Objekte der Klasse Verpackungs_Roboter
+   */
+  // public Verpackungs_Roboter(Lager lager){
+  public Verpackungs_Roboter(){
+    super();
+    this.name = "Verpackungsroboter";
+    // this.produktionsZeit = 
     }
+  //  {super(lager);
+  //       // Zeit wird in Millisekunden angegeben
+  //       produktionsZeit  = 1000*5/60; // Zeit Stuhl
+  //       produktionsZeit  = 1000*10/60; // Zeit Sofa
+        
+  //  }
+   
+  //  /**
+  //    * Verpackt Produkt - benutzt die Materialien (in diesem Fall Kartoneinheiten), dann ruft super.produziereProdukt
+  //    */
+  //  public void produziereProdukt(Produkt produkt)
+  //  { if (produkt instanceof Stuhl)
+  //       {
+  //           Lager.benutzeKartoneinheiten(Stuhl.gibKartoneinheiten());
+  //       }
+  //       else if(produkt instanceof Sofa)
+  //       {
+  //           Lager.benutzeKartoneinheiten(Sofa.gibKartoneinheiten());
+  //       }
+  //       else
+  //       {
+  //       }
+  //       super.produziereProdukt(produkt);
+  //   }
 }
-**/

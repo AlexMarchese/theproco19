@@ -19,10 +19,10 @@ public class Produktions_Manager extends Thread
     private Verpackungs_Roboter verpackungsRoboter;
     private Fabrik meineFabrik; 
     private Lager meinLager; 
-    private LinkedList <Bestellung> zuVerarbeitendeBestellungen;
-    private LinkedList <Bestellung> bestellungInProduktion;
-    private LinkedList<Roboter> stuhlProduktionsAbfolge;
-    private LinkedList<Roboter> sofaProduktionsAbfolge;
+    private LinkedList<Bestellung> zuVerarbeitendeBestellungen;
+    private LinkedList<Bestellung> bestellungInProduktion;
+    // private LinkedList<Roboter> stuhlProduktionsAbfolge;
+    // private LinkedList<Roboter> sofaProduktionsAbfolge;
     
 
     /** TO DO
@@ -32,17 +32,17 @@ public class Produktions_Manager extends Thread
     public Produktions_Manager(Lager meinLager, Fabrik meineFabrik)
     {
         
-        this.holzRoboter = new Holzarbeitungs_Roboter();
-        this.montageRoboter = new Montage_Roboter();
-        this.lackierRoboter = new Lackier_Roboter();
-        this.verpackungsRoboter = new Verpackungs_Roboter();
+        // this.holzRoboter = new Holzarbeitungs_Roboter();
+        // this.montageRoboter = new Montage_Roboter();
+        // this.lackierRoboter = new Lackier_Roboter();
+        // this.verpackungsRoboter = new Verpackungs_Roboter();
         this.meineFabrik = meineFabrik;
         this.meinLager = meinLager; 
         this.zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         this.bestellungInProduktion = new LinkedList<Bestellung>();
         //neu
-        this.stuhlProduktionsAbfolge = new LinkedList<Roboter>();
-        this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
+        // this.stuhlProduktionsAbfolge = new LinkedList<Roboter>();
+        // this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
         
        
         holzRoboter.start();
@@ -50,22 +50,22 @@ public class Produktions_Manager extends Thread
         lackierRoboter.start();
         verpackungsRoboter.start();
         
-        stuhlProduktionsAbfolge.add(holzRoboter);
-        stuhlProduktionsAbfolge.add(montageRoboter);
-        stuhlProduktionsAbfolge.add(lackierRoboter);
-        stuhlProduktionsAbfolge.add(verpackungsRoboter);
+        // stuhlProduktionsAbfolge.add(holzRoboter);
+        // stuhlProduktionsAbfolge.add(montageRoboter);
+        // stuhlProduktionsAbfolge.add(lackierRoboter);
+        // stuhlProduktionsAbfolge.add(verpackungsRoboter);
         
-        sofaProduktionsAbfolge.add(holzRoboter);
-        sofaProduktionsAbfolge.add(lackierRoboter);
-        sofaProduktionsAbfolge.add(montageRoboter);
-        sofaProduktionsAbfolge.add(verpackungsRoboter);
+        // sofaProduktionsAbfolge.add(holzRoboter);
+        // sofaProduktionsAbfolge.add(lackierRoboter);
+        // sofaProduktionsAbfolge.add(montageRoboter);
+        // sofaProduktionsAbfolge.add(verpackungsRoboter);
     }
     
     
     // Implementiert run für die Threadklasse
     public void run()
     {
-        while(true)
+        while(true) //man braucht Moeglichkeit, um die Schleife zu unterbr
         {
             // Ist neue Bestellung eingetroffen, dann hole nächste Bestellung und starte Produktion
 
@@ -74,7 +74,7 @@ public class Produktions_Manager extends Thread
                 Bestellung neueBestellung = zuVerarbeitendeBestellungen.poll();
                 bestellungInProduktion.add(neueBestellung);
                 System.out.println("Produktion von Bestellung " + neueBestellung.gibBestellungsNr() + " in bearbeitung." );
-                starteProduktion(neueBestellung);
+                // starteProduktion(neueBestellung);
             }
                        
             // Wird gebraucht, damit der Loop nicht so oft wie möglich durchgeführt wird und somit
@@ -89,35 +89,44 @@ public class Produktions_Manager extends Thread
         }
     }
     
-    // Startet Produktion aller Produkte in bestellung
-    public void starteProduktion(Bestellung bestellung)
-    {
-        for(Produkt prod: bestellung.gibBestellteProdukte())
-        {
-            if(prod instanceof Stuhl)
-            {
-                // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
-                prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
-                prod.naechsteProduktionsStation();
-            }
-            else if(prod instanceof Sofa)
-            {
-                // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
-                prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
-                prod.naechsteProduktionsStation();
-            }
-            else
-            {
-                throw new IllegalArgumentException("starteProduktion() nicht für diese Subklasse von Produkt definiert");
-            }
-        }
-    }
+    // // Startet Produktion aller Produkte in bestellung
+    // private void starteProduktion(Bestellung bestellung)
+    // {
+    //     for(Produkt prod: bestellung.gibBestellteProdukte())
+    //     {
+    //         if(prod instanceof Stuhl)
+    //         {
+    //             // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
+    //             prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
+    //             prod.naechsteProduktionsStation();
+    //         }
+    //         else if(prod instanceof Sofa)
+    //         {
+    //             // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
+    //             prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
+    //             prod.naechsteProduktionsStation();
+    //         }
+    //         else
+    //         {
+    //             throw new IllegalArgumentException("starteProduktion() nicht für diese Subklasse von Produkt definiert");
+    //         }
+    //     }
+    // }
+
+    // // Produktion eines Stuhls
+    // private void produziereStuhl(){
+
+        
+
+    // }
     
     // Fügt Bestellung zur Liste der zu produzierenden Bestellungen hinzuw
     public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung)
     {
         zuVerarbeitendeBestellungen.add(bestellung);
     }
+
+
 }
    
     /**

@@ -18,7 +18,12 @@ public class Produkt {
     // int farbeinheiten;
     // int kartoneinheiten;
     // int produktionsZeit;
+    private final int produktionsZeitHolz = 0;
+    private final int produktionsZeitMontage = 0;
+    private final int produktionsZeitSpritzung = 0;
+    private final int produktionsZeitVerpackung = 0;
     LinkedList<Roboter> produktionsAblauf;
+
 
     //TO DO
     /** 
@@ -78,13 +83,46 @@ public class Produkt {
         return this.produktionsAblauf;
     }
     
+    // /**
+    //  * Methode, um die Produktionsstation (Roboter) eines Produkts zu wechseln. Nimmt aus der Liste der zu durchlaufenden
+    //  * Roboter den jeweils nächsten heraus und fügt dem Roboter das aktuelle Produkt in der Liste der
+    //  * zu produzierenden Produkte hinzu.
+    //  */
+    // public void naechsteProduktionsStation() {
+    //     ;
+    // }
+
+     // TO DO : check documentation of following getters
     /**
-     * Methode, um die Produktionsstation (Roboter) eines Produkts zu wechseln. Nimmt aus der Liste der zu durchlaufenden
-     * Roboter den jeweils nächsten heraus und fügt dem Roboter das aktuelle Produkt in der Liste der
-     * zu produzierenden Produkte hinzu.
+     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
      */
-    public void naechsteProduktionsStation() {
-        ;
+    public int gibProduktionszeitHolz() {
+        return this.produktionsZeitHolz;
+    }
+    
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public int gibProduktionszeitMontage() {
+        return this.produktionsZeitMontage;
+    }
+    
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public int gibProduktionszeitSpritzung() {
+        return this.produktionsZeitSpritzung;
+    }
+    
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public int gibProduktionszeitVerpackung() {
+        return this.produktionsZeitVerpackung;
     }
     
 }
