@@ -18,7 +18,7 @@ public class Holzarbeitungs_Roboter extends Roboter
     // public Holzarbeitungs_Roboter(Lager lager){
     public Holzarbeitungs_Roboter(){
       super();
-      this.name = "Holzarbeitungsroboter";
+      super.setzeName("Holzarbeitungsroboter");
       }
 }
 /*    /**

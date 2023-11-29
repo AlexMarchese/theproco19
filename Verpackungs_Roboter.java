@@ -18,8 +18,7 @@ public class Verpackungs_Roboter extends Roboter
   // public Verpackungs_Roboter(Lager lager){
   public Verpackungs_Roboter(){
     super();
-    this.name = "Verpackungsroboter";
-    // this.produktionsZeit = 
+    super.setzeName("Verpackungsroboter");
     }
   //  {super(lager);
   //       // Zeit wird in Millisekunden angegeben

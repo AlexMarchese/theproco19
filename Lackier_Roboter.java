@@ -18,7 +18,7 @@ public class Lackier_Roboter extends Roboter
     // public Lackier_Roboter(Lager lager){
     public Lackier_Roboter(){
       super();
-      this.name = "Lackierroboter";
+      super.setzeName("Lackierroboter");
       }
 }
     

@@ -16,6 +16,7 @@ public class Roboter extends Thread
     public int produktionsZeit;
     */
     private LinkedList <Produkt> warteschlange;
+    // LinkedList <Produkt> warteschlange;
     private String name; 
     private int produktionsZeit;
     // private int produktionsZeitSofa;
@@ -71,12 +72,12 @@ public class Roboter extends Thread
     // }
     
     /**
-    //  * Methode, um den Name zu setzen.
-    //  * @param   name Der Name, der die Bestellung hat.
-    //  */
-    // public void setzeName(String name) {
-    //     this.name = name;
-    // }
+     * Methode, um den Name zu setzen.
+     * @param   name Der Name, der die Bestellung hat.
+     */
+    public void setzeName(String name) {
+        this.name = name;
+    }
     
     /**
      * Methode, um den Namen zu setzen.
@@ -118,8 +119,21 @@ public class Roboter extends Thread
     public void produziereProdukt(Produkt produkt){
 
         try {
-            System.out.println(produkt.);
-            Thread.sleep(MAX_PRIORITY);
+            if(this.name == "Holzarbeitungsroboter"){
+                System.out.println(produkt.gibProduktionszeitHolz());
+                // Thread.sleep(produkt.gibProduktionszeitHolz());
+            } else if(this.name == "Montageroboter"){
+                System.out.println(produkt.gibProduktionszeitMontage());
+                // Thread.sleep(produkt.gibProduktionszeitMontage());
+            } else if(this.name == "Lackierroboter"){
+                System.out.println(produkt.gibProduktionszeitSpritzung());
+                // Thread.sleep(produkt.gibProduktionszeitSpritzung());
+            } else if(this.name == "Verpackungsroboter"){
+                System.out.println(produkt.gibProduktionszeitVerpackung());
+                // Thread.sleep(produkt.gibProduktionszeitVerpackung());
+            }
+            Thread.sleep(1000);
+            
         } catch(InterruptedException ie)
         {
             ie.printStackTrace();

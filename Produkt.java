@@ -18,10 +18,10 @@ public class Produkt {
     // int farbeinheiten;
     // int kartoneinheiten;
     // int produktionsZeit;
-    private final int produktionsZeitHolz = 0;
-    private final int produktionsZeitMontage = 0;
-    private final int produktionsZeitSpritzung = 0;
-    private final int produktionsZeitVerpackung = 0;
+    private int produktionsZeitHolz;
+    private int produktionsZeitMontage;
+    private int produktionsZeitSpritzung;
+    private int produktionsZeitVerpackung;
     LinkedList<Roboter> produktionsAblauf;
 
 
@@ -44,8 +44,8 @@ public class Produkt {
         // this.schrauben = schrauben;
         // this.farbeinheiten = farbeinheiten;
         // this.kartoneinheiten = kartoneinheiten;
-        // this.produktionsZeit = produktionsZeit;
-        // this.produktionsAblauf = new LinkedList<Roboter>();
+        // this.produktionsZeitHolz = 0;
+        this.produktionsAblauf = new LinkedList<Roboter>();
     }
 
 
@@ -100,6 +100,14 @@ public class Produkt {
     public int gibProduktionszeitHolz() {
         return this.produktionsZeitHolz;
     }
+
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu setzen.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public void setzeProduktionszeitHolz(int produktionsZeitHolz) {
+        this.produktionsZeitHolz = produktionsZeitHolz;
+    }
     
     /**
      * Methode, um die Produktionszeit für ein Sofa zu erhalten.
@@ -108,6 +116,14 @@ public class Produkt {
     public int gibProduktionszeitMontage() {
         return this.produktionsZeitMontage;
     }
+
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu setzen.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public void setzeProduktionszeitMontage(int produktionsZeitMontage) {
+        this.produktionsZeitMontage = produktionsZeitMontage;
+    }    
     
     /**
      * Methode, um die Produktionszeit für ein Sofa zu erhalten.
@@ -116,6 +132,14 @@ public class Produkt {
     public int gibProduktionszeitSpritzung() {
         return this.produktionsZeitSpritzung;
     }
+
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu setzen.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public void setzeProduktionszeitSpritzung(int produktionsZeitSpritzung) {
+        this.produktionsZeitSpritzung = produktionsZeitSpritzung;
+    }
     
     /**
      * Methode, um die Produktionszeit für ein Sofa zu erhalten.
@@ -123,6 +147,14 @@ public class Produkt {
      */
     public int gibProduktionszeitVerpackung() {
         return this.produktionsZeitVerpackung;
+    }
+
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu setzen.
+     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     */
+    public void setzeProduktionszeitVerpackung(int produktionsZeitVerpackung) {
+        this.produktionsZeitVerpackung = produktionsZeitVerpackung;
     }
     
 }

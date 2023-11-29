@@ -13,10 +13,10 @@ public class Sofa extends Produkt
     private final static int kartoneinheiten = 1;
     private final static int kissen = 5;
 
-    private final int produktionsZeitHolz = 10;
-    private final int produktionsZeitMontage = 5;
-    private final int produktionsZeitSpritzung = 2;
-    private final int produktionsZeitVerpackung = 5;
+    // private int produktionsZeitHolz = 10;
+    // private int produktionsZeitMontage = 5;
+    // private int produktionsZeitSpritzung = 2;
+    // private int produktionsZeitVerpackung = 5;
     
     // /**
     //  * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
@@ -40,6 +40,11 @@ public class Sofa extends Produkt
         this.produktionsAblauf.add(new Lackier_Roboter());
         this.produktionsAblauf.add(new Montage_Roboter());
         this.produktionsAblauf.add(new Verpackungs_Roboter());
+
+        super.setzeProduktionszeitHolz(10);
+        super.setzeProduktionszeitMontage(5);
+        super.setzeProduktionszeitSpritzung(2);
+        super.setzeProduktionszeitVerpackung(5);
         
 
     }

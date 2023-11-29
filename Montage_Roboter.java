@@ -18,7 +18,7 @@ public class Montage_Roboter extends Roboter
   // public Montage_Roboter(Lager lager){
   public Montage_Roboter(){
     super();
-    this.name = "Montageroboter";
+    super.setzeName("Montageroboter");
     }
 }    
 /** // Instanzvariablen

@@ -19,7 +19,7 @@ public class Main
     //         // run comman 
     //     }
     // }
-    public static void main(String[] args) { //original one
+    // public static void main(String[] args) { //original one
 
         // public static final consoleLock = new Object(); //need for later
         
@@ -69,73 +69,73 @@ public class Main
     //     System.out.println(fabrikStart.lagerSituation());
 
        
-    /// Part 1
+    // /// Part 1
         
-        Fabrik fabrikStart = new Fabrik();
+    //     Fabrik fabrikStart = new Fabrik();
         
-        fabrikStart.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+    //     fabrikStart.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
 
-        System.out.println(fabrikStart.lagerSituation());
+    //     System.out.println(fabrikStart.lagerSituation());
 
-        Scanner myObj = new Scanner(System.in);
+    //     Scanner myObj = new Scanner(System.in);
 
-        String kommando;
+    //     String kommando;
 
-        while (true) {
+    //     while (true) {
 
-            System.out.print("Kommando:\n");
-            kommando = myObj.nextLine();
-
-            
-            // synchedCommandExec(); //need for later
-
-            // Überprüft, ob der Nutzer den Loop verlassen möchte
-            if (kommando.trim().equalsIgnoreCase("exit")) {
-                break; // Verlässt den Loop wenn der Nutzer "exit" eingibt
-            }
-
-            // Bestellung aufgeben
-            else if (kommando.trim().equalsIgnoreCase("best")){
-                System.out.println(fabrikStart.bestellungAufgeben(7, 1));
-            }
-
-            // Produkte erstellen
-            else if (kommando.trim().equalsIgnoreCase("erst")){
-                System.out.println(fabrikStart.erstelleProdukte());
-            }
-
-            // Lagersituation ausgeben
-            else if (kommando.trim().equalsIgnoreCase("situat")){
-                System.out.println(fabrikStart.lagerSituation());
-            }
-
-            // Am Ende eines Tages
-            else if (kommando.trim().equalsIgnoreCase("ende")){
-                //IF LOOP ob sich eine Best lohnt
-                System.out.println(fabrikStart.lagerAuffuellen());
-                // fabrikStart.lagerAuffuellen();
-            }
-
-            else {continue;}
+    //         System.out.print("Kommando:\n");
+    //         kommando = myObj.nextLine();
 
             
+    //         // synchedCommandExec(); //need for later
+
+    //         // Überprüft, ob der Nutzer den Loop verlassen möchte
+    //         if (kommando.trim().equalsIgnoreCase("exit")) {
+    //             break; // Verlässt den Loop wenn der Nutzer "exit" eingibt
+    //         }
+
+    //         // Bestellung aufgeben
+    //         else if (kommando.trim().equalsIgnoreCase("best")){
+    //             System.out.println(fabrikStart.bestellungAufgeben(7, 1));
+    //         }
+
+    //         // Produkte erstellen
+    //         else if (kommando.trim().equalsIgnoreCase("erst")){
+    //             System.out.println(fabrikStart.erstelleProdukte());
+    //         }
+
+    //         // Lagersituation ausgeben
+    //         else if (kommando.trim().equalsIgnoreCase("situat")){
+    //             System.out.println(fabrikStart.lagerSituation());
+    //         }
+
+    //         // Am Ende eines Tages
+    //         else if (kommando.trim().equalsIgnoreCase("ende")){
+    //             //IF LOOP ob sich eine Best lohnt
+    //             System.out.println(fabrikStart.lagerAuffuellen());
+    //             // fabrikStart.lagerAuffuellen();
+    //         }
+
+    //         else {continue;}
+
             
-            try {
-                // Sleep for 5 seconds (5000 milliseconds)
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                // Handle the exception if needed
-                e.printStackTrace();
-            }
+            
+    //         try {
+    //             // Sleep for 5 seconds (5000 milliseconds)
+    //             Thread.sleep(1000);
+    //         } catch (InterruptedException e) {
+    //             // Handle the exception if needed
+    //             e.printStackTrace();
+    //         }
     
             
-        }
+    //     }
         
-        myObj.close();
+    //     myObj.close();
 
 
 
-    // public static void main(String[] args) { //just a copy
+    public static void main(String[] args) { //just a copy
 
         // // Test Best
         // Bestellung testBest = new Bestellung(3, 2, 0);
@@ -153,6 +153,20 @@ public class Main
         // testProduktions_Manager.fuegeZuVerarbeitendeBestellungenHinzu(testBest);
         // System.out.println(testProduktions_Manager.zuVerabreitendeBestellungen);
         // System.out.println(testProduktions_Manager.bestellungInProduktion);
+
+        Roboter testVerpackungs = new Verpackungs_Roboter();
+        Roboter testMontage = new Montage_Roboter();
+        // testVerpackungs.warteschlange.add(new Stuhl());
+        // testVerpackungs.warteschlange.add(new Stuhl());
+        // testVerpackungs.warteschlange.add(new Sofa());
+
+        System.out.println(testVerpackungs.gibName());
+        System.out.println(testMontage.gibName());
+        // System.out.println(testVerpackungs.testMethod());
+        testVerpackungs.produziereProdukt(new Sofa());
+        testVerpackungs.produziereProdukt(new Stuhl());
+        testMontage.produziereProdukt(new Stuhl());
+
     }
 
 }
