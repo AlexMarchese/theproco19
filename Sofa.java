@@ -13,6 +13,8 @@ public class Sofa extends Produkt
     private final static int kartoneinheiten = 1;
     private final static int kissen = 5;
 
+    private final static int produktionsZeit = 60;
+
     // private int produktionsZeitHolz = 10;
     // private int produktionsZeitMontage = 5;
     // private int produktionsZeitSpritzung = 2;
@@ -36,10 +38,10 @@ public class Sofa extends Produkt
      */
     public Sofa() {
         super();       
-        this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
-        this.produktionsAblauf.add(new Lackier_Roboter());
-        this.produktionsAblauf.add(new Montage_Roboter());
-        this.produktionsAblauf.add(new Verpackungs_Roboter());
+        // this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
+        // this.produktionsAblauf.add(new Lackier_Roboter());
+        // this.produktionsAblauf.add(new Montage_Roboter());
+        // this.produktionsAblauf.add(new Verpackungs_Roboter());
 
         super.setzeProduktionszeitHolz(10);
         super.setzeProduktionszeitMontage(5);
@@ -91,6 +93,14 @@ public class Sofa extends Produkt
      */
     public int gibKissen() {
         return Sofa.kissen;
+    }
+
+    /**
+     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
+     * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für das Sofa.
+     */
+    public int gibTotalProduktionszeit() {
+        return Sofa.produktionsZeit;
     }
     
 }

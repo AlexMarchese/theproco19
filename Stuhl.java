@@ -12,6 +12,8 @@ public class Stuhl extends Produkt
     private final static int farbeinheiten = 2;
     private final static int kartoneinheiten = 1;
 
+    private final static int produktionsZeit = 22;
+
     // // private final static int produktionsZeitHolz;
     // private final int produktionsZeitHolz = 30;
     // private final int produktionsZeitMontage = 5;
@@ -36,10 +38,10 @@ public class Stuhl extends Produkt
      */
     public Stuhl() {
         super();       
-        this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
-        this.produktionsAblauf.add(new Montage_Roboter());
-        this.produktionsAblauf.add(new Lackier_Roboter());
-        this.produktionsAblauf.add(new Verpackungs_Roboter());
+        // this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
+        // this.produktionsAblauf.add(new Montage_Roboter());
+        // this.produktionsAblauf.add(new Lackier_Roboter());
+        // this.produktionsAblauf.add(new Verpackungs_Roboter());
 
         super.setzeProduktionszeitHolz(30);
         super.setzeProduktionszeitMontage(5);
@@ -81,6 +83,14 @@ public class Stuhl extends Produkt
      */
     public int gibKartoneinheiten() {
         return Stuhl.kartoneinheiten;
+    }
+
+    /**
+     * Methode, um die Produktionszeit für einen Stuhl zu erhalten.
+     * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für den Stuhl.
+     */
+    public int gibTotalProduktionszeit() {
+        return Stuhl.produktionsZeit;
     }
     
    

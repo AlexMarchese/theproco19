@@ -17,7 +17,7 @@ public class Produkt {
     // int schrauben;
     // int farbeinheiten;
     // int kartoneinheiten;
-    // int produktionsZeit;
+    int produktionsZeit;
     private int produktionsZeitHolz;
     private int produktionsZeitMontage;
     private int produktionsZeitSpritzung;
@@ -44,7 +44,7 @@ public class Produkt {
         // this.schrauben = schrauben;
         // this.farbeinheiten = farbeinheiten;
         // this.kartoneinheiten = kartoneinheiten;
-        // this.produktionsZeitHolz = 0;
+        this.produktionsZeit = 0;
         this.produktionsAblauf = new LinkedList<Roboter>();
     }
 
@@ -83,14 +83,21 @@ public class Produkt {
         return this.produktionsAblauf;
     }
     
-    // /**
-    //  * Methode, um die Produktionsstation (Roboter) eines Produkts zu wechseln. Nimmt aus der Liste der zu durchlaufenden
-    //  * Roboter den jeweils nächsten heraus und fügt dem Roboter das aktuelle Produkt in der Liste der
-    //  * zu produzierenden Produkte hinzu.
-    //  */
-    // public void naechsteProduktionsStation() {
-    //     ;
-    // }
+    /**
+     * Methode, um die Produktionsstation (Roboter) eines Produkts zu wechseln. Nimmt aus der Liste der zu durchlaufenden
+     * Roboter den jeweils nächsten heraus und fügt dem Roboter das aktuelle Produkt in der Liste der
+     * zu produzierenden Produkte hinzu.
+     */
+    public void naechsteProduktionsStation() {
+        if(produktionsAblauf.size() > 0){
+            Roboter roboterImEinsatz = produktionsAblauf.poll();
+            roboterImEinsatz.fuegeProduktHinzu(this);
+            this.zustand = 1;
+        } else {
+            System.out.println("Produkt " + this + " ist fertig"); 
+            this.zustand = 2;
+        }
+    }
 
      // TO DO : check documentation of following getters
     /**
