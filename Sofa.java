@@ -7,9 +7,9 @@
  */
 public class Sofa extends Produkt
 {
-    private final static int holzeinheiten = 2;
-    private final static int schrauben = 10;
-    private final static int farbeinheiten = 2;
+    private final static int holzeinheiten = 4;
+    private final static int schrauben = 5;
+    private final static int farbeinheiten = 5;
     private final static int kartoneinheiten = 1;
     private final static int kissen = 5;
 

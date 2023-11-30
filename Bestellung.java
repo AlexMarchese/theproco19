@@ -296,6 +296,42 @@ public class Bestellung {
             "\nDie Lieferzeit beträgt " + liefzeit + tg;
     }
 
+    /** TO DO documentation!
+     * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
+     * gibt die Information aus, dass die Bestellung bestaetigt ist.
+     * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
+     * Es ermöglicht einen vereinfachten Unit Test.
+     * 
+     * @return   String  Text zur Bestellbestätigung.
+     * 
+     */
+    public String bestellungGeliefert() {
+
+        // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.
+        String sf = " Sofas ";
+        String st = " Stühlen ";
+
+        if (this.anzahlSofas == 1) {
+            sf = " Sofa ";
+        }
+        if (this.anzahlSofas == 1) {
+            st = " Stuhl ";
+        }
+
+        // Folgende Zeilen geben das Wort Tag im Singular aus, wenn es nur eins ist.
+        int liefzeit = (int)Math.floor(this.lieferzeit);
+        String tg = " Tage.";
+
+        if (liefzeit == 1) {
+            tg = " Tag.";
+        }
+
+        this.bestellBestaetigung = true;
+        return "Die Produkte der Bestellung (Nr. " + bestellungsNr + ") mit " + this.anzahlSofas + sf +
+        "und " + this.anzahlStuehle + st + "sind breit." +
+            "\nSie werden an den Kunden geliefert " + liefzeit + tg;
+    }
+
     
     /**
      * Methode zur Überprüfung des Status der Bestellbestaetigung. 

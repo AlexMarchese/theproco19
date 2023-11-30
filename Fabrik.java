@@ -20,7 +20,8 @@ public class Fabrik {
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
         this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
-        // this.produktions_manager = new Produktions_Manager(lager, this);
+        // this.produktions_manager = new Produktions_Manager(lager, this); // Wird erst unten gestartet, sobald Lager definiert wird
+        // produktions_manager.start();
     }
 
 
@@ -83,6 +84,8 @@ public class Fabrik {
      */
     public void erstelleLager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
         lager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen);
+        this.produktions_manager = new Produktions_Manager(lager, this);
+        produktions_manager.start();
     }
 
     

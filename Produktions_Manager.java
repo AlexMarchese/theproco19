@@ -87,8 +87,24 @@ public class Produktions_Manager extends Thread
             }
                
             // Überprüfe, ob es fertige Bestellungen hat.
-            
-            
+            // Geht durch die Bestellungen
+            ausserLoop: for(Bestellung bestellung : bestellungenInProduktion){
+                // Geht durch die Bestellten Produkte
+                for(Produkt produkt : bestellung.gibBestellteProdukte()){
+                    // wenn irgendein Produkt noch nicht erstellt wurde, dann startet der Loop neu
+                    if(produkt.gibZustand() != 2){
+                        break ausserLoop;
+                    }
+                }
+                // Wenn alles erstellt, dann Bestätigung dafür geben
+                bestellung.setzeAlleProdukteProduziert(true);
+                bestellungenInProduktion.remove(bestellung);
+                // System.out.println(bestellung.bestellungGeliefert());
+                System.out.println("Produktionsmanager ist fertig: " + this);
+
+            }
+
+
             // Wird gebraucht, damit der Loop nicht so oft wie möglich durchgeführt wird und somit
             // den Prozessor überarbeitet 
             try{
@@ -106,7 +122,7 @@ public class Produktions_Manager extends Thread
      */
     
     private void starteProduktion(Bestellung bestellung)
-    {
+    {   //HAVE a mechanism to sort the products
         for(Produkt prod: bestellung.gibBestellteProdukte())
         {
             if(prod instanceof Stuhl)
@@ -116,12 +132,13 @@ public class Produktions_Manager extends Thread
                 prod.setzeProduktionsAblauf(stuhlProduktionsAbfolge);
                 this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                 prod.naechsteProduktionsStation();
-            }
+            } //CHECK if passage from one product type to the other
             else if(prod instanceof Sofa)
             {
                 // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
                 // prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
                 prod.setzeProduktionsAblauf(sofaProduktionsAbfolge);
+                this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
                 prod.naechsteProduktionsStation();
             }
             else
@@ -171,7 +188,7 @@ public class Produktions_Manager extends Thread
                 meinLager.setzevorhandeneFarbeeinheiten(meinLager.gibvorhandeneFarbeeinheiten() - farbeinheiten);
                 meinLager.setzevorhandeneKartoneinheiten(meinLager.gibvorhandeneKartoneinheiten() - kartoneinheiten);
                 meinLager.setzevorhandeneKissen(meinLager.gibvorhandeneKissen() - kissen);
-
+        System.out.println("Lager reduz");
     }
 }
    
