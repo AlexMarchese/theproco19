@@ -13,43 +13,47 @@ public class Produktions_Manager extends Thread
 {
     // Instanzvariablen 
     
-    private Holzarbeitungs_Roboter holzRoboter;
+    private Holzbearbeitungs_Roboter holzRoboter;
     private Montage_Roboter montageRoboter;
     private Lackier_Roboter lackierRoboter; 
     private Verpackungs_Roboter verpackungsRoboter;
     private Fabrik meineFabrik; 
     private Lager meinLager; 
     private LinkedList<Bestellung> zuVerarbeitendeBestellungen;
-    private LinkedList<Bestellung> bestellungInProduktion;
+    private LinkedList<Bestellung> bestellungenInProduktion;
     private LinkedList<Roboter> stuhlProduktionsAbfolge;
     private LinkedList<Roboter> sofaProduktionsAbfolge;
     
 
-    /** TO DO
+    /** TO DO - DOKU
      * Konstruktor für Objekte der Klasse Produktions_Manager
      */
     
     public Produktions_Manager(Lager meinLager, Fabrik meineFabrik)
     {
         
-        // this.holzRoboter = new Holzarbeitungs_Roboter();
-        // this.montageRoboter = new Montage_Roboter();
-        // this.lackierRoboter = new Lackier_Roboter();
-        // this.verpackungsRoboter = new Verpackungs_Roboter();
         this.meineFabrik = meineFabrik;
-        this.meinLager = meinLager; 
-        this.zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
-        this.bestellungInProduktion = new LinkedList<Bestellung>();
-        //neu
-        this.stuhlProduktionsAbfolge = new LinkedList<Roboter>();
-        this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
+        this.meinLager = meinLager;
+        this.holzRoboter = new Holzbearbeitungs_Roboter();
+        this.montageRoboter = new Montage_Roboter();
+        this.lackierRoboter = new Lackier_Roboter(); 
+        this.verpackungsRoboter = new Verpackungs_Roboter();
         
-       
         holzRoboter.start();
         montageRoboter.start();
         lackierRoboter.start();
         verpackungsRoboter.start();
         
+        
+        this.zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
+        this.bestellungenInProduktion = new LinkedList<Bestellung>();
+        
+        //neu - zur Vorgabe der Produktionsabfolge für Stuhl und Sofa
+        this.stuhlProduktionsAbfolge = new LinkedList<Roboter>();
+        this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
+        
+       
+
         stuhlProduktionsAbfolge.add(holzRoboter);
         stuhlProduktionsAbfolge.add(montageRoboter);
         stuhlProduktionsAbfolge.add(lackierRoboter);
@@ -59,24 +63,32 @@ public class Produktions_Manager extends Thread
         sofaProduktionsAbfolge.add(lackierRoboter);
         sofaProduktionsAbfolge.add(montageRoboter);
         sofaProduktionsAbfolge.add(verpackungsRoboter);
+        
     }
     
     
-    // Implementiert run für die Threadklasse
+    /** TO DO - DOKU
+     * run methode
+     */
+    
+    @Override
     public void run()
     {
-        while(true) //man braucht Moeglichkeit, um die Schleife zu unterbr
+        while(true) //man braucht Moeglichkeit, um die Schleife zu unterbr (Flo: Wieso? Falls notwendig, müssten wir mit egener Variable und Methode einbauen)
         {
             // Ist neue Bestellung eingetroffen, dann hole nächste Bestellung und starte Produktion
 
-            if(!zuVerarbeitendeBestellungen.isEmpty())
+            if(!this.zuVerarbeitendeBestellungen.isEmpty())
             {
                 Bestellung neueBestellung = zuVerarbeitendeBestellungen.poll();
-                bestellungInProduktion.add(neueBestellung);
+                bestellungenInProduktion.add(neueBestellung);
                 System.out.println("Produktion von Bestellung " + neueBestellung.gibBestellungsNr() + " in bearbeitung." );
                 this.starteProduktion(neueBestellung);
             }
-                       
+               
+            // Überprüfe, ob es fertige Bestellungen hat.
+            
+            
             // Wird gebraucht, damit der Loop nicht so oft wie möglich durchgeführt wird und somit
             // den Prozessor überarbeitet 
             try{
@@ -88,8 +100,11 @@ public class Produktions_Manager extends Thread
             }
         }
     }
+     
+    /** TO DO - DOKU
+     * Startet Produktion aller Produkte in bestellung
+     */
     
-    // Startet Produktion aller Produkte in bestellung
     private void starteProduktion(Bestellung bestellung)
     {
         for(Produkt prod: bestellung.gibBestellteProdukte())
@@ -99,6 +114,7 @@ public class Produktions_Manager extends Thread
                 // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
                 // prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
                 prod.setzeProduktionsAblauf(stuhlProduktionsAbfolge);
+                this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                 prod.naechsteProduktionsStation();
             }
             else if(prod instanceof Sofa)
@@ -116,14 +132,47 @@ public class Produktions_Manager extends Thread
     }
 
     
-    
-    // Fügt Bestellung zur Liste der zu produzierenden Bestellungen hinzuw
+    /** TO DO - DOKU
+     * Fügt Bestellung zur Liste der zu produzierenden Bestellungen hinzuw
+     */
     public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung)
     {
         zuVerarbeitendeBestellungen.add(bestellung);
     }
 
+    /** TO DO - DOKU
+     * überprüft ob es fertige Bestellungen gibt und macht die nötigen Schritte.
+     */
+    
+    public void pruefeFertigeBestellungen()
+    {
+        for (Bestellung bestellung : this.bestellungenInProduktion) {
+            boolean bestellungFertig = true;
+            // pruefe ob jedes Produkt der Bestellung den zustand 2 hat. Wenn nicht, setze die Variable bestellungFertig auf false.
+            for (Produkt produkt : bestellung.gibBestellteProdukte()) {
+                if(produkt.zustand != 2){
+                    bestellungFertig = false;
+                }
+            }
+            
+            if (bestellungFertig){
+                bestellung.setzeAlleProdukteProduziert(true);
+                System.out.println("Die Bestellung Nr." + bestellung.gibBestellungsNr() + " ist fertig.");
+            }
+    }
+    }
+    
+    /** TO DO - DOKU
+     * reduziere Lager um nötige Einheiten
+     */
+    public void reduziereLager(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int kissen){
+                meinLager.setzevorhandeneHolzeinheiten(meinLager.gibvorhandeneHolzeinheiten() - holzeinheiten);
+                meinLager.setzevorhandeneSchrauben(meinLager.gibvorhandeneSchrauben() - schrauben);
+                meinLager.setzevorhandeneFarbeeinheiten(meinLager.gibvorhandeneFarbeeinheiten() - farbeinheiten);
+                meinLager.setzevorhandeneKartoneinheiten(meinLager.gibvorhandeneKartoneinheiten() - kartoneinheiten);
+                meinLager.setzevorhandeneKissen(meinLager.gibvorhandeneKissen() - kissen);
 
+    }
 }
    
     /**

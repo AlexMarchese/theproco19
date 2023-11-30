@@ -59,7 +59,7 @@ public class Sofa extends Produkt
      * Methode, um benötigte Holzeinheiten für ein Sofa zu erhalten.
      * @return  holzeinheiten   Die  benötigten Einheiten Holz für das Sofa.
      */
-    public int gibHolzeinheiten() {
+    public static int gibHolzeinheiten() {
         return Sofa.holzeinheiten;
     }
 
@@ -67,7 +67,7 @@ public class Sofa extends Produkt
      * Methode, um benötigte Schrauben für ein Sofa zu erhalten.
      * @return  schrauben   Die  benötigte Anzahl Schrauben für das Sofa.
      */
-    public int gibSchrauben() {
+    public static int gibSchrauben() {
         return Sofa.schrauben;
     }
     
@@ -75,7 +75,7 @@ public class Sofa extends Produkt
      * Methode, um benötigte Farbeinheiten für ein Sofa zu erhalten.
      * @return  farbeinheiten   Die  benötigten Einheiten Farbe für das Sofa.
      */
-    public int gibFarbeinheiten() {
+    public static int gibFarbeinheiten() {
         return Sofa.farbeinheiten;
     }
 
@@ -83,7 +83,7 @@ public class Sofa extends Produkt
      * Methode, um benötigte Kartoneinheiten für ein Sofa zu erhalten.
      * @return  kartoneinheiten Die benötigten Einheiten Karton für das Sofa.
      */
-    public int gibKartoneinheiten() {
+    public static int gibKartoneinheiten() {
         return Sofa.kartoneinheiten;
     }
 
@@ -91,7 +91,7 @@ public class Sofa extends Produkt
      * Methode, um benötigte Kissen für ein Sofa zu erhalten.
      * @return  Kissen Die benötigten Kissen für das Sofa.
      */
-    public int gibKissen() {
+    public static int gibKissen() {
         return Sofa.kissen;
     }
 
@@ -99,7 +99,7 @@ public class Sofa extends Produkt
      * Methode, um die Produktionszeit für ein Sofa zu erhalten.
      * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für das Sofa.
      */
-    public int gibTotalProduktionszeit() {
+    public static int gibTotalProduktionszeit() {
         return Sofa.produktionsZeit;
     }
     

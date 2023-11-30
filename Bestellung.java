@@ -16,6 +16,7 @@ public class Bestellung {
     private int bestellungsNr;
     private float lieferzeit; // in Tagen
     private float produktionszeit; // in Tagen
+    private boolean alleProdukteProduziert;
 
     /**
      * Konstruktor für die Instanzen der Klasse Bestellung.
@@ -42,6 +43,7 @@ public class Bestellung {
             this.lieferzeit = 1;
             this.produktionszeit = 0;
             this.bestellteProdukteHinzufuegen();
+            this.alleProdukteProduziert = false;
             
         }
     }
@@ -214,6 +216,24 @@ public class Bestellung {
      */
     public float gibProduktionszeit() {
         return this.produktionszeit;
+    }
+    
+    /**
+     * Methode zum Setzen der Variable alleProdukteProduziert.
+     * 
+     * @param   sindAlleProdukteProduziert   Boolean Wert (true = alle Produkte sind produziert, false = noch nicht alle Produkte sind produziert)
+     */
+    public void setzeAlleProdukteProduziert(boolean sindAlleProdukteProduziert) {
+        this.alleProdukteProduziert = sindAlleProdukteProduziert;
+    }    
+    
+    /**
+     * Methode zur Ausgabe der Variable alleProdukteProduziert.
+     * 
+     * @return  alleProdukteProduziert  Boolean Wert (true = alle Produkte sind produziert, false = noch nicht alle Produkte sind produziert)
+     */
+    public boolean gibAlleProdukteProduziert() {
+        return this.alleProdukteProduziert;
     }
 
     

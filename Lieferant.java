@@ -60,9 +60,9 @@ public class Lieferant extends Thread {
 
     
     /**
-     *  
+     *  TO DO - DOKU
      */
-    @Override //es ist eine good practice
+    @Override
     public void run(){
         System.out.println("Lieferant thread started...");
          
@@ -71,7 +71,7 @@ public class Lieferant extends Thread {
                 try{
                     System.out.println("Lieferant hat eine Bestellung erhalten...");
                     // this.sleep(8000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
-                    this.sleep(20000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
+                    this.sleep(24000); //derzeit 24 sec, damit man nicht zu lang warten muss. Später 48sec.
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }

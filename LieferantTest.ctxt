@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=LieferantTest
-comment0.text=\r\n\ Testklasse\ LieferantTest,\ um\ die\ Methoden\ der\ Klasse\ "Lieferant"\ zu\ testen.\ \r\n\r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Testklasse\ LieferantTest,\ um\ die\ Methoden\ der\ Klasse\ "Lieferant"\ zu\ testen.\ \n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
 comment1.params=
 comment1.target=LieferantTest()
-comment1.text=\r\n\ Konstruktor\ von\ LieferantTest\r\n
+comment1.text=\n\ Konstruktor\ von\ LieferantTest\n
 comment2.params=
 comment2.target=void\ setUp()
-comment2.text=\r\n\ Anweisungen\ vor\ jedem\ Testlauf.\r\n
+comment2.text=\n\ Anweisungen\ vor\ jedem\ Testlauf.\n
 comment3.params=
 comment3.target=void\ tearDown()
-comment3.text=\r\n\ Anweisungen\ nach\ jedem\ Testlauf.\r\n
+comment3.text=\n\ Anweisungen\ nach\ jedem\ Testlauf.\n
 numComments=4

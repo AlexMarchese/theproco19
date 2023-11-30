@@ -43,10 +43,10 @@ public class Stuhl extends Produkt
         // this.produktionsAblauf.add(new Lackier_Roboter());
         // this.produktionsAblauf.add(new Verpackungs_Roboter());
 
-        super.setzeProduktionszeitHolz(30);
-        super.setzeProduktionszeitMontage(5);
-        super.setzeProduktionszeitSpritzung(15);
-        super.setzeProduktionszeitVerpackung(10);
+        super.setzeProduktionszeitHolz(30); // in Minuten
+        super.setzeProduktionszeitMontage(5); // in Minuten
+        super.setzeProduktionszeitSpritzung(15); // in Minuten
+        super.setzeProduktionszeitVerpackung(10); // in Minuten
         
 
     }
@@ -57,7 +57,7 @@ public class Stuhl extends Produkt
      * Methode, um benötigte Holzeinheiten für einen Stuhl zu erhalten.
      * @return  holzeinheiten   Die  benötigten Einheiten Holz für den Stuhl.
      */
-    public int gibHolzeinheiten() {
+    public static int gibHolzeinheiten() {
         return Stuhl.holzeinheiten;
     }
 
@@ -65,7 +65,7 @@ public class Stuhl extends Produkt
      * Methode, um benötigte Schrauben für einen Stuhl zu erhalten.
      * @return  schrauben   Die  benötigte Anzahl Schrauben für den Stuhl.
      */
-    public int gibSchrauben() {
+    public static int gibSchrauben() {
         return Stuhl.schrauben;
     }
     
@@ -73,7 +73,7 @@ public class Stuhl extends Produkt
      * Methode, um benötigte Farbeinheiten für einen Stuhl zu erhalten.
      * @return  farbeinheiten   Die  benötigten Einheiten Farbe für den Stuhl.
      */
-    public int gibFarbeinheiten() {
+    public static int gibFarbeinheiten() {
         return Stuhl.farbeinheiten;
     }
 
@@ -81,7 +81,7 @@ public class Stuhl extends Produkt
      * Methode, um benötigte Kartoneinheiten für einen Stuhl zu erhalten.
      * @return  kartoneinheiten Die benötigten Einheiten Karton für den Stuhl.
      */
-    public int gibKartoneinheiten() {
+    public static int gibKartoneinheiten() {
         return Stuhl.kartoneinheiten;
     }
 
@@ -89,7 +89,7 @@ public class Stuhl extends Produkt
      * Methode, um die Produktionszeit für einen Stuhl zu erhalten.
      * @return  produktionsZeit Die totale Produktionszeit (in Minuten) für den Stuhl.
      */
-    public int gibTotalProduktionszeit() {
+    public static int gibTotalProduktionszeit() {
         return Stuhl.produktionsZeit;
     }
     

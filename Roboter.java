@@ -11,12 +11,7 @@ import java.util.LinkedList;
 public class Roboter extends Thread
 {
     // Instanzvariablen 
-    /*LinkedList <Produkt> warteschlange;
-    public String name; 
-    public int produktionsZeit;
-    */
     private LinkedList <Produkt> warteschlange;
-    // LinkedList <Produkt> warteschlange;
     private String name; 
     private int produktionsZeit;
     // private int produktionsZeitSofa;
@@ -92,17 +87,18 @@ public class Roboter extends Thread
     /**
      * Methode, 
      */
+    @Override
     public void run()
     {
         while(true)
         {
-            // Schaut, ob neue Produkte in Warteschlange sind, und produziert die dann.
+            // Schaut, ob neue Produkte in Warteschlange sind, und produziert diese dann.
             if(!warteschlange.isEmpty()){
                 produziereProdukt(warteschlange.poll());
             }
             else
             {
-                // Falls nichts in Warteschlange, wartet der Roboter 10 Millisekunden, bevor nochmals schaut
+                // Falls nichts in Warteschlange, wartet der Roboter 10 Millisekunden, bevor er nochmals schaut.
                 try{
                     Thread.sleep(10);
                 } catch(InterruptedException ie)
@@ -117,22 +113,25 @@ public class Roboter extends Thread
      * Methode, 
      */
     public void produziereProdukt(Produkt produkt){
-
+        
         try {
-            if(this.name == "Holzarbeitungsroboter"){
+            if(this instanceof Holzbearbeitungs_Roboter){
                 System.out.println(produkt.gibProduktionszeitHolz());
-                // Thread.sleep(produkt.gibProduktionszeitHolz());
-            } else if(this.name == "Montageroboter"){
+                // Schlafe (produziere) für die gegebene Zeit -> durch 60 mal 1000, weil es dann so viele Sekunden sind, wie es Stunden brauchen würde.
+                Thread.sleep(produkt.gibProduktionszeitHolz()/60*1000);
+            } else if(this instanceof Montage_Roboter){
                 System.out.println(produkt.gibProduktionszeitMontage());
-                // Thread.sleep(produkt.gibProduktionszeitMontage());
-            } else if(this.name == "Lackierroboter"){
+                Thread.sleep(produkt.gibProduktionszeitMontage()/60*1000);
+            } else if(this instanceof Lackier_Roboter){
                 System.out.println(produkt.gibProduktionszeitSpritzung());
-                // Thread.sleep(produkt.gibProduktionszeitSpritzung());
-            } else if(this.name == "Verpackungsroboter"){
+                Thread.sleep(produkt.gibProduktionszeitSpritzung()/60*1000);
+            } else if(this instanceof Verpackungs_Roboter){
                 System.out.println(produkt.gibProduktionszeitVerpackung());
-                // Thread.sleep(produkt.gibProduktionszeitVerpackung());
+                Thread.sleep(produkt.gibProduktionszeitVerpackung()/60*1000);
             }
-            Thread.sleep(1000);
+            // Thread.sleep(1000);
+            
+            produkt.naechsteProduktionsStation();
             
         } catch(InterruptedException ie)
         {
@@ -172,12 +171,11 @@ public class Roboter extends Thread
     }        
     
 
-    
     /**
      * Methode, 
      */
     public void fuegeProduktHinzu(Produkt produkt){
-        
+        this.warteschlange.add(produkt);
         }
      
 

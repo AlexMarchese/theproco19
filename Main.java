@@ -100,9 +100,9 @@ public class Main
             }
 
             // Produkte erstellen
-            else if (kommando.trim().equalsIgnoreCase("erst")){
-                System.out.println(fabrikStart.erstelleProdukte());
-            }
+            //else if (kommando.trim().equalsIgnoreCase("erst")){
+            //    System.out.println(fabrikStart.erstelleProdukte());
+            //}
 
             // Lagersituation ausgeben
             else if (kommando.trim().equalsIgnoreCase("situat")){
