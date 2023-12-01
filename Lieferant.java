@@ -64,13 +64,12 @@ public class Lieferant extends Thread {
      */
     @Override
     public void run(){
-        System.out.println("Lieferant thread started...");
+        System.out.println("Lieferant als Thread gestartet...");
          
         while(true){
             if(lieferungInArbeit){
                 try{
-                    System.out.println("Lieferant hat eine Bestellung erhalten...");
-                    // this.sleep(8000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
+                    System.out.println("Der Lieferant hat die Bestellung vom Lager erhalten und bestätigt den Auftrag.\nDie Lieferzeit beträgt 24 Stunden.");
                     this.sleep(24000); //derzeit 24 sec, damit man nicht zu lang warten muss. Später 48sec.
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
@@ -78,7 +77,14 @@ public class Lieferant extends Thread {
                 
                 bestellendesLager.wareLiefern(bestellteHolzeinheiten, bestellteSchrauben, bestellteFarbeeinheiten, bestellteKartoneinheiten, bestellteKissen);
                 lieferungInArbeit = false;
-                System.out.println("Bestellung geliefert.");
+                System.out.println( "-------------------------------------------------------------");
+                System.out.println("Der Lieferant hat die Bestellung geliefert. \nLieferschein:");
+                System.out.println( "\nHolzeinheiten:   " + this.bestellteHolzeinheiten + 
+                                    "\nSchrauben:       " + this.bestellteSchrauben + 
+                                    "\nFarbeinheiten:   " + this.bestellteFarbeeinheiten +
+                                    "\nKartoneinheiten: " + this.bestellteKartoneinheiten + 
+                                    "\nKissen:          " + this.bestellteKissen);
+                System.out.println( "-------------------------------------------------------------");
             } else {
                 try{
                     this.sleep(1000); // Damit jede Stunde gechecked wird, ob eine Bestellung eingetroffen ist.

@@ -88,6 +88,9 @@ public class Produktions_Manager extends Thread
                
             // Überprüfe, ob es fertige Bestellungen hat.
             // Geht durch die Bestellungen
+            
+            this.pruefeFertigeBestellungen();
+            /* TEST - FLO
             ausserLoop: for(Bestellung bestellung : bestellungenInProduktion){
                 // Geht durch die Bestellten Produkte
                 for(Produkt produkt : bestellung.gibBestellteProdukte()){
@@ -100,9 +103,9 @@ public class Produktions_Manager extends Thread
                 bestellung.setzeAlleProdukteProduziert(true);
                 bestellungenInProduktion.remove(bestellung);
                 // System.out.println(bestellung.bestellungGeliefert());
-                System.out.println("Produktionsmanager ist fertig: " + this);
+                System.out.println("Produktionsmanager ist fertig: " + this); // Was soll das bedeuten?
 
-            }
+            } */
 
 
             // Wird gebraucht, damit der Loop nicht so oft wie möglich durchgeführt wird und somit
@@ -174,7 +177,8 @@ public class Produktions_Manager extends Thread
             
             if (bestellungFertig){
                 bestellung.setzeAlleProdukteProduziert(true);
-                System.out.println("Die Bestellung Nr." + bestellung.gibBestellungsNr() + " ist fertig.");
+                bestellungenInProduktion.remove(bestellung);
+                System.out.println("Die Bestellung Nr. " + bestellung.gibBestellungsNr() + " ist fertig.");
             }
     }
     }
@@ -192,7 +196,7 @@ public class Produktions_Manager extends Thread
     }
 }
    
-    /**
+    /*
     public void run() {
         while (true) {
             // Prüfe, ob eine neue Bestellung eingetroffen ist

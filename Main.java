@@ -194,8 +194,9 @@ public class Main
             ie.printStackTrace();
         }
 
-        System.out.println(fabrikStart.lagerSituation());        
-
+        System.out.println(fabrikStart.lagerSituation());  
+    
+    
         // Sodass alles nach einer Zeit beendet wird
         try
         {
@@ -207,4 +208,5 @@ public class Main
         }
         System.exit(0);
     }
+
 }

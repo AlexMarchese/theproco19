@@ -11,31 +11,31 @@
 
 public class Lager{
     // Instanzvariablen
-    int maxHolzeinheiten;
-    int maxSchrauben;
-    int maxFarbeeinheiten;
-    int maxKartoneinheiten;
-    int maxKissen;
-    int vorhandeneHolzeinheiten;
-    int vorhandeneSchrauben;
-    int vorhandeneFarbeeinheiten;
-    int vorhandeneKartoneinheiten;
-    int vorhandeneKissen;
-    Lieferant lieferant; 
+    private int maxHolzeinheiten;
+    private int maxSchrauben;
+    private int maxFarbeeinheiten;
+    private int maxKartoneinheiten;
+    private int maxKissen;
+    private int vorhandeneHolzeinheiten;
+    private int vorhandeneSchrauben;
+    private int vorhandeneFarbeeinheiten;
+    private int vorhandeneKartoneinheiten;
+    private int vorhandeneKissen;
+    private Lieferant lieferant; 
 
     // Einheiten, die Aufgrund von den eingetroffenen Bestellungen benötigt werden.
-    int benoetigteHolzeinheiten;
-    int benoetigteSchrauben;
-    int benoetigteFarbeeinheiten;
-    int benoetigteKartoneinheiten;
-    int benoetigteKissen; 
+    private int benoetigteHolzeinheiten;
+    private int benoetigteSchrauben;
+    private int benoetigteFarbeeinheiten;
+    private int benoetigteKartoneinheiten;
+    private int benoetigteKissen; 
 
     // Steht für die Einheiten die bestellt, aber noch nicht geliefert wurden.
-    int inLieferungHolzeinheiten;
-    int inLieferungSchrauben;
-    int inLieferungFarbeeinheiten;
-    int inLieferungKartoneinheiten;
-    int inLieferungKissen; 
+    private int inLieferungHolzeinheiten;
+    private int inLieferungSchrauben;
+    private int inLieferungFarbeeinheiten;
+    private int inLieferungKartoneinheiten;
+    private int inLieferungKissen; 
 
 
     /**
@@ -280,6 +280,46 @@ public class Lager{
     public void setzeInLieferungKissen(int inLieferungKissen) {
         this.inLieferungKissen = inLieferungKissen;
     }
+   
+    /**
+     * Methode, um die maximale Lagerkapazität an Holzeinheiten zu erhalten.
+     * @return   maxHolzeinheiten    Die maximale Kapazität an Holzeinheiten in diesem Lager
+     */
+    public int gibMaxHolzeinheiten() {
+        return this.maxHolzeinheiten;
+    }   
+    
+    /**
+     * Methode, um die maximale Lagerkapazität an Schrauben zu erhalten.
+     * @return   maxSchrauben    Die maximale Kapazität an Schrauben in diesem Lager
+     */
+    public int gibMaxSchrauben() {
+        return this.maxSchrauben;
+    }   
+    
+    /**
+     * Methode, um die maximale Lagerkapazität an Farbeinheiten zu erhalten.
+     * @return   maxFarbeeinheiten    Die maximale Kapazität an Farbeinheiten in diesem Lager
+     */
+    public int gibMaxFarbeeinheiten() {
+        return this.maxFarbeeinheiten;
+    }   
+    
+    /**
+     * Methode, um die maximale Lagerkapazität an Kartoneinheiten zu erhalten.
+     * @return   maxKartoneinheiten    Die maximale Kapazität an Kartoneinheiten in diesem Lager
+     */
+    public int gibMaxKartoneinheiten() {
+        return this.maxKartoneinheiten;
+    }   
+    
+    /**
+     * Methode, um die maximale Lagerkapazität an Kissen zu erhalten.
+     * @return   maxKissen    Die maximale Kapazität an Kissen in diesem Lager
+     */
+    public int gibMaxKissen() {
+        return this.maxKissen;
+    }   
     
     
     /// Methoden
@@ -334,7 +374,8 @@ public class Lager{
 
     public String lagerAuffuellen() {  // Wird am Ende jedes Tages getriggert und nicht bei jeder Bestellung
         if (lieferant.gibLieferungInArbeit()){
-            return "Lager kann momentan nicht aufgefüllt werden"; //fix this
+            System.out.println("Lager kann momentan nicht aufgefüllt werden. Es ist schon eine Lieferung im Gange.");
+            return "Lager kann momentan nicht aufgefüllt werden. Es ist schon eine Lieferung im Gange."; //fix this
         } else {
             // zu bestellende Einheiten berechnen
             int zuBestellendeHolzeinheiten = this.maxHolzeinheiten - this.vorhandeneHolzeinheiten;
@@ -358,8 +399,10 @@ public class Lager{
                 this.inLieferungKissen += zuBestellendeKissen;
                 // System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
 
-                return "Lager konnte aufgefüllt werden"; //fix this
+                System.out.println("Antrag von Fabrik auf Lagerauffüllung bestätigt.\nBestellung an Lieferant aufgegeben.");
+                return "Bestellung konnte von Lager aufgegeben werden."; //fix this
             } else { // Falls alle Werte 0 sind
+                System.out.println("Zu bestellende Materialeinheiten sind alle gleich 0.\nAntrag von Fabrik auf Lagerauffüllung durch Lager abgelehnt.");
                 return "Lager hat gerade die maximale Anzahl an Einheiten"; //check this
             }
             
@@ -388,10 +431,13 @@ public class Lager{
  
     /** TO DO
      * Methode, die vom Lieferanten aufgerufen wird, um die bestellte Ware zu liefern. Im konkreten, wird die Ware den vorhandenen Materialien hinzugefügt
-     * @param   tbd
-     * 
+     *
+     * @param   gelieferteHolzeinheiten     TEXT
+     * @param   gelieferteSchrauben         TEXT
+     * @param   gelieferteFarbeinheiten     TEXT
+     * @param   gelieferteKartoneinheiten   TEXT
+     * @param   gelieferteKissen            TEXT
     */
-            //muss noch die params adden
     public void wareLiefern(int gelieferteHolzeinheiten, int gelieferteSchrauben, int gelieferteFarbeinheiten, int gelieferteKartoneinheiten, int gelieferteKissen) {
         // Vorhandene Materialien nehmen um den gelieferten Wert zu
         vorhandeneHolzeinheiten += gelieferteHolzeinheiten;
@@ -413,7 +459,7 @@ public class Lager{
         benoetigteFarbeeinheiten -= gelieferteFarbeinheiten;
         benoetigteKartoneinheiten -= gelieferteKartoneinheiten;
         benoetigteKissen -= gelieferteKissen;
-        System.out.println("Ware wurde geliefert.");
+        System.out.println("Lager bestätigt Erhalt der Ware von Lieferant.");
     }
     
             

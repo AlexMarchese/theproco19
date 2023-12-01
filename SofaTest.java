@@ -53,12 +53,12 @@ public class SofaTest {
     public void testeSofa() {
         Sofa testSofa = new Sofa();
 
-        assertEquals(testSofa.gibHolzeinheiten(), 2);
-        assertEquals(testSofa.gibSchrauben(), 10);
-        assertEquals(testSofa.gibFarbeinheiten(), 2);
-        assertEquals(testSofa.gibKartoneinheiten(), 1);
+        assertEquals(testSofa.gibHolzeinheiten(), 4);
+        assertEquals(testSofa.gibSchrauben(), 5);
+        assertEquals(testSofa.gibFarbeinheiten(), 1);
+        assertEquals(testSofa.gibKartoneinheiten(), 5);
         assertEquals(testSofa.gibKissen(), 5);
-        assertEquals(testSofa.gibTotalProduktionszeit(), 22);
+        assertEquals(testSofa.gibTotalProduktionszeit(), 60);
 
         System.out.println("Test Sofa erfolgreich. Defaultinitialisierung und Getters funktionieren.");
     }

@@ -13,6 +13,7 @@ public class Fabrik {
     private int bestellungsNrCounter;
     private Lager lager;
     private Produktions_Manager produktions_manager;
+    private TaeglichGruesstDasMurmeltier meinMurmeltier;
 
     /**
      * Konstruktor für Instanzen der Klasse Fabrik.
@@ -20,6 +21,7 @@ public class Fabrik {
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
         this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
+        this.meinMurmeltier = new TaeglichGruesstDasMurmeltier(this);
         // this.produktions_manager = new Produktions_Manager(lager, this); // Wird erst unten gestartet, sobald Lager definiert wird
         // produktions_manager.start();
     }
@@ -69,7 +71,7 @@ public class Fabrik {
 
     
     /**
-     * Methode zum erstellen eines Lagers. Wird von main aufgerufen.
+     * Methode zum erstellen des Lagers und des Produkionsmanagers. Ausserdem wird das Murmeltier gestartet. Wird von main aufgerufen.
      * 
      *@param    maxHolzeinheiten            Die maximale Kapazität des Lagers für Holzeinheiten.
      *@param    maxSchrauben                Die maximale Kapazität des Lagers für Schrauben. 
@@ -86,6 +88,7 @@ public class Fabrik {
         lager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen);
         this.produktions_manager = new Produktions_Manager(lager, this);
         produktions_manager.start();
+        meinMurmeltier.start();
     }
 
     
@@ -95,17 +98,19 @@ public class Fabrik {
 
     /**
      * Methode, die überprüft, ob das Lager aufgefüllt werden muss und ggf. die zugehörige Methode der Klasse Lager ausführt.
+     * Falls schon eine Lieferung im Gange ist, wird die Bestellung durch die zugehörige Methode der Klasse Lager unterbunden.
      */
-    public String lagerAuffuellen(){    
-        // // Fülle das Lager auf, falls ein Material nicht ausreicht.
-        // if (lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten() < lager.benoetigteHolzeinheiten
-        //     || lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben() < lager.benoetigteSchrauben
-        //     || lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten() < lager.benoetigteFarbeeinheiten 
-        //     || lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten() < lager.benoetigteKartoneinheiten
-        //     || lager.gibvorhandeneKissen() + lager.gibInLieferungKissen() < lager.benoetigteKissen) {
-        //         System.out.println(lager.lagerAuffuellen() instanceof String); 
-        // } 
-        return lager.lagerAuffuellen();
+    public void lagerAuffuellen(){    
+        // Fülle das gesamte Lager zum Maximum auf, falls ein Material unter 25% des maximalen Lagerbestands fällt.
+        
+        if (lager.gibvorhandeneHolzeinheiten() < lager.gibMaxHolzeinheiten() * 0.25
+             || lager.gibvorhandeneSchrauben() < lager.gibMaxSchrauben()*0.25
+             || lager.gibvorhandeneFarbeeinheiten() < lager.gibMaxFarbeeinheiten()*0.25
+             || lager.gibvorhandeneKartoneinheiten() < lager.gibMaxKartoneinheiten()*0.25
+             || lager.gibvorhandeneKissen() < lager.gibMaxKissen()*0.25) {
+                 System.out.println("Fabrik beantragt das Auffüllen des Lagers.");   
+                 lager.lagerAuffuellen();
+        }
     }
     
     /**
