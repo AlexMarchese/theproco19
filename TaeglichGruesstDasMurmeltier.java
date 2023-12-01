@@ -16,7 +16,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
      */
     public TaeglichGruesstDasMurmeltier(Fabrik fabrik){
         // Instanzvariable initialisieren
-        meineFabrik = fabrik;
+        this.meineFabrik = fabrik;
     }
         
     /**
@@ -24,17 +24,23 @@ public class TaeglichGruesstDasMurmeltier extends Thread
      */
     @Override
     public void run(){
-        // lasse die lagerAuffuellen Methode Laufen
-        meineFabrik.lagerAuffuellen();
         
-        // gib Übersicht - TO DO, falls Zeit besteht.
+        while (true) {
+            
+            //Schlafe für 24h
+            try{
+            Thread.sleep(24_000); 
+            }
+            catch (InterruptedException ie){
+                ie.printStackTrace();
+            }
+
+            System.out.println(this.meineFabrik.lagerSituation());
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("24 Stunden sind vergangen. Es wird überpüft, ob das Lager aufgefüllt werden kann.");
+            // lasse die lagerAuffuellen Methode Laufen
+            meineFabrik.lagerAuffuellen();
+        }      
         
-        //Schlafe für 24h
-        try{
-        Thread.sleep(24000);
-        }
-        catch (InterruptedException ie){
-            ie.printStackTrace();
-        }
     }
 }

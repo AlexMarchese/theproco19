@@ -43,10 +43,10 @@ public class Stuhl extends Produkt
         // this.produktionsAblauf.add(new Lackier_Roboter());
         // this.produktionsAblauf.add(new Verpackungs_Roboter());
 
-        super.setzeProduktionszeitHolz(30); // in Minuten
+        super.setzeProduktionszeitHolz(10); // in Minuten
         super.setzeProduktionszeitMontage(5); // in Minuten
-        super.setzeProduktionszeitSpritzung(15); // in Minuten
-        super.setzeProduktionszeitVerpackung(10); // in Minuten
+        super.setzeProduktionszeitSpritzung(2); // in Minuten
+        super.setzeProduktionszeitVerpackung(5); // in Minuten
         
 
     }

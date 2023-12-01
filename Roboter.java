@@ -13,7 +13,7 @@ public class Roboter extends Thread
     // Instanzvariablen 
     private LinkedList <Produkt> warteschlange;
     private String name; 
-    private int produktionsZeit;
+    // private int produktionsZeit;
     // private int produktionsZeitSofa;
 
     /**
@@ -25,7 +25,7 @@ public class Roboter extends Thread
         // Instanzvariable initialisieren
         this.warteschlange = new LinkedList<Produkt>();
         this.name = "";
-        this.produktionsZeit = 0;
+        // this.produktionsZeit = 0;
         // String name;
         // int produktionsZeitStuhl; 
         // int produktionsZeitSofa;
@@ -34,13 +34,13 @@ public class Roboter extends Thread
     
     /// Getters und Setters
 
-    /**
-     * Methode, um die Produktionszeit zu setzen.
-     * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
-     */
-    public void setzeProduktionsZeit(int produktionsZeit) {
-        this.produktionsZeit = produktionsZeit;
-    }
+    // /**
+    //  * Methode, um die Produktionszeit zu setzen.
+    //  * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
+    //  */
+    // public void setzeProduktionsZeit(int produktionsZeit) {
+    //     this.produktionsZeit = produktionsZeit;
+    // }
     
     /**
     //  * Methode, um die Produktionszeit zu setzen.
@@ -89,7 +89,16 @@ public class Roboter extends Thread
      */
     @Override
     public void run()
-    {
+    {   // 1 Sekunde warten bevor die Roboter gestartet werden, da in der Zwischenzeit die Produktionszeit aus den Produkten initialisiert wird.
+        // Führt sonst zu einer Exception in "warteschlange.poll()"
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ie)
+        {
+            ie.printStackTrace();
+        }
+
         while(true)
         {
             // Schaut, ob neue Produkte in Warteschlange sind, und produziert diese dann.

@@ -43,10 +43,10 @@ public class Sofa extends Produkt
         // this.produktionsAblauf.add(new Montage_Roboter());
         // this.produktionsAblauf.add(new Verpackungs_Roboter());
 
-        super.setzeProduktionszeitHolz(10);
-        super.setzeProduktionszeitMontage(5);
-        super.setzeProduktionszeitSpritzung(2);
-        super.setzeProduktionszeitVerpackung(5);
+        super.setzeProduktionszeitHolz(30);
+        super.setzeProduktionszeitSpritzung(5);
+        super.setzeProduktionszeitMontage(15);
+        super.setzeProduktionszeitVerpackung(10);
         
 
     }

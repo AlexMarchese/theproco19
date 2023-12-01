@@ -17,7 +17,7 @@ public class Produkt {
     // int schrauben;
     // int farbeinheiten;
     // int kartoneinheiten;
-    int produktionsZeit;
+    private int produktionsZeit;
     private int produktionsZeitHolz;
     private int produktionsZeitMontage;
     private int produktionsZeitSpritzung;
