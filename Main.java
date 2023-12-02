@@ -77,9 +77,11 @@ public class Main
             // Bestellung aufgeben
             else if (kommando.trim().toLowerCase().contains("best")){
                  
-                String[] values = kommando.split(" "); // Unterteilt der String in 3 Werte (der zweite ist die Anz Sofas und der dritte Anz Stühle)
+                String nums = kommando.split("best ")[1];                 
+                String[] values = nums.split(" "); // Unterteilt der String in 2 Werte (der erste ist die Anz Sofas und der zweite die Anz Stühle)
 
-                System.out.println(fabrikStart.bestellungAufgeben(Integer.parseInt(values[1]), Integer.parseInt(values[2])));
+                System.out.println("Nums " + Integer.parseInt(values[0]) + " " + Integer.parseInt(values[1]));
+                System.out.println(fabrikStart.bestellungAufgeben(Integer.parseInt(values[0]), Integer.parseInt(values[1])));
             }
 
             // Lagersituation ausgeben
