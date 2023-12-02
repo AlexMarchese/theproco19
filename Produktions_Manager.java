@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Die Klasse Produktions_Manager 
@@ -51,7 +52,6 @@ public class Produktions_Manager extends Thread
         //neu - zur Vorgabe der Produktionsabfolge für Stuhl und Sofa
         this.stuhlProduktionsAbfolge = new LinkedList<Roboter>();
         this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
-        
        
 
         stuhlProduktionsAbfolge.add(holzRoboter);
@@ -133,8 +133,9 @@ public class Produktions_Manager extends Thread
             // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
             if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
                 try {
+                    System.out.println("Die Produktionsstrasse wird umgebaut. Dies dauert eine Stunde.");
                     Thread.sleep(1000); // eine Stunde warten
-                    System.out.println("Wartet eine Stunde für den Umbau der Maschinen");
+                    System.out.println("Die Produktionsstrasse wurde erfolgreich umgebaut.");
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
@@ -144,7 +145,7 @@ public class Produktions_Manager extends Thread
             {
                 // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
                 // prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
-                prod.setzeProduktionsAblauf(stuhlProduktionsAbfolge);
+                prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge);
                 this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                 prod.naechsteProduktionsStation();
 
@@ -154,7 +155,7 @@ public class Produktions_Manager extends Thread
             {
                 // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
                 // prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
-                prod.setzeProduktionsAblauf(sofaProduktionsAbfolge);
+                prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
                 this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
                 prod.naechsteProduktionsStation();
 
