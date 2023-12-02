@@ -22,27 +22,27 @@ public class Main
         fabrikStart.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
         fabrikStart.erstelleProduktions_Manager();
         fabrikStart.erstelleMurmeltier(); // Das Murmeltier simuliert einen Tagesablauf und ist in der Klasse Fabrik zuhause.
-        // System.out.println(fabrikStart.lagerSituation());
-        // System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(fabrikStart.lagerSituation());
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
 
         // // TaeglichGruesstDasMurmeltier tagAblauf = new TaeglichGruesstDasMurmeltier(fabrikStart); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
         // // tagAblauf.start(); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
         
         
-        // System.out.println("Eine Bestellung mit 2 Sofas und 1 Stuhl wird aufgegeben.");
-        // fabrikStart.bestellungAufgeben(2, 1);
+        System.out.println("Eine Bestellung mit 1 Sofa und 1 Stuhl wird aufgegeben.");
+        fabrikStart.bestellungAufgeben(1, 1);
         // System.out.println("Eine weitere Bestellung mit 2 Sofas und 3 Stühlen wird aufgegeben.");
         // fabrikStart.bestellungAufgeben(2, 3);
 
-        // // Kurze 30 Sekunden Pause, damit gezeigt werden kann wie die Bestellungen erstellt werden
-        // try
-        // {
-        //     Thread.sleep(30_000);
-        // }
-        // catch (InterruptedException ie)
-        // {
-        //     ie.printStackTrace();
-        // }
+        // Kurze 10 Sekunden Pause, damit gezeigt werden kann wie die Bestellungen erstellt werden
+        try
+        {
+             Thread.sleep(24_000);
+         }
+         catch (InterruptedException ie)
+         {
+             ie.printStackTrace();
+         }
 
         
         // Zweiter Teil -> Der Nutzer darf entscheiden
@@ -50,10 +50,10 @@ public class Main
 
         String kommando; // Für das Kommando im Terminal durch den Nutzer
 
-        System.out.print("\n\nLieber Nutzer, Willkommen zum Testen unserer AEKI Fabrik der Gruppe 19. Ja genau, zweifeln Sie gerne an unserer Funktionalität und sehen sie es selbst ;).");
+        System.out.print("\n\nLieber Nutzer, Willkommen zum Testen unserer AEKI Fabrik der Gruppe 19. Ja genau, testen Sie gerne an unserer Funktionalität und überzeugen sie sich selbst ;).");
         System.out.println("\nIhnen stehen 3 verschiedene Kommandos zu Verfügung:");
         System.out.println("1. 'situat' - Wir zeigen Ihnen die Situation im Lager unserer Fabrik");
-        System.out.println("2. 'best' 'a' 'b' - Gibt eine Bestellung auf. Geben Sie dabei die Anzahl an Sofas und Stühlen mit einem Abstand dazwischen an. Bsp:'best 3 2' = 3 Stühle und 2 Sofas.");
+        System.out.println("2. 'best' 'a' 'b' - Gibt eine Bestellung auf. Geben Sie dabei die Anzahl an Sofas und Stühlen mit einem Abstand dazwischen an. Bsp:'best 3 2' = 3 Sofas und 2 Stühle.");
         System.out.println("3. 'ende' - Sie sind zufrieden und wollen diese privilegierte Nutzersicht verlassen.\n");
         System.out.println("N.B. Sie dürfen jederzeit ein Kommando eingeben. Wenn Sie sich vertippen, passiert nichts und dürfen das Kommando erneut eingeben.");
         System.out.println("Gerne dürfen sie auch probieren unrealistische Werte einzugeben und schauen was passiert. Viel Spaß!");
@@ -66,7 +66,7 @@ public class Main
 
                 // Überprüft, ob der Nutzer den Loop verlassen möchte
                 if (kommando.trim().equalsIgnoreCase("ende")) {
-                    System.out.println("Es wurde entschieden die Nutzersicht zu verlassen. Das Programm wird geschlossen.");
+                    System.out.println("Es wurde entschieden die Nutzeransicht zu verlassen. Das Programm wird geschlossen. Wir danken für ihren Besuch und bis zum nächsten mal in der AEKI Fabrik!");
                     break; // Verlässt den Loop wenn der Nutzer "ende" eingibt
                 }
 
@@ -98,7 +98,7 @@ public class Main
 
                 // Nichterkanntes Kommando
                 else {
-                    System.out.println("Kommando nicht erkannt. Bitte erneut versuchen");
+                    System.out.println("Kommando nicht erkannt. Bitte erneut versuchen.");
                     continue;
                 }
                 
@@ -116,7 +116,7 @@ public class Main
             ie.printStackTrace();
         }
 
-        System.out.println("Alle Prozesse wurden beendet");
+        System.out.println("Alle Prozesse wurden beendet.");
 
         System.exit(0);
     

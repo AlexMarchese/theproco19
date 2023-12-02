@@ -64,13 +64,22 @@ public class Lieferant extends Thread {
      */
     @Override
     public void run(){
-        System.out.println("Lieferant als Thread gestartet...");
+        System.out.println("Lieferant wurde als Thread gestartet...");
          
         while(true){
             if(lieferungInArbeit){
                 try{
-                    System.out.println("Der Lieferant hat die Bestellung vom Lager erhalten und bestätigt den Auftrag.\nDie Lieferzeit beträgt 24 Stunden.");
-                    this.sleep(48000); // 48 sec -> 48 Stunden
+                    System.out.println("Der Lieferant hat die Bestellung vom Lager erhalten und bestätigt den Auftrag wie folgt.");
+                    System.out.println( "-------------------------------------------------------------");
+                    System.out.println("Bestellschein:");
+                    System.out.println( "Holzeinheiten:   " + this.bestellteHolzeinheiten + 
+                                        "\nSchrauben:       " + this.bestellteSchrauben + 
+                                        "\nFarbeinheiten:   " + this.bestellteFarbeeinheiten +
+                                        "\nKartoneinheiten: " + this.bestellteKartoneinheiten + 
+                                        "\nKissen:          " + this.bestellteKissen);
+                    System.out.println( "-------------------------------------------------------------");
+                    System.out.println("\nDie Lieferzeit beträgt 24 Stunden.\n");
+                    this.sleep(24000); // 24 sec -> 24 Stunden
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }

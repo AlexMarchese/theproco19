@@ -86,6 +86,7 @@ public class Produktions_Manager extends Thread
     @Override
     public void run()
     {
+        System.out.println("Produktionsmanager wurde als Thread gestartet...");
         while(true) //man braucht Moeglichkeit, um die Schleife zu unterbr (Flo: Wieso? Falls notwendig, müssten wir mit egener Variable und Methode einbauen)
         {
             // Ist neue Bestellung eingetroffen, dann hole nächste Bestellung und starte Produktion

@@ -374,7 +374,7 @@ public class Lager{
 
     public String lagerAuffuellen() {
         if (lieferant.gibLieferungInArbeit()){
-            System.out.println("Lager kann momentan nicht aufgefüllt werden. Es ist schon eine Lieferung im Gange.");
+            System.out.println("Das Lager konnte noch nicht aufgefüllt werden. Da jedoch bereits eine Bestellung aufgegeben wurde, wird deren Eintreffen abgewartet bevor eine erneute Bestellung innerhalb von 24 Stunden aufgegeben wird.");
             return "Lager kann momentan nicht aufgefüllt werden. Es ist schon eine Lieferung im Gange."; //fix this
         } else {
             // zu bestellende Einheiten berechnen
@@ -400,7 +400,7 @@ public class Lager{
                 // System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
 
                 System.out.println("Antrag von Fabrik auf Lagerauffüllung bestätigt.\nBestellung an Lieferant aufgegeben.");
-                return "Bestellung konnte von Lager aufgegeben werden."; //fix this
+                return "Bestellung konnte aufgegeben werden."; //fix this
             } else { // Falls alle Werte 0 sind
                 System.out.println("Zu bestellende Materialeinheiten sind alle gleich 0.\nAntrag von Fabrik auf Lagerauffüllung durch Lager abgelehnt.");
                 return "Lager hat gerade die maximale Anzahl an Einheiten"; //check this
@@ -439,7 +439,7 @@ public class Lager{
         benoetigteFarbeeinheiten -= gelieferteFarbeinheiten;
         benoetigteKartoneinheiten -= gelieferteKartoneinheiten;
         benoetigteKissen -= gelieferteKissen;
-        System.out.println("Lager bestätigt Erhalt der Ware von Lieferant.");
+        System.out.println("Das Lager bestätigt den Erhalt der Ware vom Lieferanten.");
     }
     
             
@@ -455,16 +455,16 @@ public class Lager{
         String ausgabe = "\nLagersituation";
 
         ausgabe += ("\nIm Lager:                Holzeinheiten - " + this.vorhandeneHolzeinheiten + " | Schrauben - " + this.vorhandeneSchrauben + 
-        " | Farbeeineiten - " + this.vorhandeneFarbeeinheiten + " | Kartoneineiten - " + this.vorhandeneKartoneinheiten + 
+        " | Farbeeinheiten - " + this.vorhandeneFarbeeinheiten + " | Kartoneinheiten - " + this.vorhandeneKartoneinheiten + 
         " | Kissen - " + this.vorhandeneKissen);
         // ausgabe += ("\nWird benötigt:           Holzeinheiten - " + this.benoetigteHolzeinheiten + " | Schrauben - " + this.benoetigteSchrauben + 
-        // " | Farbeeineiten - " + this.benoetigteFarbeeinheiten + " | Kartoneineiten - " + this.benoetigteKartoneinheiten + 
+        // " | Farbeeinheiten - " + this.benoetigteFarbeeinheiten + " | Kartoneinheiten - " + this.benoetigteKartoneinheiten + 
         // " | Kissen - " + this.benoetigteKissen);
         ausgabe += ("\nWird noch geliefert:     Holzeinheiten - " + this.inLieferungHolzeinheiten + "  | Schrauben - " + this.inLieferungSchrauben + 
-        "  | Farbeeineiten - " + this.inLieferungFarbeeinheiten + "  | Kartoneineiten - " + this.inLieferungKartoneinheiten + 
+        "  | Farbeeinheiten - " + this.inLieferungFarbeeinheiten + "  | Kartoneinheiten - " + this.inLieferungKartoneinheiten + 
         "  | Kissen - " + this.inLieferungKissen);
         ausgabe += ("\nMaximale Lagerkapazität: Holzeinheiten - " + this.maxFarbeeinheiten + "  | Schrauben - " + this.maxSchrauben + 
-        "  | Farbeeineiten - " + this.maxFarbeeinheiten + "  | Kartoneineiten - " + this.maxKartoneinheiten + 
+        "  | Farbeeinheiten - " + this.maxFarbeeinheiten + "  | Kartoneinheiten - " + this.maxKartoneinheiten + 
         "  | Kissen - " + this.maxKissen);
 
         return ausgabe;

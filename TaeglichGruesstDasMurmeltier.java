@@ -24,7 +24,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
      */
     @Override
     public void run(){
-        
+        System.out.println("Und täglich grüsst das Murmeltier (als Thread gestartet...)");
         while (true) {
             
             //Schlafe für 24h

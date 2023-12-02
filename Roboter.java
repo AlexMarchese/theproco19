@@ -90,7 +90,7 @@ public class Roboter extends Thread
     @Override
     public void run()
     {  
-
+        System.out.println(gibName() + " wurde als Thread gestartet...");
         while(true)
         {
             // Schaut, ob neue Produkte in Warteschlange sind, und produziert diese dann.

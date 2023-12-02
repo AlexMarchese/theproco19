@@ -115,9 +115,10 @@ public class Fabrik {
              || lager.gibvorhandeneFarbeeinheiten() < lager.gibMaxFarbeeinheiten()*0.25
              || lager.gibvorhandeneKartoneinheiten() < lager.gibMaxKartoneinheiten()*0.25
              || lager.gibvorhandeneKissen() < lager.gibMaxKissen()*0.25) {
-                 System.out.println("Fabrik beantragt das Auffüllen des Lagers.");   
+                 System.out.println("\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.");   
                  lager.lagerAuffuellen();
         }
+        else System.out.println("\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.");
     }
     
     /**
