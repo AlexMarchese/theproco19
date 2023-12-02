@@ -365,14 +365,14 @@ public class Lager{
     }
     
     /**
-     * Methode, lagerAuffuellen vergleicht ob die benötigten Materialien die maximale Lager-Kapazität überschreiten, reduziert diese ggf.,
-     * und bestellt anschließend über die Methode wareBestellen die zu Bestellenden Materialien nach.
+     * Methode, lagerAuffuellen überprüft, ob eine Bestellung beim Lieferanten möglich ist, stellt die Bestellmenge fest und bestellt ggf.
+     * über die Lieferanten-Methode wareBestellen die zu Bestellenden Materialien nach. Die Lager-Methode wird nur getriggert,
+     * wenn die Fabrik-Methode feststellt, dass aufgefüllt werden muss.
      * 
      * @return  String  Text bezüglich dem Auffüllen des Lagers. Je nachdem ob das Lager gefüllt werden konnte oder nicht wird der entsprechende Text ausgegeben.
-     * 
     */
 
-    public String lagerAuffuellen() {  // Wird am Ende jedes Tages getriggert und nicht bei jeder Bestellung
+    public String lagerAuffuellen() {
         if (lieferant.gibLieferungInArbeit()){
             System.out.println("Lager kann momentan nicht aufgefüllt werden. Es ist schon eine Lieferung im Gange.");
             return "Lager kann momentan nicht aufgefüllt werden. Es ist schon eine Lieferung im Gange."; //fix this
@@ -446,7 +446,7 @@ public class Lager{
     /**
      * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
      * 
-     * @return   String    Text zum Lagerbestand.
+     * @return   ausgabe    Text zum Lagerbestand.
      * 
     */
    

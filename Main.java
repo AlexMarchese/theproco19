@@ -18,12 +18,14 @@ public class Main
         // Erster Teil -> Es wird gezeigt, wie das eingehen von 2 Bestellungen funktioniert.
         
         Fabrik fabrikStart = new Fabrik();
-        fabrikStart.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 100, 100, 100, 100, 100);
+        fabrikStart.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
+        fabrikStart.erstelleProduktions_Manager();
+        fabrikStart.erstelleMurmeltier(); // Das Murmeltier simuliert einen Tagesablauf und ist in der Klasse Fabrik zuhause.
         System.out.println(fabrikStart.lagerSituation());
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
 
-        TaeglichGruesstDasMurmeltier tagAblauf = new TaeglichGruesstDasMurmeltier(fabrikStart);
-        tagAblauf.start();
+        // TaeglichGruesstDasMurmeltier tagAblauf = new TaeglichGruesstDasMurmeltier(fabrikStart); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
+        // tagAblauf.start(); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
 
         System.out.println("Eine Bestellung mit 2 Sofas und 1 Stuhl wird aufgegeben.");
         fabrikStart.bestellungAufgeben(2, 1);
@@ -59,7 +61,7 @@ public class Main
 
             // Überprüft, ob der Nutzer den Loop verlassen möchte
             if (kommando.trim().equalsIgnoreCase("ende")) {
-                System.out.println("Es wurde entschieden die Nutzersicht zu verlassen.");
+                System.out.println("Es wurde entschieden die Nutzersicht zu verlassen. Das Programm wird geschlossen.");
                 break; // Verlässt den Loop wenn der Nutzer "ende" eingibt
             }
 

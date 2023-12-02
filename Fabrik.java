@@ -21,9 +21,7 @@ public class Fabrik {
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
         this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
-        this.meinMurmeltier = new TaeglichGruesstDasMurmeltier(this);
-        // this.produktions_manager = new Produktions_Manager(lager, this); // Wird erst unten gestartet, sobald Lager definiert wird
-        // produktions_manager.start();
+        // Lager, Produktionsmanager und Murmeltier werden erst nach Aufruf durch Main gestartet.
     }
 
 
@@ -71,7 +69,7 @@ public class Fabrik {
 
     
     /**
-     * Methode zum erstellen des Lagers und des Produkionsmanagers. Ausserdem wird das Murmeltier gestartet. Wird von main aufgerufen.
+     * Methode zur Erstellung des Lagers. Wird von main aufgerufen.
      * 
      *@param    maxHolzeinheiten            Die maximale Kapazität des Lagers für Holzeinheiten.
      *@param    maxSchrauben                Die maximale Kapazität des Lagers für Schrauben. 
@@ -86,18 +84,27 @@ public class Fabrik {
      */
     public void erstelleLager(int maxHolzeinheiten, int maxSchrauben, int maxFarbeeinheiten, int maxKartoneinheiten,int maxKissen, int vorhandeneHolzeinheiten, int vorhandenSchrauben, int vorhandeneFarbeeinheiten, int vorhandeneKartoneinheiten, int vorhandeneKissen) {
         lager = new Lager(maxHolzeinheiten, maxSchrauben, maxFarbeeinheiten, maxKartoneinheiten, maxKissen, vorhandeneHolzeinheiten, vorhandenSchrauben, vorhandeneFarbeeinheiten, vorhandeneKartoneinheiten, vorhandeneKissen);
-        this.produktions_manager = new Produktions_Manager(lager, this);
-        produktions_manager.start();
-        meinMurmeltier.start();
     }
 
-    
+    /**
+     * Methode zur Erstellung des Produktionsmanager. Wird von main aufgerufen.
+     */
     public void erstelleProduktions_Manager() {
-        produktions_manager = new Produktions_Manager(this.lager, this);
+        this.produktions_manager = new Produktions_Manager(this.lager, this);
+        produktions_manager.start();
+    }
+    
+    /**
+     * Methode zur Erstellung des Murmeltiers. Das Murmeltier ruft Abläufe auf, welche alle 24 Stunden stattfinden sollen. Wird von main aufgerufen.
+     */
+    public void erstelleMurmeltier() {
+        this.meinMurmeltier = new TaeglichGruesstDasMurmeltier(this);
+        meinMurmeltier.start();
     }
 
     /**
      * Methode, die überprüft, ob das Lager aufgefüllt werden muss und ggf. die zugehörige Methode der Klasse Lager ausführt.
+     * Die Methode im Lager wird aufgerufen, sofern eines der Materialien unter 25% des maximalen Lagerbestands fällt.
      * Falls schon eine Lieferung im Gange ist, wird die Bestellung durch die zugehörige Methode der Klasse Lager unterbunden.
      */
     public void lagerAuffuellen(){    
@@ -134,7 +141,7 @@ public class Fabrik {
         else { 
             neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
             bestellungList.add(neueBestellung);
-            this.bestellungsNrCounter ++; // Sodass die folgende Bestellung eine höhere Nummer bekommt
+            this.bestellungsNrCounter ++; // Bewirkt, dass die folgende Bestellung die nächsthöhere Nummer bekommt.
             
             // Beschaffungszeit wird berechnet, abgespeichert und Materialen werden ggf. nachbestellt.
             neueBestellung.setzeBeschaffungszeit(lager.berechneBeschaffungsZeit(neueBestellung));

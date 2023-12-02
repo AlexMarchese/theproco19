@@ -70,7 +70,7 @@ public class Lieferant extends Thread {
             if(lieferungInArbeit){
                 try{
                     System.out.println("Der Lieferant hat die Bestellung vom Lager erhalten und bestätigt den Auftrag.\nDie Lieferzeit beträgt 24 Stunden.");
-                    this.sleep(24000); //derzeit 24 sec, damit man nicht zu lang warten muss. Später 48sec.
+                    this.sleep(48000); // 48 sec -> 48 Stunden
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
