@@ -121,23 +121,24 @@ public class Produktions_Manager extends Thread
     }
      
     /** TO DO - DOKU
-     * Startet Produktion aller Produkte in bestellung
+     * Startet Produktion aller Produkte in der Bestellung. Sie sind nach dem Typ sortiert, damit möglichst wenig die Maschinen umgebaut werden müssen
      */
     
     private void starteProduktion(Bestellung bestellung)
-    {   //HAVE a mechanism to sort the products
+    {   
         Produkt prodTyp = null;
 
         for(Produkt prod : bestellung.gibBestellteProdukte())
         {   
-            // // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
-            // if((prod.getClass() != prodTyp.getClass()) && prodTyp != null){
-            //     try {
-            //         Thread.sleep(1000); // eine Stunde warten
-            //     } catch (InterruptedException ie) {
-            //         ie.printStackTrace();
-            //     }
-            // }
+            // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
+            if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
+                try {
+                    Thread.sleep(1000); // eine Stunde warten
+                    System.out.println("Wartet eine Stunde für den Umbau der Maschinen");
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
+            }
 
             if(prod instanceof Stuhl)
             {
@@ -147,7 +148,7 @@ public class Produktions_Manager extends Thread
                 this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                 prod.naechsteProduktionsStation();
 
-                // prodTyp = prod;
+                prodTyp = prod;
             } 
             else if(prod instanceof Sofa)
             {
@@ -157,7 +158,7 @@ public class Produktions_Manager extends Thread
                 this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
                 prod.naechsteProduktionsStation();
 
-                // prodTyp = prod;
+                prodTyp = prod;
             }
             else
             {
