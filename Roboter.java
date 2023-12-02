@@ -89,15 +89,7 @@ public class Roboter extends Thread
      */
     @Override
     public void run()
-    {   // 1 Sekunde warten bevor die Roboter gestartet werden, da in der Zwischenzeit die Produktionszeit aus den Produkten initialisiert wird.
-        // Führt sonst zu einer Exception in "warteschlange.poll()"
-        try{
-            Thread.sleep(1000);
-        }
-        catch(InterruptedException ie)
-        {
-            ie.printStackTrace();
-        }
+    {  
 
         while(true)
         {

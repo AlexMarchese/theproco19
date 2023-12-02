@@ -40,6 +40,16 @@ public class Produktions_Manager extends Thread
         this.lackierRoboter = new Lackier_Roboter(); 
         this.verpackungsRoboter = new Verpackungs_Roboter();
         
+        // 2 Sekunden warten bevor die Roboter gestartet werden, da in der Zwischenzeit die Produktionszeit aus den Produkten initialisiert wird.
+        // Führt sonst zu Exceptions später im Prozess
+        try{
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ie)
+        {
+            ie.printStackTrace();
+        }
+
         holzRoboter.start();
         montageRoboter.start();
         lackierRoboter.start();
@@ -121,9 +131,11 @@ public class Produktions_Manager extends Thread
     }
      
     /** TO DO - DOKU
-     * Startet Produktion aller Produkte in der Bestellung. Sie sind nach dem Typ sortiert, damit möglichst wenig die Maschinen umgebaut werden müssen
+     * Startet Produktion aller Produkte in der Bestellung. Sie sind nach dem Typ sortiert, damit die Maschinen möglichst wenig umgebaut werden müssen
      */
     
+    // Liste wird sortiert
+
     private void starteProduktion(Bestellung bestellung)
     {   
         Produkt prodTyp = null;
