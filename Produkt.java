@@ -71,8 +71,11 @@ public class Produkt {
      * Methode, um den Produktionsablauf für ein Produkt zu setzen.
      * @param   produktionsAblauf Die Reihenfolge der Produktionsstationen (Roboter) in einer LinkedList
      */
-    public void setzeProduktionsAblauf(LinkedList<Roboter> produktionsAblauf) {
-         this.produktionsAblauf = produktionsAblauf;
+    public void setzeProduktionsAblauf(Roboter roboter1, Roboter roboter2, Roboter roboter3, Roboter roboter4) {
+         this.produktionsAblauf.add(roboter1);
+         this.produktionsAblauf.add(roboter2);
+         this.produktionsAblauf.add(roboter3);
+         this.produktionsAblauf.add(roboter4);
     }
     
     /**

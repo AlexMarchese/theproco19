@@ -26,7 +26,16 @@ public class Main
 
         // TaeglichGruesstDasMurmeltier tagAblauf = new TaeglichGruesstDasMurmeltier(fabrikStart); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
         // tagAblauf.start(); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
-
+        
+        try
+        {
+        Thread.sleep(2_000);
+        }
+        catch (InterruptedException ie)
+        {
+            ie.printStackTrace();
+        }
+        
         System.out.println("Eine Bestellung mit 2 Sofas und 1 Stuhl wird aufgegeben.");
         fabrikStart.bestellungAufgeben(2, 1);
         System.out.println("Eine weitere Bestellung mit 2 Sofas und 3 Stühlen wird aufgegeben.");

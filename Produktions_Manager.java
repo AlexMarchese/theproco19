@@ -54,15 +54,15 @@ public class Produktions_Manager extends Thread
         this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
        
 
-        stuhlProduktionsAbfolge.add(holzRoboter);
-        stuhlProduktionsAbfolge.add(montageRoboter);
-        stuhlProduktionsAbfolge.add(lackierRoboter);
-        stuhlProduktionsAbfolge.add(verpackungsRoboter);
+        // stuhlProduktionsAbfolge.add(holzRoboter);
+        // stuhlProduktionsAbfolge.add(montageRoboter);
+        // stuhlProduktionsAbfolge.add(lackierRoboter);
+        // stuhlProduktionsAbfolge.add(verpackungsRoboter);
         
-        sofaProduktionsAbfolge.add(holzRoboter);
-        sofaProduktionsAbfolge.add(lackierRoboter);
-        sofaProduktionsAbfolge.add(montageRoboter);
-        sofaProduktionsAbfolge.add(verpackungsRoboter);
+        // sofaProduktionsAbfolge.add(holzRoboter);
+        // sofaProduktionsAbfolge.add(lackierRoboter);
+        // sofaProduktionsAbfolge.add(montageRoboter);
+        // sofaProduktionsAbfolge.add(verpackungsRoboter);
         
     }
     
@@ -132,9 +132,9 @@ public class Produktions_Manager extends Thread
         {   
             // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
             if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
-                try {
-                    System.out.println("Die Produktionsstrasse wird umgebaut. Dies dauert eine Stunde.");
+                try {                    
                     Thread.sleep(1000); // eine Stunde warten
+                    System.out.println("Die Produktionsstrasse wird umgebaut. Dies dauert eine Stunde.");
                     System.out.println("Die Produktionsstrasse wurde erfolgreich umgebaut.");
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
@@ -145,20 +145,21 @@ public class Produktions_Manager extends Thread
             {
                 // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
                 // prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
-                prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge);
+                prod.setzeProduktionsAblauf(holzRoboter, montageRoboter, lackierRoboter, verpackungsRoboter);
                 this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                 prod.naechsteProduktionsStation();
-
+                
                 prodTyp = prod;
             } 
             else if(prod instanceof Sofa)
             {
                 // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
                 // prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
-                prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
+                prod.setzeProduktionsAblauf(holzRoboter, lackierRoboter, montageRoboter, verpackungsRoboter);
                 this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
                 prod.naechsteProduktionsStation();
-
+                
+                
                 prodTyp = prod;
             }
             else
