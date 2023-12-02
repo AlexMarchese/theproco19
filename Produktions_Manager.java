@@ -224,11 +224,46 @@ public class Produktions_Manager extends Thread
      * reduziere Lager um nötige Einheiten
      */
     public void reduziereLager(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int kissen){
-                meinLager.setzevorhandeneHolzeinheiten(meinLager.gibvorhandeneHolzeinheiten() - holzeinheiten);
-                meinLager.setzevorhandeneSchrauben(meinLager.gibvorhandeneSchrauben() - schrauben);
-                meinLager.setzevorhandeneFarbeeinheiten(meinLager.gibvorhandeneFarbeeinheiten() - farbeinheiten);
-                meinLager.setzevorhandeneKartoneinheiten(meinLager.gibvorhandeneKartoneinheiten() - kartoneinheiten);
-                meinLager.setzevorhandeneKissen(meinLager.gibvorhandeneKissen() - kissen);
+                int holzEinh = meinLager.gibvorhandeneHolzeinheiten() - holzeinheiten;
+                int schraub = meinLager.gibvorhandeneSchrauben() - schrauben;
+                int farbEinh = meinLager.gibvorhandeneFarbeeinheiten() - farbeinheiten;
+                int kartonEinh = meinLager.gibvorhandeneKartoneinheiten() - kartoneinheiten;
+                int kiss = meinLager.gibvorhandeneKissen() - kissen;
+
+
+                // Sollte eine Einheit durch die zu bearbeitende Bestellung negativ werden (= nicht verfügbar sein), dann wird jede Stunde überprüft, ob die Lieferung der nötigen Materialien eingetroffen ist
+                if (holzEinh < 0 || schraub < 0 || farbEinh < 0 || kartonEinh < 0 || kiss < 0) {
+                    System.out.println("Gerade sind nicht genug Einheiten für die Erstellung der Produkte der Bestellung verfügbar. Es wird abgewartet, dass sie eintreffen.");
+
+                    while (holzEinh < 0 || schraub < 0 || farbEinh < 0 || kartonEinh < 0 || kiss < 0) {
+                        try{
+                            Thread.sleep(5_000); // 5 Sekunden steht für 5 Stunden
+                            
+                        }
+                        catch(InterruptedException ie)
+                        {
+                            ie.printStackTrace();
+                        }
+                        
+                        // Werte werden neu berechnet
+                        holzEinh = meinLager.gibvorhandeneHolzeinheiten() - holzeinheiten;
+                        schraub = meinLager.gibvorhandeneSchrauben() - schrauben;
+                        farbEinh = meinLager.gibvorhandeneFarbeeinheiten() - farbeinheiten;
+                        kartonEinh = meinLager.gibvorhandeneKartoneinheiten() - kartoneinheiten;
+                        kiss = meinLager.gibvorhandeneKissen() - kissen;
+
+                    
+                        }
+                    System.out.println("Jetzt hat es genug Einheiten. Produktion folgt.");
+                    } 
+                
+                
+
+                meinLager.setzevorhandeneHolzeinheiten(holzEinh);
+                meinLager.setzevorhandeneSchrauben(schraub);
+                meinLager.setzevorhandeneFarbeeinheiten(farbEinh);
+                meinLager.setzevorhandeneKartoneinheiten(kartonEinh);
+                meinLager.setzevorhandeneKissen(kiss);
         // System.out.println("Lager reduz");
     }
 }
