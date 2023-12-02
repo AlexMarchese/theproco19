@@ -1,5 +1,6 @@
 import java.util.Scanner; // Wird benötigt, um eine Eingabe vom Terminal zu bekommen
 
+
 /**
  * 
  * Die Klasse Main ist der Einstiegspunkt in das Programm und in der Main Methode wird das Programm ausgeführt.
@@ -89,7 +90,10 @@ public class Main
                 System.out.println(fabrikStart.lagerSituation());
             }
 
-            else {continue;}
+            else {
+                System.out.println("Kommando nicht erkannt. Bitte erneut versuchen");
+                continue;
+            }
         }
          
     

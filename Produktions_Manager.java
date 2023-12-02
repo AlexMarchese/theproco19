@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.ArrayList;
+import java.util.Collections; // Dieses und das nächste werden benötigt, um weiter unten die Liste mit allen Produkten nach Produkttypen zu ordnen
+import java.util.Comparator;
 
 /**
  * Die Klasse Produktions_Manager 
@@ -134,52 +136,57 @@ public class Produktions_Manager extends Thread
      * Startet Produktion aller Produkte in der Bestellung. Sie sind nach dem Typ sortiert, damit die Maschinen möglichst wenig umgebaut werden müssen
      */
     
-    // Liste wird sortiert
+    
 
     private void starteProduktion(Bestellung bestellung)
     {   
         Produkt prodTyp = null;
 
-        for(Produkt prod : bestellung.gibBestellteProdukte())
-        {   
-            // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
-            if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
-                try {                    
-                    Thread.sleep(1000); // eine Stunde warten
-                    System.out.println("Die Produktionsstrasse wird umgebaut. Dies dauert eine Stunde.");
-                    System.out.println("Die Produktionsstrasse wurde erfolgreich umgebaut.");
-                } catch (InterruptedException ie) {
-                    ie.printStackTrace();
+        // Liste wird sortiert
+        ArrayList<Produkt> produkte = bestellung.gibBestellteProdukte();
+        Comparator<Object> classComparator = Comparator.comparing(o -> o.getClass().getName());
+        Collections.sort(produkte, classComparator);
+
+            for(Produkt prod : produkte)
+            {   
+                // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
+                if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
+                    try {                    
+                        Thread.sleep(1000); // eine Stunde warten
+                        System.out.println("Die Produktionsstrasse wird umgebaut. Dies dauert eine Stunde.");
+                        System.out.println("Die Produktionsstrasse wurde erfolgreich umgebaut.");
+                    } catch (InterruptedException ie) {
+                        ie.printStackTrace();
+                    }
+                }
+
+                if(prod instanceof Stuhl)
+                {
+                    // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
+                    // prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
+                    prod.setzeProduktionsAblauf(holzRoboter, montageRoboter, lackierRoboter, verpackungsRoboter);
+                    this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
+                    prod.naechsteProduktionsStation();
+                    
+                    prodTyp = prod;
+                } 
+                else if(prod instanceof Sofa)
+                {
+                    // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
+                    // prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
+                    prod.setzeProduktionsAblauf(holzRoboter, lackierRoboter, montageRoboter, verpackungsRoboter);
+                    this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
+                    prod.naechsteProduktionsStation();
+                    
+                    
+                    prodTyp = prod;
+                }
+                else
+                {
+                    throw new IllegalArgumentException("starteProduktion() nicht für diese Subklasse von Produkt definiert");
                 }
             }
-
-            if(prod instanceof Stuhl)
-            {
-                // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
-                // prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
-                prod.setzeProduktionsAblauf(holzRoboter, montageRoboter, lackierRoboter, verpackungsRoboter);
-                this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
-                prod.naechsteProduktionsStation();
-                
-                prodTyp = prod;
-            } 
-            else if(prod instanceof Sofa)
-            {
-                // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
-                // prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
-                prod.setzeProduktionsAblauf(holzRoboter, lackierRoboter, montageRoboter, verpackungsRoboter);
-                this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
-                prod.naechsteProduktionsStation();
-                
-                
-                prodTyp = prod;
-            }
-            else
-            {
-                throw new IllegalArgumentException("starteProduktion() nicht für diese Subklasse von Produkt definiert");
-            }
         }
-    }
 
     
     /** TO DO - DOKU
