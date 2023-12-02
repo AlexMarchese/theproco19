@@ -42,7 +42,7 @@ public class Roboter extends Thread
     //     this.produktionsZeit = produktionsZeit;
     // }
     
-    /**
+    //**
     //  * Methode, um die Produktionszeit zu setzen.
     //  * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
     //  */
@@ -147,35 +147,6 @@ public class Roboter extends Thread
             ie.printStackTrace();
         }
 
-    //     if(produktionsZeitStuhl == 0 || produktionsZeitSofa == 0)
-    //     {
-    //         throw new IllegalArgumentException("Stuhl-/Sofaproduktionszeit gleich 0 ist unmöglich.");
-    //     }
-        
-    //     if(produkt instanceof Stuhl)
-    //     {
-    //         try{
-    //             Thread.sleep(produktionsZeitStuhl);
-    //         }catch(InterruptedException ie)
-    //         {
-    //             ie.printStackTrace();
-    //         }
-    //     }
-    //     else if(produkt instanceof Sofa)
-    //     {
-    //         try{
-    //             Thread.sleep(produktionsZeitSofa); 
-    //         }catch(InterruptedException ie)
-    //         {
-    //             ie.printStackTrace();
-    //         }
-    //     }
-    //     else
-    //     {
-    //         throw new IllegalArgumentException("produziereProdukt() nicht implementiert für das gewählte Produkt");
-    //     }
-        
-    //     produkt.naechsteProduktionsStation();
         
     }        
     

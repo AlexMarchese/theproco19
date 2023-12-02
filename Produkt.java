@@ -17,12 +17,12 @@ public class Produkt {
     // int schrauben;
     // int farbeinheiten;
     // int kartoneinheiten;
-    private int produktionsZeit;
-    private int produktionsZeitHolz;
-    private int produktionsZeitMontage;
-    private int produktionsZeitSpritzung;
-    private int produktionsZeitVerpackung;
-    LinkedList<Roboter> produktionsAblauf;
+    private int produktionsZeit; //in Minuten
+    private int produktionsZeitHolz; //in Minuten
+    private int produktionsZeitMontage; //in Minuten
+    private int produktionsZeitSpritzung; //in Minuten
+    private int produktionsZeitVerpackung; //in Minuten
+    LinkedList<Roboter> produktionsAblauf; //in Minuten
 
 
     //TO DO
@@ -44,7 +44,7 @@ public class Produkt {
         // this.schrauben = schrauben;
         // this.farbeinheiten = farbeinheiten;
         // this.kartoneinheiten = kartoneinheiten;
-        this.produktionsZeit = 0;
+        this.produktionsZeit = 0; //in Minuten
         this.produktionsAblauf = new LinkedList<Roboter>();
     }
 

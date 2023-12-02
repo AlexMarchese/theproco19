@@ -144,13 +144,6 @@ public class Fabrik {
 
             // Bestellung wird dem Produktionsmanager gegeben
             produktions_manager.fuegeZuVerarbeitendeBestellungenHinzu(neueBestellung);
-            
-            // OLD
-            // // Bei jeder Bestellung wird das Lager aufgefüllt.
-            // lager.lagerAuffuellen();
-
-            // // Bei jeder Bestellung wird überprüft, ob das Lager aufgefüllt werden kann.
-            // this.lagerAuffuellen();
 
             return neueBestellung.bestellungBestaetigen();
         }
@@ -235,75 +228,5 @@ public class Fabrik {
     }
 }
     
-//    /**
-//     * Methode zur Erstellung der Produkte aus den Bestellungen. 
-//     * Solange es genug Einheiten für die Bestellungen gibt, werden die Produkte erstellt und geliefert.
-//     * 
-//     * @return  String  Text zur Erstellung der Produkte. In Abhängigkeit der Anzahl Bestellungen und Material an Lager werden unterschiedliche return statements zurückgegeben.
-//     */
-//    public String erstelleProdukte(){
-//
-//        
-//
-//        // Variable zur Ermittlung der Anzahl an Bestellungen, die entfernt werden sollen
-//        int anzahl = 0;
-//
-//
-//        for(Bestellung bestellung : this.bestellungList){
-//
-//            int [] benoetigteEinheiten = bestellung.anzahlEinheiten();
-//
-//            if (lager.gibvorhandeneHolzeinheiten() < benoetigteEinheiten[0] || lager.gibvorhandeneSchrauben() < benoetigteEinheiten[1] || lager.gibvorhandeneFarbeeinheiten() < benoetigteEinheiten[2] || lager.gibvorhandeneKartoneinheiten() < benoetigteEinheiten[3] || lager.gibvorhandeneKissen() < benoetigteEinheiten[4]) {
-//                break;
-//            } else {
-//                // Benötigte Einheiten werden zur Produktion eingesetzt und somit von den verfügbaren weggenommen.
-//                lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() - benoetigteEinheiten[0]);
-//                lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() - benoetigteEinheiten[1]);
-//                lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() - benoetigteEinheiten[2]);
-//                lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() - benoetigteEinheiten[3]);
-//                lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() - benoetigteEinheiten[4]);
-//                
-//                anzahl ++;
-//            }
-//            
-//        
-//        }
-//
-//        if (anzahl != 0){
-//            for (int i = 0; i < anzahl; i++) {
-//            this.bestellungList.remove(0);
-//            }
-//
-//            if (anzahl == 1) {
-//                return "Die Produkte der ersten Bestellung wurden erstellt und geliefert.\nWeitere werden hergestellt, sobald neue Bestellungen einkommen und genug Material im Lager ist.";
-//            }
-//            return "Die Produkte der ersten " + anzahl + " Bestellungen wurden erstellt und geliefert.\nWeitere werden hergestellt, sobald neue Bestellungen einkommen und genug Material im Lager ist.";
-//        }
-//
-//        return "Keine Produkte konnten hergestellt werden. Dafür braucht es mindestens eine Bestellung und/oder genug Material im Lager.";
-//
-//
-//    }
 
-    // /** 
-    //  * Diese Methode simuliert das vergehen von zwei Tagen. Das hat einen Einfluss auf die Lieferung der Produkte des Lagers.
-    //  * Die Materialien in Lieferung werden zum Vorrat hinzugefügt.
-    // */
-    // public void nachZweiTagen(){
-
-    //     // Materialien in Lieferung kommen an und werden dem Vorrat hinzugefügt
-    //     lager.setzevorhandeneHolzeinheiten(lager.gibvorhandeneHolzeinheiten() + lager.gibInLieferungHolzeinheiten());
-    //     lager.setzevorhandeneSchrauben(lager.gibvorhandeneSchrauben() + lager.gibInLieferungSchrauben());
-    //     lager.setzevorhandeneFarbeeinheiten(lager.gibvorhandeneFarbeeinheiten() + lager.gibInLieferungFarbeeinheiten());
-    //     lager.setzevorhandeneKartoneinheiten(lager.gibvorhandeneKartoneinheiten() + lager.gibInLieferungKartoneinheiten());
-    //     lager.setzevorhandeneKissen(lager.gibvorhandeneKissen() + lager.gibInLieferungKissen());
-
-    //     // Diese sind also nicht mehr in Lieferung
-    //     lager.setzeInLieferungHolzeinheiten(0);
-    //     lager.setzeInLieferungSchrauben(0);
-    //     lager.setzeInLieferungFarbeeinheiten(0);
-    //     lager.setzeInLieferungKartoneinheiten(0);
-    //     lager.setzeInLieferungKissen(0);
-
-    // }
     

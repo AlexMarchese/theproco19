@@ -3,7 +3,7 @@
  * Die Klasse TaeglichGruesstDasMurmeltier wird genützt um einen Check zu durchlaufen, der alle 24 Stunden (also 24 sec) stattfinden soll.
  * Es wird geprüft, ob das Lager aufgefüllt werden soll. Ausserdem wird eine tägliche Übersicht gegeben.
  * 
- * @author (Ihr Name) 
+ * @author Gruppe GBI19 
  * @version (eine Versionsnummer oder ein Datum)
  */
 public class TaeglichGruesstDasMurmeltier extends Thread

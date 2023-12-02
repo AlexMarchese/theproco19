@@ -13,7 +13,7 @@ public class Sofa extends Produkt
     private final static int kartoneinheiten = 5;
     private final static int kissen = 5;
 
-    private final static int produktionsZeit = 60;
+    private final static int produktionsZeit = 60;//inMinuten
 
     // private int produktionsZeitHolz = 10;
     // private int produktionsZeitMontage = 5;
@@ -43,10 +43,10 @@ public class Sofa extends Produkt
         // this.produktionsAblauf.add(new Montage_Roboter());
         // this.produktionsAblauf.add(new Verpackungs_Roboter());
 
-        super.setzeProduktionszeitHolz(30);
-        super.setzeProduktionszeitSpritzung(5);
-        super.setzeProduktionszeitMontage(15);
-        super.setzeProduktionszeitVerpackung(10);
+        super.setzeProduktionszeitHolz(30); //in Minuten
+        super.setzeProduktionszeitSpritzung(5); //in Minuten
+        super.setzeProduktionszeitMontage(15); //in Minuten
+        super.setzeProduktionszeitVerpackung(10); //in Minuten
         
 
     }

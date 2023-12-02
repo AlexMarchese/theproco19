@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=TaeglichGruesstDasMurmeltier
-comment0.text=\n\ Die\ Klasse\ TaeglichGruesstDasMurmeltier\ wird\ gen\u00FCtzt\ um\ einen\ Check\ zu\ durchlaufen,\ der\ alle\ 24\ Stunden\ (also\ 24\ sec)\ stattfinden\ soll.\n\ Es\ wird\ gepr\u00FCft,\ ob\ das\ Lager\ aufgef\u00FCllt\ werden\ soll.\ Ausserdem\ wird\ eine\ t\u00E4gliche\ \u00DCbersicht\ gegeben.\n\ \n\ @author\ (Ihr\ Name)\ \n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment0.text=\r\n\ Die\ Klasse\ TaeglichGruesstDasMurmeltier\ wird\ gen\u00FCtzt\ um\ einen\ Check\ zu\ durchlaufen,\ der\ alle\ 24\ Stunden\ (also\ 24\ sec)\ stattfinden\ soll.\r\n\ Es\ wird\ gepr\u00FCft,\ ob\ das\ Lager\ aufgef\u00FCllt\ werden\ soll.\ Ausserdem\ wird\ eine\ t\u00E4gliche\ \u00DCbersicht\ gegeben.\r\n\ \r\n\ @author\ Gruppe\ GBI19\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
 comment1.params=fabrik
 comment1.target=TaeglichGruesstDasMurmeltier(Fabrik)
-comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ TaeglichGruesstDasMurmeltier\n
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ TaeglichGruesstDasMurmeltier\r\n
 comment2.params=
 comment2.target=void\ run()
-comment2.text=\n\ \ TO\ DO\ -\ DOKU\n
+comment2.text=\r\n\ \ TO\ DO\ -\ DOKU\r\n
 numComments=3

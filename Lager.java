@@ -406,26 +406,6 @@ public class Lager{
                 return "Lager hat gerade die maximale Anzahl an Einheiten"; //check this
             }
             
-
-            //Je nachdem können wir mit folgendem Teil auch sehr große Bestellungen (Menge ist größer als die Lagerkapazität) annehmen
-            
-            
-            /*
-            
-            // Benötigte Einheiten um den bestellten Wert reduzieren, wenn der Wert kleiner als die benötigte Einheiten ist. Es speichert noch nötige Einheiten bei großen Bestellungen.
-            this.benoetigteHolzeinheiten = Math.max(0, this.benoetigteHolzeinheiten - zuBestellendeHolzeinheiten);
-            this.benoetigteSchrauben = Math.max(0, this.benoetigteSchrauben - zuBestellendeSchrauben);
-            this.benoetigteFarbeeinheiten = Math.max(0, this.benoetigteFarbeeinheiten - zuBestellendeFarbeinheiten);
-            this.benoetigteKartoneinheiten = Math.max(0, this.benoetigteKartoneinheiten - zuBestellendeKartoneinheiten);
-            this.benoetigteKissen = Math.max(0, this.benoetigteKissen - zuBestellendeKissen);
-            
-            return "Lager konnte aufgefüllt werden";
-            } else {
-            return "Lager kann momentan nicht aufgefüllt werden";
-            }
-
-        
-            */
         }
     }
  

@@ -12,7 +12,7 @@ public class Stuhl extends Produkt
     private final static int farbeinheiten = 2;
     private final static int kartoneinheiten = 1;
 
-    private final static int produktionsZeit = 22;
+    private final static int produktionsZeit = 22; //in Minuten
 
     // // private final static int produktionsZeitHolz;
     // private final int produktionsZeitHolz = 30;
