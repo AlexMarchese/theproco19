@@ -1,4 +1,5 @@
 import java.util.Scanner; // Wird benötigt, um eine Eingabe vom Terminal zu bekommen
+import java.util.regex.Pattern; // Wird benutzt, um Eingabewerte zu überprüfen
 
 
 /**
@@ -74,12 +75,14 @@ public class Main
                 else if (kommando.trim().toLowerCase().contains("best")){
 
                     try {
-                        String nums = kommando.split("best ")[1];                 
-                        String[] values = nums.split(" "); // Unterteilt der String in 2 Werte (der erste ist die Anz Sofas und der zweite die Anz Stühle)
-
-                        // System.out.println("Nums " + Integer.parseInt(values[0]) + " " + Integer.parseInt(values[1]));
-                        System.out.println(fabrikStart.bestellungAufgeben(Integer.parseInt(values[0]), Integer.parseInt(values[1])));
-
+                        String nums = kommando.split("best ")[1].trim();                 
+                        
+                        // Stellt sicher, dass genau zwei Zahlen eingegeben werden. Nicht drei wovon nur die ersten beiden genommen werden oder ähnliches
+                        if(Pattern.compile("\\d+ \\d+").matcher(nums).matches()){
+                            String[] values = nums.split(" "); // Unterteilt den String in 2 Werte (der erste ist die Anz Sofas und der zweite die Anz Stühle)
+                            System.out.println(fabrikStart.bestellungAufgeben(Integer.parseInt(values[0]), Integer.parseInt(values[1])));
+                        } else {throw new IllegalArgumentException("Es sollten genau 2 Zahlen sein");}
+                        
                     } catch (IllegalArgumentException e) { // Stellt sicher, dass der Nutzer keine negavtie oder basierend auf Lager nicht produzierbaren Bestellungsmengen eingibt
                 
                         System.out.println("\n! Bitte stellen sie sicher, dass sie weder negative noch basierend auf dem Lager zu große Bestellungsmengen eingeben und dass sie nach dem Kommando 'best' genau zwei ganze Zahlen eintippen!\n");

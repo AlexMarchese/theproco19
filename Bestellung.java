@@ -364,12 +364,12 @@ public class Bestellung {
             // Wenn Produkt ein Stuhl ist...
             if (produkt instanceof Stuhl){
                 // ...dann  soll es wie ein solches behandelt werden
-                Stuhl stuhl = (Stuhl)produkt;
-                this.produktionszeit += stuhl.gibTotalProduktionszeit();
+                // Stuhl stuhl = (Stuhl)produkt;
+                this.produktionszeit += Stuhl.gibTotalProduktionszeit();
             } else if (produkt instanceof Sofa){
                 // Sonst wie ein Sofa
-                Sofa sofa = (Sofa)produkt;
-                this.produktionszeit += sofa.gibTotalProduktionszeit();
+                // Sofa sofa = (Sofa)produkt;
+                this.produktionszeit += Sofa.gibTotalProduktionszeit();
                 }
             }
             
@@ -403,20 +403,20 @@ public class Bestellung {
 
             if (produkt instanceof Stuhl) {
                 // Damit man das Produkt wie einen Stuhl behandeln kann
-                Stuhl stuhl = (Stuhl)produkt;
-                totHolz += stuhl.gibHolzeinheiten();
-                totSchrauben += stuhl.gibSchrauben();
-                totFarbe += stuhl.gibFarbeinheiten();
-                totKarton += stuhl.gibKartoneinheiten();
+                // Stuhl stuhl = (Stuhl)produkt;
+                totHolz += Stuhl.gibHolzeinheiten();
+                totSchrauben += Stuhl.gibSchrauben();
+                totFarbe += Stuhl.gibFarbeinheiten();
+                totKarton += Stuhl.gibKartoneinheiten();
 
             } else if (produkt instanceof Sofa) {
                 // Damit man das Produkt wie einen Stuhl behandeln kann
-                Sofa sofa = (Sofa)produkt;
-                totHolz += sofa.gibHolzeinheiten();
-                totSchrauben += sofa.gibSchrauben();
-                totFarbe += sofa.gibFarbeinheiten();
-                totKarton += sofa.gibKartoneinheiten();
-                totKissen = totKissen + sofa.gibKissen();              
+                // Sofa sofa = (Sofa)produkt;
+                totHolz += Sofa.gibHolzeinheiten();
+                totSchrauben += Sofa.gibSchrauben();
+                totFarbe += Sofa.gibFarbeinheiten();
+                totKarton += Sofa.gibKartoneinheiten();
+                totKissen = totKissen + Sofa.gibKissen();              
                 
                 }
 

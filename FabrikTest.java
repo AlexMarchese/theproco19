@@ -103,6 +103,9 @@ import org.junit.jupiter.api.Test;
 
         Fabrik testFabrik = new Fabrik();
         testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+        testFabrik.erstelleProduktions_Manager();
+
+
 
         // Nach einer Bestellung
         testFabrik.bestellungAufgeben(3, 4);
