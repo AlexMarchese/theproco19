@@ -60,7 +60,7 @@ public class Lieferant extends Thread {
 
     
     /**
-     *  Die run-Methode des Threads. 
+     *  Methode, run() startet den Lieferanten Thread. 
      *  Wenn eine Bestellung vorliegt, gibt der Thread eine Bestätigung aus, zeigt den Bestellschein an und simuliert eine Lieferzeit von 24 Stunden.
      *  Nach Ablauf der simulierten Lieferzeit ruft der Thread die Methode wareLiefern des zugeordneten Lagers auf und übergibt die bestellten Einheiten. 
      *  Wenn die Lieferung erfolgreich abgeschlossen ist wird lieferungInArbeit auf false gesetzt und gibt einen Lieferschein aus.

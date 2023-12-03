@@ -326,7 +326,7 @@ public class Lager{
 
 
     /**
-     * Methode, berechneBeschaffungsZeit schaut für eine Bestellung alle Produkte an und addiert die benötigten Materialien, wenn diese im Lager vorhanden sind 
+     * Methode, berechneBeschaffungsZeit(Bestellung kundenBestellung) schaut für eine Bestellung alle Produkte an und addiert die benötigten Materialien, wenn diese im Lager vorhanden sind 
      * bleibt die BeschaffungsZeit bei 0 anderenfalls erhöht sie sich auf 2. 
      * 
      * @return   beschaffungszeit    0 oder 2 für die Anzahl Tage an Beschaffungszeit.
@@ -365,7 +365,7 @@ public class Lager{
     }
     
     /**
-     * Methode, lagerAuffuellen überprüft, ob eine Bestellung beim Lieferanten möglich ist, stellt die Bestellmenge fest und bestellt ggf.
+     * Methode, lagerAuffuellen() überprüft, ob eine Bestellung beim Lieferanten möglich ist, stellt die Bestellmenge fest und bestellt ggf.
      * über die Lieferanten-Methode wareBestellen die zu Bestellenden Materialien nach. Die Lager-Methode wird nur getriggert,
      * wenn die Fabrik-Methode feststellt, dass aufgefüllt werden muss.
      * 
@@ -410,7 +410,7 @@ public class Lager{
     }
  
     /** 
-     * Methode, die vom Lieferanten aufgerufen wird, um die bestellte Ware zu liefern. Im konkreten, wird die Ware den vorhandenen Materialien hinzugefügt
+     * Methode, wareLiefern() erhöht die vorhandenen Materialien um die gelieferten Einhiten und reduziert die zuliefernden Materialien um die gelieferten Mengen.
      *
      * @param   gelieferteHolzeinheiten     Die Anzahl der gelieferten Holzeinheiten
      * @param   gelieferteSchrauben         Die Anzahl der gelieferten Schrauben
@@ -444,7 +444,7 @@ public class Lager{
     
             
     /**
-     * Die Methode lagerBestandAusgeben gibt den aktuellen Lagerbestand aus.
+     * Die Methode lagerBestandAusgeben() gibt den aktuellen Lagerbestand aus.
      * 
      * @return   ausgabe    Text zum Lagerbestand.
      * 
@@ -477,7 +477,9 @@ public class Lager{
     }
 
     /**
-     * Die Methode überprüft, ob die Bestellung (entsprechend der Größe des Lagers) produziert werden könnte, wenn es die einzige wäre.
+     * Methode anzahlBasierendAufLager(int sofa, int chairs) überprüft, ob die benötigte Anzahl von Einheiten für eine Bestellung 
+     * die maximal verfügbaren Einheiten im Lager überschreitet.
+
      * 
      * @param   sofa  Anzahl Sofas die prodzuiert werden sollen.
      * @param   chairs  Anzahl Stühle die produziert werden sollen.

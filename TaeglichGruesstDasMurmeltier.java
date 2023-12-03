@@ -1,10 +1,10 @@
 
 /**
- * Die Klasse TaeglichGruesstDasMurmeltier wird genützt um einen Check zu durchlaufen, der alle 24 Stunden (also 24 sec) stattfinden soll.
- * Es wird geprüft, ob das Lager aufgefüllt werden soll. Ausserdem wird eine tägliche Übersicht gegeben.
+ * Die Klasse TaeglichGruesstDasMurmeltier repräsentiert einen Thread, der alle 24 Stunden (24 sec) einen Prüfung der Lagersituation durchführen soll.
+ * Es wird geprüft, ob das Lager aufgefüllt werden soll und eine tägliche Übersicht gegeben.
  * 
- * @author Gruppe GBI19 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author GBI Gruppe 19 
+ * @version 1.0
  */
 public class TaeglichGruesstDasMurmeltier extends Thread
 {
@@ -20,7 +20,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
     }
         
     /**
-     *  Diese Klasse repräsentiert einen Thread, der in regelmässsigen Abständen die Lagersituation einer Fabrik überprüft,
+     *  Methode, run() startet einen Thread, der in regelmässsigen Abständen die Lagersituation einer Fabrik überprüft,
      *  die vergangene Zeit simuliert und bei Bedarf das Lager auffüllt.
      */
     @Override
@@ -37,7 +37,8 @@ public class TaeglichGruesstDasMurmeltier extends Thread
                 ie.printStackTrace();
             }
 
-            // Informationsausgabe, Lagersituation überprüfen und ggf. auffüllenSystem.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+            // Informationsausgabe, Lagersituation überprüfen und ggf. auffüllen
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println("24 Stunden sind vergangen.\nDie Lagersituation wird ausgegeben und es wird überprüft, ob das Lager aufgefüllt werden muss.");
             System.out.println(this.meineFabrik.lagerSituation());
             // lasse die lagerAuffuellen Methode Laufen
