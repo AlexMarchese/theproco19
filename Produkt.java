@@ -28,14 +28,15 @@ public class Produkt {
     //TO DO
     /** 
      * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
-     * 
-     * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
-     * @param   schrauben       Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
-     * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
-     * @param   kartoneinheiten Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
-     * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
-     * 
+     *  
      */
+    
+    // * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
+    // * @param   schrauben       Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
+    // * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
+    // * @param   kartoneinheiten Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
+    // * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
+    
     // public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
     public Produkt() {
         // Instanzvariable initialisieren
@@ -102,66 +103,66 @@ public class Produkt {
         }
     }
 
-     // TO DO : check documentation of following getters
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für das Holz zu erhalten.
+     * @return  produktionsZeit Gibt die Produktionszeit (in Minuten) zurück.
      */
     public int gibProduktionszeitHolz() {
         return this.produktionsZeitHolz;
     }
 
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu setzen.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für das Holz zu setzen.
+     * @param produktionsZeitHolz Die neue Produktionszeit für die Holzbearbeitung in Minuten.
+     *  
      */
     public void setzeProduktionszeitHolz(int produktionsZeitHolz) {
         this.produktionsZeitHolz = produktionsZeitHolz;
     }
     
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für die Montage zu erhalten.
+     * @return  produktionsZeit Gibt die Produktionszeit (in Minuten) zurück.
      */
     public int gibProduktionszeitMontage() {
         return this.produktionsZeitMontage;
     }
 
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu setzen.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für die Montage zu setzen.
+     * @param  produktionsZeitMontage Die neue Produktionszeit für die Montage in Minuten.
      */
     public void setzeProduktionszeitMontage(int produktionsZeitMontage) {
         this.produktionsZeitMontage = produktionsZeitMontage;
     }    
     
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für die Spritzung zu erhalten.
+     * @return  produktionsZeit Gibt die Produktionszeit (in Minuten) zurück.
      */
     public int gibProduktionszeitSpritzung() {
         return this.produktionsZeitSpritzung;
     }
 
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu setzen.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für die Spritzung zu setzen.
+     * @param  produktionsZeitSpritzung Die neue Produktionszeit für die Spritzung in Minuten.
      */
     public void setzeProduktionszeitSpritzung(int produktionsZeitSpritzung) {
         this.produktionsZeitSpritzung = produktionsZeitSpritzung;
     }
     
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu erhalten.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für die Verpackung zu erhalten.
+     * @return  produktionsZeit Gibt die Produktionszeit (in Minuten) zurück.
      */
     public int gibProduktionszeitVerpackung() {
         return this.produktionsZeitVerpackung;
     }
 
     /**
-     * Methode, um die Produktionszeit für ein Sofa zu setzen.
-     * @return  produktionsZeit Die Produktionszeit (in Minuten) für das Sofa.
+     * Methode, um die Produktionszeit für die Verpackung zu setzen.
+     * @param  produktionsZeitVerpackung Die neue Produktionszeit für die Verpackung in Minuten.
      */
     public void setzeProduktionszeitVerpackung(int produktionsZeitVerpackung) {
         this.produktionsZeitVerpackung = produktionsZeitVerpackung;

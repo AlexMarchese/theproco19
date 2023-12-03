@@ -18,7 +18,6 @@ public class Roboter extends Thread
 
     /**
      * Konstruktor für Objekte der Klasse Roboter
-     *  
      */
     public Roboter()
     {
@@ -67,16 +66,16 @@ public class Roboter extends Thread
     // }
     
     /**
-     * Methode, um den Name zu setzen.
-     * @param   name Der Name, der die Bestellung hat.
+     * Methode, um den Name des jeweiligen Roboters zu setzen.
+     * @param   name Der Name, den der Roboter hat.
      */
     public void setzeName(String name) {
         this.name = name;
     }
     
     /**
-     * Methode, um den Namen zu setzen.
-     * @param   name Der Name, der die Bestellung hat.
+     * Methode, gibt den Namen des jeweiligen Roboters zurück.
+     * @return   name Der Name, den der Roboter hat.
      */
     public String gibName() {
         return this.name;
@@ -85,7 +84,11 @@ public class Roboter extends Thread
     /// Methoden
     
     /**
-     * Methode, 
+     * Methode, run() startet den Roboter-Thread.Es wird kontinuierlich überprüft, ob neue Produkte in der Produktwarteschlange sind.
+     * Wenn Produkte vorhanden sind, werden diese aus der Warteschlange entfernt und produziert,
+     * indem die Methode `produziereProdukt` aufgerufen wird. 
+     * Wenn die Warteschlange leer ist, wartet der Roboter für eine Millisekunde, bevor er erneut überprüft.
+     * 
      */
     @Override
     public void run()
@@ -111,7 +114,14 @@ public class Roboter extends Thread
     }
     
     /**
-     * Methode, 
+     * 
+     * Methode, produziereProdukte(Produkte produkt) simuliert die Produktion eines Produkts durch den entsprechenden Roboter.
+     * Der Roboter schläft für die benötigte Produktionszeit des Produkts und gibt
+     * eine Statusmeldung aus, wenn die Produktion abgeschlossen ist. Danach wird
+     * das Produkt zur nächsten Produktionsstation verschoben.
+     * 
+     * @param produkt Das zu produzierende Produkt.
+     * 
      */
     public void produziereProdukt(Produkt produkt){
         
@@ -148,7 +158,9 @@ public class Roboter extends Thread
     
 
     /**
-     * Methode, 
+     * Methode, fuegeProduktHinzu(Produkt produkt) fügt ein Produkt zur Warteschlange des Roboters hinzu.
+     *
+     * @param produkt Das Produkt, das zur Warteschlange hinzugefügt werden soll.
      */
     public void fuegeProduktHinzu(Produkt produkt){
         this.warteschlange.add(produkt);

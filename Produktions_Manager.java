@@ -28,8 +28,12 @@ public class Produktions_Manager extends Thread
     private LinkedList<Roboter> sofaProduktionsAbfolge;
     
 
-    /** TO DO - DOKU
+    /** 
      * Konstruktor für Objekte der Klasse Produktions_Manager
+     * 
+     * @param meinLager Das Lager, das vom Produktions-Manager verwaltet wird.
+     * @param meineFabrik Die Fabrik, zu der der Produktions-Manager gehört.
+     * 
      */
     
     public Produktions_Manager(Lager meinLager, Fabrik meineFabrik)
@@ -79,8 +83,11 @@ public class Produktions_Manager extends Thread
     }
     
     
-    /** TO DO - DOKU
-     * run methode
+    /** 
+     * 
+     * Methode, run() startet Produktions-Manager als eigenen Thread. Es wird kontinuierlich überwacht, ob neue Bestellungen reingekommen sindund
+     * startet die Produktion für jede neue Bestellung. Zudem überprüft sie, ob Bestellungen fertiggestellt wurden, und gibt entsprechende Rückmeldungen.
+     * 
      */
     
     @Override
@@ -133,11 +140,14 @@ public class Produktions_Manager extends Thread
         }
     }
      
-    /** TO DO - DOKU
-     * Startet Produktion aller Produkte in der Bestellung. Sie sind nach dem Typ sortiert, damit die Maschinen möglichst wenig umgebaut werden müssen
+    /** 
+     * Methode, starteProduktion(Bestellung bestellung) startet Produktionen aller Produkte für eine gegebene Bestellung und reduziert die Lagerbestände entsprechend. 
+     * Die Liste an Bestellungen sind nach dem Typ sortiert, damit die Maschinen möglichst wenig umgebaut werden müssen.
+     * Zwischen unterschiedlichen Produkttypen wird eine Stunde Wartezeit eingefügt, um die Maschinen umzustellen.
+     * 
+     * @param bestellung Die Bestellung, für die die Produktion gestartet werden soll.
+     * @throw IllegalArgumentException Wenn die Methode nicht für die Subklasse (Sofa oder Stuhel) des Produkts definiert ist.
      */
-    
-    
 
     private void starteProduktion(Bestellung bestellung)
     {   
@@ -190,16 +200,26 @@ public class Produktions_Manager extends Thread
         }
 
     
-    /** TO DO - DOKU
-     * Fügt Bestellung zur Liste der zu produzierenden Bestellungen hinzuw
+    /** 
+     * Methode, fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung) fügt Bestellung zur Liste der zu produzierenden bzw. verarbeitenden 
+     * Bestellungen hinzu.
+     * 
+     * @param bestellung  Die Bestellung, die der Liste der zu verarbeitenden Bestellungen hinzugefügt werden soll.
+     * 
      */
     public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung)
     {
         zuVerarbeitendeBestellungen.add(bestellung);
     }
 
-    /** TO DO - DOKU
-     * überprüft ob es fertige Bestellungen gibt und macht die nötigen Schritte.
+    /** 
+     * 
+     * Methode, pruefeFertigeBestellungen() überprüft, ob es fertige Bestellungen gibt und macht die nötigen Schritte.
+     * Überprüft, ob Bestellungen in der Produktion vollständig abgeschlossen sind.
+     * Für jede Bestellung wird geprüft, ob alle bestellten Produkte den Zustand 2 haben,
+     * was bedeutet, dass sie fertig produziert wurden. Bei vollständig produzierten Bestellungen
+     * wird die entsprechende Bestellung abgeschlossen und aus der Liste der laufenden Bestellungen entfernt.
+     * 
      */
     
     public void pruefeFertigeBestellungen()
@@ -221,8 +241,19 @@ public class Produktions_Manager extends Thread
     }
     }
     
-    /** TO DO - DOKU
-     * reduziere Lager um nötige Einheiten
+    /** 
+     * 
+     * Methode, reduziereLager() reduziert die Lagerbestände um die angegebenen Mengen für verschiedene Materialien(Holz, Schrauben, Farbe, Karton, Kissen).
+     * Die Methode überprüft, ob ausreichende Materialien für die Produktion vorhanden sind. Wenn nicht, wird so viel produziert, wie mit den vorhandenen Materialien mölgich ist, 
+     * und gewartet (geschlafen), bis genügend Materialien für die vollständige Produktion geliefert wurden.
+     *
+     * @param holzeinheiten Die Anzahl der zu reduzierenden Holzeinheiten.
+     * @param schrauben Die Anzahl der zu reduzierenden Schrauben.
+     * @param farbeinheiten Die Anzahl der zu reduzierenden Farbeinheiten.
+     * @param kartoneinheiten Die Anzahl der zu reduzierenden Kartoneinheiten.
+     * @param kissen Die Anzahl der zu reduzierenden Kissen.
+     * 
+     * 
      */
     public void reduziereLager(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int kissen){
                 int holzEinh = meinLager.gibvorhandeneHolzeinheiten() - holzeinheiten;
@@ -234,7 +265,7 @@ public class Produktions_Manager extends Thread
 
                 // Sollte eine Einheit durch die zu bearbeitende Bestellung negativ werden (= nicht verfügbar sein), dann wird jede Stunde überprüft, ob die Lieferung der nötigen Materialien eingetroffen ist
                 if (holzEinh < 0 || schraub < 0 || farbEinh < 0 || kartonEinh < 0 || kiss < 0) {
-                    System.out.println("Gerade sind nicht genug Einheiten für die Erstellung der Produkte der Bestellung verfügbar. Es wird abgewartet, dass sie eintreffen.");
+                    System.out.println("Gerade sind nicht genug Einheiten für die komplette Erstellung der Produkte der Bestellung verfügbar. Es werden die Produkte produziert, die mit den vorhandenen Mengen an produziert werden können. Es wird abgewartet, bis die weiteren Materialien eintreffen und weiter produziert.");
 
                     while (holzEinh < 0 || schraub < 0 || farbEinh < 0 || kartonEinh < 0 || kiss < 0) {
                         try{

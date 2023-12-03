@@ -1,6 +1,6 @@
 Class documentation
 <---- javadoc command: ---->
-javadoc
+C:\Program Files\BlueJ\jdk\bin\javadoc.exe
 -author
 -version
 -nodeprecated
@@ -13,27 +13,121 @@ javadoc
 -source
 17
 -classpath
-/Applications/BlueJ.app/Contents/Java/bluejcore.jar:/Applications/BlueJ.app/Contents/Java/javafx-base-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-graphics-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-controls-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-fxml-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-controls-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-web-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-media-20.0.1.jar:/Applications/BlueJ.app/Contents/Java/javafx-base-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-media-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-graphics-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/javafx-swing-20.0.1-mac.jar:/Applications/BlueJ.app/Contents/Java/junit-4.12.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-params-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-api-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-engine-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-suite-api-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-vintage-engine-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-jupiter-5.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-engine-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-launcher-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/junit-platform-commons-1.5.2.jar:/Applications/BlueJ.app/Contents/Java/hamcrest-core-1.3.jar:/Applications/BlueJ.app/Contents/Java/opentest4j-1.2.0.jar:/Applications/BlueJ.app/Contents/Java/lang-stride.jar:/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19
+C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-base-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-controls-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-fxml-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-graphics-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-media-20.0.1.jar;C:\Program Files\BlueJ\lib\javafx-swing-20.0.1-win.jar;C:\Program Files\BlueJ\lib\javafx-web-20.0.1-win.jar;C:\Program Files\BlueJ\lib\junit-4.12.jar;C:\Program Files\BlueJ\lib\junit-jupiter-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-api-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-params-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-commons-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-engine-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-launcher-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-suite-api-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-vintage-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ\lib\opentest4j-1.2.0.jar;C:\Program Files\BlueJ\lib\lang-stride.jar;C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19
 -d
-/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/doc
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc
 -encoding
 UTF-8
 -charset
 UTF-8
-/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Lager.java
+C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\BestellungTest.java
 <---- end of javadoc command ---->
-Loading source file /Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Lager.java...
+Loading source file C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\BestellungTest.java...
 Constructing Javadoc information...
-/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Lager.java:296: error: method gibMaxHolzeinheiten() is already defined in class Lager
-    public int gibMaxHolzeinheiten() {
-               ^
-/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Lager.java:304: error: method gibMaxHolzeinheiten() is already defined in class Lager
-    public int gibMaxHolzeinheiten() {
-               ^
-/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Lager.java:312: error: method gibMaxHolzeinheiten() is already defined in class Lager
-    public int gibMaxHolzeinheiten() {
-               ^
-/Users/florianberger/Desktop/Uni/0_Master/Uni_2023_24/1. Semester/Grundlagen Business Innovation/Programmierprojekt/theproco19/Lager.java:320: error: method gibMaxHolzeinheiten() is already defined in class Lager
-    public int gibMaxHolzeinheiten() {
-               ^
-4 errors
+warning: unknown enum constant Status.STABLE
+  reason: class file for org.apiguardian.api.API$Status not found
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+warning: unknown enum constant Status.STABLE
+Standard Doclet version 17.0.4.1+1
+Building tree for all the packages and classes...
+Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\BestellungTest.html...
+Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\package-summary.html...
+Generating C:\Users\emmak\Documents\HSG\HS23\Grundlagen Business Innovation\Projekt\GitHub\theproco19\doc\index.html...
+100 warnings

@@ -39,7 +39,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
             System.out.println("24 Stunden sind vergangen.\nDie Lagersituation wird ausgegeben und es wird überprüft, ob das Lager aufgefüllt werden muss.");
             System.out.println(this.meineFabrik.lagerSituation());
             // lasse die lagerAuffuellen Methode Laufen
-            meineFabrik.lagerAuffuellen();
+            System.out.println(meineFabrik.lagerAuffuellen());
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
 
         }      

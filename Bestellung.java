@@ -296,13 +296,13 @@ public class Bestellung {
             "\nDie Lieferzeit beträgt " + liefzeit + tg;
     }
 
-    /** TO DO documentation!
-     * Methode zur Bestaetigung der Bestellung. Setzt bestellBestaetigung auf true und
-     * gibt die Information aus, dass die Bestellung bestaetigt ist.
+    /** 
+     * Methode zur Ausgabe der gelieferten Bestellung. Setzt bestellBestaetigung auf true und
+     * gibt die Information aus, dass die Bestellung geliefert wurde.
      * Anstelle der üblichen Ausgabe, geben wir den Inhalt als String zurück. 
      * Es ermöglicht einen vereinfachten Unit Test.
      * 
-     * @return   String  Text zur Bestellbestätigung.
+     * @return   String  Text zur gelieferten Bestellung.
      * 
      */
     public String bestellungGeliefert() {
