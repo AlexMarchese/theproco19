@@ -79,7 +79,7 @@ public class SofaTest {
         assertEquals(testSofa.gibProduktionszeitMontage(), 15);
         assertEquals(testSofa.gibProduktionszeitVerpackung(), 10);
 
-        System.out.println("Die Prodduktionszeiten des Sofas werden richtig initialisiert.");
+        System.out.println("Die Produktionszeiten des Sofas werden richtig initialisiert.");
     }
 
 }

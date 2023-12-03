@@ -79,7 +79,7 @@ public class StuhlTest {
         assertEquals(testStuhl.gibProduktionszeitSpritzung(), 2);
         assertEquals(testStuhl.gibProduktionszeitVerpackung(), 5);
 
-        System.out.println("Die Prodduktionszeiten des Stuhls werden richtig initialisiert.");
+        System.out.println("Die Produktionszeiten des Stuhls werden richtig initialisiert.");
     }
 
 }
