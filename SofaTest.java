@@ -63,11 +63,10 @@ public class SofaTest {
         System.out.println("Test Sofa erfolgreich. Defaultinitialisierung und Getters funktionieren.");
     }
 
-    /** TO DO
+    /**
      * 
-     * Der Test überprüft, ob die Erstellung eines Stuhls funktioniert. 
-     * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe zuerwarteten Standartwerte  
-     * mit der Vorgabe aus dem Test verglichen wird. 
+     * Diese Testmethode überprüft, ob die Produktionszeiten eines Sofas korrekt initialisiert werden.
+     * Es wird ein neues Sofa erstellt und die Rückgabe der erwarteten Produktionszeiten mit der Vorgabe aus dem Test verglichen. 
      * 
      */
     @Test

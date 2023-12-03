@@ -25,15 +25,10 @@ public class Main
         fabrikStart.erstelleMurmeltier(); // Das Murmeltier simuliert einen Tagesablauf und ist in der Klasse Fabrik zuhause.
         System.out.println(fabrikStart.lagerSituation());
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
-
-        // // TaeglichGruesstDasMurmeltier tagAblauf = new TaeglichGruesstDasMurmeltier(fabrikStart); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
-        // // tagAblauf.start(); - Wird in fabrik gemacht (jede Fabrik braucht ihr eigenes Murmeltier)
         
         
         System.out.println("Eine Bestellung mit 1 Sofa und 1 Stuhl wird aufgegeben.");
         fabrikStart.bestellungAufgeben(1, 1);
-        // System.out.println("Eine weitere Bestellung mit 2 Sofas und 3 Stühlen wird aufgegeben.");
-        // fabrikStart.bestellungAufgeben(2, 3);
 
         // Kurze 24 Sekunden Pause, damit gezeigt werden kann wie die Bestellungen erstellt werden
         try

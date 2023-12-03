@@ -31,8 +31,8 @@ public class Produktions_Manager extends Thread
     /** 
      * Konstruktor für Objekte der Klasse Produktions_Manager
      * 
-     * @param meinLager Das Lager, das vom Produktions-Manager verwaltet wird.
-     * @param meineFabrik Die Fabrik, zu der der Produktions-Manager gehört.
+     * @param meinLager     Das Lager, das vom Produktions-Manager verwaltet wird.
+     * @param meineFabrik   Die Fabrik, zu der der Produktions-Manager gehört.
      * 
      */
     
@@ -65,20 +65,9 @@ public class Produktions_Manager extends Thread
         this.zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         this.bestellungenInProduktion = new LinkedList<Bestellung>();
         
-        //neu - zur Vorgabe der Produktionsabfolge für Stuhl und Sofa
+        //zur Vorgabe der Produktionsabfolge für Stuhl und Sofa
         this.stuhlProduktionsAbfolge = new LinkedList<Roboter>();
         this.sofaProduktionsAbfolge = new LinkedList<Roboter>();
-       
-
-        // stuhlProduktionsAbfolge.add(holzRoboter);
-        // stuhlProduktionsAbfolge.add(montageRoboter);
-        // stuhlProduktionsAbfolge.add(lackierRoboter);
-        // stuhlProduktionsAbfolge.add(verpackungsRoboter);
-        
-        // sofaProduktionsAbfolge.add(holzRoboter);
-        // sofaProduktionsAbfolge.add(lackierRoboter);
-        // sofaProduktionsAbfolge.add(montageRoboter);
-        // sofaProduktionsAbfolge.add(verpackungsRoboter);
         
     }
     
@@ -94,7 +83,7 @@ public class Produktions_Manager extends Thread
     public void run()
     {
         System.out.println("Produktionsmanager wurde als Thread gestartet...");
-        while(true) //man braucht Moeglichkeit, um die Schleife zu unterbr (Flo: Wieso? Falls notwendig, müssten wir mit egener Variable und Methode einbauen)
+        while(true)
         {
             // Ist neue Bestellung eingetroffen, dann hole nächste Bestellung und starte Produktion
 
@@ -110,26 +99,7 @@ public class Produktions_Manager extends Thread
             // Geht durch die Bestellungen
             
             this.pruefeFertigeBestellungen();
-            /* TEST - FLO
-            ausserLoop: for(Bestellung bestellung : bestellungenInProduktion){
-                // Geht durch die Bestellten Produkte
-                for(Produkt produkt : bestellung.gibBestellteProdukte()){
-                    // wenn irgendein Produkt noch nicht erstellt wurde, dann startet der Loop neu
-                    if(produkt.gibZustand() != 2){
-                        break ausserLoop;
-                    }
-                }
-                // Wenn alles erstellt, dann Bestätigung dafür geben
-                bestellung.setzeAlleProdukteProduziert(true);
-                bestellungenInProduktion.remove(bestellung);
-                // System.out.println(bestellung.bestellungGeliefert());
-                System.out.println("Produktionsmanager ist fertig: " + this); // Was soll das bedeuten?
-
-            } */
-
-
-            // Wird gebraucht, damit der Loop nicht so oft wie möglich durchgeführt wird und somit
-            // den Prozessor überarbeitet 
+            
             try{
                 Thread.sleep(10);
             }
@@ -145,8 +115,8 @@ public class Produktions_Manager extends Thread
      * Die Liste an Bestellungen sind nach dem Typ sortiert, damit die Maschinen möglichst wenig umgebaut werden müssen.
      * Zwischen unterschiedlichen Produkttypen wird eine Stunde Wartezeit eingefügt, um die Maschinen umzustellen.
      * 
-     * @param bestellung Die Bestellung, für die die Produktion gestartet werden soll.
-     * @throw IllegalArgumentException Wenn die Methode nicht für die Subklasse (Sofa oder Stuhel) des Produkts definiert ist.
+     * @param   bestellung                  Die Bestellung, für die die Produktion gestartet werden soll.
+     * @throw   IllegalArgumentException    Wenn die Methode nicht für die Subklasse (Sofa oder Stuhl) des Produkts definiert ist.
      */
 
     private void starteProduktion(Bestellung bestellung)
@@ -173,8 +143,6 @@ public class Produktions_Manager extends Thread
 
                 if(prod instanceof Stuhl)
                 {
-                    // LinkedList muss geclonet werden, da jeder Stuhl seine eigene Kopie verändert
-                    // prod.setzeProduktionsAblauf((LinkedList<Roboter>) stuhlProduktionsAbfolge.clone());
                     prod.setzeProduktionsAblauf(holzRoboter, montageRoboter, lackierRoboter, verpackungsRoboter);
                     this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                     prod.naechsteProduktionsStation();
@@ -183,8 +151,6 @@ public class Produktions_Manager extends Thread
                 } 
                 else if(prod instanceof Sofa)
                 {
-                    // LinkedList muss geclonet werden, da jedes Sofa seine eigene Kopie verändert
-                    // prod.setzeProduktionsAblauf((LinkedList<Roboter>) sofaProduktionsAbfolge.clone());
                     prod.setzeProduktionsAblauf(holzRoboter, lackierRoboter, montageRoboter, verpackungsRoboter);
                     this.reduziereLager(Sofa.gibHolzeinheiten(), Sofa.gibSchrauben(), Sofa.gibFarbeinheiten(), Sofa.gibKartoneinheiten(), Sofa.gibKissen());
                     prod.naechsteProduktionsStation();
@@ -201,10 +167,9 @@ public class Produktions_Manager extends Thread
 
     
     /** 
-     * Methode, fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung) fügt Bestellung zur Liste der zu produzierenden bzw. verarbeitenden 
-     * Bestellungen hinzu.
+     * Die Methode fügt Bestellungen zur Liste der zu verarbeitenden Bestellungen hinzu.
      * 
-     * @param bestellung  Die Bestellung, die der Liste der zu verarbeitenden Bestellungen hinzugefügt werden soll.
+     * @param   bestellung  Die Bestellung, die der Liste der zu verarbeitenden Bestellungen hinzugefügt werden soll.
      * 
      */
     public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung)
@@ -296,177 +261,5 @@ public class Produktions_Manager extends Thread
                 meinLager.setzevorhandeneFarbeeinheiten(farbEinh);
                 meinLager.setzevorhandeneKartoneinheiten(kartonEinh);
                 meinLager.setzevorhandeneKissen(kiss);
-        // System.out.println("Lager reduz");
     }
 }
-   
-    /*
-    public void run() {
-        while (true) {
-            // Prüfe, ob eine neue Bestellung eingetroffen ist
-            if (!zuVerarbeitendeBestellungen.isEmpty()) {
-                Bestellung neueBestellung = zuVerarbeitendeBestellungen.poll();
-                bestellungInProduktion.add(neueBestellung);
-
-                // Starte die Produktion für die neue Bestellung
-                starteProduktion(neueBestellung);
-
-                try {
-                    Thread.sleep(1000); 
-                } catch (InterruptedException ie) {
-                    ie.printStackTrace();
-                }
-            }
-        }
-    }
-    /**public void startRoboter() {
-        while (true) {
-            // Prüfe, ob eine neue Bestellung eingetroffen ist
-            if (!zuVerarbeitendeBestellungen.isEmpty()) {
-                Bestellung neueBestellung = zuVerarbeitendeBestellungen.poll();
-                bestellungInProduktion.add(neueBestellung);
-
-                // Starte die Produktion für die neue Bestellung
-                starteProduktion(neueBestellung);
-
-                try {
-                    Thread.sleep(1000); 
-                } catch (InterruptedException ie) {
-                    ie.printStackTrace();
-                }
-            }
-        }
-    }
-    **
-    
-    public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung) {
-        zuVerarbeitendeBestellungen.add(bestellung);
-    }
-
-    public void starteProduktion(Bestellung bestellung) {
-        // Implementiere die Produktion hier
-        for (Produkt produkt : bestellung.gibBestellteProdukte()) {
-            // Alokation der Roboter basierend auf Produkttyp
-            if (produkt instanceof Stuhl) {
-                try{
-                holzRoboter.produziereProdukt(produkt);
-                Thread.sleep (10000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Holzbearbeitung abgeschlossen.");
-                montageRoboter.produziereProdukt(produkt);
-                Thread.sleep (5000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Montage abgeschlossen.");
-                lackierRoboter.produziereProdukt(produkt);
-                Thread.sleep (2000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Lackierung abgeschlossen.");
-                verpackungsRoboter.produziereProdukt(produkt);
-                Thread.sleep (5000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Verpackung abgeschlossen.");
-                } catch (InterruptedException ie) {
-                    ie.printStackTrace();
-                }
-            } else if (produkt instanceof Sofa) {
-                try{
-                holzRoboter.produziereProdukt(produkt);
-                Thread.sleep (30000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Holzbearbeitung abgeschlossen.");
-                lackierRoboter.produziereProdukt(produkt);
-                Thread.sleep (5000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Lackierung abgeschlossen.");
-                montageRoboter.produziereProdukt(produkt);
-                Thread.sleep (15000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Montage abgeschlossen.");
-                verpackungsRoboter.produziereProdukt(produkt);
-                Thread.sleep (10000);
-                System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " Verpackung abgeschlossen.");
-            } catch (InterruptedException ie) {
-                    ie.printStackTrace();
-                }
-        }
-
-        // Überprüfe, ob die Bestellung abgeschlossen ist
-        if (bestellungInProduktion.contains(bestellung)) {
-            bestellungInProduktion.remove(bestellung);
-            System.out.println("Bestellung " + bestellung.gibBestellungsNr() + " abgeschlossen.");
-        }
-        }
- 
-    }
-}
-    /**
-     * Methode, um die Produktionszeit zu setzen.
-     * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
-     *
-    public int gibProduktionsZeit(Product product) {
-        if (product instanceof Stuhl){
-            return 
-        }
-        
-        ptproduktionsZeit = produktionsZeit)
-    }
-}
-/**    
-    /// Methoden
-    /**
-     * Methode, 
-     *
-    public void startProduktion(Bestellung neueBestellung){
-        if (neueBestellung instaceof Stuhl){
-            
-        }
-    }
-    
-    /**
-     * Methode, 
-     *
-    @Override
-    public void run(){
-        System.out.println("Produktionsmanager thread started...");
-        while(true){
-            if(bestellungInProduktion.isEmpty()){                   
-                if(!zuVerarbeitendeBestellungen.isEmpty()){
-                Bestellung neueBestellung = zuVerarbeitendeBestellungen.poll();
-                bestellungInProduktion.add(neueBestellung);
-                System.out.println("Produktion von neuer Bestellung hat begonnen.");
-                startProduktion(neueBestellung);
-                
-        //         try{
-        //             System.out.println("Lieferant hat eine Bestellung erhalten...");
-        //             // this.sleep(8000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
-        //             this.sleep(20000); //derzeit 8 sec, damit man nicht zu lang warten muss. Später 48sec.
-        //         } catch (InterruptedException ie) {
-        //             ie.printStackTrace();
-        //         }
-                
-        //         bestellendesLager.wareLiefern(bestellteHolzeinheiten, bestellteSchrauben, bestellteFarbeeinheiten, bestellteKartoneinheiten, bestellteKissen);
-        //         lieferungInArbeit = false;
-        //         System.out.println("Bestellung geliefert.");
-        //     } else {
-        //         try{
-        //             this.sleep(1000); // Damit jede Stunde gechecked wird, ob eine Bestellung eingetroffen ist.
-        //         } catch (InterruptedException ie){
-        //             ie.printStackTrace();
-        //         }
-        //     }
-        // }
-    }
-}
-}
-}
-}
-
-/**
-     * Methode, 
-     * public void fuegeZuVerarbeitendeBestellungenHinzu (Bestellung bestellung){
-        this.zuVerabreitendeBestellungen.add(bestellung);
-        //Man muss noch überprüfen, dass die zuverarb Liste nicht leer ist
-
-        // Bestellung der Liste zuVerabreitendeBestellungen wegnehmen
-        //Bestellung best = this.zuVerabreitendeBestellungen.removeFirst();
-
-        // Bestellung der Liste bestellungInProduktion hinzufügen 
-        //this.bestellungInProduktion.add(best);
-    }
-    
-    
-}
-**/

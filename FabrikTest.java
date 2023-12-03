@@ -274,7 +274,7 @@ import org.junit.jupiter.api.Test;
         testFabrik.erstelleLager(100, 100, 100, 100, 100, 10, 10, 10, 10, 10);
         testFabrik.erstelleProduktions_Manager();
               
-        String erwarteteAusgabe = "\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.";
+        String erwarteteAusgabe = "\nDie Fabrik meldet tiefe Lagerbestände für mindestens einen Materialtyp und beantragt deshalb das Auffüllen des Lagers.";
         
         assertEquals(testFabrik.lagerAuffuellen(), erwarteteAusgabe);
 

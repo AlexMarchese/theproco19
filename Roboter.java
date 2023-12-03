@@ -13,8 +13,6 @@ public class Roboter extends Thread
     // Instanzvariablen 
     private LinkedList <Produkt> warteschlange;
     private String name; 
-    // private int produktionsZeit;
-    // private int produktionsZeitSofa;
 
     /**
      * Konstruktor für Objekte der Klasse Roboter
@@ -24,46 +22,11 @@ public class Roboter extends Thread
         // Instanzvariable initialisieren
         this.warteschlange = new LinkedList<Produkt>();
         this.name = "";
-        // this.produktionsZeit = 0;
-        // String name;
-        // int produktionsZeitStuhl; 
-        // int produktionsZeitSofa;
     }
-
     
-    /// Getters und Setters
-
-    // /**
-    //  * Methode, um die Produktionszeit zu setzen.
-    //  * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
-    //  */
-    // public void setzeProduktionsZeit(int produktionsZeit) {
-    //     this.produktionsZeit = produktionsZeit;
-    // }
     
-    //**
-    //  * Methode, um die Produktionszeit zu setzen.
-    //  * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
-    //  */
-    // public void setzeProduktionsZeitSofa(int produktionsZeitSofa) {
-    //     this.produktionsZeitSofa = produktionsZeitSofa;
-    // }
+    /// Getters + Setters
     
-    // /**
-    //  * Methode, um die Produktionszeit zu setzen.
-    //  * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
-    //  */
-    // public int gibProduktionsZeitStuhl() {
-    //     return this.produktionsZeitStuhl;
-    // }
-    
-    // /**
-    //  * Methode, um die Produktionszeit zu setzen.
-    //  * @param   produktionsZeit Die Zeit, die es benötigt um die Produkte zu produzieren.
-    //  */
-    // public int gibProduktionsZeitSofa() {
-    //     return this.produktionsZeitSofa;
-    // }
     
     /**
      * Methode, um den Name des jeweiligen Roboters zu setzen.
@@ -81,7 +44,9 @@ public class Roboter extends Thread
         return this.name;
     }
     
+    
     /// Methoden
+    
     
     /**
      * Methode, run() startet den Roboter-Thread.Es wird kontinuierlich überprüft, ob neue Produkte in der Produktwarteschlange sind.
@@ -127,24 +92,19 @@ public class Roboter extends Thread
         
         try {
             if(this instanceof Holzbearbeitungs_Roboter){
-                // System.out.println(produkt.gibProduktionszeitHolz());
                 // Schlafe (produziere) für die gegebene Zeit -> durch 60 mal 1000, weil es dann so viele Sekunden sind, wie es Stunden brauchen würde.
                 Thread.sleep(produkt.gibProduktionszeitHolz()/60*1000);
                 System.out.println("Holzbearbeitung für Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Montage_Roboter){
-                // System.out.println(produkt.gibProduktionszeitMontage());
                 Thread.sleep(produkt.gibProduktionszeitMontage()/60*1000);
                 System.out.println("Montage von Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Lackier_Roboter){
-                // System.out.println(produkt.gibProduktionszeitSpritzung());
                 Thread.sleep(produkt.gibProduktionszeitSpritzung()/60*1000);
                 System.out.println("Lackierung von Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Verpackungs_Roboter){
-                // System.out.println(produkt.gibProduktionszeitVerpackung());
                 Thread.sleep(produkt.gibProduktionszeitVerpackung()/60*1000);
                 System.out.println("Verpackung von Produkt "+ produkt +" abgeschlossen.");
             }
-            // Thread.sleep(1000);
             
             produkt.naechsteProduktionsStation();
             

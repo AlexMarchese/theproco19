@@ -25,9 +25,6 @@ public class Lieferant extends Thread {
     }
 
 
-    //Es wäre noch cool eine Variable zu haben, in der die bisher je Bestellten Materialien gespeichert werden, auch mit einer Bestellnummer
-
-
     /**
      * Methode zur Ausgabe der Variable lieferungInArbeit.
      * @return lieferungInArbeit    Ein boolean Wert, welcher besagt ob eine Lieferung in Arbeit ist (true) oder nicht (false).
@@ -82,8 +79,8 @@ public class Lieferant extends Thread {
                                         "\nKartoneinheiten: " + this.bestellteKartoneinheiten + 
                                         "\nKissen:          " + this.bestellteKissen);
                     System.out.println( "-------------------------------------------------------------");
-                    System.out.println("\nDie Lieferzeit beträgt 24 Stunden.\n");
-                    this.sleep(24000); // 24 sec -> 24 Stunden
+                    System.out.println("\nDie Lieferzeit beträgt 48 Stunden.\n");
+                    this.sleep(48000); // 24 sec -> 24 Stunden
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }

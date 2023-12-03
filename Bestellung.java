@@ -38,7 +38,7 @@ public class Bestellung {
             this.anzahlStuehle = anzahlStuehle;
             this.bestellteProdukte = new ArrayList<Produkt>(); 
             this.bestellBestaetigung = false;
-            this.beschaffungsZeit = 0; // Zeit die es braucht, um die Materialien für die bestellten Produkte zu beschaffen
+            this.beschaffungsZeit = 0;
             this.bestellungsNr = bestellungsNr; // Wird von der Klasse Fabrik gegeben
             this.lieferzeit = 1;
             this.produktionszeit = 0;
@@ -361,14 +361,12 @@ public class Bestellung {
         int standardlieferzeit = 1;
         
         for (Produkt produkt : this.gibBestellteProdukte()) {   
-            // Wenn Produkt ein Stuhl ist...
+            // Wenn Produkt ein Stuhl ist, ...
             if (produkt instanceof Stuhl){
-                // ...dann  soll es wie ein solches behandelt werden
-                // Stuhl stuhl = (Stuhl)produkt;
+                // ... dann soll es wie ein solches behandelt werden, ...
                 this.produktionszeit += Stuhl.gibTotalProduktionszeit();
             } else if (produkt instanceof Sofa){
-                // Sonst wie ein Sofa
-                // Sofa sofa = (Sofa)produkt;
+                // ... sonst wie ein Sofa.
                 this.produktionszeit += Sofa.gibTotalProduktionszeit();
                 }
             }
@@ -403,7 +401,6 @@ public class Bestellung {
 
             if (produkt instanceof Stuhl) {
                 // Damit man das Produkt wie einen Stuhl behandeln kann
-                // Stuhl stuhl = (Stuhl)produkt;
                 totHolz += Stuhl.gibHolzeinheiten();
                 totSchrauben += Stuhl.gibSchrauben();
                 totFarbe += Stuhl.gibFarbeinheiten();
@@ -411,7 +408,6 @@ public class Bestellung {
 
             } else if (produkt instanceof Sofa) {
                 // Damit man das Produkt wie einen Stuhl behandeln kann
-                // Sofa sofa = (Sofa)produkt;
                 totHolz += Sofa.gibHolzeinheiten();
                 totSchrauben += Sofa.gibSchrauben();
                 totFarbe += Sofa.gibFarbeinheiten();

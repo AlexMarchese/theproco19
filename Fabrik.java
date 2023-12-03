@@ -21,7 +21,7 @@ public class Fabrik {
     public Fabrik() {
         this.bestellungList = new ArrayList<Bestellung>();
         this.bestellungsNrCounter = 1; // Attribut für die erste Bestellung gesetzt
-        // Lager, Produktionsmanager und Murmeltier werden erst nach Aufruf durch Main gestartet.
+        // Lager, Produktionsmanager und Murmeltier werden erst nach Aufruf der jeweiligen Methode durch Main gestartet.
     }
 
 
@@ -116,7 +116,7 @@ public class Fabrik {
              || lager.gibvorhandeneKartoneinheiten() < lager.gibMaxKartoneinheiten()*0.25
              || lager.gibvorhandeneKissen() < lager.gibMaxKissen()*0.25) {
                  lager.lagerAuffuellen();
-                 return ("\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.");   
+                 return ("\nDie Fabrik meldet tiefe Lagerbestände für mindestens einen Materialtyp und beantragt deshalb das Auffüllen des Lagers.");   
         }
         return("\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.");
     }

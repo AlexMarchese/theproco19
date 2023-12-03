@@ -388,8 +388,6 @@ public class Lager{
             if (zuBestellendeHolzeinheiten != 0 || zuBestellendeSchrauben != 0 || zuBestellendeFarbeinheiten != 0 || zuBestellendeKartoneinheiten != 0 || zuBestellendeKissen != 0) {
                 // Bestellung  
                 lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen, this);
-            
-                // System.out.println("Ware wurde bestellt");
 
                 // Variablen aktualisieren
                 this.inLieferungHolzeinheiten += zuBestellendeHolzeinheiten;
@@ -397,7 +395,6 @@ public class Lager{
                 this.inLieferungFarbeeinheiten += zuBestellendeFarbeinheiten;
                 this.inLieferungKartoneinheiten += zuBestellendeKartoneinheiten;
                 this.inLieferungKissen += zuBestellendeKissen;
-                // System.out.println("Holzeinheiten in Lieferung: " + this.inLieferungHolzeinheiten);
 
                 System.out.println("Antrag von Fabrik auf Lagerauffüllung bestätigt.\nBestellung an Lieferant aufgegeben.");
                 return "Bestellung konnte aufgegeben werden."; //fix this
@@ -457,9 +454,7 @@ public class Lager{
         ausgabe += ("\nIm Lager:                Holzeinheiten - " + this.vorhandeneHolzeinheiten + " | Schrauben - " + this.vorhandeneSchrauben + 
         " | Farbeeinheiten - " + this.vorhandeneFarbeeinheiten + " | Kartoneinheiten - " + this.vorhandeneKartoneinheiten + 
         " | Kissen - " + this.vorhandeneKissen);
-        // ausgabe += ("\nWird benötigt:           Holzeinheiten - " + this.benoetigteHolzeinheiten + " | Schrauben - " + this.benoetigteSchrauben + 
-        // " | Farbeeinheiten - " + this.benoetigteFarbeeinheiten + " | Kartoneinheiten - " + this.benoetigteKartoneinheiten + 
-        // " | Kissen - " + this.benoetigteKissen);
+
         ausgabe += ("\nWird noch geliefert:     Holzeinheiten - " + this.inLieferungHolzeinheiten + "  | Schrauben - " + this.inLieferungSchrauben + 
         "  | Farbeeinheiten - " + this.inLieferungFarbeeinheiten + "  | Kartoneinheiten - " + this.inLieferungKartoneinheiten + 
         "  | Kissen - " + this.inLieferungKissen);
@@ -468,12 +463,6 @@ public class Lager{
         "  | Kissen - " + this.maxKissen);
 
         return ausgabe;
-
-        // return "Aktueller Lagerbestand:\nIm Lager befinden sich " + vorhandeneHolzeinheiten + " Holzeinheiten von maximal " + 
-        // maxHolzeinheiten + " Holzeinheiten.\nIm Lager befinden sich " + vorhandeneSchrauben + " Schrauben von maximal " + maxSchrauben + 
-        // " Schrauben.\nIm Lager befinden sich " + vorhandeneFarbeeinheiten + " Farbeeinheiten von maximal " + maxFarbeeinheiten + 
-        // " Farbeeinheiten.\nIm Lager befinden sich " + vorhandeneKartoneinheiten + "Kartoneinheiten von maximal " + maxKartoneinheiten + 
-        // " Kartoneinheiten.\nIm Lager befinden sich " + vorhandeneKissen + "Kissen von maximal" + maxKissen + "Kissen.";
     }
 
     /**

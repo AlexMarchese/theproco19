@@ -13,10 +13,6 @@ import java.util.LinkedList;
 public class Produkt {
     // Instanzvariablen
     int zustand;
-    // int holzeinheiten;
-    // int schrauben;
-    // int farbeinheiten;
-    // int kartoneinheiten;
     private int produktionsZeit; //in Minuten
     private int produktionsZeitHolz; //in Minuten
     private int produktionsZeitMontage; //in Minuten
@@ -24,27 +20,12 @@ public class Produkt {
     private int produktionsZeitVerpackung; //in Minuten
     LinkedList<Roboter> produktionsAblauf; //in Minuten
 
-
-    //TO DO
     /** 
-     * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen.
-     *  
+     * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen. 
      */
-    
-    // * @param   holzeinheiten   Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
-    // * @param   schrauben       Das ist die Anzahl der Schrauben, welche für das Produkt benötigt werden.
-    // * @param   farbeinheiten   Das ist die Anzahl der Einheiten Farbe, welche für das Produkt benötigt werden.
-    // * @param   kartoneinheiten Das ist die Anzahl Einheiten Karton, welche für das Produkt benötigt werden.
-    // * @param   produktionsZeit Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
-    
-    // public Produkt(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
     public Produkt() {
         // Instanzvariable initialisieren
         this.zustand = 0; // 0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen
-        // this.holzeinheiten = holzeinheiten;
-        // this.schrauben = schrauben;
-        // this.farbeinheiten = farbeinheiten;
-        // this.kartoneinheiten = kartoneinheiten;
         this.produktionsZeit = 0; //in Minuten
         this.produktionsAblauf = new LinkedList<Roboter>();
     }
@@ -62,6 +43,7 @@ public class Produkt {
     
     /**
      * Methode gibt aktuellen Zustand zurück (0 = nicht gestartet, 1 = in Bearbeitung, 2 = abgeschlossen).
+     * 
      * @return  zustand Der aktuelle Zustand des Produkts in numerischer Form
      */
     public int gibZustand() {

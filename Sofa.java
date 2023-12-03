@@ -13,36 +13,14 @@ public class Sofa extends Produkt
     private final static int kartoneinheiten = 5;
     private final static int kissen = 5;
 
-    private final static int produktionsZeit = 60;//inMinuten
-
-    // private int produktionsZeitHolz = 10;
-    // private int produktionsZeitMontage = 5;
-    // private int produktionsZeitSpritzung = 2;
-    // private int produktionsZeitVerpackung = 5;
-    
-    // /**
-    //  * Konstruktor für Instanzen der Klasse Sofa, wenn Parameter von extern einfliessen sollen.
-    // * @param   holzeinheiten    Das ist die Anzahl der Einheiten Holz, welche für das Produkt benötigt werden.
-    // * @param   schrauben        Das ist die Anzahl der Schrauben, die für das Produkt benötigt werden.
-    // * @param   farbeinheiten    Das ist die Anzahl der Einheiten Farbe, die für das Produkt benötigt werden.
-    // * @param   kartoneinheiten  Das ist die Anzahl der Einheiten Karton, die für das Produkt benötigt werden.
-    // * @param   produktionsZeit  Das ist die Zeit (in Minuten), welche zur Produktion des Produkts benötigt wird.
-    //  */
-    // public Sofa(int holzeinheiten, int schrauben, int farbeinheiten, int kartoneinheiten, int produktionsZeit) {
-    //     // Instanzvariable initialisieren
-    //     super(holzeinheiten, schrauben, farbeinheiten, kartoneinheiten, produktionsZeit);
-    // }
+    private final static int produktionsZeit = 60;//in Minuten
 
     /**
      * Konstruktor für Objekte der Klasse Sofa
      */
     public Sofa() {
-        super();       
-        // this.produktionsAblauf.add(new Holzarbeitungs_Roboter());
-        // this.produktionsAblauf.add(new Lackier_Roboter());
-        // this.produktionsAblauf.add(new Montage_Roboter());
-        // this.produktionsAblauf.add(new Verpackungs_Roboter());
-
+        super();
+        
         super.setzeProduktionszeitHolz(30); //in Minuten
         super.setzeProduktionszeitSpritzung(5); //in Minuten
         super.setzeProduktionszeitMontage(15); //in Minuten
@@ -50,7 +28,6 @@ public class Sofa extends Produkt
         
 
     }
-
 
 
     /// Getters und Setters
@@ -102,5 +79,4 @@ public class Sofa extends Produkt
     public static int gibTotalProduktionszeit() {
         return Sofa.produktionsZeit;
     }
-    
 }
