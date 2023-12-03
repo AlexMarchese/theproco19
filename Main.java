@@ -16,7 +16,7 @@ public class Main
     
     public static void main(String[] args) {
 
-        // Erster Teil -> Es wird gezeigt, wie das eingehen von 2 Bestellungen funktioniert.
+        // Erster Teil -> Es wird gezeigt, wie das eingehen von 1 Bestellung funktioniert.
         
         Fabrik fabrikStart = new Fabrik();
         fabrikStart.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
@@ -34,7 +34,7 @@ public class Main
         // System.out.println("Eine weitere Bestellung mit 2 Sofas und 3 Stühlen wird aufgegeben.");
         // fabrikStart.bestellungAufgeben(2, 3);
 
-        // Kurze 10 Sekunden Pause, damit gezeigt werden kann wie die Bestellungen erstellt werden
+        // Kurze 24 Sekunden Pause, damit gezeigt werden kann wie die Bestellungen erstellt werden
         try
         {
              Thread.sleep(24_000);
@@ -82,7 +82,7 @@ public class Main
 
                     } catch (IllegalArgumentException e) { // Stellt sicher, dass der Nutzer keine negavtie oder basierend auf Lager nicht produzierbaren Bestellungsmengen eingibt
                 
-                        System.out.println("\n! Bitte stellen sie sicher, dass sie wedere negative noch basierend auf dem Lager zu große Bestellungsmengen und dass sie nach dem Kommando 'best' genau zwei ganze Zahlen eingeben!\n");
+                        System.out.println("\n! Bitte stellen sie sicher, dass sie weder negative noch basierend auf dem Lager zu große Bestellungsmengen eingeben und dass sie nach dem Kommando 'best' genau zwei ganze Zahlen eintippen!\n");
                         continue;
                     } catch (ArrayIndexOutOfBoundsException e) { // Stellt sicher, dass der Nutzer zwei Werte bei der Bestellung eingibt
                 
