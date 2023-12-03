@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SofaTest
-comment0.text=\n\ Testklasse\ SofaTest,\ um\ die\ Methoden\ der\ Klasse\ "Sofa"\ zu\ testen.\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
+comment0.text=\n\ Testklasse\ SofaTest,\ um\ die\ Methoden\ der\ Klasse\ "Sofa"\ zu\ testen.\n\n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 2.0\n
 comment1.params=
 comment1.target=SofaTest()
 comment1.text=\n\ Konstruktor\ von\ SofaTest\n

@@ -5,7 +5,7 @@ import java.util.LinkedList;
  * 
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  * 
  */
 public class Roboter extends Thread

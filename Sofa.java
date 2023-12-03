@@ -3,7 +3,7 @@
  * Die Klasse Sofa umfasst die Informationen zum Sofa und die dazugehörige Methoden.
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 public class Sofa extends Produkt
 {

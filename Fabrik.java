@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Die Klasse Fabrik enthält eine Übersicht (Array-Liste) über alle Bestellungen und dient zur Verwaltung von Produktion und Bestellungen.
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
 */
 
 public class Fabrik {

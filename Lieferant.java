@@ -3,7 +3,7 @@
  * Die Klasse Lieferant umfasst die Informationen zu den für die Fabrik bestellbaren Materialien und die dazugehörigen Methoden.
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 public class Lieferant extends Thread {
     // Instanzvariablen

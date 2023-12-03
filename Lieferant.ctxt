@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ f\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
+comment0.text=\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ f\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 2.0\n
 comment1.params=
 comment1.target=Lieferant()
 comment2.params=

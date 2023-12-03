@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * Testklasse LieferantTest, um die Methoden der Klasse "Lieferant" zu testen. 
  *
  * @author  GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 
 public class LieferantTest {

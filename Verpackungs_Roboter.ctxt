@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Verpackungs_Roboter
-comment0.text=\n\ Die\ Klasse\ Verpackungs_Roboter\ stellt\ eine\ Erweiterung\ der\ Klasse\ Roboter\ dar\ und\ Verpackt\ die\ montierten\ Produkte.\n\ \n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n\ \n
+comment0.text=\n\ Die\ Klasse\ Verpackungs_Roboter\ stellt\ eine\ Erweiterung\ der\ Klasse\ Roboter\ dar\ und\ Verpackt\ die\ montierten\ Produkte.\n\ \n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 2.0\n\ \n
 comment1.params=
 comment1.target=Verpackungs_Roboter()
 comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Verpackungs_Roboter\n

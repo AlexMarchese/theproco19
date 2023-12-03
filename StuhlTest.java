@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * Testklasse StuhlTest, um die Methoden der Klasse "Stuhl" zu testen.
  *
  * @author  GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 
 public class StuhlTest {

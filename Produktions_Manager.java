@@ -9,7 +9,7 @@ import java.util.Comparator;
  * 
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  * 
  */
 public class Produktions_Manager extends Thread

@@ -3,7 +3,7 @@
  * Die Klasse Stuhl umfasst die Informationen zum Stuhl und die dazugehörige Methoden.
  * 
  * @author GBI Gruppe 19
- * @version 1.0
+ * @version 2.0
  */
 public class Stuhl extends Produkt
 {

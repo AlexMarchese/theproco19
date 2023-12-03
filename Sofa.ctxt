@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Sofa
-comment0.text=\n\ Die\ Klasse\ Sofa\ umfasst\ die\ Informationen\ zum\ Sofa\ und\ die\ dazugeh\u00F6rige\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 1.0\n
+comment0.text=\n\ Die\ Klasse\ Sofa\ umfasst\ die\ Informationen\ zum\ Sofa\ und\ die\ dazugeh\u00F6rige\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 2.0\n
 comment1.params=
 comment1.target=Sofa()
 comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa\n

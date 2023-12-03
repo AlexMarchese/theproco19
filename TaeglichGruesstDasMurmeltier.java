@@ -4,7 +4,7 @@
  * Es wird geprüft, ob das Lager aufgefüllt werden soll und eine tägliche Übersicht gegeben.
  * 
  * @author GBI Gruppe 19 
- * @version 1.0
+ * @version 2.0
  */
 public class TaeglichGruesstDasMurmeltier extends Thread
 {
