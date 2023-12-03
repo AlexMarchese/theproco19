@@ -184,40 +184,6 @@ import org.junit.jupiter.api.Test;
 
     }
 
-    // /** TO DO
-    //  * 
-    //  * Test der Methode "bestellungAufgebenNegativWerte()". 
-    //  * Der Test überprüft, ob bei der Eingabe von Negativwerten der richtige Text zurückgegeben wird,
-    //  * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
-    //  * 
-    //  */
-    // @Test
-    // public void testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar() {
-
-    //     Fabrik testFabrik = new Fabrik();
-    //     testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
-
-    //     // Einige Bestellungen im Laufe des Tages
-    //     testFabrik.bestellungAufgeben(3, 4);
-    //     testFabrik.bestellungAufgeben(1, 4);
-
-    //     // Produkte werden erstellt
-    //     testFabrik.erstelleProdukte();
-
-    //     System.out.println(testFabrik.lagerSituation());
-
-    //     // Eine weitere Bestellung sollte nicht mehr möglich sein, da keine Schrauben mehr verfügbar sind
-    //     try {
-    //         assertThrows(IllegalArgumentException.class, () -> testFabrik.bestellungAufgeben(1, 2));
-    //     } catch (AssertionError e) {
-    //         // Fehler wird angegeben, falls die Operation unzulässig ist
-    //         fail("Sollte eine 'IllegalArgumentException' zurückgeben, aber es ist ein Fehler aufgetreten.");
-    //     }
-
-    //     System.out.println("Methode testeBestellungAufgebenNichtGenugMaterialienFuerTagVerfuegbar verhindert die Eingabe von neuen Werten wenn für den spezifischen Tag keine Resourcen mehr auf Lager verfügbar sind. In diesem Fall gibt es keine Schrauben mehr.");
-
-    // }
-
        
     /**
      * 
@@ -305,7 +271,7 @@ import org.junit.jupiter.api.Test;
     public void testeLagerAuffuellenKleineWerte() {
 
         Fabrik testFabrik = new Fabrik();
-        testFabrik.erstelleLager(10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 10, 10, 10, 10, 10);
         testFabrik.erstelleProduktions_Manager();
               
         String erwarteteAusgabe = "\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.";

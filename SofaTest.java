@@ -53,14 +53,33 @@ public class SofaTest {
     public void testeSofa() {
         Sofa testSofa = new Sofa();
 
-        assertEquals(testSofa.gibHolzeinheiten(), 4);
-        assertEquals(testSofa.gibSchrauben(), 5);
-        assertEquals(testSofa.gibFarbeinheiten(), 1);
-        assertEquals(testSofa.gibKartoneinheiten(), 5);
-        assertEquals(testSofa.gibKissen(), 5);
-        assertEquals(testSofa.gibTotalProduktionszeit(), 60);
+        assertEquals(Sofa.gibHolzeinheiten(), 4);
+        assertEquals(Sofa.gibSchrauben(), 5);
+        assertEquals(Sofa.gibFarbeinheiten(), 1);
+        assertEquals(Sofa.gibKartoneinheiten(), 5);
+        assertEquals(Sofa.gibKissen(), 5);
+        assertEquals(Sofa.gibTotalProduktionszeit(), 60);
 
         System.out.println("Test Sofa erfolgreich. Defaultinitialisierung und Getters funktionieren.");
+    }
+
+    /** TO DO
+     * 
+     * Der Test überprüft, ob die Erstellung eines Stuhls funktioniert. 
+     * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe zuerwarteten Standartwerte  
+     * mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeProduktionszeitSofa() {
+        Sofa testSofa = new Sofa();
+
+        assertEquals(testSofa.gibProduktionszeitHolz(), 30);
+        assertEquals(testSofa.gibProduktionszeitSpritzung(), 5);
+        assertEquals(testSofa.gibProduktionszeitMontage(), 15);
+        assertEquals(testSofa.gibProduktionszeitVerpackung(), 10);
+
+        System.out.println("Die Prodduktionszeiten des Sofas werden richtig initialisiert.");
     }
 
 }

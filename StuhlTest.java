@@ -54,13 +54,32 @@ public class StuhlTest {
     public void testeStuhl() {
         Stuhl testStuhl = new Stuhl();
 
-        assertEquals(testStuhl.gibHolzeinheiten(), 2);
-        assertEquals(testStuhl.gibSchrauben(), 10);
-        assertEquals(testStuhl.gibFarbeinheiten(), 2);
-        assertEquals(testStuhl.gibKartoneinheiten(), 1);
-        assertEquals(testStuhl.gibTotalProduktionszeit(), 22);
+        assertEquals(Stuhl.gibHolzeinheiten(), 2);
+        assertEquals(Stuhl.gibSchrauben(), 10);
+        assertEquals(Stuhl.gibFarbeinheiten(), 2);
+        assertEquals(Stuhl.gibKartoneinheiten(), 1);
+        assertEquals(Stuhl.gibTotalProduktionszeit(), 22);
 
         System.out.println("Test Stuhl erfolgreich. Defaultinitialisierung und Getters funktionieren.");
+    }
+
+    /** TO DO
+     * 
+     * Der Test überprüft, ob die Erstellung eines Stuhls funktioniert. 
+     * Dies wird überprüft, indem ein neuer Stuhl erstellt wird und die Rückgabe zuerwarteten Standartwerte  
+     * mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeProduktionszeitStuhl() {
+        Stuhl testStuhl = new Stuhl();
+
+        assertEquals(testStuhl.gibProduktionszeitHolz(), 10);
+        assertEquals(testStuhl.gibProduktionszeitMontage(), 5);
+        assertEquals(testStuhl.gibProduktionszeitSpritzung(), 2);
+        assertEquals(testStuhl.gibProduktionszeitVerpackung(), 5);
+
+        System.out.println("Die Prodduktionszeiten des Stuhls werden richtig initialisiert.");
     }
 
 }
