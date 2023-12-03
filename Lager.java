@@ -409,14 +409,14 @@ public class Lager{
         }
     }
  
-    /** TO DO
+    /** 
      * Methode, die vom Lieferanten aufgerufen wird, um die bestellte Ware zu liefern. Im konkreten, wird die Ware den vorhandenen Materialien hinzugefügt
      *
-     * @param   gelieferteHolzeinheiten     TEXT
-     * @param   gelieferteSchrauben         TEXT
-     * @param   gelieferteFarbeinheiten     TEXT
-     * @param   gelieferteKartoneinheiten   TEXT
-     * @param   gelieferteKissen            TEXT
+     * @param   gelieferteHolzeinheiten     Die Anzahl der gelieferten Holzeinheiten
+     * @param   gelieferteSchrauben         Die Anzahl der gelieferten Schrauben
+     * @param   gelieferteFarbeinheiten     Die Anzahl der gelieferten Farbeinheiten
+     * @param   gelieferteKartoneinheiten   Die Anzahl der gelieferten Kartoneinheiten
+     * @param   gelieferteKissen            Die Anzahl der gelieferten Kissen
     */
     public void wareLiefern(int gelieferteHolzeinheiten, int gelieferteSchrauben, int gelieferteFarbeinheiten, int gelieferteKartoneinheiten, int gelieferteKissen) {
         // Vorhandene Materialien nehmen um den gelieferten Wert zu

@@ -20,22 +20,24 @@ public class TaeglichGruesstDasMurmeltier extends Thread
     }
         
     /**
-     *  TO DO - DOKU
+     *  Diese Klasse repräsentiert einen Thread, der in regelmässsigen Abständen die Lagersituation einer Fabrik überprüft,
+     *  die vergangene Zeit simuliert und bei Bedarf das Lager auffüllt.
      */
     @Override
     public void run(){
         System.out.println("Und täglich grüsst das Murmeltier (als Thread gestartet...)");
         while (true) {
             
-            //Schlafe für 24h
+            //Der Thread schläft für 24 Stunden
             try{
             Thread.sleep(24_000); 
             }
             catch (InterruptedException ie){
+                // Falls der Thread während des Schlafens unterbrochen wird, wird eine Fehlermeldung ausgegeben
                 ie.printStackTrace();
             }
 
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+            // Informationsausgabe, Lagersituation überprüfen und ggf. auffüllenSystem.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println("24 Stunden sind vergangen.\nDie Lagersituation wird ausgegeben und es wird überprüft, ob das Lager aufgefüllt werden muss.");
             System.out.println(this.meineFabrik.lagerSituation());
             // lasse die lagerAuffuellen Methode Laufen
