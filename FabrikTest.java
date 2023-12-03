@@ -233,6 +233,7 @@ import org.junit.jupiter.api.Test;
 
         Fabrik testFabrik = new Fabrik();
         testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+        testFabrik.erstelleProduktions_Manager();
         
         assertEquals(testFabrik.bestellungenAusgeben(), "In der Fabrik GBI Gruppe 19 gibt es im Moment 0 Bestellungen.\n\n");
 
@@ -267,6 +268,7 @@ import org.junit.jupiter.api.Test;
 
         Fabrik testFabrik = new Fabrik();
         testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+        testFabrik.erstelleProduktions_Manager();
 
          // Einige Bestellungen im Laufe des Tages
         testFabrik.bestellungAufgeben(3, 4);
@@ -287,6 +289,56 @@ import org.junit.jupiter.api.Test;
         assertEquals(testFabrik.gibBestellungsList().get(0).gibBestellungsNr(), 3);
 
         System.out.println("Die Methode erstelleProdukte funktioniert wie erwartet.");
+
+    }
+    
+    /**
+     * 
+     * Test der Methode "lagerAuffuellen()". 
+     * Der Test überprüft, ob erstens bei der Ausführung der Methode ohne aufgegebene Bestellung 
+     * der richtige Text zurückgegeben wird und zweitens bei der Ausführung der Methode 
+     * mit zuvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeLagerAuffuellen() {
+
+        Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(10, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+        testFabrik.erstelleProduktions_Manager();
+              
+        String erwarteteAusgabe = "\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.";
+        
+        assertEquals(testFabrik.lagerAuffuellen(), erwarteteAusgabe);
+
+        System.out.println("Die Methode Lager Auffuellen funktioniert wie erwartet.");
+
+    }
+    
+    /**
+     * 
+     * Test der Methode "bestellungAusgeben()". 
+     * Der Test überprüft, ob erstens bei der Ausführung der Methode ohne aufgegebene Bestellung 
+     * der richtige Text zurückgegeben wird und zweitens bei der Ausführung der Methode 
+     * mit zuvor aufgegebenen Bestellungen der richtige Text zurückgegeben wird,
+     * indem die Rückgabe mit der Vorgabe aus dem Test verglichen wird. 
+     * 
+     */
+    @Test
+    public void testeLagerAuffuellenNegativeWerte() {
+
+        Fabrik testFabrik = new Fabrik();
+        testFabrik.erstelleLager(100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+        testFabrik.erstelleProduktions_Manager();
+        
+        testFabrik.lagerAuffuellen();
+        
+        String erwarteteAusgabe = "\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.";
+        
+        assertEquals(testFabrik.lagerAuffuellen(), erwarteteAusgabe);
+
+        System.out.println("Die Methode Lager Auffuellen funktioniert wie erwartet.");
 
     }
 

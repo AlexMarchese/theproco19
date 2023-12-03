@@ -35,6 +35,6 @@ comment8.params=
 comment8.target=void\ erstelleMurmeltier()
 comment8.text=\r\n\ Methode\ zur\ Erstellung\ des\ Murmeltiers.\ Das\ Murmeltier\ ruft\ Abl\u00E4ufe\ auf,\ welche\ alle\ 24\ Stunden\ stattfinden\ sollen.\ Wird\ von\ main\ aufgerufen.\r\n
 comment9.params=
-comment9.target=void\ lagerAuffuellen()
+comment9.target=java.lang.String\ lagerAuffuellen()
 comment9.text=\r\n\ Methode,\ die\ \u00FCberpr\u00FCft,\ ob\ das\ Lager\ aufgef\u00FCllt\ werden\ muss\ und\ ggf.\ die\ zugeh\u00F6rige\ Methode\ der\ Klasse\ Lager\ ausf\u00FChrt.\r\n\ Die\ Methode\ im\ Lager\ wird\ aufgerufen,\ sofern\ eines\ der\ Materialien\ unter\ 25%\ des\ maximalen\ Lagerbestands\ f\u00E4llt.\r\n\ Falls\ schon\ eine\ Lieferung\ im\ Gange\ ist,\ wird\ die\ Bestellung\ durch\ die\ zugeh\u00F6rige\ Methode\ der\ Klasse\ Lager\ unterbunden.\r\n
 numComments=13

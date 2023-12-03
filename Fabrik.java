@@ -107,7 +107,7 @@ public class Fabrik {
      * Die Methode im Lager wird aufgerufen, sofern eines der Materialien unter 25% des maximalen Lagerbestands fällt.
      * Falls schon eine Lieferung im Gange ist, wird die Bestellung durch die zugehörige Methode der Klasse Lager unterbunden.
      */
-    public void lagerAuffuellen(){    
+    public String lagerAuffuellen(){    
         // Fülle das gesamte Lager zum Maximum auf, falls ein Material unter 25% des maximalen Lagerbestands fällt.
         
         if (lager.gibvorhandeneHolzeinheiten() < lager.gibMaxHolzeinheiten() * 0.25
@@ -115,10 +115,10 @@ public class Fabrik {
              || lager.gibvorhandeneFarbeeinheiten() < lager.gibMaxFarbeeinheiten()*0.25
              || lager.gibvorhandeneKartoneinheiten() < lager.gibMaxKartoneinheiten()*0.25
              || lager.gibvorhandeneKissen() < lager.gibMaxKissen()*0.25) {
-                 System.out.println("\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.");   
                  lager.lagerAuffuellen();
+                 return ("\nDie Fabrik meldet tiefe Lagerbestände für mindestens eine Materialeinheit und beantragt deshalb das Auffüllen des Lagers.");   
         }
-        else System.out.println("\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.");
+        return("\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.");
     }
     
     /**
