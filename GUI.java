@@ -1,19 +1,31 @@
 import java.awt.*;
 import javax.swing.*;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList; 
+import java.util.List; // 
 public class GUI extends JFrame {
-    private final GUI_Controller controller;
+    //private final GUI_Controller controller;
     private JFrame fenster;
     private JPanel lagerbestandPanel = new JPanel();
     private JPanel columnsPanel = new JPanel(new GridLayout(1, 3)); // Use GridLayout with 1 row and 3 columns
-    
-
-    public GUI(GUI_Controller controller) {
-        this.controller = controller;
-        initFenster();
+    private Fabrik fabrik;
+    private Lager lager;
+    private List<Bestellung> bestellungenList = new ArrayList<>();
+    public GUI() {
+        this.fabrik = new Fabrik();
+        this.lager = new Lager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
+        this.fabrik.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
+        this.fabrik.erstelleProduktions_Manager();
+        //fabrik.erstelleMurmeltier();
+        initFenster(this.fabrik, this.lager);
     }
+    //public GUI(GUI_Controller controller) {
+    //   this.controller = controller;
+    //   initFenster();
+    // }
 
-    private void initFenster() {
+    private void initFenster(Fabrik fabrik, Lager lager) {
         fenster = new JFrame("AEKI Übersicht");
         fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenster.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -51,24 +63,31 @@ public class GUI extends JFrame {
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
         JButton button1 = new JButton("Bestellung Aufgeben");
-        button1.addActionListener(e -> {
-            // Handle Button 1 action
-            JOptionPane.showMessageDialog(fenster, "Button 1 pressed");
-        });
+        button1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    handleBestellungAufgeben();
+                }
+                //button1.addActionListener(e -> {
+                // Handle Button 1 action
+                //   JOptionPane.showMessageDialog(fenster, "Button 1 pressed");
+            });
         leftPanel.add(button1);
 
-        JButton button2 = new JButton("Button 2");
-        button2.addActionListener(e -> {
-            // Handle Button 2 action
-            JOptionPane.showMessageDialog(fenster, "Button 2 pressed");
-        });
+        JButton button2 = new JButton("Bestellungen Ausgeben");
+        button2.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    handleBestellungenAusgeben();
+                }
+            });
         leftPanel.add(button2);
 
         JButton button3 = new JButton("Button 3");
         button3.addActionListener(e -> {
-            // Handle Button 3 action
-            JOptionPane.showMessageDialog(fenster, "Button 3 pressed");
-        });
+                    // Handle Button 3 action
+                    JOptionPane.showMessageDialog(fenster, "Button 3 pressed");
+            });
         leftPanel.add(button3);
 
         mainPanel.add(leftPanel, BorderLayout.WEST);
@@ -80,25 +99,28 @@ public class GUI extends JFrame {
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-        JMenuItem option1 = new JMenuItem("Option 1");
-        option1.addActionListener(e -> {
-            // Handle Option 1 action
-            JOptionPane.showMessageDialog(fenster, "Option 1 selected");
-        });
+        JMenuItem option1 = new JMenuItem("Refresh");
+        option1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    handleOption1();
+                }
+            });
+
         fileMenu.add(option1);
 
         JMenuItem option2 = new JMenuItem("Option 2");
         option2.addActionListener(e -> {
-            // Handle Option 2 action
-            JOptionPane.showMessageDialog(fenster, "Option 2 selected");
-        });
+                    // Handle Option 2 action
+                    JOptionPane.showMessageDialog(fenster, "Option 2 selected");
+            });
         fileMenu.add(option2);
 
         JMenuItem option3 = new JMenuItem("Option 3");
         option3.addActionListener(e -> {
-            // Handle Option 3 action
-            JOptionPane.showMessageDialog(fenster, "Option 3 selected");
-        });
+                    // Handle Option 3 action
+                    JOptionPane.showMessageDialog(fenster, "Option 3 selected");
+            });
         fileMenu.add(option3);
 
         // Three columns below Lagerbestand and right of the buttons
@@ -108,14 +130,7 @@ public class GUI extends JFrame {
         bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
 
         // Log panel for Bestellungen
-        JPanel bestellungenLogPanel = new JPanel();
-        bestellungenLogPanel.setLayout(new BoxLayout(bestellungenLogPanel, BoxLayout.Y_AXIS));
-
-        for (int i = 1; i <= 5; i++) {
-            JPanel orderPanel = createBestellungPanel(i, getChairsValue(i), getSofasValue(i), getStatusValue(i)); // Insert function calls here
-            bestellungenLogPanel.add(orderPanel);
-        }
-
+        JPanel bestellungenLogPanel = createBestellungPanel(fabrik.gibBestellungsList());
         JScrollPane bestellungenLogScrollPane = new JScrollPane(bestellungenLogPanel);
         bestellungenPanel.add(bestellungenLogScrollPane, BorderLayout.CENTER);
 
@@ -169,6 +184,84 @@ public class GUI extends JFrame {
         fenster.setVisible(true);
     }
 
+    private void handleBestellungAufgeben() {
+        System.out.println("Button 'Bestellung Aufgeben' clicked"); // Debug print
+
+        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen möchten:");
+        String stühleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stühle an, welche Sie bestellen möchten:");
+
+        try {
+            int stühle = Integer.parseInt(stühleInput);
+            int sofas = Integer.parseInt(sofasInput);
+
+            System.out.println("Calling fabrik.bestellungAufgeben with sofas: " + sofas + " and stühle: " + stühle); // Debug print
+
+            // Call the fabrik.bestellungAufgeben method with the entered values
+            String result = fabrik.bestellungAufgeben(sofas, stühle);
+
+            System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
+
+            // Display the result
+            JOptionPane.showMessageDialog(GUI.this, result);
+
+            // Update the Bestellungen column
+            updateBestellungenPanel();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(GUI.this, "Invalid input. Please enter valid numbers.");
+        }
+    }
+
+    private void handleBestellungenAusgeben() {
+        // Call the fabrik.bestellungenAusgeben method
+        String result = fabrik.bestellungenAusgeben();
+
+        // Display the result
+        JOptionPane.showMessageDialog(GUI.this, result);
+    }
+
+    private void handleOption1() {
+        // Implement the logic for Option 1
+        // For demonstration purposes, let's assume Option 1 updates some values in the Fabrik
+        // and then we want to update the GUI to reflect these changes.
+        //fabrik.updateSomeValues(); // You need to implement this method in your Fabrik class.
+
+        // Update the GUI to reflect changes
+        updateGUI();
+    }
+
+    private void updateBestellungenPanel() {
+        // Create a new panel for bestellungenLogPanel
+        // Create a new panel for bestellungenLogPanel
+        JPanel newBestellungenLogPanel = createBestellungPanel(fabrik.gibBestellungsList());
+
+        // Update only the Bestellungen column
+        Component[] components = columnsPanel.getComponents();
+        for (Component component : components) {
+            if (component instanceof JScrollPane && ((JScrollPane) component).getViewport().getView() instanceof JPanel) {
+                // Remove the old bestellungenLogPanel from the JScrollPane
+                ((JScrollPane) component).getViewport().removeAll();
+
+                // Add the new bestellungenLogPanel to the JScrollPane
+                ((JScrollPane) component).setViewportView(newBestellungenLogPanel);
+                break; // Assuming there's only one JScrollPane for Bestellungen
+            }
+        }
+
+        // Repaint the GUI
+        revalidate();
+        repaint();
+    }
+
+    private void updateGUI() {
+        // Add logic here to update the GUI components that need to reflect changes in the Fabrik
+        // For example, update labels with new values from Fabrik
+        // ...
+        this.bestellungenList = fabrik.gibBestellungsList();
+        // Repaint the GUI
+        revalidate();
+        repaint();
+    }
+
     private JPanel createRoboterPanel(String name, String status, int warteschlange, String produktion) {
         JPanel panel = new JPanel(new GridLayout(4, 1));
         JLabel nameLabel = new JLabel("Robotername: " + name);
@@ -186,45 +279,53 @@ public class GUI extends JFrame {
         return panel;
     }
 
-    private JPanel createBestellungPanel(int bestellungNr, int chairs, int sofas, String status) {
+    private JPanel createBestellungPanel(List<Bestellung> bestellungenList) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        JLabel titleLabel = new JLabel("Bestellungsnr. " + bestellungNr);
-        JLabel infoLabel = new JLabel("Number of chairs: " + chairs + " | Number of sofas: " + sofas + " | Status: " + status);
+        //JLabel titleLabel = new JLabel("Bestellungen");
+        //panel.add(titleLabel);
 
-        panel.add(titleLabel);
-        panel.add(infoLabel);
+        // Create panels for each order
+        for (Bestellung bestellung : bestellungenList) {
+            JPanel orderPanel = new JPanel();
+            orderPanel.setLayout(new BoxLayout(orderPanel, BoxLayout.Y_AXIS));
 
-        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            JLabel orderLabel = new JLabel("Bestellung Nr. " + bestellung.gibBestellungsNr());
+            JLabel infoLabel = new JLabel("Number of chairs: " + bestellung.gibAnzahlStuehle() +
+                    " | Number of sofas: " + bestellung.gibAnzahlSofas() 
+                        // +" | Status: " + bestellung.gibStatus()
+                );
+
+            orderPanel.add(orderLabel);
+            orderPanel.add(infoLabel);
+
+            orderPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            panel.add(orderPanel);
+        }
 
         return panel;
     }
 
     // Insert functions for Lagerbestand values here
-    private String getHolzValue() {
-        //Lager.gibvorhandeneHolzeinheiten();
-        return "100";
+    private int getHolzValue() {
+        return lager.gibvorhandeneHolzeinheiten();
     }
 
-    private String getSchraubenValue() {
-        // Implement logic to get Schrauben value
-        return "500";
+    private int getSchraubenValue() {
+        return lager.gibvorhandeneSchrauben();
     }
 
-    private String getKissenValue() {
-        // Implement logic to get Kissen value
-        return "50";
+    private int getKissenValue() {
+        return lager.gibvorhandeneKissen();
     }
 
-    private String getFarbeValue() {
-        // Implement logic to get Farbe value
-        return "800";
+    private int getFarbeValue() {
+        return lager.gibvorhandeneFarbeeinheiten();
     }
 
-    private String getKartonValue() {
-        // Implement logic to get Karton value
-        return "900";
+    private int getKartonValue() {
+        return lager.gibvorhandeneKartoneinheiten();
     }
 
     // Insert functions for Bestellungen values here
@@ -243,9 +344,8 @@ public class GUI extends JFrame {
         return "In Progress";
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new GUI(null);
-        });
-    }
+    //public static void main(String[] args) {
+    // Create and display the GUI
+    //    SwingUtilities.invokeLater(() -> new GUI());
+    //}
 }
