@@ -83,10 +83,10 @@ public class GUI extends JFrame {
             });
         leftPanel.add(button2);
 
-        JButton button3 = new JButton("Button 3");
+        JButton button3 = new JButton("Übersicht Lieferant");
         button3.addActionListener(e -> {
                     // Handle Button 3 action
-                    JOptionPane.showMessageDialog(fenster, "Button 3 pressed");
+                    displayInformationPanel();
             });
         leftPanel.add(button3);
 
@@ -227,6 +227,42 @@ public class GUI extends JFrame {
 
         // Update the GUI to reflect changes
         updateGUI();
+    }
+
+    private void displayInformationPanel() {
+        // Create a new JFrame for the information panel
+        JFrame informationFrame = new JFrame("Lieferant Information");
+        informationFrame.setSize(400, 300);
+        informationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Create a panel for the information content
+        JPanel informationPanel = new JPanel();
+        informationPanel.setLayout(new BoxLayout(informationPanel, BoxLayout.Y_AXIS));
+
+        // Add components for the information panel (customize this part)
+        String infoText = "<html><br>Auf dieser Seite finden Sie den aktuellen Status des Lieferanten.<br><br>" +
+            "Der Lieferant hat momentan genügend Material an Lager um eine Bestellung aufzunehmen.<br>"+
+            "----------------------------------------------------------<br>" +
+            "Lieferstatus<br>" +
+            "Momentan werden folgende Einheiten geliefert:<br>" +
+            "Holzeinheiten: " + lager.gibInLieferungHolzeinheiten() + "</html>";
+        JLabel infoLabel = new JLabel(infoText);
+
+        JButton closeButton = new JButton("Close");
+        closeButton.addActionListener(e -> informationFrame.dispose());
+
+        informationPanel.add(infoLabel);
+        informationPanel.add(Box.createVerticalStrut(10)); // Add spacing
+        informationPanel.add(closeButton);
+
+        // Add the information panel to the frame
+        informationFrame.add(informationPanel);
+
+        // Center the frame on the screen
+        informationFrame.setLocationRelativeTo(null);
+
+        // Make the frame visible
+        informationFrame.setVisible(true);
     }
 
     private void updateBestellungenPanel() {
