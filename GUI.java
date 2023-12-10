@@ -63,6 +63,7 @@ public class GUI extends JFrame {
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
         JButton button1 = new JButton("Bestellung Aufgeben");
+        button1.setMaximumSize(new Dimension(200, 30));
         button1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -75,6 +76,7 @@ public class GUI extends JFrame {
         leftPanel.add(button1);
 
         JButton button2 = new JButton("Bestellungen Ausgeben");
+        button2.setMaximumSize(new Dimension(200, 30));
         button2.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -84,6 +86,7 @@ public class GUI extends JFrame {
         leftPanel.add(button2);
 
         JButton button3 = new JButton("Übersicht Lieferant");
+        button3.setMaximumSize(new Dimension(200, 30));
         button3.addActionListener(e -> {
                     // Handle Button 3 action
                     displayInformationPanel();
@@ -122,10 +125,12 @@ public class GUI extends JFrame {
                     JOptionPane.showMessageDialog(fenster, "Option 3 selected");
             });
         fileMenu.add(option3);
-
+        
         // Three columns below Lagerbestand and right of the buttons
         JPanel bestellungenPanel = new JPanel(new BorderLayout());
-        bestellungenPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        bestellungenPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
         JLabel bestellungenLabel = new JLabel("Bestellungen");
         bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
 
@@ -138,13 +143,15 @@ public class GUI extends JFrame {
 
         // Four permanent panels in the "Roboter Status" column
         JPanel roboterStatusPanel = new JPanel(new BorderLayout());
-        roboterStatusPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        roboterStatusPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
 
         JLabel roboterStatusLabel = new JLabel("Roboter Status");
         roboterStatusPanel.add(roboterStatusLabel, BorderLayout.NORTH);
 
         JPanel roboterInnerPanel = new JPanel(new GridLayout(4, 1));
-
+       
         for (int i = 1; i <= 4; i++) {
             JPanel robotPanel = createRoboterPanel("Roboter " + i, "Active", 2, "Stuhl");
             roboterInnerPanel.add(robotPanel);
@@ -156,7 +163,9 @@ public class GUI extends JFrame {
 
         // Status-Updates panel with log messages
         JPanel statusUpdatesPanel = new JPanel(new BorderLayout());
-        statusUpdatesPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        statusUpdatesPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
 
         JLabel statusUpdatesLabel = new JLabel("Status-Updates");
         statusUpdatesPanel.add(statusUpdatesLabel, BorderLayout.NORTH);
