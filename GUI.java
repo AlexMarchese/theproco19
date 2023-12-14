@@ -178,6 +178,16 @@ public class GUI extends JFrame {
             logTextArea.append("Test Message " + i + "\n");
         }
 
+        //    private void updateLagerbestandGUI() {
+        //int[] lagerbestand = this.lager.gibLagerbestand();
+        
+        //Label aktuellerLagerstatus = new Label("Status: Normal");
+        //aktuellerLagerstatus.setTextFill(Color.rgb(0, 128, 0));
+        //if(lager.wartetAufLieferant()) {
+            //aktuellerLagerstatus.setText("Status: Wird belieftert...");
+           // aktuellerLagerstatus.setTextFill(Color.rgb(128, 0, 0));
+        //}
+        
         JScrollPane logScrollPane = new JScrollPane(logTextArea);
         statusUpdatesPanel.add(logScrollPane, BorderLayout.CENTER);
 
