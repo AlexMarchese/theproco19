@@ -63,6 +63,17 @@ public class Fabrik {
         return this.bestellungsNrCounter;
     }
 
+    /**
+     * Methode zur Ausgabe der Lagers der Fabrik.
+     * 
+     * @return  lager   Lager der Fabrik.
+     */
+    public Lager gibLager() {
+        return this.lager;
+    }
+
+
+
     
 
     /// Methoden

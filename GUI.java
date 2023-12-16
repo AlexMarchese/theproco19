@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList; 
+
 import java.util.List; // 
 public class GUI extends JFrame {
     //private final GUI_Controller controller;
@@ -12,11 +13,15 @@ public class GUI extends JFrame {
     private Fabrik fabrik;
     private Lager lager;
     private List<Bestellung> bestellungenList = new ArrayList<>();
+
+    private Main main = new Main();
+
     public GUI() {
-        this.fabrik = new Fabrik();
-        this.lager = new Lager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
-        this.fabrik.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
-        this.fabrik.erstelleProduktions_Manager();
+        this.fabrik = main.gibFabrik();
+        this.lager = main.gibLager();
+        // this.lager = new Lager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
+        // this.fabrik.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
+        // this.fabrik.erstelleProduktions_Manager();
         //fabrik.erstelleMurmeltier();
         initFenster(this.fabrik, this.lager);
     }
@@ -140,6 +145,19 @@ public class GUI extends JFrame {
         bestellungenPanel.add(bestellungenLogScrollPane, BorderLayout.CENTER);
 
         columnsPanel.add(bestellungenPanel);
+        
+
+        String result = fabrik.bestellungenAusgeben();
+
+        JLabel label = new JLabel(result);
+        bestellungenLogPanel.add(label);
+
+        // bestellungenLogPanel.removeAll();
+        // for(Produkt produkt: this.laden.gibProdukte()){
+        //     JLabel label = new JLabel("Produkt-Name: " + produkt.gibName() + " hat Preis " + produkt.gibPreis());
+        //     bestellungenLogPanel.add(label);
+        // }
+        fenster.pack(); // Fenster wird geladen
 
         // Four permanent panels in the "Roboter Status" column
         JPanel roboterStatusPanel = new JPanel(new BorderLayout());
@@ -216,12 +234,19 @@ public class GUI extends JFrame {
             System.out.println("Calling fabrik.bestellungAufgeben with sofas: " + sofas + " and stühle: " + stühle); // Debug print
 
             // Call the fabrik.bestellungAufgeben method with the entered values
+            // String result = fabrik.bestellungAufgeben(sofas, stühle);
+            // String result = main.befehleSchleife("best " + sofas + " " + stühle);
+            // String result = main.befehle("best " + sofas + " " + stühle);
             String result = fabrik.bestellungAufgeben(sofas, stühle);
 
-            System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
+
+            // System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
+            // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
 
             // Display the result
             JOptionPane.showMessageDialog(GUI.this, result);
+            // JOptionPane.showMessageDialog(GUI.this);
+            // JOptionPane.showMessageDialog(GUI.this, "It worked!");
 
             // Update the Bestellungen column
             updateBestellungenPanel();
@@ -232,7 +257,10 @@ public class GUI extends JFrame {
 
     private void handleBestellungenAusgeben() {
         // Call the fabrik.bestellungenAusgeben method
+        // String result = fabrik.bestellungenAusgeben();
         String result = fabrik.bestellungenAusgeben();
+        
+        fenster.pack(); // Fenster wird geladen
 
         // Display the result
         JOptionPane.showMessageDialog(GUI.this, result);
@@ -319,10 +347,10 @@ public class GUI extends JFrame {
 
     private JPanel createRoboterPanel(String name, String status, int warteschlange, String produktion) {
         JPanel panel = new JPanel(new GridLayout(4, 1));
-        JLabel nameLabel = new JLabel("Robotername: " + name);
-        JLabel statusLabel = new JLabel("Status: " + status);
-        JLabel warteschlangeLabel = new JLabel("Warteschlange: " + warteschlange);
-        JLabel produktionLabel = new JLabel("Produktion: " + produktion);
+        JLabel nameLabel = new JLabel("  Robotername: " + name);
+        JLabel statusLabel = new JLabel("  Status: " + status);
+        JLabel warteschlangeLabel = new JLabel("  Warteschlange: " + warteschlange);
+        JLabel produktionLabel = new JLabel("  Produktion: " + produktion);
 
         panel.add(nameLabel);
         panel.add(statusLabel);

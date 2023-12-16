@@ -1,6 +1,12 @@
 #BlueJ class context
 comment0.target=Main
 comment0.text=\r\n\ \r\n\ Die\ Klasse\ Main\ ist\ der\ Einstiegspunkt\ in\ das\ Programm\ und\ in\ der\ Main\ Methode\ wird\ das\ Programm\ ausgef\u00FChrt.\r\n\ Hier\ k\u00F6nnen\ Bestellungen\ mit\ individuellen\ Anzahlen\ an\ St\u00FChlen\ und\ Sofas\ aufgegeben\ werden\ oder\ es\ \r\n\ wird\ eine\ vordefinierte\ Bestellung\ ausgef\u00FChrt.\ \r\n\ \r\n\ \r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 2.0\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment1.params=
+comment1.target=Main()
+comment2.params=
+comment2.target=Fabrik\ gibFabrik()
+comment2.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Fabrik.\r\n\ \r\n\ @return\ \ fabrikStart\ \ \ Fabrik.\r\n
+comment3.params=
+comment3.target=Lager\ gibLager()
+comment3.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Lagers\ der\ Fabrik.\r\n\ \r\n\ @return\ \ lager\ \ \ Lager\ der\ Fabrik.\r\n
+numComments=4
