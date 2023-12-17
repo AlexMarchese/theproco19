@@ -5,41 +5,102 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList; 
 
 import java.util.List; // 
+
+/**
+ * TO DO:
+ * Die Klasse GUI ...
+ */
 public class GUI extends JFrame {
     //private final GUI_Controller controller;
     private JFrame fenster;
-    private JPanel lagerbestandPanel = new JPanel();
-    private JPanel columnsPanel = new JPanel(new GridLayout(1, 3)); // Use GridLayout with 1 row and 3 columns
+    private JPanel mainPanel;
+    private JPanel lagerbestandPanel;// = new JPanel();    
+    private JPanel columnsPanel;
+    private JPanel leftPanel;
+    private JMenuBar menuBar;
+    private JMenu fileMenu;
+    
+
     private Fabrik fabrik;
     private Lager lager;
-    private List<Bestellung> bestellungenList = new ArrayList<>();
+    private List<Bestellung> bestellungenList;
 
-    private Main main = new Main();
+    private Main main;
 
+
+
+    /**
+     * Konstruktor für Objekte der Klasse GUI
+     */
     public GUI() {
-        this.fabrik = main.gibFabrik();
+
+        bestellungenList = new ArrayList<>();
+        main = new Main();
+
+        // Aus der Main Methode
+        this.fabrik = main.gibFabrik(); 
         this.lager = main.gibLager();
-        // this.lager = new Lager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
-        // this.fabrik.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
-        // this.fabrik.erstelleProduktions_Manager();
         //fabrik.erstelleMurmeltier();
-        initFenster(this.fabrik, this.lager);
+
+
+        initFenster(this.fabrik, this.lager); // Initialisierung des Hauptfensters
     }
     //public GUI(GUI_Controller controller) {
     //   this.controller = controller;
     //   initFenster();
     // }
 
+
+    /**
+     * Methode zur Initialisierung aller Fenster
+     * @param fabrik
+     * @param lager
+     */
     private void initFenster(Fabrik fabrik, Lager lager) {
+
+        // Gesamtfenster
         fenster = new JFrame("AEKI Übersicht");
         fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenster.setExtendedState(JFrame.MAXIMIZED_BOTH);
         fenster.setUndecorated(false);
 
-        // Create a main panel to hold the components
-        JPanel mainPanel = new JPanel(new BorderLayout());
 
-        // Lagerbestand panel always on top
+        // Obiges Subfenster mit vor allem Lagerbestand
+        mainPanel = new JPanel(new BorderLayout());        
+        lagerbestandPanel = new JPanel(); // Erstellung des Fensters mit dem Lagerbestand
+        mainPanel.add(lagerbestandPanel, BorderLayout.NORTH); // Wird dem obigen Subfenster hinzugefügt
+        konfiguriereLagerbestand();
+
+
+        /// 3 Subfenster im Zentrum ("Bestellungen", "Roboter Status", "Status-Updates")
+        columnsPanel = new JPanel(new GridLayout(1, 3)); 
+        konfiguriereSubfensterZentrum();
+
+        // Linke Leiste mit drei Knöpfen
+        leftPanel = new JPanel();
+        konfiguriereLinkeLeisteKnoepfe();
+        
+
+        /// Menüleiste
+        menuBar = new JMenuBar();
+        konfiguriereMenueleiste();
+
+        // Hauptfenster-Konfigurierung
+        fenster.add(mainPanel);
+        fenster.setSize(800, 400);
+        fenster.setLocationRelativeTo(null);
+        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fenster.setVisible(true);
+    }
+
+
+    /// Konfigurierungen der einzelnen Fenster
+
+    /**
+     * Konfigurierung des Lagerbestandes
+     */
+    private void konfiguriereLagerbestand(){
+        
         lagerbestandPanel.setBackground(new Color(221, 221, 221));
         lagerbestandPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
@@ -60,11 +121,100 @@ public class GUI extends JFrame {
 
         JLabel kartonLabel = new JLabel("Karton: " + getKartonValue() + " / 1000 Einheiten"); // Insert function call here
         lagerbestandPanel.add(kartonLabel);
+    }
 
-        mainPanel.add(lagerbestandPanel, BorderLayout.NORTH);
+    /**
+     * Konfigurierung der Subfenster im Zentrum
+     */
+    private void konfiguriereSubfensterZentrum(){
+        
+        // Three columns below Lagerbestand and right of the buttons
+        JPanel bestellungenPanel = new JPanel(new BorderLayout());
+        bestellungenPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
+        JLabel bestellungenLabel = new JLabel("Bestellungen");
+        bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
 
-        // Left panel with three buttons
-        JPanel leftPanel = new JPanel();
+        // Fenster für Bestellungen
+        JPanel bestellungenLogPanel = createBestellungPanel(fabrik.gibBestellungsList());
+        JScrollPane bestellungenLogScrollPane = new JScrollPane(bestellungenLogPanel);
+        bestellungenPanel.add(bestellungenLogScrollPane, BorderLayout.CENTER);
+
+        columnsPanel.add(bestellungenPanel);
+        
+
+        String result = fabrik.bestellungenAusgeben();
+
+        JLabel label = new JLabel(result);
+        bestellungenLogPanel.add(label);
+
+        // bestellungenLogPanel.removeAll();
+        // for(Produkt produkt: this.laden.gibProdukte()){
+        //     JLabel label = new JLabel("Produkt-Name: " + produkt.gibName() + " hat Preis " + produkt.gibPreis());
+        //     bestellungenLogPanel.add(label);
+        // }
+        fenster.pack(); // Fenster wird geladen
+
+        // Fenster "Roboter Status"
+        JPanel roboterStatusPanel = new JPanel(new BorderLayout());
+        roboterStatusPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
+
+        JLabel roboterStatusLabel = new JLabel("Roboter Status");
+        roboterStatusPanel.add(roboterStatusLabel, BorderLayout.NORTH);
+
+        JPanel roboterInnerPanel = new JPanel(new GridLayout(4, 1));
+       
+        for (int i = 1; i <= 4; i++) {
+            JPanel robotPanel = createRoboterPanel("Roboter " + i, "Active", 2, "Stuhl");
+            roboterInnerPanel.add(robotPanel);
+        }
+
+        roboterStatusPanel.add(roboterInnerPanel, BorderLayout.CENTER);
+
+        columnsPanel.add(roboterStatusPanel);
+
+        // Fenster "Status-Updates"
+        JPanel statusUpdatesPanel = new JPanel(new BorderLayout());
+        statusUpdatesPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
+
+        JLabel statusUpdatesLabel = new JLabel("Status-Updates");
+        statusUpdatesPanel.add(statusUpdatesLabel, BorderLayout.NORTH);
+
+        JTextArea logTextArea = new JTextArea();
+        logTextArea.setEditable(false);
+
+        // Add test messages
+        for (int i = 1; i <= 5; i++) {
+            logTextArea.append("Test Message " + i + "\n");
+        }
+
+        //    private void updateLagerbestandGUI() {
+        //int[] lagerbestand = this.lager.gibLagerbestand();
+        
+        //Label aktuellerLagerstatus = new Label("Status: Normal");
+        //aktuellerLagerstatus.setTextFill(Color.rgb(0, 128, 0));
+        //if(lager.wartetAufLieferant()) {
+            //aktuellerLagerstatus.setText("Status: Wird belieftert...");
+           // aktuellerLagerstatus.setTextFill(Color.rgb(128, 0, 0));
+        //}
+        
+        JScrollPane logScrollPane = new JScrollPane(logTextArea);
+        statusUpdatesPanel.add(logScrollPane, BorderLayout.CENTER);
+
+        columnsPanel.add(statusUpdatesPanel);
+
+        mainPanel.add(columnsPanel, BorderLayout.CENTER);
+    }
+
+    /**
+     * Konfigurierung der Linken Leiste mit den Knöpfen
+     */
+    private void konfiguriereLinkeLeisteKnoepfe(){
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
         JButton button1 = new JButton("Bestellung Aufgeben");
@@ -99,14 +249,19 @@ public class GUI extends JFrame {
         leftPanel.add(button3);
 
         mainPanel.add(leftPanel, BorderLayout.WEST);
+    }
 
-        // Set up the menu bar
-        JMenuBar menuBar = new JMenuBar();
+    /**
+     * Konfigurierung der Menüleiste
+     */
+    private void konfiguriereMenueleiste(){
+
         fenster.setJMenuBar(menuBar);
 
-        JMenu fileMenu = new JMenu("File");
+        fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
+        // Option 1 "Refresh" ->
         JMenuItem option1 = new JMenuItem("Refresh");
         option1.addActionListener(new ActionListener() {
                 @Override
@@ -117,6 +272,8 @@ public class GUI extends JFrame {
 
         fileMenu.add(option1);
 
+
+        // Option 2 "" ->
         JMenuItem option2 = new JMenuItem("Option 2");
         option2.addActionListener(e -> {
                     // Handle Option 2 action
@@ -124,101 +281,13 @@ public class GUI extends JFrame {
             });
         fileMenu.add(option2);
 
+        // Option 3 "" ->
         JMenuItem option3 = new JMenuItem("Option 3");
         option3.addActionListener(e -> {
                     // Handle Option 3 action
                     JOptionPane.showMessageDialog(fenster, "Option 3 selected");
             });
         fileMenu.add(option3);
-        
-        // Three columns below Lagerbestand and right of the buttons
-        JPanel bestellungenPanel = new JPanel(new BorderLayout());
-        bestellungenPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.BLACK),
-            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
-        JLabel bestellungenLabel = new JLabel("Bestellungen");
-        bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
-
-        // Log panel for Bestellungen
-        JPanel bestellungenLogPanel = createBestellungPanel(fabrik.gibBestellungsList());
-        JScrollPane bestellungenLogScrollPane = new JScrollPane(bestellungenLogPanel);
-        bestellungenPanel.add(bestellungenLogScrollPane, BorderLayout.CENTER);
-
-        columnsPanel.add(bestellungenPanel);
-        
-
-        String result = fabrik.bestellungenAusgeben();
-
-        JLabel label = new JLabel(result);
-        bestellungenLogPanel.add(label);
-
-        // bestellungenLogPanel.removeAll();
-        // for(Produkt produkt: this.laden.gibProdukte()){
-        //     JLabel label = new JLabel("Produkt-Name: " + produkt.gibName() + " hat Preis " + produkt.gibPreis());
-        //     bestellungenLogPanel.add(label);
-        // }
-        fenster.pack(); // Fenster wird geladen
-
-        // Four permanent panels in the "Roboter Status" column
-        JPanel roboterStatusPanel = new JPanel(new BorderLayout());
-        roboterStatusPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.BLACK),
-            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
-
-        JLabel roboterStatusLabel = new JLabel("Roboter Status");
-        roboterStatusPanel.add(roboterStatusLabel, BorderLayout.NORTH);
-
-        JPanel roboterInnerPanel = new JPanel(new GridLayout(4, 1));
-       
-        for (int i = 1; i <= 4; i++) {
-            JPanel robotPanel = createRoboterPanel("Roboter " + i, "Active", 2, "Stuhl");
-            roboterInnerPanel.add(robotPanel);
-        }
-
-        roboterStatusPanel.add(roboterInnerPanel, BorderLayout.CENTER);
-
-        columnsPanel.add(roboterStatusPanel);
-
-        // Status-Updates panel with log messages
-        JPanel statusUpdatesPanel = new JPanel(new BorderLayout());
-        statusUpdatesPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.BLACK),
-            BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
-
-        JLabel statusUpdatesLabel = new JLabel("Status-Updates");
-        statusUpdatesPanel.add(statusUpdatesLabel, BorderLayout.NORTH);
-
-        JTextArea logTextArea = new JTextArea();
-        logTextArea.setEditable(false);
-
-        // Add test messages
-        for (int i = 1; i <= 5; i++) {
-            logTextArea.append("Test Message " + i + "\n");
-        }
-
-        //    private void updateLagerbestandGUI() {
-        //int[] lagerbestand = this.lager.gibLagerbestand();
-        
-        //Label aktuellerLagerstatus = new Label("Status: Normal");
-        //aktuellerLagerstatus.setTextFill(Color.rgb(0, 128, 0));
-        //if(lager.wartetAufLieferant()) {
-            //aktuellerLagerstatus.setText("Status: Wird belieftert...");
-           // aktuellerLagerstatus.setTextFill(Color.rgb(128, 0, 0));
-        //}
-        
-        JScrollPane logScrollPane = new JScrollPane(logTextArea);
-        statusUpdatesPanel.add(logScrollPane, BorderLayout.CENTER);
-
-        columnsPanel.add(statusUpdatesPanel);
-
-        mainPanel.add(columnsPanel, BorderLayout.CENTER);
-
-        // Set up the frame
-        fenster.add(mainPanel);
-        fenster.setSize(800, 400);
-        fenster.setLocationRelativeTo(null);
-        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenster.setVisible(true);
     }
 
     private void handleBestellungAufgeben() {
@@ -239,6 +308,8 @@ public class GUI extends JFrame {
             // String result = main.befehle("best " + sofas + " " + stühle);
             String result = fabrik.bestellungAufgeben(sofas, stühle);
 
+            fenster.pack();
+
 
             // System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
             // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
@@ -254,6 +325,9 @@ public class GUI extends JFrame {
             JOptionPane.showMessageDialog(GUI.this, "Invalid input. Please enter valid numbers.");
         }
     }
+
+
+    /// Methoden der Fenster
 
     private void handleBestellungenAusgeben() {
         // Call the fabrik.bestellungenAusgeben method
@@ -390,7 +464,9 @@ public class GUI extends JFrame {
         return panel;
     }
 
-    // Insert functions for Lagerbestand values here
+    
+    /// Methoden zu den Werten des Lagerbestandes
+
     private int getHolzValue() {
         return lager.gibvorhandeneHolzeinheiten();
     }
@@ -411,8 +487,8 @@ public class GUI extends JFrame {
         return lager.gibvorhandeneKartoneinheiten();
     }
 
-    // Insert functions for Bestellungen values here
-    private int getChairsValue(int bestellungNr) {
+    // Methoden zu den Werten der Bestellungen
+        private int getChairsValue(int bestellungNr) {
         // Implement logic to get number of chairs for the given Bestellung
         return 10 * bestellungNr;
     }
