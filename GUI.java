@@ -64,13 +64,11 @@ public class GUI extends JFrame {
         fenster.setExtendedState(JFrame.MAXIMIZED_BOTH);
         fenster.setUndecorated(false);
 
-
         // Obiges Subfenster mit vor allem Lagerbestand
         mainPanel = new JPanel(new BorderLayout());        
         lagerbestandPanel = new JPanel(); // Erstellung des Fensters mit dem Lagerbestand
         mainPanel.add(lagerbestandPanel, BorderLayout.NORTH); // Wird dem obigen Subfenster hinzugefügt
         konfiguriereLagerbestand();
-
 
         /// 3 Subfenster im Zentrum ("Bestellungen", "Roboter Status", "Status-Updates")
         columnsPanel = new JPanel(new GridLayout(1, 3)); 
@@ -79,7 +77,6 @@ public class GUI extends JFrame {
         // Linke Leiste mit drei Knöpfen
         leftPanel = new JPanel();
         konfiguriereLinkeLeisteKnoepfe();
-        
 
         /// Menüleiste
         menuBar = new JMenuBar();
@@ -154,7 +151,7 @@ public class GUI extends JFrame {
         //     JLabel label = new JLabel("Produkt-Name: " + produkt.gibName() + " hat Preis " + produkt.gibPreis());
         //     bestellungenLogPanel.add(label);
         // }
-        fenster.pack(); // Fenster wird geladen
+        // fenster.pack(); // Fenster wird geladen
 
         // Fenster "Roboter Status"
         JPanel roboterStatusPanel = new JPanel(new BorderLayout());
@@ -308,12 +305,11 @@ public class GUI extends JFrame {
             // String result = main.befehle("best " + sofas + " " + stühle);
             String result = fabrik.bestellungAufgeben(sofas, stühle);
 
-            fenster.pack();
+            // fenster.pack();
 
 
             // System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
             // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
-
             // Display the result
             JOptionPane.showMessageDialog(GUI.this, result);
             // JOptionPane.showMessageDialog(GUI.this);
@@ -333,8 +329,11 @@ public class GUI extends JFrame {
         // Call the fabrik.bestellungenAusgeben method
         // String result = fabrik.bestellungenAusgeben();
         String result = fabrik.bestellungenAusgeben();
+
+        // Fenster "Bestellungen" wird aktualisiert
+        updateBestellungenPanel();
         
-        fenster.pack(); // Fenster wird geladen
+        // fenster.pack(); // Fenster wird geladen
 
         // Display the result
         JOptionPane.showMessageDialog(GUI.this, result);
@@ -389,7 +388,16 @@ public class GUI extends JFrame {
     private void updateBestellungenPanel() {
         // Create a new panel for bestellungenLogPanel
         // Create a new panel for bestellungenLogPanel
+        // JPanel newBestellungenLogPanel = createBestellungPanel("STa chippa");
         JPanel newBestellungenLogPanel = createBestellungPanel(fabrik.gibBestellungsList());
+
+        //Nur als Testing Alex
+        JFrame debugFrame = new JFrame("Debug Window");
+        debugFrame.setSize(400, 300);
+        debugFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        debugFrame.setContentPane(newBestellungenLogPanel);
+        debugFrame.setLocationRelativeTo(null);
+        debugFrame.setVisible(true);
 
         // Update only the Bestellungen column
         Component[] components = columnsPanel.getComponents();
@@ -487,7 +495,9 @@ public class GUI extends JFrame {
         return lager.gibvorhandeneKartoneinheiten();
     }
 
-    // Methoden zu den Werten der Bestellungen
+
+    /// Methoden zu den Werten der Bestellungen
+
         private int getChairsValue(int bestellungNr) {
         // Implement logic to get number of chairs for the given Bestellung
         return 10 * bestellungNr;
