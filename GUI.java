@@ -360,12 +360,18 @@ public class GUI extends JFrame {
         informationPanel.setLayout(new BoxLayout(informationPanel, BoxLayout.Y_AXIS));
 
         // Add components for the information panel (customize this part)
-        String infoText = "<html><br>Auf dieser Seite finden Sie den aktuellen Status des Lieferanten.<br><br>" +
+        String infoText = "<html><br> Auf dieser Seite finden Sie den aktuellen Status des Lieferanten.<br><br>" +
             "Der Lieferant hat momentan genügend Material an Lager um eine Bestellung aufzunehmen.<br>"+
             "----------------------------------------------------------<br>" +
             "Lieferstatus<br>" +
             "Momentan werden folgende Einheiten geliefert:<br>" +
-            "Holzeinheiten: " + lager.gibInLieferungHolzeinheiten() + "</html>";
+            "Holzeinheiten: " + lager.gibInLieferungHolzeinheiten() + "<br>" +
+            "Schrauben: " + lager.gibInLieferungSchrauben() + "<br>" +
+            "Kissen: " + lager.gibInLieferungKissen() + "<br>" +
+            "Farbeeinheiten: " + lager.gibInLieferungFarbeeinheiten() + "<br>" +
+            "Kartoneinheiten: " + lager.gibInLieferungKartoneinheiten() + "</html>";
+            
+            
         JLabel infoLabel = new JLabel(infoText);
 
         JButton closeButton = new JButton("Close");
