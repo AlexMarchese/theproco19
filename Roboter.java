@@ -44,6 +44,14 @@ public class Roboter extends Thread
         return this.name;
     }
     
+        /**
+     * Methode, gibt die Wartschlange des jeweiligen Roboters zurück.
+     * @return   warteschlange  die Warteschlange des Roboters
+     */
+    public LinkedList gibWarteschlange() {
+        return this.warteschlange;
+    }
+    
     
     /// Methoden
     

@@ -106,6 +106,13 @@ public class Fabrik {
     }
     
     /**
+     * Methode zur Ausgabe des Produktionsmanagers.
+     */
+    public Produktions_Manager gibProduktions_Manager() {
+        return this.produktions_manager;
+    }
+    
+    /**
      * Methode zur Erstellung des Murmeltiers. Das Murmeltier ruft Abläufe auf, welche alle 24 Stunden stattfinden sollen. Wird von main aufgerufen.
      */
     public void erstelleMurmeltier() {

@@ -262,4 +262,34 @@ public class Produktions_Manager extends Thread
                 meinLager.setzevorhandeneKartoneinheiten(kartonEinh);
                 meinLager.setzevorhandeneKissen(kiss);
     }
+    
+    // Getters Roboter
+    
+    /**
+     * Methode zur Ausgabe des Holzbearbeitungsroboters.
+     */
+    public Holzbearbeitungs_Roboter gibHolzRoboter() {
+        return this.holzRoboter;
+    }
+    
+        /**
+     * Methode zur Ausgabe des Montageroboters.
+     */
+    public Montage_Roboter gibMontageRoboter() {
+        return this.montageRoboter;
+    }
+    
+        /**
+     * Methode zur Ausgabe des Lackierroboters.
+     */
+    public Lackier_Roboter gibLackierRoboter() {
+        return this.lackierRoboter;
+    }
+    
+        /**
+     * Methode zur Ausgabe des Verpackungsroboters.
+     */
+    public Verpackungs_Roboter gibVerpackungsRoboter() {
+        return this.verpackungsRoboter;
+    }
 }
