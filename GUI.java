@@ -343,7 +343,7 @@ public class GUI extends JFrame {
 
         fenster.setJMenuBar(menueZeile);
 
-        JMenu fileMenu = new JMenu("File");
+        JMenu fileMenu = new JMenu("Datei");
         menueZeile.add(fileMenu);
         
         JMenu produktMenu = new JMenu("Produkte");
@@ -357,10 +357,8 @@ public class GUI extends JFrame {
         JMenuItem refresh = new JMenuItem("Refresh");
         refresh.addActionListener(e -> {
                     // Refresh action
-                    aktualisiereLagerbestand();
-                    aktualisiereColumnBestellungen();
-                    aktualisiereColumnRoboterstatus();
-                    JOptionPane.showMessageDialog(fenster, "Lagerbestand, Bestellungen und Roboter-Status aktualisiert.");
+                    aktualisiereFenster();
+                    JOptionPane.showMessageDialog(fenster, "Fenster aktualisiert. Du bist auf dem aktuellen Stand.");
             });
         fileMenu.add(refresh);
 
