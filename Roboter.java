@@ -102,7 +102,7 @@ public class Roboter extends Thread
             if(this instanceof Holzbearbeitungs_Roboter){
                 // Schlafe (produziere) für die gegebene Zeit -> durch 60 mal 1000, weil es dann so viele Sekunden sind, wie es Stunden brauchen würde.
                 Thread.sleep(produkt.gibProduktionszeitHolz()/60*1000);
-                System.out.println("Holzbearbeitung für Produkt "+ produkt +" abgeschlossen.");
+                System.out.println("Holzbearbeitung fuer Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Montage_Roboter){
                 Thread.sleep(produkt.gibProduktionszeitMontage()/60*1000);
                 System.out.println("Montage von Produkt "+ produkt +" abgeschlossen.");

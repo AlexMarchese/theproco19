@@ -19,7 +19,7 @@ public class Bestellung {
     private boolean alleProdukteProduziert;
 
     /**
-     * Konstruktor für die Instanzen der Klasse Bestellung.
+     * Konstruktor faufgefür die Instanzen der Klasse Bestellung.
      * 
      * @param   anzahlSofas     Die Anzahl Sofas gibt die Anzahl an bestellten Sofas.
      * @param   anzahlStuehle   Die Anzahl Stühle gibt die Anzahl an bestellten Stühlen.
@@ -97,8 +97,8 @@ public class Bestellung {
         if(zeit >= 0) {
             this.beschaffungsZeit = zeit;
         } else {
-            System.out.println("\nDer angegebene Wert (" + zeit + ") ist ungültig:"
-                                + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die grösser oder gleich 0 ist.");
+            System.out.println("\nDer angegebene Wert (" + zeit + ") ist ungueltig:"
+                                + "\n   Bitte geben Sie für die Beschaffungszeit eine Zahl ein, die groesser oder gleich 0 ist.");
         }
     }
     
@@ -120,8 +120,8 @@ public class Bestellung {
         if(bestellNummer > 0) {
             this.bestellungsNr = bestellNummer;
         } else {
-            System.out.println("\nDer angegebene Wert (" + bestellNummer + ") ist ungültig:"
-                                + "\n   Bitte geben Sie für die Bestellnummer eine Zahl ein, die grösser ist als 0.");
+            System.out.println("\nDer angegebene Wert (" + bestellNummer + ") ist ungueltig:"
+                                + "\n   Bitte geben Sie fuer die Bestellnummer eine Zahl ein, die groesser ist als 0.");
         }
     }
     
@@ -144,8 +144,8 @@ public class Bestellung {
         if(menge >= 0) {
             this.anzahlStuehle = menge;
         } else {
-            System.out.println("\nDer angegebene Wert (" + menge + ") ist ungültig:"
-                                + "\n   Bitte geben Sie für die Anzahl Stühle eine Zahl ein, die nicht negativ ist.");
+            System.out.println("\nDer angegebene Wert (" + menge + ") ist ungueltig:"
+                                + "\n   Bitte geben Sie fuer die Anzahl Stuehle eine Zahl ein, die nicht negativ ist.");
         }
     }
 
@@ -168,8 +168,8 @@ public class Bestellung {
         if(menge >= 0) {
             this.anzahlSofas = menge;
         } else {
-            System.out.println("\nDer angegebene Wert (" + menge + ") ist ungültig:"
-                                + "\n   Bitte geben Sie für die Anzahl Sofas eine Zahl ein, die nicht negativ ist.");
+            System.out.println("\nDer angegebene Wert (" + menge + ") ist ungueltig:"
+                                + "\n   Bitte geben Sie fuer die Anzahl Sofas eine Zahl ein, die nicht negativ ist.");
         }
     }
 
@@ -273,7 +273,7 @@ public class Bestellung {
 
         // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.
         String sf = " Sofas ";
-        String st = " Stühlen ";
+        String st = " Stuehlen ";
 
         if (this.anzahlSofas == 1) {
             sf = " Sofa ";
@@ -292,8 +292,8 @@ public class Bestellung {
 
         this.bestellBestaetigung = true;
         return "Bestellung (Nr. " + bestellungsNr + ") mit " + this.anzahlSofas + sf +
-        "und " + this.anzahlStuehle + st + "ist bestätigt." +
-            "\nDie Lieferzeit beträgt " + liefzeit + tg;
+        "und " + this.anzahlStuehle + st + "ist bestaetigt." +
+            "\nDie Lieferzeit betraegt " + liefzeit + tg;
     }
 
     /** 
@@ -309,7 +309,7 @@ public class Bestellung {
 
         // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.
         String sf = " Sofas ";
-        String st = " Stühlen ";
+        String st = " Stuehlen ";
 
         if (this.anzahlSofas == 1) {
             sf = " Sofa ";
@@ -346,10 +346,10 @@ public class Bestellung {
     public String ueberpruefeBestellbestaetigung() {
         if(this.bestellBestaetigung){
             return "Die Bestellung mit der Nr. " + this.bestellungsNr +
-                            " ist bestätigt.";
+                            " ist bestaetigt.";
             } else {                    
             return "Die Bestellung mit der Nr. " + this.bestellungsNr +
-                            " ist nicht bestätigt."; 
+                            " ist nicht bestaetigt."; 
             }
     }
     

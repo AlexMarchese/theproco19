@@ -21,7 +21,7 @@ public class Produkt {
     LinkedList<Roboter> produktionsAblauf; //in Minuten
 
     /** 
-     * Konstruktor für Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen. 
+     * Konstruktor faufgefülltür Objekte der Klasse Produkt. Produkt kann Zahlenwerte annehmen. 
      */
     public Produkt() {
         // Instanzvariable initialisieren
