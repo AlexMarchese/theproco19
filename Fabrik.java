@@ -123,7 +123,7 @@ public class Fabrik {
     /**
      * Methode, die überprüft, ob das Lager aufgefüllt werden muss und ggf. die zugehörige Methode der Klasse Lager ausführt.
      * Die Methode im Lager wird aufgerufen, sofern eines der Materialien unter 25% des maximalen Lagerbestands fällt.
-     * Falls schon eine Lieferung im Gange ist, wird die Bestellung durch die zugehörige Methode der Klasse Lager unterbunden.
+     * Falls schon eine Lieferung im Gange ist, wird die Bestellung durch die zugehlagerbeständeörige Methode der Klasse Lager unterbunden.
      */
     public String lagerAuffuellen(){    
         // Fülle das gesamte Lager zum Maximum auf, falls ein Material unter 25% des maximalen Lagerbestands fällt.
@@ -134,9 +134,9 @@ public class Fabrik {
              || lager.gibvorhandeneKartoneinheiten() < lager.gibMaxKartoneinheiten()*0.25
              || lager.gibvorhandeneKissen() < lager.gibMaxKissen()*0.25) {
                  lager.lagerAuffuellen();
-                 return ("\nDie Fabrik meldet tiefe Lagerbestände für mindestens einen Materialtyp und beantragt deshalb das Auffüllen des Lagers.");   
+                 return ("\nDie Fabrik meldet tiefe Lagerbestaende fuer mindestens einen Materialtyp und beantragt deshalb das Auffuellen des Lagers.");   
         }
-        return("\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.");
+        return("\nDie Fabrik meldet genug hohe Lagerbestaende und muss noch nicht aufgefuellt werden.");
     }
     
     /**
@@ -151,11 +151,11 @@ public class Fabrik {
         
         // Stellt sicher, dass keine Bestellung mit Negativwerten aufgegeben wird.
         if (sofa < 0 || chairs < 0) {
-            throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte für die Anzahl an.");
+            throw new IllegalArgumentException("Bitte geben Sie keine negativen Werte fuer die Anzahl an.");
         } 
-        // Überprüft, dass die Bestellung (entsprechend der Größe des Lagers) produziert werden kann, wenn es die einzige wäre.
+        // Überprüft, dass die Bestellung (entsprechend der Grösse des Lagers) produziert werden kann, wenn es die einzige wäre.
         else if (lager.anzahlBasierendAufLager(sofa, chairs)){
-            throw new IllegalArgumentException("Bitte bestellen Sie eine kleinere Menge. Wir sind leider nicht ausgerüstet, um so viel auf einmal zu produzieren.");
+            throw new IllegalArgumentException("Bitte bestellen Sie eine kleinere Menge. Wir sind leider nicht ausgeruestet, um so viel auf einmal zu produzieren.");
         } 
         else { 
             neueBestellung = new Bestellung(sofa, chairs, this.bestellungsNrCounter);
@@ -208,7 +208,7 @@ public class Fabrik {
             int prodzeit = (int)Math.floor(bestellung.gibProduktionszeit() * 1440);
             ausgabe += 
                 ("Bestellung Nr.: " + bestellung.gibBestellungsNr() + "\n" +
-                "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() + "\n" +
+                "Anzahl Stuehle: " + bestellung.gibAnzahlStuehle() + "\n" +
                 "Anzahl Sofas: " + bestellung.gibAnzahlSofas() + "\n" +
                 "Produktionszeit: " + prodzeit + " Minuten\n" +
                 "Beschaffungszeit: " + bestellung.gibBeschaffungszeit() + " Tage\n" +
@@ -219,7 +219,7 @@ public class Fabrik {
             beschaffungsZeitGesamt += bestellung.gibBeschaffungszeit();
         }
 
-        String st = " Stühlen";
+        String st = " Stuehlen";
         String sf = " Sofas.";
 
         // Folgende Zeilen geben das Wort Stuhl und Sofa im Singular aus, wenn es nur eins ist.

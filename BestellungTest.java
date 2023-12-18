@@ -93,9 +93,9 @@ public class BestellungTest {
     public void testeBestellungBestaetigen() {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
-        assertEquals("Bestellung (Nr. 2) mit 5 Sofas und 6 Stühlen ist bestätigt.\nDie Lieferzeit beträgt 1 Tag.", testBestellung.bestellungBestaetigen());
+        assertEquals("Bestellung (Nr. 2) mit 5 Sofas und 6 Stuehlen ist bestaetigt.\nDie Lieferzeit betraegt 1 Tag.", testBestellung.bestellungBestaetigen());
 
-        System.out.println("Bestellbestätigung wird wie erwartet Ausgegeben");
+        System.out.println("Bestellbestaetigung wird wie erwartet Ausgegeben");
         
     }
     
@@ -112,10 +112,10 @@ public class BestellungTest {
 
         Bestellung testBestellung = new Bestellung(5, 6, 2);
         // Bei der Initialisierung ist bestellBestaetigung false
-        assertEquals("Die Bestellung mit der Nr. 2 ist nicht bestätigt.", testBestellung.ueberpruefeBestellbestaetigung());
+        assertEquals("Die Bestellung mit der Nr. 2 ist nicht bestaetigt.", testBestellung.ueberpruefeBestellbestaetigung());
 
         testBestellung.setzeBestellBestaetigung(true);
-        assertEquals("Die Bestellung mit der Nr. 2 ist bestätigt.", testBestellung.ueberpruefeBestellbestaetigung());
+        assertEquals("Die Bestellung mit der Nr. 2 ist bestaetigt.", testBestellung.ueberpruefeBestellbestaetigung());
 
         System.out.println("Die Methode UeberpruefeBestellbestaetigung funktioniert.");
         

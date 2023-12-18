@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Lieferant umfasst die Informationen zu den für die Fabrik bestellbaren Materialien und die dazugehörigen Methoden.
+ * Die Klasse Lieferant umfasst die Informationen zu den faufgefülltür die Fabrik bestellbaren Materialien und die dazugehörigen Methoden.
  * 
  * @author GBI Gruppe 19
  * @version 2.0
@@ -70,7 +70,7 @@ public class Lieferant extends Thread {
         while(true){
             if(lieferungInArbeit){
                 try{
-                    System.out.println("Der Lieferant hat die Bestellung vom Lager erhalten und bestätigt den Auftrag wie folgt.");
+                    System.out.println("Der Lieferant hat die Bestellung vom Lager erhalten und bestaetigt den Auftrag wie folgt.");
                     System.out.println( "-------------------------------------------------------------");
                     System.out.println("Bestellschein:");
                     System.out.println( "Holzeinheiten:   " + this.bestellteHolzeinheiten + 
@@ -79,7 +79,7 @@ public class Lieferant extends Thread {
                                         "\nKartoneinheiten: " + this.bestellteKartoneinheiten + 
                                         "\nKissen:          " + this.bestellteKissen);
                     System.out.println( "-------------------------------------------------------------");
-                    System.out.println("\nDie Lieferzeit beträgt 48 Stunden.\n");
+                    System.out.println("\nDie Lieferzeit betraegt 48 Stunden.\n");
                     this.sleep(48000); // 24 sec -> 24 Stunden
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();

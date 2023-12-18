@@ -25,7 +25,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
      */
     @Override
     public void run(){
-        System.out.println("Und täglich grüsst das Murmeltier (als Thread gestartet...)");
+        System.out.println("Und taeglich gruesst das Murmeltier (als Thread gestartet...)");
         while (true) {
             
             //Der Thread schläft für 24 Stunden
@@ -37,9 +37,9 @@ public class TaeglichGruesstDasMurmeltier extends Thread
                 ie.printStackTrace();
             }
 
-            // Informationsausgabe, Lagersituation überprüfen und ggf. auffüllen
+            // Informationsausgabe, Lagersituation lagerbeständeüberprüfen und ggf. auffüllen
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("24 Stunden sind vergangen.\nDie Lagersituation wird ausgegeben und es wird überprüft, ob das Lager aufgefüllt werden muss.");
+            System.out.println("24 Stunden sind vergangen.\nDie Lagersituation wird ausgegeben und es wird ueberprueft, ob das Lager aufgefuellt werden muss.");
             System.out.println(this.meineFabrik.lagerSituation());
             // lasse die lagerAuffuellen Methode Laufen
             System.out.println(meineFabrik.lagerAuffuellen());

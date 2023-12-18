@@ -5,7 +5,7 @@
 /**
  * 
  * Die Klasse Main ist der Einstiegspunkt in das Programm und in der Main Methode wird das Programm ausgeführt.
- * Hier können Bestellungen mit individuellen Anzahlen an Stühlen und Sofas aufgegeben werden oder es 
+ * Hier können aufgefülltBestellungen mit individuellen Anzahlen an Stühlen und Sofas aufgegeben werden oder es 
  * wird eine vordefinierte Bestellung ausgeführt. 
  * 
  * 

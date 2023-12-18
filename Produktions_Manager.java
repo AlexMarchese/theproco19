@@ -130,7 +130,7 @@ public class Produktions_Manager extends Thread
 
             for(Produkt prod : produkte)
             {   
-                // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen berücksichtigen
+                // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen beraufgefücksichtigen
                 if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
                     try {                    
                         Thread.sleep(1000); // eine Stunde warten
@@ -230,7 +230,7 @@ public class Produktions_Manager extends Thread
 
                 // Sollte eine Einheit durch die zu bearbeitende Bestellung negativ werden (= nicht verfügbar sein), dann wird jede Stunde überprüft, ob die Lieferung der nötigen Materialien eingetroffen ist
                 if (holzEinh < 0 || schraub < 0 || farbEinh < 0 || kartonEinh < 0 || kiss < 0) {
-                    System.out.println("Gerade sind nicht genug Einheiten für die komplette Erstellung der Produkte der Bestellung verfügbar. Es werden die Produkte produziert, die mit den vorhandenen Mengen an produziert werden können. Es wird abgewartet, bis die weiteren Materialien eintreffen und weiter produziert.");
+                    System.out.println("Gerade sind nicht genug Einheiten fuer die komplette Erstellung der Produkte der Bestellung verfügbar. Es werden die Produkte produziert, die mit den vorhandenen Mengen an produziert werden koennen. Es wird abgewartet, bis die weiteren Materialien eintreffen und weiter produziert.");
 
                     while (holzEinh < 0 || schraub < 0 || farbEinh < 0 || kartonEinh < 0 || kiss < 0) {
                         try{

@@ -105,7 +105,7 @@ public class GUI extends JFrame {
      */
     private void aktualisiereLagerbestand(){
         
-        //Panel säubern, bevor es aufgesetzt wird
+        //Panel säubern, bevor es aufgefaufgesetzt wird
         lagerbestandPanel.removeAll();
         
         // Konfiguriere lagerbestandPanel
@@ -284,7 +284,7 @@ public class GUI extends JFrame {
 
         JScrollPane logScrollPane = new JScrollPane(logTextArea);
         statusUpdatesPanel.add(logScrollPane, BorderLayout.CENTER);
-
+        
         // Redirect System.out to the custom PrintStream
         PrintStream consolePrintStream = logTextArea.getPrintStream();
         System.setOut(consolePrintStream);
@@ -401,20 +401,20 @@ public class GUI extends JFrame {
     private void handleBestellungAufgeben() {
         System.out.println("Button 'Bestellung Aufgeben' clicked"); // Debug print
 
-        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen möchten:");
-        String stühleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stühle an, welche Sie bestellen möchten:");
+        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten:");
+        String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten:");
 
         try {
-            int stühle = Integer.parseInt(stühleInput);
+            int stuehle = Integer.parseInt(stuehleInput);
             int sofas = Integer.parseInt(sofasInput);
 
-            System.out.println("Calling fabrik.bestellungAufgeben with sofas: " + sofas + " and stühle: " + stühle); // Debug print
+            System.out.println("Calling fabrik.bestellungAufgeben with sofas: " + sofas + " and stuehle: " + stuehle); // Debug print
 
             // Call the fabrik.bestellungAufgeben method with the entered values
             // String result = fabrik.bestellungAufgeben(sofas, stühle);
             // String result = main.befehleSchleife("best " + sofas + " " + stühle);
             // String result = main.befehle("best " + sofas + " " + stühle);
-            String result = fabrik.bestellungAufgeben(sofas, stühle);
+            String result = fabrik.bestellungAufgeben(sofas, stuehle);
 
             // fenster.pack();
 
@@ -467,7 +467,7 @@ public class GUI extends JFrame {
 
         // Add components for the information panel (customize this part)
         String infoText = "<html><br> Auf dieser Seite finden Sie den aktuellen Status des Lieferanten.<br><br>" +
-            "Der Lieferant hat momentan genügend Material an Lager um eine Bestellung aufzunehmen.<br>"+
+            "Der Lieferant hat momentan genuegend Material an Lager um eine Bestellung aufzunehmen.<br>"+
             "----------------------------------------------------------<br>" +
             "Lieferstatus<br>" +
             "Momentan werden folgende Einheiten geliefert:<br>" +
@@ -594,7 +594,7 @@ public class GUI extends JFrame {
         }
     
         JLabel orderLabel = new JLabel( "<html><b>Bestellung Nr. " + bestellung.gibBestellungsNr() + "</b></html>");
-        JLabel infoLabel = new JLabel(  "<html>Anzahl Stühle: " + bestellung.gibAnzahlStuehle() +
+        JLabel infoLabel = new JLabel(  "<html>Anzahl Stuehle: " + bestellung.gibAnzahlStuehle() +
                                     "<br>Anzahl Sofas: " + bestellung.gibAnzahlSofas() +
                                     "<br>Status: " + status + "</html>");
                                     
@@ -780,9 +780,9 @@ public class GUI extends JFrame {
         }
     }
     
-    private void guiSettings(JFrame fenster, int länge, int breite){
+    private void guiSettings(JFrame fenster, int laenge, int breite){
         fenster.setLayout(null);
-        fenster.setSize(länge, breite);
+        fenster.setSize(laenge, breite);
         fenster.setResizable(false);
         fenster.setVisible(true);
     }
