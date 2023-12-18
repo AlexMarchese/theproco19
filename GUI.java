@@ -21,7 +21,7 @@ public class GUI extends JFrame {
     private JPanel roboterStatusPanel;
     private JPanel statusUpdatesPanel;
     private JPanel leftPanel;
-    private JMenuBar menuBar;
+    private JMenuBar menueZeile;
     private JMenu fileMenu;
 
     private Fabrik fabrik;
@@ -88,7 +88,7 @@ public class GUI extends JFrame {
         konfiguriereLinkeLeisteKnoepfe();
 
         /// Menüleiste
-        menuBar = new JMenuBar();
+        menueZeile = new JMenuBar();
         konfiguriereMenueleiste();
 
         // Hauptfenster-Konfigurierung
@@ -339,10 +339,17 @@ public class GUI extends JFrame {
      */
     private void konfiguriereMenueleiste(){
 
-        fenster.setJMenuBar(menuBar);
+        fenster.setJMenuBar(menueZeile);
 
-        fileMenu = new JMenu("File");
-        menuBar.add(fileMenu);
+        JMenu fileMenu = new JMenu("File");
+        menueZeile.add(fileMenu);
+        
+        JMenu produktMenu = new JMenu("Produkte");
+        menueZeile.add(produktMenu);
+        
+        JMenu unsMenu = new JMenu("Über Uns");
+        menueZeile.add(unsMenu);
+        
 
         // Option 1 "Refresh" ->
         JMenuItem refresh = new JMenuItem("Refresh");
