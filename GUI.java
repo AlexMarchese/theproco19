@@ -161,7 +161,6 @@ public class GUI extends JFrame {
         columnsPanel.add(roboterStatusPanel);
         
         
-        
         // Fenster für Status-Updates erstellen
         statusUpdatesPanel = new JPanel(new BorderLayout());
         
@@ -218,10 +217,9 @@ public class GUI extends JFrame {
         bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
 
         JPanel bestellungenLogPanel = aktualisiereBestellungPanel();
-        
          // Verwende ein GridLayout mit Abstand von 4 Pixeln horizontal und 6 Pixeln vertikal zwischen den Komponenten
-        bestellungenLogPanel.setLayout(new GridLayout(0, 0, 0, 0));
-        
+        bestellungenLogPanel.setLayout(new GridLayout(6, 4, 4, 6));
+    
         JScrollPane bestellungenLogScrollPane = new JScrollPane(bestellungenLogPanel);
         bestellungenPanel.add(bestellungenLogScrollPane, BorderLayout.CENTER);
         
@@ -275,7 +273,7 @@ public class GUI extends JFrame {
         // Design
         statusUpdatesPanel.setBorder(BorderFactory.createCompoundBorder(
         BorderFactory.createLineBorder(Color.BLACK),
-        BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
+        BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Fügen Sie den leeren Border hinzu
 
         JLabel statusUpdatesLabel = new JLabel("Status-Updates");
         statusUpdatesPanel.add(statusUpdatesLabel, BorderLayout.NORTH);
