@@ -212,12 +212,16 @@ public class GUI extends JFrame {
         // Fenster designen und befüllen
         bestellungenPanel.setBorder(BorderFactory.createCompoundBorder(
         BorderFactory.createLineBorder(Color.BLACK),
-        BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
+        BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Fügen Sie den leeren Border hinzu
         
         JLabel bestellungenLabel = new JLabel("Bestellungen");
         bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
 
         JPanel bestellungenLogPanel = aktualisiereBestellungPanel();
+        
+         // Verwende ein GridLayout mit Abstand von 4 Pixeln horizontal und 6 Pixeln vertikal zwischen den Komponenten
+        bestellungenLogPanel.setLayout(new GridLayout(0, 0, 0, 0));
+        
         JScrollPane bestellungenLogScrollPane = new JScrollPane(bestellungenLogPanel);
         bestellungenPanel.add(bestellungenLogScrollPane, BorderLayout.CENTER);
         
@@ -236,13 +240,13 @@ public class GUI extends JFrame {
         // Fenster designen und befüllen
         roboterStatusPanel.setBorder(BorderFactory.createCompoundBorder(
         BorderFactory.createLineBorder(Color.BLACK),
-        BorderFactory.createEmptyBorder(10, 10, 0, 10))); // Fügen Sie den leeren Border hinzu
+        BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Fügen Sie den leeren Border hinzu
 
         JLabel roboterStatusLabel = new JLabel("Roboter Status");
         roboterStatusPanel.add(roboterStatusLabel, BorderLayout.NORTH);
         
         // Fenster innerhalb der Roboterspalte
-        JPanel roboterInnerPanel = new JPanel(new GridLayout(4, 1));
+        JPanel roboterInnerPanel = new JPanel(new GridLayout(6, 4, 4, 6));
         
         // Roboter in den jeweiligen Panels abbilden
         JPanel holzRoboterPanel = aktualisiereRoboterPanel(holzRoboter);
@@ -545,7 +549,7 @@ public class GUI extends JFrame {
     
     private JPanel aktualisiereRoboterPanel(Roboter roboter) {
     JPanel panel = new JPanel(new GridLayout(4, 1));
-    JLabel nameLabel = new JLabel("<html><b>  " + roboter.gibName() + "</b></html>");
+    JLabel nameLabel = new JLabel("<html><b>" +    roboter.gibName() + "</b></html>");
     JLabel statusLabel = new JLabel("  Status: Aktiv");
     JLabel warteschlangeLabel = new JLabel("  Warteschlange: " + roboter.gibWarteschlange().size());
 
