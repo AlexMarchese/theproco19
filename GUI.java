@@ -284,7 +284,7 @@ public class GUI extends JFrame {
 
         JScrollPane logScrollPane = new JScrollPane(logTextArea);
         statusUpdatesPanel.add(logScrollPane, BorderLayout.CENTER);
-
+        
         // Redirect System.out to the custom PrintStream
         PrintStream consolePrintStream = logTextArea.getPrintStream();
         System.setOut(consolePrintStream);
