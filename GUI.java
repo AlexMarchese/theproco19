@@ -348,10 +348,18 @@ public class GUI extends JFrame {
         
         JMenu produktMenu = new JMenu("Produkte");
         menueZeile.add(produktMenu);
+        JMenuItem stuhlEintrag = new JMenuItem("Stuhl");
+        stuhlEintrag.addActionListener(new StuhlActionListener());
+        produktMenu.add(stuhlEintrag);
+        JMenuItem sofaEintrag = new JMenuItem("Sofa");
+        sofaEintrag.addActionListener(new SofaActionListener());
+        produktMenu.add(sofaEintrag);
         
         JMenu unsMenu = new JMenu("Über Uns");
         menueZeile.add(unsMenu);
-        
+        JMenuItem teamEintrag = new JMenuItem("Team");
+        teamEintrag.addActionListener(new TeamActionListener());
+        unsMenu.add(teamEintrag);
 
         // Option 1 "Refresh" ->
         JMenuItem refresh = new JMenuItem("Refresh");
@@ -374,20 +382,20 @@ public class GUI extends JFrame {
          */
 
         // Option 2 "" ->
-        JMenuItem option2 = new JMenuItem("Option 2");
-        option2.addActionListener(e -> {
+        //JMenuItem option2 = new JMenuItem("Option 2");
+        //option2.addActionListener(e -> {
                     // Handle Option 2 action
-                    JOptionPane.showMessageDialog(fenster, "Option 2 selected");
-            });
-        fileMenu.add(option2);
+        //            JOptionPane.showMessageDialog(fenster, "Option 2 selected");
+         //   });
+        //fileMenu.add(option2);
 
         // Option 3 "" ->
-        JMenuItem option3 = new JMenuItem("Option 3");
-        option3.addActionListener(e -> {
-                    // Handle Option 3 action
-                    JOptionPane.showMessageDialog(fenster, "Option 3 selected");
-            });
-        fileMenu.add(option3);
+        //JMenuItem option3 = new JMenuItem("Option 3");
+        //option3.addActionListener(e -> {
+        //            // Handle Option 3 action
+        //            JOptionPane.showMessageDialog(fenster, "Option 3 selected");
+        //    });
+        //fileMenu.add(option3);
     }
 
     private void handleBestellungAufgeben() {
@@ -687,4 +695,96 @@ public class GUI extends JFrame {
     //    SwingUtilities.invokeLater(() -> new GUI());
     //}
     */
+    /**
+     * Die Klasse "TeamActionListener" erstellt ein neues Fenster sobald über
+     * das JMenu Karriere angewählt wird. 
+     */
+    class TeamActionListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event)
+        {
+            fenster = new JFrame("Sofa");
+            teamFenster();
+        }
+        
+        protected void teamFenster() 
+        {
+            fenster.setContentPane(new BackGroundPane("UnserTeam.png"));
+            guiSettings(fenster, 720, 405);
+        }
+    }
+   
+   /**
+     * Die Klasse "SofaActionListener" erstellt ein neues Fenster sobald über
+     * das JMenu Karriere angewählt wird. 
+     */
+    class SofaActionListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event)
+        {
+            fenster = new JFrame("Sofa");
+            sofaFenster();
+        }
+        
+        protected void sofaFenster() 
+        {
+            fenster.setContentPane(new BackGroundPane("Sofa.png"));
+            guiSettings(fenster, 600, 505);
+        }
+    }
+   
+    /**
+     * Die Klasse "StuhlActionListener" erstellt ein neues Fenster sobald über
+     * das JMenu Karriere angewählt wird. 
+     */
+    class StuhlActionListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event)
+        {
+            fenster = new JFrame("Stuhl");
+            stuhlFenster();
+        }
+        
+        protected void stuhlFenster() 
+        {
+            fenster.setContentPane(new BackGroundPane("Stuhl.png"));
+            guiSettings(fenster, 550, 505);
+        }
+    }
+    
+     /**
+     * Die Klasse "BackGroundPane" setzt Hintergrundbilder ein. 
+     */
+    class BackGroundPane extends JPanel 
+    {
+        Image img = null;
+        
+        BackGroundPane(String imagefile) 
+        {
+            if (imagefile != null) {
+                MediaTracker mt = new MediaTracker(this);
+                img = Toolkit.getDefaultToolkit().getImage(imagefile);
+                mt.addImage(img, 0);
+                try {
+                    mt.waitForAll();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        
+        protected void paintComponent(Graphics g) 
+        {
+            super.paintComponent(g);
+            g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
+        }
+    }
+    
+    private void guiSettings(JFrame fenster, int länge, int breite){
+        fenster.setLayout(null);
+        fenster.setSize(länge, breite);
+        fenster.setResizable(false);
+        fenster.setVisible(true);
+    }
+
 }
