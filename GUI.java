@@ -228,7 +228,7 @@ public class GUI extends JFrame {
         bestellungenPanel.repaint();
     }
     
-        /**
+    /**
      * Konfigurierung der Subfenster im Zentrum mit 3 Spalten
      */
     private void aktualisiereColumnRoboterstatus(){
@@ -247,10 +247,10 @@ public class GUI extends JFrame {
         JPanel roboterInnerPanel = new JPanel(new GridLayout(6, 4, 4, 6));
         
         // Roboter in den jeweiligen Panels abbilden
-        JPanel holzRoboterPanel = aktualisiereRoboterPanel(holzRoboter);
-        JPanel montageRoboterPanel = aktualisiereRoboterPanel(montageRoboter);
-        JPanel lackierRoboterPanel = aktualisiereRoboterPanel(lackierRoboter);
-        JPanel verpackungsRoboterPanel = aktualisiereRoboterPanel(verpackungsRoboter);
+        JPanel holzRoboterPanel = aktualisiereRoboterPanel(this.holzRoboter);
+        JPanel montageRoboterPanel = aktualisiereRoboterPanel(this.montageRoboter);
+        JPanel lackierRoboterPanel = aktualisiereRoboterPanel(this.lackierRoboter);
+        JPanel verpackungsRoboterPanel = aktualisiereRoboterPanel(this.verpackungsRoboter);
         
         //Roboter-Panels zu InnerPannel hinzufügen hinzufügen
         roboterInnerPanel.add(holzRoboterPanel);
@@ -266,14 +266,14 @@ public class GUI extends JFrame {
         bestellungenPanel.repaint();        
     }
     
-        /**
+    /**
      * Konfigurierung der Subfenster im Zentrum mit 3 Spalten
      */
     private void konfiguriereColumnStatusupdates(){
         // Design
         statusUpdatesPanel.setBorder(BorderFactory.createCompoundBorder(
         BorderFactory.createLineBorder(Color.BLACK),
-        BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Fügen Sie den leeren Border hinzu
+        BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Fügt den leeren Border hinzu
 
         JLabel statusUpdatesLabel = new JLabel("Status-Updates");
         statusUpdatesPanel.add(statusUpdatesLabel, BorderLayout.NORTH);
@@ -610,6 +610,8 @@ public class GUI extends JFrame {
     panel.add(nameLabel);
     panel.add(statusLabel);
     panel.add(warteschlangeLabel);
+
+    System.out.println("\n\nAktualisiere Roboter " + roboter.gibName() + "\nWS: " + roboter.gibWarteschlange().size());
 
     panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
