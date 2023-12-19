@@ -10,6 +10,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
 {
     // Instanzvariablen
     private Fabrik meineFabrik;
+    private int zeitFaktor; // Wird benötigt, um dem Nutzer aus der GUI die Möglichkeit zu geben die Zeit um den Faktor zu beeinflussen
 
     /**
      * Konstruktor für Objekte der Klasse TaeglichGruesstDasMurmeltier
@@ -17,6 +18,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
     public TaeglichGruesstDasMurmeltier(Fabrik fabrik){
         // Instanzvariable initialisieren
         this.meineFabrik = fabrik;
+        this.zeitFaktor = 1;
     }
         
     /**
@@ -30,7 +32,7 @@ public class TaeglichGruesstDasMurmeltier extends Thread
             
             //Der Thread schläft für 24 Stunden
             try{
-            Thread.sleep(24_000); 
+            Thread.sleep(24_000 * this.zeitFaktor); 
             }
             catch (InterruptedException ie){
                 // Falls der Thread während des Schlafens unterbrochen wird, wird eine Fehlermeldung ausgegeben
@@ -47,5 +49,13 @@ public class TaeglichGruesstDasMurmeltier extends Thread
 
         }      
         
+    }
+
+    /**
+     * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
+     * 
+     */
+    public void beeinflusseZeit(int faktor){
+        this.zeitFaktor = faktor;
     }
 }

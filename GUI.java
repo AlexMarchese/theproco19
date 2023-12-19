@@ -312,6 +312,20 @@ public class GUI extends JFrame {
             });
         leftPanel.add(button1);
 
+        // Zeitraffer Button
+        JButton buttonZ = new JButton("Zeitraffer");
+        buttonZ.setMaximumSize(new Dimension(200, 30));
+        buttonZ.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    handleZeitraffer();
+                }
+                //buttonZ.addActionListener(e -> {
+                // Handle Button 1 action
+                //   JOptionPane.showMessageDialog(fenster, "Button 1 pressed");
+            });
+        leftPanel.add(buttonZ);
+
         //Bestellung Ausgeben Button
         JButton button2 = new JButton("Bestellungen Ausgeben");
         button2.setMaximumSize(new Dimension(200, 30));
@@ -422,6 +436,42 @@ public class GUI extends JFrame {
             // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
             // Display the result
             JOptionPane.showMessageDialog(GUI.this, result);
+            // JOptionPane.showMessageDialog(GUI.this);
+            // JOptionPane.showMessageDialog(GUI.this, "It worked!");
+
+            // Update the Bestellungen column
+            //updateBestellungenPanel();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(GUI.this, "Invalid input. Please enter valid numbers.");
+        }
+    }
+
+    private void handleZeitraffer() {
+        System.out.println("Button 'Zeitraffer' clicked"); // Debug print
+
+        // String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten:");
+        // String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten:");
+        String zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten:");
+
+        try {
+            int faktor = Integer.parseInt(zeitFaktor);
+            // int sofas = Integer.parseInt(sofasInput);
+
+            System.out.println("Calling fabrik.beeinflusseZeit with Faktor: " + faktor); // Debug print
+
+            // Call the fabrik.bestellungAufgeben method with the entered values
+            // String result = fabrik.bestellungAufgeben(sofas, stühle);
+            // String result = main.befehleSchleife("best " + sofas + " " + stühle);
+            // String result = main.befehle("best " + sofas + " " + stühle);
+            // String result = fabrik.bestellungAufgeben(sofas, stuehle);
+            fabrik.beeinflusseZeit(faktor);
+
+            // fenster.pack();
+
+            // System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
+            // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
+            // Display the result
+            // JOptionPane.showMessageDialog(GUI.this, result);
             // JOptionPane.showMessageDialog(GUI.this);
             // JOptionPane.showMessageDialog(GUI.this, "It worked!");
 
@@ -619,18 +669,7 @@ public class GUI extends JFrame {
         // Add other update methods if needed
     }
 
-    public static void main(String[] args) {
-        // GUI erstellen und sichtbar machen
-        SwingUtilities.invokeLater(() -> {
-            GUI gui = new GUI();
-            gui.setVisible(false);
-
-            // Timer, damit die Fenster jede Millisekunde updaten
-            Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
-            timer.setRepeats(true); // true, damit sich das wiederholt
-            timer.start();
-        });
-    }
+    
 
 
 
@@ -690,11 +729,41 @@ public class GUI extends JFrame {
         return "In Progress";
     }
 
+
+    
+
+
     //public static void main(String[] args) {
     // Create and display the GUI
     //    SwingUtilities.invokeLater(() -> new GUI());
     //}
     */
+
+
+    // /**
+    //  * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
+    //  * 
+    //  */
+    // public void beeinflusseZeit(int faktor){
+    //     fabrik.beeinflusseZeit(faktor);
+    // }
+
+
+    public static void main(String[] args) {
+        // GUI erstellen und sichtbar machen
+        SwingUtilities.invokeLater(() -> {
+            GUI gui = new GUI();
+            gui.setVisible(false);
+
+            // Timer, damit die Fenster jede Millisekunde updaten
+            Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
+            timer.setRepeats(true); // true, damit sich das wiederholt
+            timer.start();
+        });
+    }
+
+
+
     /**
      * Die Klasse "TeamActionListener" erstellt ein neues Fenster sobald über
      * das JMenu Karriere angewählt wird. 

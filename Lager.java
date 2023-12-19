@@ -490,4 +490,12 @@ public class Lager{
     
     }
 
+    /**
+     * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
+     * 
+     */
+    public void beeinflusseZeit(int faktor){
+        lieferant.setzeZeitFaktor(faktor);
+    }
+
 }

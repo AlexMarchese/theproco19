@@ -252,6 +252,16 @@ public class Fabrik {
       
         return lager.lagerBestandAusgeben();
     }
+
+    /**
+     * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
+     * 
+     */
+    public void beeinflusseZeit(int faktor){
+        lager.beeinflusseZeit(faktor);
+        meinMurmeltier.beeinflusseZeit(faktor);
+        produktions_manager.beeinflusseZeit(faktor);
+    }
 }
     
 

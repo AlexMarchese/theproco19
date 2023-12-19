@@ -26,7 +26,7 @@ public class Produktions_Manager extends Thread
     private LinkedList<Bestellung> bestellungenInProduktion;
     private LinkedList<Roboter> stuhlProduktionsAbfolge;
     private LinkedList<Roboter> sofaProduktionsAbfolge;
-    
+    private int zeitFaktor; // Wird benötigt, um dem Nutzer aus der GUI die Möglichkeit zu geben die Zeit um den Faktor zu beeinflussen
 
     /** 
      * Konstruktor für Objekte der Klasse Produktions_Manager
@@ -45,6 +45,7 @@ public class Produktions_Manager extends Thread
         this.montageRoboter = new Montage_Roboter();
         this.lackierRoboter = new Lackier_Roboter(); 
         this.verpackungsRoboter = new Verpackungs_Roboter();
+        this.zeitFaktor = 1;
         
         // 2 Sekunden warten bevor die Roboter gestartet werden, da in der Zwischenzeit die Produktionszeit aus den Produkten initialisiert wird.
         // Führt sonst zu Exceptions später im Prozess
@@ -133,7 +134,7 @@ public class Produktions_Manager extends Thread
                 // Wenn sich die Klasse seit der letzten Iteration geändert hat oder der Wert nicht den anfänglichen 'null' ist, dann muss man die eine Stunde zur Umstellung der Maschinen beraufgefücksichtigen
                 if((prodTyp != null && prod.getClass() != prodTyp.getClass())){
                     try {                    
-                        Thread.sleep(1000); // eine Stunde warten
+                        Thread.sleep(1000 * this.zeitFaktor); // eine Stunde warten
                         System.out.println("Die Produktionsstrasse wird umgebaut. Dies dauert eine Stunde.");
                         System.out.println("Die Produktionsstrasse wurde erfolgreich umgebaut.");
                     } catch (InterruptedException ie) {
@@ -272,24 +273,35 @@ public class Produktions_Manager extends Thread
         return this.holzRoboter;
     }
     
-        /**
+    /**
      * Methode zur Ausgabe des Montageroboters.
      */
     public Montage_Roboter gibMontageRoboter() {
         return this.montageRoboter;
     }
     
-        /**
+    /**
      * Methode zur Ausgabe des Lackierroboters.
      */
     public Lackier_Roboter gibLackierRoboter() {
         return this.lackierRoboter;
     }
     
-        /**
+    /**
      * Methode zur Ausgabe des Verpackungsroboters.
      */
     public Verpackungs_Roboter gibVerpackungsRoboter() {
         return this.verpackungsRoboter;
+    }
+
+    /**
+     * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
+     * 
+     */
+    public void beeinflusseZeit(int faktor){
+        this.holzRoboter.setzeZeitFaktor(faktor);
+        this.montageRoboter.setzeZeitFaktor(faktor);
+        this.lackierRoboter.setzeZeitFaktor(faktor);
+        this.verpackungsRoboter.setzeZeitFaktor(faktor);
     }
 }

@@ -1,46 +1,46 @@
 #BlueJ class context
 comment0.target=Produkt
-comment0.text=\n\ Die\ Klasse\ Produkt\ umfasst\ die\ Informationen\ zu\ den\ von\ der\ Fabrik\ produzierbaren\ Produkten\ und\ die\ dazugeh\u00F6rige\ Methoden.\n\ Diese\ Produkte\ umfassen\ Sofas\ und\ St\u00FChle.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 2.0\n\ \n\ \n
+comment0.text=\r\n\ Die\ Klasse\ Produkt\ umfasst\ die\ Informationen\ zu\ den\ von\ der\ Fabrik\ produzierbaren\ Produkten\ und\ die\ dazugeh\u00F6rige\ Methoden.\r\n\ Diese\ Produkte\ umfassen\ Sofas\ und\ St\u00FChle.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 2.0\r\n\ \r\n\ \r\n
 comment1.params=
 comment1.target=Produkt()
-comment1.text=\ \n\ Konstruktor\ faufgef\u00FCllt\u00FCr\ Objekte\ der\ Klasse\ Produkt.\ Produkt\ kann\ Zahlenwerte\ annehmen.\ \n
+comment1.text=\ \r\n\ Konstruktor\ faufgef\u00FCllt\u00FCr\ Objekte\ der\ Klasse\ Produkt.\ Produkt\ kann\ Zahlenwerte\ annehmen.\ \r\n
 comment10.params=produktionsZeitMontage
 comment10.target=void\ setzeProduktionszeitMontage(int)
-comment10.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Montage\ zu\ setzen.\n\ @param\ \ produktionsZeitMontage\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Montage\ in\ Minuten.\n
+comment10.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Montage\ zu\ setzen.\r\n\ @param\ \ produktionsZeitMontage\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Montage\ in\ Minuten.\r\n
 comment11.params=
 comment11.target=int\ gibProduktionszeitSpritzung()
-comment11.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Spritzung\ zu\ erhalten.\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\n
+comment11.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Spritzung\ zu\ erhalten.\r\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\r\n
 comment12.params=produktionsZeitSpritzung
 comment12.target=void\ setzeProduktionszeitSpritzung(int)
-comment12.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Spritzung\ zu\ setzen.\n\ @param\ \ produktionsZeitSpritzung\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Spritzung\ in\ Minuten.\n
+comment12.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Spritzung\ zu\ setzen.\r\n\ @param\ \ produktionsZeitSpritzung\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Spritzung\ in\ Minuten.\r\n
 comment13.params=
 comment13.target=int\ gibProduktionszeitVerpackung()
-comment13.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Verpackung\ zu\ erhalten.\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\n
+comment13.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Verpackung\ zu\ erhalten.\r\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\r\n
 comment14.params=produktionsZeitVerpackung
 comment14.target=void\ setzeProduktionszeitVerpackung(int)
-comment14.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Verpackung\ zu\ setzen.\n\ @param\ \ produktionsZeitVerpackung\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Verpackung\ in\ Minuten.\n
+comment14.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Verpackung\ zu\ setzen.\r\n\ @param\ \ produktionsZeitVerpackung\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Verpackung\ in\ Minuten.\r\n
 comment2.params=zustand
 comment2.target=void\ setzeZustand(int)
-comment2.text=\n\ Methode,\ um\ den\ Zustandswert\ des\ Produkts\ zu\ setzen.\n\ @param\ \ \ zustand\ Der\ Zustand\ des\ Produkts\ in\ numerischer\ Form\ (0\ \=\ nicht\ gestartet,\ 1\ \=\ in\ Bearbeitung,\ 2\ \=\ abgeschlossen)\n
+comment2.text=\r\n\ Methode,\ um\ den\ Zustandswert\ des\ Produkts\ zu\ setzen.\r\n\ @param\ \ \ zustand\ Der\ Zustand\ des\ Produkts\ in\ numerischer\ Form\ (0\ \=\ nicht\ gestartet,\ 1\ \=\ in\ Bearbeitung,\ 2\ \=\ abgeschlossen)\r\n
 comment3.params=
 comment3.target=int\ gibZustand()
-comment3.text=\n\ Methode\ gibt\ aktuellen\ Zustand\ zur\u00FCck\ (0\ \=\ nicht\ gestartet,\ 1\ \=\ in\ Bearbeitung,\ 2\ \=\ abgeschlossen).\n\ \n\ @return\ \ zustand\ Der\ aktuelle\ Zustand\ des\ Produkts\ in\ numerischer\ Form\n
+comment3.text=\r\n\ Methode\ gibt\ aktuellen\ Zustand\ zur\u00FCck\ (0\ \=\ nicht\ gestartet,\ 1\ \=\ in\ Bearbeitung,\ 2\ \=\ abgeschlossen).\r\n\ \r\n\ @return\ \ zustand\ Der\ aktuelle\ Zustand\ des\ Produkts\ in\ numerischer\ Form\r\n
 comment4.params=roboter1\ roboter2\ roboter3\ roboter4
 comment4.target=void\ setzeProduktionsAblauf(Roboter,\ Roboter,\ Roboter,\ Roboter)
-comment4.text=\n\ Methode,\ um\ den\ Produktionsablauf\ f\u00FCr\ ein\ Produkt\ zu\ setzen.\n\ @param\ \ \ produktionsAblauf\ Die\ Reihenfolge\ der\ Produktionsstationen\ (Roboter)\ in\ einer\ LinkedList\n
+comment4.text=\r\n\ Methode,\ um\ den\ Produktionsablauf\ f\u00FCr\ ein\ Produkt\ zu\ setzen.\r\n\ @param\ \ \ produktionsAblauf\ Die\ Reihenfolge\ der\ Produktionsstationen\ (Roboter)\ in\ einer\ LinkedList\r\n
 comment5.params=
 comment5.target=java.util.LinkedList\ gibProduktionsAblauf()
-comment5.text=\n\ Methode,\ um\ den\ Produktionsablauf\ f\u00FCr\ ein\ Produkt\ zu\ erhalten.\n\ @return\ \ produktionsAblauf\ Die\ Reihenfolge\ der\ Produktionsstationen\ (Roboter)\ in\ einer\ LinkedList\n
+comment5.text=\r\n\ Methode,\ um\ den\ Produktionsablauf\ f\u00FCr\ ein\ Produkt\ zu\ erhalten.\r\n\ @return\ \ produktionsAblauf\ Die\ Reihenfolge\ der\ Produktionsstationen\ (Roboter)\ in\ einer\ LinkedList\r\n
 comment6.params=
 comment6.target=void\ naechsteProduktionsStation()
-comment6.text=\n\ Methode,\ um\ die\ Produktionsstation\ (Roboter)\ eines\ Produkts\ zu\ wechseln.\ Nimmt\ aus\ der\ Liste\ der\ zu\ durchlaufenden\n\ Roboter\ den\ jeweils\ n\u00E4chsten\ heraus\ und\ f\u00FCgt\ dem\ Roboter\ das\ aktuelle\ Produkt\ in\ der\ Liste\ der\n\ zu\ produzierenden\ Produkte\ hinzu.\n
+comment6.text=\r\n\ Methode,\ um\ die\ Produktionsstation\ (Roboter)\ eines\ Produkts\ zu\ wechseln.\ Nimmt\ aus\ der\ Liste\ der\ zu\ durchlaufenden\r\n\ Roboter\ den\ jeweils\ n\u00E4chsten\ heraus\ und\ f\u00FCgt\ dem\ Roboter\ das\ aktuelle\ Produkt\ in\ der\ Liste\ der\r\n\ zu\ produzierenden\ Produkte\ hinzu.\r\n
 comment7.params=
 comment7.target=int\ gibProduktionszeitHolz()
-comment7.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ das\ Holz\ zu\ erhalten.\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\n
+comment7.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ das\ Holz\ zu\ erhalten.\r\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\r\n
 comment8.params=produktionsZeitHolz
 comment8.target=void\ setzeProduktionszeitHolz(int)
-comment8.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ das\ Holz\ zu\ setzen.\n\ @param\ produktionsZeitHolz\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Holzbearbeitung\ in\ Minuten.\n\ \ \n
+comment8.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ das\ Holz\ zu\ setzen.\r\n\ @param\ produktionsZeitHolz\ Die\ neue\ Produktionszeit\ f\u00FCr\ die\ Holzbearbeitung\ in\ Minuten.\r\n\ \ \r\n
 comment9.params=
 comment9.target=int\ gibProduktionszeitMontage()
-comment9.text=\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Montage\ zu\ erhalten.\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\n
+comment9.text=\r\n\ Methode,\ um\ die\ Produktionszeit\ f\u00FCr\ die\ Montage\ zu\ erhalten.\r\n\ @return\ \ produktionsZeit\ Gibt\ die\ Produktionszeit\ (in\ Minuten)\ zur\u00FCck.\r\n
 numComments=15

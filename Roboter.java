@@ -13,6 +13,7 @@ public class Roboter extends Thread
     // Instanzvariablen 
     private LinkedList <Produkt> warteschlange;
     private String name; 
+    private int zeitFaktor; // Wird benötigt, um dem Nutzer aus der GUI die Möglichkeit zu geben die Zeit um den Faktor zu beeinflussen
 
     /**
      * Konstruktor für Objekte der Klasse Roboter
@@ -22,12 +23,23 @@ public class Roboter extends Thread
         // Instanzvariable initialisieren
         this.warteschlange = new LinkedList<Produkt>();
         this.name = "";
+        this.zeitFaktor = 1;
     }
     
     
     /// Getters + Setters
     
     
+   
+    
+    /**
+     * Methode, gibt den Namen des jeweiligen Roboters zurück.
+     * @return   name Der Name, den der Roboter hat.
+     */
+    public String gibName() {
+        return this.name;
+    }
+
     /**
      * Methode, um den Name des jeweiligen Roboters zu setzen.
      * @param   name Der Name, den der Roboter hat.
@@ -37,19 +49,20 @@ public class Roboter extends Thread
     }
     
     /**
-     * Methode, gibt den Namen des jeweiligen Roboters zurück.
-     * @return   name Der Name, den der Roboter hat.
-     */
-    public String gibName() {
-        return this.name;
-    }
-    
-        /**
      * Methode, gibt die Wartschlange des jeweiligen Roboters zurück.
      * @return   warteschlange  die Warteschlange des Roboters
      */
     public LinkedList gibWarteschlange() {
         return this.warteschlange;
+    }
+
+    /**
+     * Methode zum Setzen des Faktors, um die Zeit zu beeinflussen.
+     * 
+     * @param  faktor   Faktor, um der die Zeit beeinfluss werden soll
+     */
+    public void setzeZeitFaktor(int faktor) {
+        this.zeitFaktor = faktor;
     }
     
     
@@ -101,16 +114,16 @@ public class Roboter extends Thread
         try {
             if(this instanceof Holzbearbeitungs_Roboter){
                 // Schlafe (produziere) für die gegebene Zeit -> durch 60 mal 1000, weil es dann so viele Sekunden sind, wie es Stunden brauchen würde.
-                Thread.sleep(produkt.gibProduktionszeitHolz()/60*1000);
+                Thread.sleep(produkt.gibProduktionszeitHolz() * this.zeitFaktor / 60 * 1000);
                 System.out.println("Holzbearbeitung fuer Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Montage_Roboter){
-                Thread.sleep(produkt.gibProduktionszeitMontage()/60*1000);
+                Thread.sleep(produkt.gibProduktionszeitMontage() * this.zeitFaktor / 60 * 1000);
                 System.out.println("Montage von Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Lackier_Roboter){
-                Thread.sleep(produkt.gibProduktionszeitSpritzung()/60*1000);
+                Thread.sleep(produkt.gibProduktionszeitSpritzung() * this.zeitFaktor / 60 * 1000);
                 System.out.println("Lackierung von Produkt "+ produkt +" abgeschlossen.");
             } else if(this instanceof Verpackungs_Roboter){
-                Thread.sleep(produkt.gibProduktionszeitVerpackung()/60*1000);
+                Thread.sleep(produkt.gibProduktionszeitVerpackung() * this.zeitFaktor / 60 * 1000);
                 System.out.println("Verpackung von Produkt "+ produkt +" abgeschlossen.");
             }
             
@@ -134,6 +147,8 @@ public class Roboter extends Thread
         this.warteschlange.add(produkt);
         }
      
+
+    
 
   
     

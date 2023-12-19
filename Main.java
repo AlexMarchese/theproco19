@@ -45,6 +45,7 @@ public class Main
         return this.lager;
     }
 
+
 }
 //     public String befehle(String kommando){
 //         // Main main = new Main();

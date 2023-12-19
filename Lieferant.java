@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Die Klasse Lieferant umfasst die Informationen zu den faufgefülltür die Fabrik bestellbaren Materialien und die dazugehörigen Methoden.
@@ -14,6 +15,7 @@ public class Lieferant extends Thread {
     private int bestellteKissen;
     private boolean lieferungInArbeit;
     private Lager bestellendesLager;
+    private int zeitFaktor; // Wird benötigt, um dem Nutzer aus der GUI die Möglichkeit zu geben die Zeit um den Faktor zu beeinflussen
         
     public Lieferant(){
         this.bestellteHolzeinheiten = 0; 
@@ -22,8 +24,10 @@ public class Lieferant extends Thread {
         this.bestellteKartoneinheiten = 0;
         this.bestellteKissen = 0;
         this.lieferungInArbeit = false;
+        this.zeitFaktor = 1;
     }
 
+    /// Getters und Setters
 
     /**
      * Methode zur Ausgabe der Variable lieferungInArbeit.
@@ -32,6 +36,18 @@ public class Lieferant extends Thread {
     public boolean gibLieferungInArbeit(){
         return this.lieferungInArbeit;
     }
+
+    /**
+     * Methode zum Setzen des Faktors, um die Zeit zu beeinflussen.
+     * 
+     * @param  faktor   Faktor, um der die Zeit beeinfluss werden soll
+     */
+    public void setzeZeitFaktor(int faktor) {
+        this.zeitFaktor = faktor;
+    }
+
+
+    /// Methoden
     
     /**
      * Methode, um Ware zu bestellen.
@@ -80,7 +96,8 @@ public class Lieferant extends Thread {
                                         "\nKissen:          " + this.bestellteKissen);
                     System.out.println( "-------------------------------------------------------------");
                     System.out.println("\nDie Lieferzeit betraegt 48 Stunden.\n");
-                    this.sleep(48000); // 24 sec -> 24 Stunden
+                    
+                    this.sleep(48000 * this.zeitFaktor); // 48 sec -> 48 Stunden (Defaultwert, also wenn der Faktor 1 ist)
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
