@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ConsoleTextArea
-comment0.text=\n\ Die\ Klasse\ ConsoleTextArea\ wird\ gen\u00FCtzt,\ um\ die\ Konsolen-Statements\ an\ die\ Status-Updates\ im\ GUI\ zu\ senden,\ ohne\ dass\ man\ es\ aktualisieren\ muss.\n
+comment0.text=\r\n\ Die\ Klasse\ ConsoleTextArea\ wird\ gen\u00FCtzt,\ um\ die\ Konsolen-Statements\ an\ die\ Status-Updates\ im\ GUI\ zu\ senden,\ ohne\ dass\ man\ es\ aktualisieren\ muss.\r\n
 comment1.params=
 comment1.target=ConsoleTextArea()
 comment2.params=

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GUI
-comment0.text=\r\n\ TO\ DO\:\r\n\ Die\ Klasse\ GUI\ ...\r\n
+comment0.text=\r\n\ TO\ DO\:\r\n\ Die\ Klasse\ GUI\ stellt\ die\ graphische\ Nutzeroberfl\u00E4che\ f\u00FCr\ die\ AEKI\ Fabrik\ bereit\ und\ gibt\ einerseits\ eine\ \u00DCbersicht\ \u00FCber\ die\ Abl\u00E4ufe\ in\ der\ Fabrik,\ das\ Entwicklerteam,\ den\ Lieferanten\ sowie\ die\ bestellbaren\ Produkte.\r\n
 comment1.params=
 comment1.target=GUI()
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ GUI\r\n
@@ -35,7 +35,7 @@ comment20.target=void\ aktualisiereFenster()
 comment20.text=\r\n\ Methode,\ um\ die\ drei\ Panels\ Lagerbestand,\ ColumnBestellungen\ und\ ColumnRoboterstatus\ zu\ aktualisieren.\r\n
 comment21.params=
 comment21.target=int\ getHolzValue()
-comment21.text=\r\n\ \ \ \ //\ Methode\ um\ Bestellungen\ zu\ Printen\ neu\ angelegt\ w\u00E4hrend\ dem\ Sprint,\r\n\ \ \ \ private\ void\ BestellungenAusgeben(){\r\n\ \ \ \ \ \ \ \ columnsPanel.removeAll();\r\n\ \ \ \ \ \ \ \ this.bestellungenList\ \=\ fabrik.gibBestellungsList();\r\n\ \ \ \ \ \ \ \ for\ (Bestellung\ bestellung\ \:\ bestellungenList)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ JLabel\ label\ \=\ new\ JLabel("Bestellung\ Nr.\ "\ +\ bestellung.gibBestellungsNr()\ +\ "Anzahl\ St\u00FChle\:\ "\ +\ bestellung.gibAnzahlStuehle()\ +\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "\ |\ Anzahl\ Sofas\:\ "\ +\ bestellung.gibAnzahlSofas());\r\n\ \ \ \ \ \ \ \ \ \ \ \ columnsPanel.add(label);\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ fenster.pack();\r\n\ \ \ \ }\r\n\ \ \ \ \r\n
+comment21.text=\r\n\ \ \ \ //\ Methode\ um\ Bestellungen\ zu\ Printen\ neu\ angelegt\ w\u00E4hrend\ dem\ Sprint,\r\n\ \ \ \ private\ void\ BestellungenAusgeben(){\r\n\ \ \ \ columnsPanel.removeAll();\r\n\ \ \ \ this.bestellungenList\ \=\ fabrik.gibBestellungsList();\r\n\ \ \ \ for\ (Bestellung\ bestellung\ \:\ bestellungenList)\ {\r\n\ \ \ \ JLabel\ label\ \=\ new\ JLabel("Bestellung\ Nr.\ "\ +\ bestellung.gibBestellungsNr()\ +\ "Anzahl\ St\u00FChle\:\ "\ +\ bestellung.gibAnzahlStuehle()\ +\r\n\ \ \ \ "\ |\ Anzahl\ Sofas\:\ "\ +\ bestellung.gibAnzahlSofas());\r\n\ \ \ \ columnsPanel.add(label);\r\n\ \ \ \ }\r\n\ \ \ \ fenster.pack();\r\n\ \ \ \ }\r\n\r\n
 comment22.params=
 comment22.target=int\ getSchraubenValue()
 comment23.params=
@@ -46,7 +46,7 @@ comment25.params=
 comment25.target=int\ getKartonValue()
 comment26.params=args
 comment26.target=void\ main(java.lang.String[])
-comment26.text=\ Das\ da\ unten\ ist\ falsch,\ LG\ Flo.\r\n\r\n\ \ \ \ ///\ Methoden\ zu\ den\ Werten\ der\ Bestellungen\r\n\ \ \ \ private\ int\ getChairsValue(int\ bestellungNr)\ {\r\n\ \ \ \ \ \ \ \ //\ Implement\ logic\ to\ get\ number\ of\ chairs\ for\ the\ given\ Bestellung\r\n\ \ \ \ \ \ \ \ return\ 10\ *\ bestellungNr;\r\n\ \ \ \ }\r\n\r\n\ \ \ \ private\ int\ getSofasValue(int\ bestellungNr)\ {\r\n\ \ \ \ \ \ \ \ //\ Implement\ logic\ to\ get\ number\ of\ sofas\ for\ the\ given\ Bestellung\r\n\ \ \ \ \ \ \ \ return\ 5\ *\ bestellungNr;\r\n\ \ \ \ }\r\n\r\n\ \ \ \ private\ String\ getStatusValue(int\ bestellungNr)\ {\r\n\ \ \ \ \ \ \ \ //\ Implement\ logic\ to\ get\ status\ for\ the\ given\ Bestellung\r\n\ \ \ \ \ \ \ \ return\ "In\ Progress";\r\n\ \ \ \ }\r\n\r\n\r\n\ \ \ \ \r\n\r\n\r\n\ \ \ \ //public\ static\ void\ main(String[]\ args)\ {\r\n\ \ \ \ //\ Create\ and\ display\ the\ GUI\r\n\ \ \ \ //\ \ \ \ SwingUtilities.invokeLater(()\ ->\ new\ GUI());\r\n\ \ \ \ //}\r\n
+comment26.text=\r\n\ Herzlich\ Willkommen\ bei\ AEKI.\ Es\ ist\ keine\ Eingabe\ notwendig\ um\ die\ GUI\ zu\ starten.\r\n
 comment27.params=fenster\ laenge\ breite
 comment27.target=void\ guiSettings(javax.swing.JFrame,\ int,\ int)
 comment3.params=
