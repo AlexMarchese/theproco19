@@ -90,7 +90,7 @@ public class Roboter extends Thread
             {
                 // Falls nichts in Warteschlange, wartet der Roboter 1 Millisekunde, bevor er nochmals schaut.
                 try{
-                    Thread.sleep(1);
+                    Thread.sleep(1 * this.zeitFaktor);
                 } catch(InterruptedException ie)
                 {
                     ie.printStackTrace();

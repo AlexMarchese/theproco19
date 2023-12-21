@@ -114,7 +114,7 @@ public class Lieferant extends Thread {
                 System.out.println( "-------------------------------------------------------------");
             } else {
                 try{
-                    this.sleep(1000); // Damit jede Stunde gechecked wird, ob eine Bestellung eingetroffen ist.
+                    this.sleep(1000 * this.zeitFaktor); // Damit jede Stunde gechecked wird, ob eine Bestellung eingetroffen ist.
                 } catch (InterruptedException ie){
                     ie.printStackTrace();
                 }

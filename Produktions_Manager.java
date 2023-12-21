@@ -145,6 +145,7 @@ public class Produktions_Manager extends Thread
                 if(prod instanceof Stuhl)
                 {
                     prod.setzeProduktionsAblauf(holzRoboter, montageRoboter, lackierRoboter, verpackungsRoboter);
+                    // prod.setzeProduktionsAblauf(montageRoboter, holzRoboter, lackierRoboter, verpackungsRoboter);
                     this.reduziereLager(Stuhl.gibHolzeinheiten(), Stuhl.gibSchrauben(), Stuhl.gibFarbeinheiten(), Stuhl.gibKartoneinheiten(), 0);
                     prod.naechsteProduktionsStation();
                     

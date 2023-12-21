@@ -15,7 +15,9 @@ public class GUI extends JFrame {
     //private final GUI_Controller controller;
     private JFrame fenster;
     private JPanel mainPanel;
-    private JPanel lagerbestandPanel;// = new JPanel();    
+    JPanel topPanel;
+    private JPanel lagerbestandPanel;  
+    private JPanel zeitrafferAnzeige;
     private JPanel columnsPanel;
     private JPanel bestellungenPanel;
     private JPanel roboterStatusPanel;
@@ -32,6 +34,7 @@ public class GUI extends JFrame {
     private Lackier_Roboter lackierRoboter; 
     private Verpackungs_Roboter verpackungsRoboter;
     private List<Bestellung> bestellungenList;
+    private String zeitFaktor;
 
     private Main main;
 
@@ -53,6 +56,8 @@ public class GUI extends JFrame {
         this.lackierRoboter = produktions_manager.gibLackierRoboter();
         this.verpackungsRoboter = produktions_manager.gibVerpackungsRoboter();
 
+        this.zeitFaktor = "1";
+
         initFenster(); // Initialisierung des Hauptfensters
     }
     //public GUI(GUI_Controller controller) {
@@ -65,47 +70,61 @@ public class GUI extends JFrame {
      * @param fabrik
      * @param lager
      */
-    private void initFenster() {
+        private void initFenster() {
 
-        // Gesamtfenster
-        fenster = new JFrame("AEKI Übersicht");
-        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenster.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        fenster.setUndecorated(false);
+            // Gesamtfenster
+            fenster = new JFrame("AEKI Übersicht");
+            fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            fenster.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            fenster.setUndecorated(false);
 
-        // Obiges Subfenster mit vor allem Lagerbestand
-        mainPanel = new JPanel(new BorderLayout());        
-        lagerbestandPanel = new JPanel(); // Erstellung des Fensters mit dem Lagerbestand
-        mainPanel.add(lagerbestandPanel, BorderLayout.NORTH); // Wird dem obigen Subfenster hinzugefügt
-        aktualisiereLagerbestand();
+            // Obiges Subfenster mit Lagerbestand, Zeitrafferanzeige und 3 Spalten im Zentrum
+            mainPanel = new JPanel(new BorderLayout()); 
+            // kleines Subfenster mit Lagerbestand und Zeitrafferanzeige
+            topPanel = new JPanel(new BorderLayout());  
+            // Konfiguriere Anzeige des Top Panels
+            topPanel.setBackground(new Color(221, 221, 221));
+            // topPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+            // Erstellung des Fensters mit dem Lagerbestand    
+            lagerbestandPanel = new JPanel(); 
+            // Wird dem kleinen Subfenster hinzugefügt
+            topPanel.add(lagerbestandPanel, BorderLayout.WEST); 
+            aktualisiereLagerbestand();
+            // Erstellung des Fensters mit der Angabe des Zeitraffers
+            zeitrafferAnzeige = new JPanel(new BorderLayout()); 
+            topPanel.add(zeitrafferAnzeige, BorderLayout.EAST);
+            aktualisiereZeitraffer();
+            // kleines Subfenster wird dem obigen Subfenster hinzugefügt 
+            mainPanel.add(topPanel, BorderLayout.NORTH);
 
-        /// 3 Subfenster im Zentrum ("Bestellungen", "Roboter Status", "Status-Updates")
-        columnsPanel = new JPanel(new GridLayout(1, 3)); 
-        konfiguriereSubfensterZentrum();
+            /// 3 Subfenster im Zentrum ("Bestellungen", "Roboter Status", "Status-Updates")
+            columnsPanel = new JPanel(new GridLayout(1, 3)); 
+            konfiguriereSubfensterZentrum();
 
-        // Linke Leiste mit drei Knöpfen
-        leftPanel = new JPanel();
-        konfiguriereLinkeLeisteKnoepfe();
+            // Linke Leiste mit drei Knöpfen
+            leftPanel = new JPanel();
+            konfiguriereLinkeLeisteKnoepfe();
 
-        /// Menüleiste
-        menueZeile = new JMenuBar();
-        konfiguriereMenueleiste();
+            /// Menüleiste
+            menueZeile = new JMenuBar();
+            konfiguriereMenueleiste();
 
-        // Hauptfenster-Konfigurierung
-        fenster.add(mainPanel);
-        fenster.setSize(800, 400);
-        fenster.setLocationRelativeTo(null);
-        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenster.setVisible(true);
-    }
+            // Hauptfenster-Konfigurierung
+            fenster.add(mainPanel);
+            fenster.setSize(800, 400);
+            fenster.setLocationRelativeTo(null);
+            fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            fenster.setVisible(true);
+        }
 
     /// Konfigurierungen der einzelnen Fenster
+   
     /**
      * Konfigurierung des Lagerbestandes, Anzeige oben
      */
     private void aktualisiereLagerbestand(){
 
-        //Panel säubern, bevor es aufgefaufgesetzt wird
+        // Panel säubern, bevor es aufgefaufgesetzt wird
         lagerbestandPanel.removeAll();
 
         // Konfiguriere lagerbestandPanel
@@ -115,25 +134,48 @@ public class GUI extends JFrame {
         JLabel lagerbestandLabel = new JLabel("Lagerbestand:");
         lagerbestandPanel.add(lagerbestandLabel);
 
-        JLabel holzLabel = new JLabel("Holz: " + getHolzValue() + " / 1000 Einheiten"); // Insert function call here
+        JLabel holzLabel = new JLabel("Holz: " + getHolzValue() + " / 1000 Einheiten"); 
         lagerbestandPanel.add(holzLabel);
 
-        JLabel schraubenLabel = new JLabel("Schrauben: " + getSchraubenValue() + " / 5000 Einheiten"); // Insert function call here
+        JLabel schraubenLabel = new JLabel("Schrauben: " + getSchraubenValue() + " / 5000 Einheiten"); 
         lagerbestandPanel.add(schraubenLabel);
 
-        JLabel kissenLabel = new JLabel("Kissen: " + getKissenValue() + " / 100 Einheiten"); // Insert function call here
+        JLabel kissenLabel = new JLabel("Kissen: " + getKissenValue() + " / 100 Einheiten"); 
         lagerbestandPanel.add(kissenLabel);
 
-        JLabel farbeLabel = new JLabel("Farbe: " + getFarbeValue() + " / 1000 Einheiten"); // Insert function call here
+        JLabel farbeLabel = new JLabel("Farbe: " + getFarbeValue() + " / 1000 Einheiten"); 
         lagerbestandPanel.add(farbeLabel);
 
-        JLabel kartonLabel = new JLabel("Karton: " + getKartonValue() + " / 1000 Einheiten"); // Insert function call here
+        JLabel kartonLabel = new JLabel("Karton: " + getKartonValue() + " / 1000 Einheiten"); 
         lagerbestandPanel.add(kartonLabel);
 
         // Panel updaten
         lagerbestandPanel.revalidate();
         lagerbestandPanel.repaint();
 
+    }
+
+
+    /*
+     * Konfigurierung der Anzeige des Zeitraffers
+     */
+    private void aktualisiereZeitraffer(){
+
+        // Panel säubern, bevor es aufgefaufgesetzt wird
+        zeitrafferAnzeige.removeAll();
+
+        // Konfiguriere Zeitraffer Anzeige
+        zeitrafferAnzeige.setBackground(new Color(221, 221, 221));
+        zeitrafferAnzeige.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+
+        JLabel zeitrafferAnzeigeLabel = new JLabel("Zeitraffer:");
+        zeitrafferAnzeige.add(zeitrafferAnzeigeLabel);
+
+        // Konvertiert der Wert von String zu integer
+        int number = Integer.parseInt(this.zeitFaktor);
+
+        JLabel ZeitKonversion = new JLabel("1 Sekunde = " + (number == 1 ? "1 Stunde" : (60 / number) + " Minuten")); // Insert function call here
+        zeitrafferAnzeige.add(ZeitKonversion);
     }
 
     /**
@@ -417,6 +459,8 @@ public class GUI extends JFrame {
             int stuehle = Integer.parseInt(stuehleInput);
             int sofas = Integer.parseInt(sofasInput);
 
+            // if 
+
             System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
 
             // Call the fabrik.bestellungAufgeben method with the entered values
@@ -446,10 +490,10 @@ public class GUI extends JFrame {
 
         // String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten:");
         // String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten:");
-        String zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten:");
+        this.zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten:");
 
         try {
-            int faktor = Integer.parseInt(zeitFaktor);
+            int faktor = Integer.parseInt(this.zeitFaktor);
             // int sofas = Integer.parseInt(sofasInput);
 
             System.out.println("Funktion fabrik.beeinflusseZeit mit Faktor: " + faktor+" aufgerufen."); // Debug print
@@ -503,14 +547,14 @@ public class GUI extends JFrame {
     private void displayInformationPanel() {
         // Create a new JFrame for the information panel zum Lieferanten
         JFrame informationFrame = new JFrame("Lieferant Information");
-        informationFrame.setSize(400, 300);
+        informationFrame.setSize(600, 300);
         informationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Create a panel for the information content
         JPanel informationPanel = new JPanel();
         informationPanel.setLayout(new BoxLayout(informationPanel, BoxLayout.Y_AXIS));
 
-        // Add components for the information panel (customize this part)
+        // Add components for the information panel 
         String infoText = "<html><br> Auf dieser Seite finden Sie den aktuellen Status des Lieferanten.<br><br>" +
             "Der Lieferant hat momentan genuegend Material an Lager um eine Bestellung aufzunehmen.<br>"+
             "----------------------------------------------------------<br>" +
@@ -522,13 +566,30 @@ public class GUI extends JFrame {
             "Farbeeinheiten: " + lager.gibInLieferungFarbeeinheiten() + "<br>" +
             "Kartoneinheiten: " + lager.gibInLieferungKartoneinheiten() + "</html>";
 
+
         JLabel infoLabel = new JLabel(infoText);
         JButton closeButton = new JButton("Schliessen");
+
+        // closeButton.setBorderPainted(false);
+
+        // closeButton.setMargin(new Insets(5, 10, 5, 10));
+
+        // Insets margin = closeButton.getMargin();
+        // margin.left += 5;
+        // closeButton.setMargin(margin);
+        // closeButton.setBounds(20, 0, 0, 0);
+        // closeButton.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+        
+        // closeButton.setContentAreaFilled(false); 
+        
         closeButton.addActionListener(e -> informationFrame.dispose());
 
         informationPanel.add(infoLabel);
-        informationPanel.add(Box.createVerticalStrut(10)); // Add spacing
+        informationPanel.add(Box.createHorizontalStrut(10)); // Platz hinzufügen für eine schönere Formatierung
+        informationPanel.add(Box.createVerticalStrut(2)); // 
+        
         informationPanel.add(closeButton);
+        informationPanel.add(Box.createVerticalStrut(10)); 
 
         // Add the information panel to the frame
         informationFrame.add(informationPanel);
@@ -606,7 +667,7 @@ public class GUI extends JFrame {
         panel.add(statusLabel);
         panel.add(warteschlangeLabel);
 //ToDo: dieses Print Statement würde ich zur besseren Übersicht noch auskommentieren.
-        System.out.println("\n\nAktualisiere Roboter " + roboter.gibName() + "\nWS: " + roboter.gibWarteschlange().size());
+        // System.out.println("\n\nAktualisiere Roboter " + roboter.gibName() + "\nWS: " + roboter.gibWarteschlange().size());
 
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
@@ -658,6 +719,7 @@ public class GUI extends JFrame {
      */
     public void aktualisiereFenster() {
         aktualisiereLagerbestand();
+        aktualisiereZeitraffer();
         aktualisiereColumnBestellungen();
         aktualisiereColumnRoboterstatus();
         // Add other update methods if needed
@@ -740,18 +802,18 @@ public class GUI extends JFrame {
      * Herzlich Willkommen bei AEKI. Es ist keine Eingabe notwendig um die GUI zu starten.
     **/
 
-    public static void main(String[] args) {
-        // GUI erstellen und sichtbar machen
-        SwingUtilities.invokeLater(() -> {
-                    GUI gui = new GUI();
-                    gui.setVisible(false);
+    // public static void main(String[] args) {
+    //     // GUI erstellen und sichtbar machen
+    //     SwingUtilities.invokeLater(() -> {
+    //                 GUI gui = new GUI();
+    //                 gui.setVisible(false);
 
-                    // Timer, damit die Fenster jede Millisekunde updaten
-                    Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
-                    timer.setRepeats(true); // true, damit sich das wiederholt
-                    timer.start();
-            });
-    }
+    //                 // Timer, damit die Fenster jede Millisekunde updaten
+    //                 Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
+    //                 timer.setRepeats(true); // true, damit sich das wiederholt
+    //                 timer.start();
+    //         });
+    // }
 
 
     /**

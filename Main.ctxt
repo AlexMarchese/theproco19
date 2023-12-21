@@ -9,4 +9,6 @@ comment2.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Fabrik.\r\n\ \r\n\ @return\ \ fa
 comment3.params=
 comment3.target=Lager\ gibLager()
 comment3.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Lagers\ der\ Fabrik.\r\n\ \r\n\ @return\ \ lager\ \ \ Lager\ der\ Fabrik.\r\n
-numComments=4
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

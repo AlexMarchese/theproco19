@@ -1,6 +1,9 @@
 // import java.util.Scanner; // Wird benötigt, um eine Eingabe vom Terminal zu bekommen
 // import java.util.regex.Pattern; // Wird benutzt, um Eingabewerte zu überprüfen
 
+import javax.swing.Timer;
+
+import javax.swing.SwingUtilities;
 
 /**
  * 
@@ -43,6 +46,21 @@ public class Main
      */
     public Lager gibLager(){
         return this.lager;
+    }
+
+        public static void main(String[] args) {
+        // GUI erstellen und sichtbar machen
+        SwingUtilities.invokeLater(() -> {
+                    GUI gui = new GUI();
+                    gui.setVisible(false);
+
+                    // Timer, damit die Fenster jede Millisekunde updaten
+                    // The above code is creating a Timer object that will call the
+                    // `aktualisiereFenster()` method of the `gui` object every 1 millisecond.
+                    Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
+                    timer.setRepeats(true); // true, damit sich das wiederholt
+                    timer.start();
+            });
     }
 
 
