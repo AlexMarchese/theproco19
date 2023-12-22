@@ -459,27 +459,15 @@ public class GUI extends JFrame {
             int stuehle = Integer.parseInt(stuehleInput);
             int sofas = Integer.parseInt(sofasInput);
 
-            // if 
+           
 
             System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
 
-            // Call the fabrik.bestellungAufgeben method with the entered values
-            // String result = fabrik.bestellungAufgeben(sofas, stühle);
-            // String result = main.befehleSchleife("best " + sofas + " " + stühle);
-            // String result = main.befehle("best " + sofas + " " + stühle);
             String result = fabrik.bestellungAufgeben(sofas, stuehle);
 
-            // fenster.pack();
-
-            // System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
-            // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
-            // Display the result
+           
             JOptionPane.showMessageDialog(GUI.this, result);
-            // JOptionPane.showMessageDialog(GUI.this);
-            // JOptionPane.showMessageDialog(GUI.this, "It worked!");
-
-            // Update the Bestellungen column
-            //updateBestellungenPanel();
+            
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Bitte erneut versuchen.");
         }
@@ -490,20 +478,37 @@ public class GUI extends JFrame {
 
         // String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten:");
         // String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten:");
-        this.zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten:");
+        // this.zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten.\nEs soll eine ganze Zahl zwischen 1 und 60 sein:");
+        String faktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten.\nEs soll eine ganze Zahl zwischen 1 und 60 sein:");
 
+        
         try {
-            int faktor = Integer.parseInt(this.zeitFaktor);
+            // int faktor = Integer.parseInt(this.zeitFaktor);
+            // int faktor = Integer.parseInt(this.zeitFaktor);
             // int sofas = Integer.parseInt(sofasInput);
 
-            System.out.println("Funktion fabrik.beeinflusseZeit mit Faktor: " + faktor+" aufgerufen."); // Debug print
+            System.out.println("Funktion fabrik.beeinflusseZeit mit Faktor: " + faktor +" aufgerufen."); // Debug print
 
             // Call the fabrik.bestellungAufgeben method with the entered values
             // String result = fabrik.bestellungAufgeben(sofas, stühle);
             // String result = main.befehleSchleife("best " + sofas + " " + stühle);
             // String result = main.befehle("best " + sofas + " " + stühle);
             // String result = fabrik.bestellungAufgeben(sofas, stuehle);
-            fabrik.beeinflusseZeit(faktor);
+
+            // Stellt sicher, dass ein Wert eingegeben wird und dieser nicht mehr als 2 Ziffern hat
+            if (faktor != null && !faktor.isEmpty() && faktor.length() <= 2) {
+                this.zeitFaktor = faktor; // Wert wird als Attribut gespeichert
+                int faktorInt = Integer.parseInt(this.zeitFaktor); // Konversion zu int
+
+                if (1 <= faktorInt && faktorInt <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
+                    fabrik.beeinflusseZeit(faktorInt);
+                } else {
+                    throw new NumberFormatException();
+                }
+            } else {
+                    throw new NumberFormatException();
+                }
+            
 
             // fenster.pack();
 
@@ -517,7 +522,7 @@ public class GUI extends JFrame {
             // Update the Bestellungen column
             //updateBestellungenPanel();
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(GUI.this, "Invalid input. Please enter valid numbers.");
+            JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze Zahl zwischen 1 und 60 sein.");
         }
     }
 
