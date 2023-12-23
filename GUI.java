@@ -452,25 +452,64 @@ public class GUI extends JFrame {
     private void handleBestellungAufgeben() {
         System.out.println("Der Knopf 'Bestellung Aufgeben' wurde gedrueckt"); // Debug print
 
-        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten:");
-        String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten:");
+        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten.\nEs soll eine ganze Zahl zwischen 0 und 60 sein:");
 
-        try {
-            int stuehle = Integer.parseInt(stuehleInput);
-            int sofas = Integer.parseInt(sofasInput);
+        // Wenn "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
+        if (sofasInput != null) {
+            String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten.\nEs soll eine ganze Zahl zwischen 0 und 60 sein:");
 
-           
+            // Wenn hier "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
+            if (stuehleInput != null) {
+                try {
 
-            System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
+                // Stellt sicher, dass ein Wert eingegeben wird und dieser nicht mehr als 2 Ziffern hat. Bei zu vielen, gibt es einen Parsing Fehler.
+                if (!sofasInput.isEmpty() && sofasInput.length() <= 2 && !stuehleInput.isEmpty() && stuehleInput.length() <= 2) {
 
-            String result = fabrik.bestellungAufgeben(sofas, stuehle);
+                    
+                    int stuehle = Integer.parseInt(stuehleInput); // Konversion zu int
+                    int sofas = Integer.parseInt(sofasInput); 
 
-           
-            JOptionPane.showMessageDialog(GUI.this, result);
+                    if (stuehle <= 60 && sofas <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
+                        System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
+
+                        String result = fabrik.bestellungAufgeben(sofas, stuehle);
+
+                        JOptionPane.showMessageDialog(GUI.this, result);
+                    } else {
+                        throw new NumberFormatException();
+                    }
+                } else {
+                        throw new NumberFormatException();
+                    }
             
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Bitte erneut versuchen.");
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze Zahl zwischen 0 und 60 sein.");
+                } 
+
+                // try {
+                //     int stuehle = Integer.parseInt(stuehleInput);
+                //     int sofas = Integer.parseInt(sofasInput);
+
+                
+
+                //     System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
+
+                //     String result = fabrik.bestellungAufgeben(sofas, stuehle);
+
+                
+                //     JOptionPane.showMessageDialog(GUI.this, result);
+                    
+                //     } catch (NumberFormatException ex) {
+                //         JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Bitte erneut versuchen.");
+                //     }
+                } else {
+                    System.out.println("Operation wurde abgebrochen");
+                }
+
+        } else {
+            System.out.println("Operation wurde abgebrochen");
         }
+        
     }
 
     private void handleZeitraffer() {
@@ -481,49 +520,34 @@ public class GUI extends JFrame {
         // this.zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten.\nEs soll eine ganze Zahl zwischen 1 und 60 sein:");
         String faktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten.\nEs soll eine ganze Zahl zwischen 1 und 60 sein:");
 
-        
-        try {
-            // int faktor = Integer.parseInt(this.zeitFaktor);
-            // int faktor = Integer.parseInt(this.zeitFaktor);
-            // int sofas = Integer.parseInt(sofasInput);
+        // Wenn "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
+        if (faktor != null) {
+            try {
 
-            System.out.println("Funktion fabrik.beeinflusseZeit mit Faktor: " + faktor +" aufgerufen."); // Debug print
+                // Stellt sicher, dass ein Wert eingegeben wird und dieser nicht mehr als 2 Ziffern hat. Bei zu vielen, gibt es einen Parsing Fehler.
+                if (!faktor.isEmpty() && faktor.length() <= 2) {
+                 
+                    int faktorInt = Integer.parseInt(faktor); // Konversion zu int
 
-            // Call the fabrik.bestellungAufgeben method with the entered values
-            // String result = fabrik.bestellungAufgeben(sofas, stühle);
-            // String result = main.befehleSchleife("best " + sofas + " " + stühle);
-            // String result = main.befehle("best " + sofas + " " + stühle);
-            // String result = fabrik.bestellungAufgeben(sofas, stuehle);
-
-            // Stellt sicher, dass ein Wert eingegeben wird und dieser nicht mehr als 2 Ziffern hat
-            if (faktor != null && !faktor.isEmpty() && faktor.length() <= 2) {
-                this.zeitFaktor = faktor; // Wert wird als Attribut gespeichert
-                int faktorInt = Integer.parseInt(this.zeitFaktor); // Konversion zu int
-
-                if (1 <= faktorInt && faktorInt <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
-                    fabrik.beeinflusseZeit(faktorInt);
+                    if (1 <= faktorInt && faktorInt <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
+                        fabrik.beeinflusseZeit(faktorInt);
+                        System.out.println("Funktion fabrik.beeinflusseZeit mit Faktor: " + faktor +" aufgerufen.");
+                        this.zeitFaktor = faktor; // Wert wird als Attribut gespeichert
+                    } else {
+                        throw new NumberFormatException();
+                    }
                 } else {
-                    throw new NumberFormatException();
-                }
-            } else {
-                    throw new NumberFormatException();
-                }
+                        throw new NumberFormatException();
+                    }
             
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze Zahl zwischen 1 und 60 sein.");
+                } 
+            } else {
+                System.out.println("Operation wurde abgebrochen");
+            }
 
-            // fenster.pack();
-
-            // System.out.println("Result from fabrik.bestellungAufgeben: " + result); // Debug print
-            // System.out.println("Result from fabrik.bestellungAufgeben: "); // Debug print
-            // Display the result
-            // JOptionPane.showMessageDialog(GUI.this, result);
-            // JOptionPane.showMessageDialog(GUI.this);
-            // JOptionPane.showMessageDialog(GUI.this, "It worked!");
-
-            // Update the Bestellungen column
-            //updateBestellungenPanel();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze Zahl zwischen 1 und 60 sein.");
-        }
+        
     }
 
     /// Methoden der Fenster
