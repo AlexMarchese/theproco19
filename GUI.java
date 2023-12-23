@@ -134,20 +134,59 @@ public class GUI extends JFrame {
         JLabel lagerbestandLabel = new JLabel("Lagerbestand:");
         lagerbestandPanel.add(lagerbestandLabel);
 
-        JLabel holzLabel = new JLabel("Holz: " + getHolzValue() + " / 1000 Einheiten"); 
+        JLabel holzLabel, schraubenLabel, kissenLabel, farbeLabel, kartonLabel;
+
+        // Wert Holz
+        if (gibHolzWert() > gibMaximalerHolzWert() * 0.25){
+            holzLabel = new JLabel("Holz: " + gibHolzWert() + " / " + gibMaximalerHolzWert() + " Einheiten"); 
+        } else {
+            holzLabel = new JLabel("<html><font color='red'>Holz: " + gibHolzWert() + " / " + gibMaximalerHolzWert() + " Einheiten"); 
+        }
         lagerbestandPanel.add(holzLabel);
 
-        JLabel schraubenLabel = new JLabel("Schrauben: " + getSchraubenValue() + " / 5000 Einheiten"); 
+        // Wert Schrauben
+        if (gibSchraubenWert() > gibMaximalerSchraubenWert() * 0.25){
+            schraubenLabel = new JLabel("Schrauben: " + gibSchraubenWert() + " / " + gibMaximalerSchraubenWert() + " Einheiten"); 
+        } else {
+            schraubenLabel = new JLabel("<html><font color='red'>Schrauben: " + gibSchraubenWert() + " / " + gibMaximalerSchraubenWert() + " Einheiten"); 
+        }
         lagerbestandPanel.add(schraubenLabel);
 
-        JLabel kissenLabel = new JLabel("Kissen: " + getKissenValue() + " / 100 Einheiten"); 
+        // Wert Kissen
+        if (gibKissenWert() > gibMaximalerKissenWert() * 0.25){
+            kissenLabel = new JLabel("Kissen: " + gibKissenWert() + " / " + gibMaximalerKissenWert() + " Einheiten"); 
+        } else {
+            kissenLabel = new JLabel("<html><font color='red'>Kissen: " + gibKissenWert() + " / " + gibMaximalerKissenWert() + " Einheiten"); 
+        }
         lagerbestandPanel.add(kissenLabel);
 
-        JLabel farbeLabel = new JLabel("Farbe: " + getFarbeValue() + " / 1000 Einheiten"); 
+        // Wert Farbe
+        if (gibFarbeWert() > gibMaximalerFarbeWert() * 0.25){
+            farbeLabel = new JLabel("Farbe: " + gibFarbeWert() + " / " + gibMaximalerFarbeWert() + " Einheiten"); 
+        } else {
+            farbeLabel = new JLabel("<html><font color='red'>Farbe: " + gibFarbeWert() + " / " + gibMaximalerFarbeWert() + " Einheiten"); 
+        }
         lagerbestandPanel.add(farbeLabel);
 
-        JLabel kartonLabel = new JLabel("Karton: " + getKartonValue() + " / 1000 Einheiten"); 
+        // Wert Karton
+        if (gibKartonWert() > gibMaximalerKartonWert() * 0.25){
+            kartonLabel = new JLabel("Karton: " + gibKartonWert() + " / " + gibMaximalerKartonWert() + " Einheiten"); 
+        } else {
+            kartonLabel = new JLabel("<html><font color='red'>Karton: " + gibKartonWert() + " / " + gibMaximalerKartonWert() + " Einheiten"); 
+        }
         lagerbestandPanel.add(kartonLabel);
+
+        // JLabel schraubenLabel = new JLabel("Schrauben: " + gibSchraubenWert() + " / 5000 Einheiten"); 
+        // lagerbestandPanel.add(schraubenLabel);
+
+        // JLabel kissenLabel = new JLabel("Kissen: " + gibKissenWert() + " / 100 Einheiten"); 
+        // lagerbestandPanel.add(kissenLabel);
+
+        // JLabel farbeLabel = new JLabel("Farbe: " + gibFarbeWert() + " / 1000 Einheiten"); 
+        // lagerbestandPanel.add(farbeLabel);
+
+        // JLabel kartonLabel = new JLabel("Karton: " + gibKartonWert() + " / 1000 Einheiten"); 
+        // lagerbestandPanel.add(kartonLabel);
 
         // Panel updaten
         lagerbestandPanel.revalidate();
@@ -198,7 +237,7 @@ public class GUI extends JFrame {
         // Fenster für Bestellungen aktualisieren
         aktualisiereColumnRoboterstatus();
 
-        //Fenster für Roboter-Status zu columnsPanel hinzufügen
+        // Fenster für Roboter-Status zu columnsPanel hinzufügen
         columnsPanel.add(roboterStatusPanel);
 
         // Fenster für Status-Updates erstellen
@@ -210,8 +249,16 @@ public class GUI extends JFrame {
         // Fenster für Status-Updates zu columnsPanel hinzufügen
         columnsPanel.add(statusUpdatesPanel);
 
+    //     Dimension bestellungenSize = bestellungenPanel.getPreferredSize();
+    //     Dimension roboterStatusSize = roboterStatusPanel.getPreferredSize();
+    //     Dimension statusUpdatesSize = statusUpdatesPanel.getPreferredSize();
+
+    // // Set the preferred width of the third panel to be double the combined width of the first two panels
+    // statusUpdatesSize.width = bestellungenSize.width + roboterStatusSize.width;
+    // statusUpdatesPanel.setPreferredSize(statusUpdatesSize);
+    // mainPanel.setLayout(new BorderLayout());
         
-        //fügt Konfiguration dem Main panel hinzu
+        // Fügt Konfiguration dem Main panel hinzu
         mainPanel.add(columnsPanel, BorderLayout.CENTER);
 
         // Add test messages - OLD
@@ -765,26 +812,46 @@ public class GUI extends JFrame {
 
      */
 
-    /// Methoden zu den Werten des Lagerbestandes
+    /// Methoden zu den Werten des aktuellen und maximalen Lagerbestandes
 
-    private int getHolzValue() {
+    private int gibHolzWert() {
         return this.lager.gibvorhandeneHolzeinheiten();
     }
 
-    private int getSchraubenValue() {
+    private int gibSchraubenWert() {
         return this.lager.gibvorhandeneSchrauben();
     }
 
-    private int getKissenValue() {
+    private int gibKissenWert() {
         return this.lager.gibvorhandeneKissen();
     }
 
-    private int getFarbeValue() {
+    private int gibFarbeWert() {
         return this.lager.gibvorhandeneFarbeeinheiten();
     }
 
-    private int getKartonValue() {
+    private int gibKartonWert() {
         return this.lager.gibvorhandeneKartoneinheiten();
+    }
+
+    private int gibMaximalerHolzWert() {
+        return this.lager.gibMaxHolzeinheiten();
+    }
+
+    private int gibMaximalerSchraubenWert() {
+        return this.lager.gibMaxSchrauben();
+    }
+
+    private int gibMaximalerKissenWert() {
+        return this.lager.gibMaxKissen();
+    }
+
+    private int gibMaximalerFarbeWert() {
+        return this.lager.gibMaxFarbeeinheiten();
+    }
+
+    private int gibMaximalerKartonWert() {
+        return this.lager.gibMaxKartoneinheiten();
     }
 
     /* Das da unten ist falsch, LG Flo.
