@@ -452,11 +452,11 @@ public class GUI extends JFrame {
     private void handleBestellungAufgeben() {
         System.out.println("Der Knopf 'Bestellung Aufgeben' wurde gedrueckt"); // Debug print
 
-        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten.\nEs soll eine ganze Zahl zwischen 0 und 60 sein:");
+        String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten.\nEs soll eine ganze maximal zweistellige Zahl oder '0' sein:");
 
         // Wenn "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
         if (sofasInput != null) {
-            String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten.\nEs soll eine ganze Zahl zwischen 0 und 60 sein:");
+            String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten.\nEs soll eine ganze maximal zweistellige Zahl oder '0' sein:");
 
             // Wenn hier "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
             if (stuehleInput != null) {
@@ -469,39 +469,33 @@ public class GUI extends JFrame {
                     int stuehle = Integer.parseInt(stuehleInput); // Konversion zu int
                     int sofas = Integer.parseInt(sofasInput); 
 
-                    if (stuehle <= 60 && sofas <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
-                        System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
+                    // if (stuehle <= 60 && sofas <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
+                    //     System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
 
+                    //     String result = fabrik.bestellungAufgeben(sofas, stuehle);
+
+                    //     JOptionPane.showMessageDialog(GUI.this, result);
+                    // } else {
+                    //     throw new NumberFormatException();
+                    // }
+                    try {
+                        
                         String result = fabrik.bestellungAufgeben(sofas, stuehle);
-
+                        System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst.");
                         JOptionPane.showMessageDialog(GUI.this, result);
-                    } else {
-                        throw new NumberFormatException();
+                        
+                    } catch (IllegalArgumentException e) {
+                        // System.out.println("\nBasierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
+                        JOptionPane.showMessageDialog(GUI.this, "Basierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
                     }
                 } else {
                         throw new NumberFormatException();
                     }
             
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze Zahl zwischen 0 und 60 sein.");
+                    JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze maximal zweistellige Zahl oder '0' sein.");
                 } 
 
-                // try {
-                //     int stuehle = Integer.parseInt(stuehleInput);
-                //     int sofas = Integer.parseInt(sofasInput);
-
-                
-
-                //     System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
-
-                //     String result = fabrik.bestellungAufgeben(sofas, stuehle);
-
-                
-                //     JOptionPane.showMessageDialog(GUI.this, result);
-                    
-                //     } catch (NumberFormatException ex) {
-                //         JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Bitte erneut versuchen.");
-                //     }
                 } else {
                     System.out.println("Operation wurde abgebrochen");
                 }
@@ -853,7 +847,7 @@ public class GUI extends JFrame {
     {
         public void actionPerformed(ActionEvent event)
         {
-            fenster = new JFrame("Sofa");
+            fenster = new JFrame("Unser Team");
             teamFenster();
         }
 

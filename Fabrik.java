@@ -262,6 +262,7 @@ public class Fabrik {
         meinMurmeltier.beeinflusseZeit(faktor);
         produktions_manager.beeinflusseZeit(faktor);
     }
+
 }
     
 
