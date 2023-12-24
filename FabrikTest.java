@@ -208,11 +208,11 @@ import org.junit.jupiter.api.Test;
         testFabrik.bestellungAufgeben(0, 3);
 
         String erwarteteAusgabe = "In der Fabrik GBI Gruppe 19 gibt es im Moment 2 Bestellungen.\n\n";
-        erwarteteAusgabe += ("Bestellung Nr.: 1\nAnzahl Stühle: 2\nAnzahl Sofas: 1\nProduktionszeit: 104 Minuten\nBeschaffungszeit: 0 Tage\n" +
+        erwarteteAusgabe += ("Bestellung Nr.: 1\nAnzahl Stuehle: 2\nAnzahl Sofas: 1\nProduktionszeit: 104 Minuten\nBeschaffungszeit: 0 Tage\n" +
                             "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
-                            "Bestellung Nr.: 2\nAnzahl Stühle: 3\nAnzahl Sofas: 0\nProduktionszeit: 66 Minuten\nBeschaffungszeit: 0 Tage\n" +
+                            "Bestellung Nr.: 2\nAnzahl Stuehle: 3\nAnzahl Sofas: 0\nProduktionszeit: 66 Minuten\nBeschaffungszeit: 0 Tage\n" +
                             "- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n" +
-                            "Das entspricht insgesamt 5 Stühlen und 1 Sofa." +
+                            "Das entspricht insgesamt 5 Stuehlen und 1 Sofa." +
                             " Die totale Produktionszeit und die totale Beschaffungszeit sind entsprechend 170 Minuten und 0 Tage.");
 
         assertEquals(testFabrik.bestellungenAusgeben(), erwarteteAusgabe);
@@ -274,7 +274,7 @@ import org.junit.jupiter.api.Test;
         testFabrik.erstelleLager(100, 100, 100, 100, 100, 10, 10, 10, 10, 10);
         testFabrik.erstelleProduktions_Manager();
               
-        String erwarteteAusgabe = "\nDie Fabrik meldet tiefe Lagerbestände für mindestens einen Materialtyp und beantragt deshalb das Auffüllen des Lagers.";
+        String erwarteteAusgabe = "\nDie Fabrik meldet tiefe Lagerbestaende fuer mindestens einen Materialtyp und beantragt deshalb das Auffuellen des Lagers.";
         
         assertEquals(testFabrik.lagerAuffuellen(), erwarteteAusgabe);
 
@@ -298,7 +298,7 @@ import org.junit.jupiter.api.Test;
         
         testFabrik.lagerAuffuellen();
         
-        String erwarteteAusgabe = "\nDie Fabrik meldet genug hohe Lagerbestände und muss noch nicht aufgefüllt werden.";
+        String erwarteteAusgabe = "\nDie Fabrik meldet genug hohe Lagerbestaende und muss noch nicht aufgefuellt werden.";
         
         assertEquals(testFabrik.lagerAuffuellen(), erwarteteAusgabe);
 
