@@ -117,6 +117,13 @@ public class Fabrik {
      */
     public void erstelleMurmeltier() {
         this.meinMurmeltier = new TaeglichGruesstDasMurmeltier(this);
+
+        // try {
+        //     Thread.sleep(2000); // 2 Sekunden Pause hilft bei der "beeinflusseZeit" Methode
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace(); 
+        // }
+
         meinMurmeltier.start();
     }
 
@@ -258,9 +265,26 @@ public class Fabrik {
      * 
      */
     public void beeinflusseZeit(int faktor){
+
+        // meinMurmeltier.stop();
+
         lager.beeinflusseZeit(faktor);
         meinMurmeltier.beeinflusseZeit(faktor);
         produktions_manager.beeinflusseZeit(faktor);
+
+        try {
+            Thread.sleep(2000); // Sleep for 2 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace(); // Handle the exception if needed
+        }
+
+        // System.out.println("Murmeltier Fakt: " + meinMurmeltier.zeitFaktor);
+        // System.out.println("Lieferant via Lager Fakt: " + lager.lieferant.zeitFaktor);
+        // System.out.println("Produktionsman Fakt: " + produktions_manager.zeitFaktor);
+        // System.out.println("Alle Roboter holz: " + produktions_manager.holzRoboter.zeitFaktor);
+        // System.out.println("Alle Roboter montage: " + produktions_manager.montageRoboter.zeitFaktor);
+        // System.out.println("Alle Roboter lackier: " + produktions_manager.lackierRoboter.zeitFaktor);
+        // System.out.println("Alle Roboter verpackungs: " + produktions_manager.verpackungsRoboter.zeitFaktor);
     }
 
 }

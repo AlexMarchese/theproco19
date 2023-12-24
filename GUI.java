@@ -213,7 +213,8 @@ public class GUI extends JFrame {
         // Konvertiert der Wert von String zu integer
         int number = Integer.parseInt(this.zeitFaktor);
 
-        JLabel ZeitKonversion = new JLabel("1 Sekunde = " + (number == 1 ? "1 Stunde" : (60 / number) + " Minuten")); // Insert function call here
+        // JLabel ZeitKonversion = new JLabel("1 Sekunde = " + (number == 1 ? "1 Stunde" : (60 / number) + " Minuten"));
+        JLabel ZeitKonversion = new JLabel("1 Sekunde = " + (number == 1 ? "1 Stunde" : (60 / number) + (number > 30 ? " Minute" : " Minuten")));
         zeitrafferAnzeige.add(ZeitKonversion);
     }
 
@@ -464,7 +465,7 @@ public class GUI extends JFrame {
         refresh.addActionListener(e -> {
                     // Refresh action
                     aktualisiereFenster();
-                    JOptionPane.showMessageDialog(fenster, "Fenster aktualisiert. Du bist auf dem aktuellen Stand.");
+                    JOptionPane.showMessageDialog(fenster, "Fenster aktualisiert. Sie sind auf dem aktuellen Stand.");
             });
         fileMenu.add(refresh);
 
@@ -516,25 +517,22 @@ public class GUI extends JFrame {
                     int stuehle = Integer.parseInt(stuehleInput); // Konversion zu int
                     int sofas = Integer.parseInt(sofasInput); 
 
-                    // if (stuehle <= 60 && sofas <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
-                    //     System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst."); // Debug print
-
-                    //     String result = fabrik.bestellungAufgeben(sofas, stuehle);
-
-                    //     JOptionPane.showMessageDialog(GUI.this, result);
-                    // } else {
-                    //     throw new NumberFormatException();
-                    // }
-                    try {
+                    if (!(stuehle == 0 && sofas == 0)){ // Verhindert Bestellungen mit doppelter Eingabe 0
+                        try {
                         
                         String result = fabrik.bestellungAufgeben(sofas, stuehle);
-                        System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst.");
+                        // System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst.");
+                        System.out.println("Eine Bestellung mit " + sofas + (sofas == 1 ? " Sofa und " : " Sofas und ") + stuehle + (stuehle == 1 ? " Stuhl" : " Stuehlen") +" wird in der Fabrik erfasst.");
                         JOptionPane.showMessageDialog(GUI.this, result);
                         
-                    } catch (IllegalArgumentException e) {
-                        // System.out.println("\nBasierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
-                        JOptionPane.showMessageDialog(GUI.this, "Basierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
+                        } catch (IllegalArgumentException e) {
+                            // System.out.println("\nBasierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
+                            JOptionPane.showMessageDialog(GUI.this, "Basierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(GUI.this, "'0' wurde zweimal eingegeben. Dies führt zu keiner Bestellung!");
                     }
+                    
                 } else {
                         throw new NumberFormatException();
                     }
@@ -764,9 +762,9 @@ public class GUI extends JFrame {
 
             String status = "";
             if(bestellung.gibAlleProdukteProduziert()){
-                status = "Fertig";
+                status = "<html><font color='green'>Fertig</font>";
             }else{
-                status = "In Arbeit";
+                status = "<html><font color='red'>In Arbeit</font>";
             }
 
             JLabel orderLabel = new JLabel( "<html><b>Bestellung Nr. " + bestellung.gibBestellungsNr() + "</b></html>");

@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections; // Dieses und das nächste werden benötigt, um weiter unten die Liste mit allen Produkten nach Produkttypen zu ordnen
 import java.util.Comparator;
+import java.util.ConcurrentModificationException;
 
 /**
  * Die Klasse Produktions_Manager 
@@ -99,7 +100,12 @@ public class Produktions_Manager extends Thread
             // Überprüfe, ob es fertige Bestellungen hat.
             // Geht durch die Bestellungen
             
-            this.pruefeFertigeBestellungen();
+            try {
+                this.pruefeFertigeBestellungen();
+            } catch (ConcurrentModificationException e) {
+                continue;
+            }
+            
             
             try{
                 Thread.sleep(10);
@@ -300,9 +306,13 @@ public class Produktions_Manager extends Thread
      * 
      */
     public void beeinflusseZeit(int faktor){
+        // Alle vier Roboter
         this.holzRoboter.setzeZeitFaktor(faktor);
         this.montageRoboter.setzeZeitFaktor(faktor);
         this.lackierRoboter.setzeZeitFaktor(faktor);
         this.verpackungsRoboter.setzeZeitFaktor(faktor);
+
+        // Sich selbst
+        this.zeitFaktor = faktor;
     }
 }

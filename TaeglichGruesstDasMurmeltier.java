@@ -10,7 +10,8 @@ public class TaeglichGruesstDasMurmeltier extends Thread
 {
     // Instanzvariablen
     private Fabrik meineFabrik;
-    private int zeitFaktor; // Wird benötigt, um dem Nutzer aus der GUI die Möglichkeit zu geben die Zeit um den Faktor zu beeinflussen
+    private volatile int zeitFaktor; // Wird benötigt, um dem Nutzer aus der GUI die Möglichkeit zu geben die Zeit um den Faktor zu beeinflussen
+    private int warten; // Sekunden, wieviel gewartet werden muss
 
     /**
      * Konstruktor für Objekte der Klasse TaeglichGruesstDasMurmeltier
@@ -19,6 +20,8 @@ public class TaeglichGruesstDasMurmeltier extends Thread
         // Instanzvariable initialisieren
         this.meineFabrik = fabrik;
         this.zeitFaktor = 1;
+        this.warten = 24_000 * this.zeitFaktor; // Defaultwert sind 24 * Faktor
+        // this.warten = 1_000 * this.zeitFaktor; // Defaultwert sind 24 * Faktor
     }
         
     /**
@@ -27,12 +30,32 @@ public class TaeglichGruesstDasMurmeltier extends Thread
      */
     @Override
     public void run(){
-        System.out.println("Und taeglich gruesst das Murmeltier (als Thread gestartet...)");
-        while (true) {
+        
+        // Warten, dass die Variablen initialisiert werden
+        try {
+            Thread.sleep(2_000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // System.out.println("Und taeglich gruesst das Murmeltier (als Thread gestartet...)");
+        loop();
+              
+        
+    }
+
+    /*
+     * Methode, die alle 24h überprüft, ob das Lager aufgefüllt werden muss
+     */
+    private void loop() {
+
+        int warteZeit = warten;
+        while (warteZeit == warten) {
             
-            //Der Thread schläft für 24 Stunden
+            
+            //Der Thread schläft für 24 Stunden * Faktor
             try{
-            Thread.sleep(24_000 * this.zeitFaktor); 
+            Thread.sleep(warten); 
             }
             catch (InterruptedException ie){
                 // Falls der Thread während des Schlafens unterbrochen wird, wird eine Fehlermeldung ausgegeben
@@ -47,9 +70,14 @@ public class TaeglichGruesstDasMurmeltier extends Thread
             System.out.println(meineFabrik.lagerAuffuellen());
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
 
-        }      
-        
+            // warten = 1_000 * this.zeitFaktor;
+            warten = 24_000 * this.zeitFaktor;
+
+        }
+        // System.out.println("CHangeee");
+        loop();
     }
+    
 
     /**
      * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
