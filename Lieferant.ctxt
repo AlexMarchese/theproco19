@@ -1,18 +1,18 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\r\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ faufgef\u00FCllt\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\r\n\ \r\n\ @author\ GBI\ Gruppe\ 19\r\n\ @version\ 2.0\r\n
+comment0.text=\n\ Die\ Klasse\ Lieferant\ umfasst\ die\ Informationen\ zu\ den\ faufgef\u00FCllt\u00FCr\ die\ Fabrik\ bestellbaren\ Materialien\ und\ die\ dazugeh\u00F6rigen\ Methoden.\n\ \n\ @author\ GBI\ Gruppe\ 19\n\ @version\ 2.0\n
 comment1.params=
 comment1.target=Lieferant()
 comment2.params=
 comment2.target=boolean\ gibLieferungInArbeit()
-comment2.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Variable\ lieferungInArbeit.\r\n\ @return\ lieferungInArbeit\ \ \ \ Ein\ boolean\ Wert,\ welcher\ besagt\ ob\ eine\ Lieferung\ in\ Arbeit\ ist\ (true)\ oder\ nicht\ (false).\r\n
+comment2.text=\n\ Methode\ zur\ Ausgabe\ der\ Variable\ lieferungInArbeit.\n\ @return\ lieferungInArbeit\ \ \ \ Ein\ boolean\ Wert,\ welcher\ besagt\ ob\ eine\ Lieferung\ in\ Arbeit\ ist\ (true)\ oder\ nicht\ (false).\n
 comment3.params=faktor
 comment3.target=void\ setzeZeitFaktor(int)
-comment3.text=\r\n\ Methode\ zum\ Setzen\ des\ Faktors,\ um\ die\ Zeit\ zu\ beeinflussen.\r\n\ \r\n\ @param\ \ faktor\ \ \ Faktor,\ um\ der\ die\ Zeit\ beeinfluss\ werden\ soll\r\n
+comment3.text=\n\ Methode\ zum\ Setzen\ des\ Faktors,\ um\ die\ Zeit\ zu\ beeinflussen.\n\ \n\ @param\ \ faktor\ \ \ Faktor,\ um\ der\ die\ Zeit\ beeinfluss\ werden\ soll\n
 comment4.params=holzeinheiten\ schrauben\ farbeeinheiten\ kartoneinheiten\ kissen\ lager
 comment4.target=void\ wareBestellen(int,\ int,\ int,\ int,\ int,\ Lager)
-comment4.text=\r\n\ Methode,\ um\ Ware\ zu\ bestellen.\r\n\ \r\n\ @param\ \ \ holzeinheiten\ \ \ Anzahl\ Holzeinheiten,\ die\ bestellt\ werden\r\n\ @param\ \ \ schrauben\ \ \ \ \ \ \ Anzahl\ Schrauben,\ die\ bestellt\ werden\r\n\ @param\ \ \ farbeeinheiten\ \ Anzahl\ Farbeinheiten,\ die\ bestellt\ werden\r\n\ @param\ \ \ kartoneinheiten\ Anzahl\ Kartoneinheiten,\ die\ bestellt\ werden\r\n\ @param\ \ \ kissen\ \ \ \ \ \ \ \ \ \ Anzahl\ Kissen,\ die\ bestellt\ werden\r\n\ @param\ \ \ lager\ \ \ \ \ \ \ \ \ \ \ Das\ Lager,\ welches\ die\ Methode\ aufruft\r\n
+comment4.text=\n\ Methode,\ um\ Ware\ zu\ bestellen.\n\ \n\ @param\ \ \ holzeinheiten\ \ \ Anzahl\ Holzeinheiten,\ die\ bestellt\ werden\n\ @param\ \ \ schrauben\ \ \ \ \ \ \ Anzahl\ Schrauben,\ die\ bestellt\ werden\n\ @param\ \ \ farbeeinheiten\ \ Anzahl\ Farbeinheiten,\ die\ bestellt\ werden\n\ @param\ \ \ kartoneinheiten\ Anzahl\ Kartoneinheiten,\ die\ bestellt\ werden\n\ @param\ \ \ kissen\ \ \ \ \ \ \ \ \ \ Anzahl\ Kissen,\ die\ bestellt\ werden\n\ @param\ \ \ lager\ \ \ \ \ \ \ \ \ \ \ Das\ Lager,\ welches\ die\ Methode\ aufruft\n
 comment5.params=
 comment5.target=void\ run()
-comment5.text=\r\n\ \ Methode,\ run()\ startet\ den\ Lieferanten\ Thread.\ \r\n\ \ Wenn\ eine\ Bestellung\ vorliegt,\ gibt\ der\ Thread\ eine\ Best\u00E4tigung\ aus,\ zeigt\ den\ Bestellschein\ an\ und\ simuliert\ eine\ Lieferzeit\ von\ 24\ Stunden.\r\n\ \ Nach\ Ablauf\ der\ simulierten\ Lieferzeit\ ruft\ der\ Thread\ die\ Methode\ wareLiefern\ des\ zugeordneten\ Lagers\ auf\ und\ \u00FCbergibt\ die\ bestellten\ Einheiten.\ \r\n\ \ Wenn\ die\ Lieferung\ erfolgreich\ abgeschlossen\ ist\ wird\ lieferungInArbeit\ auf\ false\ gesetzt\ und\ gibt\ einen\ Lieferschein\ aus.\r\n\ \ Wenn\ keine\ Bestellung\ vorliegt\ wartet\ der\ Thread\ eine\ Stunde\ und\ pr\u00FCft\ dann\ erneut,\ ob\ eine\ Bestellung\ eingegangen\ ist.\r\n
+comment5.text=\n\ \ Methode,\ run()\ startet\ den\ Lieferanten\ Thread.\ \n\ \ Wenn\ eine\ Bestellung\ vorliegt,\ gibt\ der\ Thread\ eine\ Best\u00E4tigung\ aus,\ zeigt\ den\ Bestellschein\ an\ und\ simuliert\ eine\ Lieferzeit\ von\ 24\ Stunden.\n\ \ Nach\ Ablauf\ der\ simulierten\ Lieferzeit\ ruft\ der\ Thread\ die\ Methode\ wareLiefern\ des\ zugeordneten\ Lagers\ auf\ und\ \u00FCbergibt\ die\ bestellten\ Einheiten.\ \n\ \ Wenn\ die\ Lieferung\ erfolgreich\ abgeschlossen\ ist\ wird\ lieferungInArbeit\ auf\ false\ gesetzt\ und\ gibt\ einen\ Lieferschein\ aus.\n\ \ Wenn\ keine\ Bestellung\ vorliegt\ wartet\ der\ Thread\ eine\ Stunde\ und\ pr\u00FCft\ dann\ erneut,\ ob\ eine\ Bestellung\ eingegangen\ ist.\n
 numComments=6

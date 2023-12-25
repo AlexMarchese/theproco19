@@ -8,7 +8,6 @@ import java.io.PrintStream;
 import java.util.List; // 
 
 /**
- * TO DO:
  * Die Klasse GUI stellt die graphische Nutzeroberfläche für die AEKI Fabrik bereit und gibt einerseits eine Übersicht über die Abläufe in der Fabrik, das Entwicklerteam, den Lieferanten sowie die bestellbaren Produkte.
  */
 public class GUI extends JFrame {
@@ -39,7 +38,7 @@ public class GUI extends JFrame {
     private Main main;
 
     /**
-     * Konstruktor für Objekte der Klasse GUI
+     * Konstruktor für Objekte der Klasse GUI.
      */
     public GUI() {
 
@@ -66,9 +65,10 @@ public class GUI extends JFrame {
     // }
 
     /**
-     * Methode zur Initialisierung aller Fenster
-     * @param fabrik
-     * @param lager
+     * Methode zur Initialisierung des Hauptfensters der Anwendung mit verschiedenen Subfenstern und Komponenten.
+     * 
+     * @param fabrik Eine Instanz der Fabrik Klasse.
+     * @param lager Eine Instanz der Lager Klasse.
      */
         private void initFenster() {
 
@@ -120,7 +120,8 @@ public class GUI extends JFrame {
     /// Konfigurierungen der einzelnen Fenster
    
     /**
-     * Konfigurierung des Lagerbestandes, Anzeige oben
+     * Methode zur Konfigurierung des Lagerbestandes, welches den aktuellen Lagerbestand oben anzeigt.
+     * Dabei wird  der kritische Lagerbestand von 25% des maximalen Werts berücksichtigt und  niedrige Bestände in rot markiert. 
      */
     private void aktualisiereLagerbestand(){
 
@@ -195,8 +196,8 @@ public class GUI extends JFrame {
     }
 
 
-    /*
-     * Konfigurierung der Anzeige des Zeitraffers
+    /**
+     * Methode zur Konfigurierung und Aktualisierung der Anzeige des Zeitraffers.
      */
     private void aktualisiereZeitraffer(){
 
@@ -219,7 +220,8 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Konfigurierung der Subfenster im Zentrum mit 3 Spalten
+     * Konfigurierung der Subfenster im Zentrum mit 3 Spalten.
+     * Erstellt und aktualisiert das Bestellungen-Panel, das Roboter-Status-Panel und das Status-Updates-Panel.
      */
     private void konfiguriereSubfensterZentrum(){
         // Fenster für Bestellungen erstellen       
@@ -287,7 +289,10 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Konfigurierung der Subfenster im Zentrum mit 3 Spalten
+     * Konfigurierung des Bestellungen-Panel.
+     * Aktualisiert das Bestellungen-Panel, indem es das Panel leert, neu gestaltet und mit aktualisierten Daten füllt, 
+     * und dann die Oberfläche aktualisiert, um die Änderungen anzuzeigen.
+     * Dabei wird die neuste Bestellung stets zuoberst angezeigt.
      */
     private void aktualisiereColumnBestellungen(){
         //Fenster säubern, bevor es aufgesetzt wird
@@ -314,7 +319,8 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Konfigurierung der Subfenster im Zentrum mit 3 Spalten
+     * Konfigurierung des Roboter-Status-Panel.
+     * Aktualisiert das Roboter-Status-Panel, indem es das Panel leert und neu gestaltet für alle vier verschiedenen Roboter.
      */
     private void aktualisiereColumnRoboterstatus(){
         //Fenster säubern, bevor es aufgesetzt wird
@@ -352,7 +358,8 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Konfigurierung der Subfenster im Zentrum mit 3 Spalten
+     * Konfigurierung des Status-Updates-Panel.
+     *  estaltet das Panel mit einem Label und einem Scroll.
      */
     private void konfiguriereColumnStatusupdates(){
         // Design
@@ -378,7 +385,11 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Konfigurierung der Linken Leiste mit den Knöpfen
+     * Konfigurierung einer Leiste ganz links mit vier Knoepfen (Buttons).
+     * Ein "Bestellung aufgeben" Knopf, der die Methode handleBestellungAufgeben() aufruft, wenn darauf geklickt wird.
+     * Ein "Zeitraffer" Knopf, der die Methode handleZeitraffer() aufruft, wenn darauf geklickt wird.
+     * Ein "Bestellungen Ausgeben" Knopf, der die Methode handleBestellungenAusgeben() aufruft, wenn darauf geklickt wird.
+     * Ein "Übersicht Lieferant" Knopf, der eine Methode displayInformationPanel() aufruft, wenn darauf geklickt wird.
      */
     private void konfiguriereLinkeLeisteKnoepfe(){
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
@@ -436,7 +447,11 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Konfigurierung der Menüleiste
+     * Konfigurierung der Menüleiste für das GUI-Fenster zu oberst. 
+     * Erstellt und konfiguriert das Menü "Datei".
+     * Erstellt und konfiguriert das Menü "Produkte" mit Untermenüpunkten "Stuhl" und "Sofa".
+     * Erstellt und konfiguriert das Menü "Über Uns" mit dem Untermenüpunkt "Team".
+     * Erstellt und konfiguriert den Menüpunkt "Aktualisieren" im "Datei"-Menü mit einem ActionListener für die Aktualisierungsfunktion.
      */
     private void konfiguriereMenueleiste(){
 
@@ -497,12 +512,20 @@ public class GUI extends JFrame {
         //fileMenu.add(option3);
     }
 
+    /**
+     * Methode die den Ablauf nach dem Drücken des "Bestellung Aufgeben"-Buttons behandelt.
+     * Zeigt Dialogfenster für die Anzahl der zu bestellenden Sofas und Stuehle an.
+     * Verarbeitet die eingegebenen Werte und gibt entsprechende Meldungen aus.
+     * Ruft die Methode `fabrik.bestellungAufgeben()` auf, um die Bestellung in der Fabrik zu erfassen.
+     * Zeigt Ergebnismeldungen oder Fehlermeldungen anhand der Rückgabe von `fabrik.bestellungAufgeben()` an.
+     */
     private void handleBestellungAufgeben() {
+
         System.out.println("Der Knopf 'Bestellung Aufgeben' wurde gedrueckt"); // Debug print
 
         String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten.\nEs soll eine ganze maximal zweistellige Zahl oder '0' sein:");
 
-        // Wenn "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
+        // Wenn "Abbrechen" gewählt wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
         if (sofasInput != null) {
             String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten.\nEs soll eine ganze maximal zweistellige Zahl oder '0' sein:");
 
@@ -551,6 +574,13 @@ public class GUI extends JFrame {
         
     }
 
+    /**
+     * Methode die den Ablauf nach dem Drücken des "Zeitraffer"-Buttons behandelt.
+     * Zeigt ein Dialogfenster für die Eingabe des Zeitfaktors an.
+     * Verarbeitet die eingegebene Zeitfaktor-Wert und beeinflusst die Zeit in der Fabrik entsprechend.
+     * Validiert die Eingabe, um sicherzustellen, dass ein gültiger Zeitfaktor eingegeben wird (ganze Zahl zwischen 1 und 60).
+     * Zeigt Fehlermeldungen an, wenn die Eingabe ungültig ist, oder führt die Methode `fabrik.beeinflusseZeit()` aus.
+     */
     private void handleZeitraffer() {
         System.out.println("Der Knopf 'Zeitraffer' wurde gedrueckt."); // Debug print
 
@@ -589,7 +619,9 @@ public class GUI extends JFrame {
         
     }
 
-    /// Methoden der Fenster
+    /**
+     * Methode die die Methode fabrik.bestellungenAusgeben aufruft, um die aktuellen Bestellungen abzurufen.
+     */
     private void handleBestellungenAusgeben() {
         // Call the fabrik.bestellungenAusgeben method
         // String result = fabrik.bestellungenAusgeben();
@@ -604,6 +636,9 @@ public class GUI extends JFrame {
         JOptionPane.showMessageDialog(GUI.this, result);
     }
 
+    /**
+     * auskommentieren?
+     */
     private void handleOption1() {
         // Hier könnte Option 1 refresh implementiert werden
         //fabrik.updateSomeValues(); // You need to implement this method in your Fabrik class.
@@ -612,6 +647,10 @@ public class GUI extends JFrame {
         //updateGUI();
     }
 
+    /**
+     * Diese Methode erstellt ein neues Fenster, das Informationen zum Lieferanten anzeigt, einschliesslich des aktuellen Lieferstatus 
+     * und der im Lieferprozess befindlichen Einheiten. Der Nutzer kann das Fenster durch Betätigen des "Schliessen"-Buttons schliessen.
+     */
     private void displayInformationPanel() {
         // Create a new JFrame for the information panel zum Lieferanten
         JFrame informationFrame = new JFrame("Lieferant Information");
@@ -721,7 +760,8 @@ public class GUI extends JFrame {
      */
 
     /**
-     * Aktualisierung eines der vier Roboter-Panel (muss für jeden Roboter-Panel aufgerufen werden).
+     * Aktualisierung eines der vier Roboter-Status-Panel (muss für jeden Roboter-Panel aufgerufen werden).
+     * Aktualisiert Status und Warteschlange.
      */
     //Dieser Code sollte die einzelenen Roboter in Spalte 2 formatieren nicht mer in use
 
@@ -734,17 +774,15 @@ public class GUI extends JFrame {
         panel.add(nameLabel);
         panel.add(statusLabel);
         panel.add(warteschlangeLabel);
-//ToDo: dieses Print Statement würde ich zur besseren Übersicht noch auskommentieren.
-        // System.out.println("\n\nAktualisiere Roboter " + roboter.gibName() + "\nWS: " + roboter.gibWarteschlange().size());
 
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         return panel;
     }
 
-    
     /**
-     * Dieser Code soll aus der Bestellungsliste die einzelnen Bestellungen als Panels einblenden
+     * Aktualisiert das Panel für Bestellungen und gibt ein neues JPanel zurück. 
+     * @return Jpanel Ein Panel, das die aktualisierten Bestellungen darstellt. (@emma ChatGPT sagt return JPanel ist es Jpanel oder Panel?)
      */ 
 
     private JPanel aktualisiereBestellungPanel() {
@@ -794,7 +832,6 @@ public class GUI extends JFrame {
     }
 
 
-
     /*
     // Methode um Bestellungen zu Printen neu angelegt während dem Sprint,
     private void BestellungenAusgeben(){
@@ -811,43 +848,82 @@ public class GUI extends JFrame {
      */
 
     /// Methoden zu den Werten des aktuellen und maximalen Lagerbestandes
-
+    /**
+     * Methode, um den aktuellen Wert der vorhandenen Holzeinheiten im Lager erhalten.
+     * @return vorhandeneHolzeinheiten Der aktuelle Wert der vorhandenen Holzeinheiten.
+     */
     private int gibHolzWert() {
         return this.lager.gibvorhandeneHolzeinheiten();
     }
 
+    /**
+     * Methode, um den aktuellen Wert der vorhandenen Schrauben im Lager erhalten.
+     * @return vorhandeneSchrauben Der aktuelle Wert der vorhandenen Schrauben.
+     */
     private int gibSchraubenWert() {
         return this.lager.gibvorhandeneSchrauben();
     }
 
+    /**
+     * Methode, um den aktuellen Wert der vorhandenen Kissen im Lager erhalten.
+     * @return vorhandeneKissen Der aktuelle Wert der vorhandenen Kissen.
+     */
     private int gibKissenWert() {
         return this.lager.gibvorhandeneKissen();
     }
 
+    /**
+     * Methode, um den aktuellen Wert der vorhandenen Einheiten Farbe im Lager erhalten.
+     * @return vorhandeneFarbeeinheiten Der aktuelle Wert der vorhandenen Farbeeinheiten.
+     */
     private int gibFarbeWert() {
         return this.lager.gibvorhandeneFarbeeinheiten();
     }
 
+    /**
+     * Methode, um den aktuellen Wert der vorhandenen Einheiten Karton im Lager erhalten.
+     * @return vorhandeneKartoneinheiten Der aktuelle Wert der vorhandenen Kartoneinheiten.
+     */
     private int gibKartonWert() {
         return this.lager.gibvorhandeneKartoneinheiten();
     }
 
+    /**
+     * Methode, um den maximalen Wert der Einheiten Holz im Lager erhalten.
+     * @return MaxHolzeinheiten Der maximale Wert der Holzeinheiten.
+     */
     private int gibMaximalerHolzWert() {
         return this.lager.gibMaxHolzeinheiten();
     }
 
+    /**
+     * Methode, um den maximalen Wert der Schrauben im Lager erhalten.
+     * @return MaxSchrauben Der maximale Wert der Schrauben.
+     */
     private int gibMaximalerSchraubenWert() {
         return this.lager.gibMaxSchrauben();
     }
 
+    /**
+     * Methode, um den maximalen Wert der Kissen im Lager erhalten.
+     * @return MaxKissen Der maximale Wert der Kissen.
+     */
     private int gibMaximalerKissenWert() {
         return this.lager.gibMaxKissen();
     }
 
+    /**
+     * Methode, um den maximalen Wert der Einheiten Farbe im Lager erhalten.
+     * @return MaxFarbeeinheiten Der maximale Wert der Farbeinheiten.
+     */
     private int gibMaximalerFarbeWert() {
         return this.lager.gibMaxFarbeeinheiten();
     }
 
+    /**
+     * Methode, um den maximalen Wert der Einheiten Karton im Lager erhalten.
+     * @return MaxKartoneinheiten Der maximale Wert der Kartoneinheiten.
+     */
     private int gibMaximalerKartonWert() {
         return this.lager.gibMaxKartoneinheiten();
     }
@@ -910,12 +986,19 @@ public class GUI extends JFrame {
      */
     class TeamActionListener implements ActionListener
     {
+         /**
+         * Methode die aufgerufen wird, wenn das JMenu "Über Uns" ausgewählt wird.
+         * Erstellt ein neues JFrame mit dem Titel "Unser Team" und setzt den Inhalt auf ein Bild.
+         */
         public void actionPerformed(ActionEvent event)
         {
             fenster = new JFrame("Unser Team");
             teamFenster();
         }
 
+        /**
+         * Methode die ein neues Fenster mit einem Hintergrundbild für das Team erstellt.
+         */
         protected void teamFenster() 
         {
             fenster.setContentPane(new BackGroundPane("UnserTeam.png"));
@@ -929,12 +1012,19 @@ public class GUI extends JFrame {
      */
     class SofaActionListener implements ActionListener
     {
+        /**
+        * Methode wird aufgerufen, wenn das JMenuItem "Sofa" ausgewählt wird.
+        * Erstellt ein neues JFrame mit dem Titel "Sofa" und setzt den Inhalt auf ein Bild.
+        */
         public void actionPerformed(ActionEvent event)
         {
             fenster = new JFrame("Sofa");
             sofaFenster();
         }
 
+        /**
+        * Methdoe, die ein neues Fenster erstellt mit einem Hintergrundbild für das Sofa.
+        */
         protected void sofaFenster() 
         {
             fenster.setContentPane(new BackGroundPane("Sofa.png"));
@@ -948,12 +1038,19 @@ public class GUI extends JFrame {
      */
     class StuhlActionListener implements ActionListener
     {
+        /**
+        * Methode wird aufgerufen, wenn das JMenuItem "Stuhl" ausgewählt wird.
+        * Erstellt ein neues JFrame mit dem Titel "Stuhl" und setzt den Inhalt auf ein Bild.
+        */
         public void actionPerformed(ActionEvent event)
         {
             fenster = new JFrame("Stuhl");
             stuhlFenster();
         }
 
+        /**
+        * Methode, die ein neues Fenster erstellt mit einem Hintergrundbild für den Stuhl.
+        */
         protected void stuhlFenster() 
         {
             fenster.setContentPane(new BackGroundPane("Stuhl.png"));
@@ -968,6 +1065,10 @@ public class GUI extends JFrame {
     {
         Image img = null;
 
+        /**
+         * Konstruktor für die BackGroundPane-Klasse.
+         * @param imagefile Der Dateipfad des Hintergrundbilds.
+         */
         BackGroundPane(String imagefile) 
         {
             if (imagefile != null) {
@@ -982,6 +1083,10 @@ public class GUI extends JFrame {
             }
         }
 
+        /**
+         * Die paintComponent-Methode wird überschrieben, um das Hintergrundbild zu zeichnen.
+         * @param g Der Graphics-Kontext zum Zeichnen.
+         */
         protected void paintComponent(Graphics g) 
         {
             super.paintComponent(g);
@@ -989,6 +1094,13 @@ public class GUI extends JFrame {
         }
     }
 
+    /**
+     * Die private Methode guiSettings stellt die grundlegenden Einstellungen für das JFrame-Fenster ein.
+     * 
+     * @param fenster Das JFrame-Fenster, für das die Einstellungen vorgenommen werden.
+     * @param laenge Die Laenge des Fensters.
+     * @param breite Die Breite des Fensters.
+     */
     private void guiSettings(JFrame fenster, int laenge, int breite){
         fenster.setLayout(null);
         fenster.setSize(laenge, breite);
