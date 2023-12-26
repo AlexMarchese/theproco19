@@ -11,4 +11,5 @@ comment3.target=Lager\ gibLager()
 comment3.text=\n\ Methode\ zur\ Ausgabe\ der\ Lagers\ der\ Fabrik.\n\ \n\ @return\ \ lager\ \ \ Lager\ der\ Fabrik.\n
 comment4.params=args
 comment4.target=void\ main(java.lang.String[])
+comment4.text=\n\ Die\ main-Methode\ startet\ die\ Anwendung.\n\ Hier\ wird\ ein\ GUI\ erstellt\ und\ sichtbar\ gemacht.\n\ Ein\ Timer\ wird\ verwendet,\ um\ die\ GUI-Fenster\ in\ regelm\u00E4\u00DFigen\ Abst\u00E4nden\ zu\ aktualisieren.\n\ Der\ Timer\ ruft\ die\ aktualisiereFenster()\ Methode\ des\ GUI-Objekts\ alle\ 1\ Millisekunde\ auf.\n
 numComments=5

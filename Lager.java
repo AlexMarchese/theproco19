@@ -320,9 +320,6 @@ public class Lager{
     public int gibMaxKissen() {
         return this.maxKissen;
     }   
-    
-    
-    /// Methoden
 
 
     /**
@@ -439,11 +436,11 @@ public class Lager{
         System.out.println("Das Lager bestaetigt den Erhalt der Ware vom Lieferanten.");
     }
     
-            
+    
     /**
      * Die Methode lagerBestandAusgeben() gibt den aktuellen Lagerbestand aus.
      * 
-     * @return   ausgabe    Text zum Lagerbestand.
+     * @return   ausgabe   Text zum Lagerbestand.
      * 
     */
    

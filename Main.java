@@ -21,7 +21,7 @@ public class Main
     private Lager lager;
 
     public Main() {
-        
+        // Fabrik, Lager und Manager initialisieren
         this.fabrikStart = new Fabrik();
         this.fabrikStart.erstelleLager(1_000, 5_000, 1_000, 1_000, 100, 1_000, 5_000, 1_000, 1_000, 100);
         this.fabrikStart.erstelleProduktions_Manager();
@@ -48,15 +48,17 @@ public class Main
         return this.lager;
     }
 
-        public static void main(String[] args) {
-        // GUI erstellen und sichtbar machen
+    /**
+     * Die main-Methode startet die Anwendung.
+     * Hier wird ein GUI erstellt und sichtbar gemacht.
+     * Ein Timer wird verwendet, um die GUI-Fenster in regelmäßigen Abständen zu aktualisieren.
+     * Der Timer ruft die aktualisiereFenster() Methode des GUI-Objekts alle 1 Millisekunde auf.
+     */   
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
                     GUI gui = new GUI();
                     gui.setVisible(false);
 
-                    // Timer, damit die Fenster jede Millisekunde updaten
-                    // The above code is creating a Timer object that will call the
-                    // `aktualisiereFenster()` method of the `gui` object every 1 millisecond.
                     Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
                     timer.setRepeats(true); // true, damit sich das wiederholt
                     timer.start();
