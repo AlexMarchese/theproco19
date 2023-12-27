@@ -5,10 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList; 
 import java.io.PrintStream;
 
-import java.util.List; // 
+import java.util.List;
 
 /**
- * Die Klasse GUI stellt die graphische Nutzeroberfläche für die AEKI Fabrik bereit und gibt einerseits eine Übersicht über die Abläufe in der Fabrik, das Entwicklerteam, den Lieferanten sowie die bestellbaren Produkte.
+ * Die Klasse GUI stellt die graphische Nutzeroberfläche für die AEKI Fabrik bereit 
+ * und gibt eine Übersicht über die Abläufe in der Fabrik, das Entwicklerteam, den Lieferanten sowie die bestellbaren Produkte.
  */
 public class GUI extends JFrame {
     //private final GUI_Controller controller;
@@ -39,7 +40,7 @@ public class GUI extends JFrame {
 
     /**
      * Konstruktor für Objekte der Klasse GUI.
-     */
+    */
     public GUI() {
 
         //bestellungenList = new ArrayList<>();
@@ -59,18 +60,17 @@ public class GUI extends JFrame {
 
         initFenster(); // Initialisierung des Hauptfensters
     }
-    //public GUI(GUI_Controller controller) {
+    
+        //public GUI(GUI_Controller controller) {
     //   this.controller = controller;
     //   initFenster();
     // }
 
+
     /**
      * Methode zur Initialisierung des Hauptfensters der Anwendung mit verschiedenen Subfenstern und Komponenten.
-     * 
-     * @param fabrik Eine Instanz der Fabrik Klasse.
-     * @param lager Eine Instanz der Lager Klasse.
-     */
-        private void initFenster() {
+    */
+    private void initFenster() {
 
             // Gesamtfenster
             fenster = new JFrame("AEKI Übersicht");
@@ -115,7 +115,7 @@ public class GUI extends JFrame {
             fenster.setLocationRelativeTo(null);
             fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             fenster.setVisible(true);
-        }
+    }
 
     /// Konfigurierungen der einzelnen Fenster
    
@@ -292,7 +292,7 @@ public class GUI extends JFrame {
      * Konfigurierung des Bestellungen-Panel.
      * Aktualisiert das Bestellungen-Panel, indem es das Panel leert, neu gestaltet und mit aktualisierten Daten füllt, 
      * und dann die Oberfläche aktualisiert, um die Änderungen anzuzeigen.
-     * Dabei wird die neuste Bestellung stets zuoberst angezeigt.
+     * Dabei wird die neuste Bestellung stets ganz oben angezeigt.
      */
     private void aktualisiereColumnBestellungen(){
         //Fenster säubern, bevor es aufgesetzt wird
@@ -359,7 +359,7 @@ public class GUI extends JFrame {
 
     /**
      * Konfigurierung des Status-Updates-Panel.
-     *  estaltet das Panel mit einem Label und einem Scroll.
+     * Erstellt das Panel mit einem Label und einer Möglichekeit zum scrollen.
      */
     private void konfiguriereColumnStatusupdates(){
         // Design
@@ -636,16 +636,16 @@ public class GUI extends JFrame {
         JOptionPane.showMessageDialog(GUI.this, result);
     }
 
-    /**
-     * auskommentieren?
-     */
-    private void handleOption1() {
+    ///**
+    // * auskommentieren?
+    // */
+    //private void handleOption1() {
         // Hier könnte Option 1 refresh implementiert werden
         //fabrik.updateSomeValues(); // You need to implement this method in your Fabrik class.
 
         // Update the GUI to reflect changes
         //updateGUI();
-    }
+    //}
 
     /**
      * Diese Methode erstellt ein neues Fenster, das Informationen zum Lieferanten anzeigt, einschliesslich des aktuellen Lieferstatus 
@@ -760,8 +760,11 @@ public class GUI extends JFrame {
      */
 
     /**
-     * Aktualisierung eines der vier Roboter-Status-Panel (muss für jeden Roboter-Panel aufgerufen werden).
-     * Aktualisiert Status und Warteschlange.
+     * Aktualisierung eines der vier Roboter-Status-Panel, es muss für jeden Roboter-Panel aufgerufen werden.
+     * Die Informationen werden in Form von JLabels dargestellt und umfassen den Roboter-Namen, seinen Status und die Größe seiner Warteschlange.
+     * @param roboter Der Roboter, dessen Informationen im erstellten JPanel dargestellt werden sollen.
+     * @return Jpanel Ein Panel, das die aktualisierten Bestellungen darstellt.
+     * 
      */
     //Dieser Code sollte die einzelenen Roboter in Spalte 2 formatieren nicht mer in use
 
@@ -782,7 +785,7 @@ public class GUI extends JFrame {
 
     /**
      * Aktualisiert das Panel für Bestellungen und gibt ein neues JPanel zurück. 
-     * @return Jpanel Ein Panel, das die aktualisierten Bestellungen darstellt. (@emma ChatGPT sagt return JPanel ist es Jpanel oder Panel?)
+     * @return Jpanel Ein Panel, das die aktualisierten Bestellungen darstellt. 
      */ 
 
     private JPanel aktualisiereBestellungPanel() {
@@ -849,7 +852,7 @@ public class GUI extends JFrame {
 
     /// Methoden zu den Werten des aktuellen und maximalen Lagerbestandes
     /**
-     * Methode, um den aktuellen Wert der vorhandenen Holzeinheiten im Lager erhalten.
+     * Methode, um den aktuellen Wert der vorhandenen Holzeinheiten im Lager zu erhalten.
      * @return vorhandeneHolzeinheiten Der aktuelle Wert der vorhandenen Holzeinheiten.
      */
     private int gibHolzWert() {
@@ -857,7 +860,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den aktuellen Wert der vorhandenen Schrauben im Lager erhalten.
+     * Methode, um den aktuellen Wert der vorhandenen Schrauben im Lager zu erhalten.
      * @return vorhandeneSchrauben Der aktuelle Wert der vorhandenen Schrauben.
      */
     private int gibSchraubenWert() {
@@ -865,7 +868,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den aktuellen Wert der vorhandenen Kissen im Lager erhalten.
+     * Methode, um den aktuellen Wert der vorhandenen Kissen im Lager zu erhalten.
      * @return vorhandeneKissen Der aktuelle Wert der vorhandenen Kissen.
      */
     private int gibKissenWert() {
@@ -873,7 +876,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den aktuellen Wert der vorhandenen Einheiten Farbe im Lager erhalten.
+     * Methode, um den aktuellen Wert der vorhandenen Einheiten Farbe im Lager zu erhalten.
      * @return vorhandeneFarbeeinheiten Der aktuelle Wert der vorhandenen Farbeeinheiten.
      */
     private int gibFarbeWert() {
@@ -881,7 +884,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den aktuellen Wert der vorhandenen Einheiten Karton im Lager erhalten.
+     * Methode, um den aktuellen Wert der vorhandenen Einheiten Karton im Lager zu erhalten.
      * @return vorhandeneKartoneinheiten Der aktuelle Wert der vorhandenen Kartoneinheiten.
      */
     private int gibKartonWert() {
@@ -889,7 +892,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den maximalen Wert der Einheiten Holz im Lager erhalten.
+     * Methode, um den maximalen Wert der Einheiten Holz im Lager zu erhalten.
      * @return MaxHolzeinheiten Der maximale Wert der Holzeinheiten.
      */
     private int gibMaximalerHolzWert() {
@@ -897,7 +900,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den maximalen Wert der Schrauben im Lager erhalten.
+     * Methode, um den maximalen Wert der Schrauben im Lager zu erhalten.
      * @return MaxSchrauben Der maximale Wert der Schrauben.
      */
     private int gibMaximalerSchraubenWert() {
@@ -905,7 +908,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den maximalen Wert der Kissen im Lager erhalten.
+     * Methode, um den maximalen Wert der Kissen im Lager zu erhalten.
      * @return MaxKissen Der maximale Wert der Kissen.
      */
     private int gibMaximalerKissenWert() {
@@ -913,7 +916,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Methode, um den maximalen Wert der Einheiten Farbe im Lager erhalten.
+     * Methode, um den maximalen Wert der Einheiten Farbe im Lager zu erhalten.
      * @return MaxFarbeeinheiten Der maximale Wert der Farbeinheiten.
      */
     private int gibMaximalerFarbeWert() {
@@ -982,7 +985,7 @@ public class GUI extends JFrame {
 
     /**
      * Die Klasse "TeamActionListener" erstellt ein neues Fenster sobald über
-     * das JMenu Karriere angewählt wird. 
+     * das JMenu "Über Uns" ausgewählt wird. 
      */
     class TeamActionListener implements ActionListener
     {
@@ -997,7 +1000,7 @@ public class GUI extends JFrame {
         }
 
         /**
-         * Methode die ein neues Fenster mit einem Hintergrundbild für das Team erstellt.
+         * Methode die ein neues Fenster mit einem Hintergrundbild erstellt, welches das Team der Gruppe abbildet.
          */
         protected void teamFenster() 
         {
@@ -1008,7 +1011,7 @@ public class GUI extends JFrame {
 
     /**
      * Die Klasse "SofaActionListener" erstellt ein neues Fenster sobald über
-     * das JMenu Karriere angewählt wird. 
+     * das JMenu "Produkte" angewählt wird. 
      */
     class SofaActionListener implements ActionListener
     {
@@ -1023,7 +1026,7 @@ public class GUI extends JFrame {
         }
 
         /**
-        * Methdoe, die ein neues Fenster erstellt mit einem Hintergrundbild für das Sofa.
+        * Methdoe, die ein neues Fenster erstellt mit einem Hintergrundbild, welches das Sofa abbildet.
         */
         protected void sofaFenster() 
         {
@@ -1034,7 +1037,7 @@ public class GUI extends JFrame {
 
     /**
      * Die Klasse "StuhlActionListener" erstellt ein neues Fenster sobald über
-     * das JMenu Karriere angewählt wird. 
+     * das JMenu "Produkte" ausgewählt wird. 
      */
     class StuhlActionListener implements ActionListener
     {
@@ -1049,7 +1052,7 @@ public class GUI extends JFrame {
         }
 
         /**
-        * Methode, die ein neues Fenster erstellt mit einem Hintergrundbild für den Stuhl.
+        * Methode, die ein neues Fenster erstellt mit einem Hintergrundbild, welches den Stuhl abbildet.
         */
         protected void stuhlFenster() 
         {
