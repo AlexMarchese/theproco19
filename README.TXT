@@ -1,9 +1,4 @@
 ------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all they need to know. The comments should usually include at least:
-------------------------------------------------------------------------
-
 PROJEKTNAME: SmartFactory-Management-System für Aeki
 
 ZIEL DES PROJEKTES: 
@@ -15,7 +10,7 @@ VERSION: version 2.0
 
 WIE DAS PROJEKT STARTEN:
 1. Öffne das Projekt in BlueJ.
-2. Starte die Software, indem du die Main-Methode in der Klasse "GUI" ausführst. 
+2. Starte die Software, indem du die Main-Methode in der Klasse "Main" ausführst. 
 
 AUTOREN: GBI Gruppe 19 
 
@@ -27,3 +22,4 @@ BENUTZER ANLEITUNG:
    und das Auffüllen von Materialien.
 5. Beachte etwaige Systembenachrichtigungen zu niedrigen Lagerbeständen.
 6. Bei Fragen oder Unterstützungsbedarf siehe die bereitgestellte Dokumentation.
+------------------------------------------------------------------------
