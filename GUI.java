@@ -12,10 +12,9 @@ import java.util.List;
  * und gibt eine Übersicht über die Abläufe in der Fabrik, das Entwicklerteam, den Lieferanten sowie die bestellbaren Produkte.
  */
 public class GUI extends JFrame {
-    //private final GUI_Controller controller;
     private JFrame fenster;
     private JPanel mainPanel;
-    JPanel topPanel;
+    private JPanel topPanel;
     private JPanel lagerbestandPanel;  
     private JPanel zeitrafferAnzeige;
     private JPanel columnsPanel;
@@ -39,11 +38,9 @@ public class GUI extends JFrame {
     private Main main;
 
     /**
-     * Konstruktor für Objekte der Klasse GUI.
+    * Konstruktor für Objekte der Klasse GUI.
     */
     public GUI() {
-
-        //bestellungenList = new ArrayList<>();
         main = new Main();
 
         // Aus der Main Methode und mehr
@@ -60,11 +57,6 @@ public class GUI extends JFrame {
 
         initFenster(); // Initialisierung des Hauptfensters
     }
-    
-        //public GUI(GUI_Controller controller) {
-    //   this.controller = controller;
-    //   initFenster();
-    // }
 
 
     /**
@@ -84,7 +76,6 @@ public class GUI extends JFrame {
             topPanel = new JPanel(new BorderLayout());  
             // Konfiguriere Anzeige des Top Panels
             topPanel.setBackground(new Color(221, 221, 221));
-            // topPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
             // Erstellung des Fensters mit dem Lagerbestand    
             lagerbestandPanel = new JPanel(); 
             // Wird dem kleinen Subfenster hinzugefügt
@@ -177,22 +168,9 @@ public class GUI extends JFrame {
         }
         lagerbestandPanel.add(kartonLabel);
 
-        // JLabel schraubenLabel = new JLabel("Schrauben: " + gibSchraubenWert() + " / 5000 Einheiten"); 
-        // lagerbestandPanel.add(schraubenLabel);
-
-        // JLabel kissenLabel = new JLabel("Kissen: " + gibKissenWert() + " / 100 Einheiten"); 
-        // lagerbestandPanel.add(kissenLabel);
-
-        // JLabel farbeLabel = new JLabel("Farbe: " + gibFarbeWert() + " / 1000 Einheiten"); 
-        // lagerbestandPanel.add(farbeLabel);
-
-        // JLabel kartonLabel = new JLabel("Karton: " + gibKartonWert() + " / 1000 Einheiten"); 
-        // lagerbestandPanel.add(kartonLabel);
-
         // Panel updaten
         lagerbestandPanel.revalidate();
         lagerbestandPanel.repaint();
-
     }
 
 
@@ -214,7 +192,6 @@ public class GUI extends JFrame {
         // Konvertiert der Wert von String zu integer
         int number = Integer.parseInt(this.zeitFaktor);
 
-        // JLabel ZeitKonversion = new JLabel("1 Sekunde = " + (number == 1 ? "1 Stunde" : (60 / number) + " Minuten"));
         JLabel ZeitKonversion = new JLabel("1 Sekunde = " + (number == 1 ? "1 Stunde" : (60 / number) + (number > 30 ? " Minute" : " Minuten")));
         zeitrafferAnzeige.add(ZeitKonversion);
     }
@@ -233,7 +210,6 @@ public class GUI extends JFrame {
         // Fenster für Bestellungen zu columnsPanel hinzufügen
         columnsPanel.add(bestellungenPanel);
 
-        
         // Fenster für Roboter-Status erstellen
         roboterStatusPanel = new JPanel(new BorderLayout());
 
@@ -251,37 +227,9 @@ public class GUI extends JFrame {
 
         // Fenster für Status-Updates zu columnsPanel hinzufügen
         columnsPanel.add(statusUpdatesPanel);
-
-    //     Dimension bestellungenSize = bestellungenPanel.getPreferredSize();
-    //     Dimension roboterStatusSize = roboterStatusPanel.getPreferredSize();
-    //     Dimension statusUpdatesSize = statusUpdatesPanel.getPreferredSize();
-
-    // // Set the preferred width of the third panel to be double the combined width of the first two panels
-    // statusUpdatesSize.width = bestellungenSize.width + roboterStatusSize.width;
-    // statusUpdatesPanel.setPreferredSize(statusUpdatesSize);
-    // mainPanel.setLayout(new BorderLayout());
         
         // Fügt Konfiguration dem Main panel hinzu
         mainPanel.add(columnsPanel, BorderLayout.CENTER);
-
-        // Add test messages - OLD
-        //for (int i = 1; i <= 5; i++) {
-        //    logTextArea.append("Test Message " + i + "\n");
-        //}
-
-        //    private void updateLagerbestandGUI() {
-        //int[] lagerbestand = this.lager.gibLagerbestand();
-
-        //Label aktuellerLagerstatus = new Label("Status: Normal");
-        //aktuellerLagerstatus.setTextFill(Color.rgb(0, 128, 0));
-        //if(lager.wartetAufLieferant()) {
-        //aktuellerLagerstatus.setText("Status: Wird belieftert...");
-        // aktuellerLagerstatus.setTextFill(Color.rgb(128, 0, 0));
-        //}
-
-        //Hier wird innerhalb der Spalte Status Updates ein ScrollPane angelegt
-        //JScrollPane logScrollPane = new JScrollPane(logTextArea);
-        //statusUpdatesPanel.add(logScrollPane, BorderLayout.CENTER);
 
         // Subfenster updaten
         columnsPanel.revalidate();
@@ -301,12 +249,14 @@ public class GUI extends JFrame {
         // Fenster designen und befüllen
         bestellungenPanel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK),
-                BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Fügen Sie den leeren Border hinzu
-
+                BorderFactory.createEmptyBorder(10, 10, 10, 10))); 
+                
+        // Border hinzufügen
         JLabel bestellungenLabel = new JLabel("Bestellungen");
         bestellungenPanel.add(bestellungenLabel, BorderLayout.NORTH);
 
         JPanel bestellungenLogPanel = aktualisiereBestellungPanel();
+        
         // Verwende ein GridLayout mit Abstand von 4 Pixeln horizontal und 6 Pixeln vertikal zwischen den Komponenten
         bestellungenLogPanel.setLayout(new GridLayout(6, 4, 4, 6));
 
@@ -402,9 +352,6 @@ public class GUI extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     handleBestellungAufgeben();
                 }
-                //button1.addActionListener(e -> {
-                // Handle Button 1 action
-                //   JOptionPane.showMessageDialog(fenster, "Button 1 pressed");
             });
         leftPanel.add(button1);
 
@@ -416,9 +363,6 @@ public class GUI extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     handleZeitraffer();
                 }
-                //buttonZ.addActionListener(e -> {
-                // Handle Button 1 action
-                //   JOptionPane.showMessageDialog(fenster, "Button 1 pressed");
             });
         leftPanel.add(buttonZ);
 
@@ -456,10 +400,12 @@ public class GUI extends JFrame {
     private void konfiguriereMenueleiste(){
 
         fenster.setJMenuBar(menueZeile);
-
+        
+        // Datei
         JMenu fileMenu = new JMenu("Datei");
         menueZeile.add(fileMenu);
-
+        
+        // Produkte
         JMenu produktMenu = new JMenu("Produkte");
         menueZeile.add(produktMenu);
         JMenuItem stuhlEintrag = new JMenuItem("Stuhl");
@@ -468,14 +414,15 @@ public class GUI extends JFrame {
         JMenuItem sofaEintrag = new JMenuItem("Sofa");
         sofaEintrag.addActionListener(new SofaActionListener());
         produktMenu.add(sofaEintrag);
-
+        
+        // Ueber Uns
         JMenu unsMenu = new JMenu("Über Uns");
         menueZeile.add(unsMenu);
         JMenuItem teamEintrag = new JMenuItem("Team");
         teamEintrag.addActionListener(new TeamActionListener());
         unsMenu.add(teamEintrag);
 
-        // Option 1 "Refresh" ->
+        // Refresh
         JMenuItem refresh = new JMenuItem("Aktualisieren");
         refresh.addActionListener(e -> {
                     // Refresh action
@@ -483,33 +430,6 @@ public class GUI extends JFrame {
                     JOptionPane.showMessageDialog(fenster, "Fenster aktualisiert. Sie sind auf dem aktuellen Stand.");
             });
         fileMenu.add(refresh);
-
-        /* Code für REFRESH Option für Option 1 oben links in der Selektion
-        option1.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        handleOption1();
-        }
-        });
-
-        fileMenu.add(option1);
-         */
-
-        // Option 2 "" ->
-        //JMenuItem option2 = new JMenuItem("Option 2");
-        //option2.addActionListener(e -> {
-        // Handle Option 2 action
-        //            JOptionPane.showMessageDialog(fenster, "Option 2 selected");
-        //   });
-        //fileMenu.add(option2);
-
-        // Option 3 "" ->
-        //JMenuItem option3 = new JMenuItem("Option 3");
-        //option3.addActionListener(e -> {
-        //            // Handle Option 3 action
-        //            JOptionPane.showMessageDialog(fenster, "Option 3 selected");
-        //    });
-        //fileMenu.add(option3);
     }
 
     /**
@@ -520,8 +440,6 @@ public class GUI extends JFrame {
      * Zeigt Ergebnismeldungen oder Fehlermeldungen anhand der Rückgabe von `fabrik.bestellungAufgeben()` an.
      */
     private void handleBestellungAufgeben() {
-
-        System.out.println("Der Knopf 'Bestellung Aufgeben' wurde gedrueckt"); // Debug print
 
         String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten.\nEs soll eine ganze maximal zweistellige Zahl oder '0' sein:");
 
@@ -544,12 +462,10 @@ public class GUI extends JFrame {
                         try {
                         
                         String result = fabrik.bestellungAufgeben(sofas, stuehle);
-                        // System.out.println("Eine Bestellung mit " + sofas + " Sofa(s) und " + stuehle +" Stuehle(n) wird in der Fabrik erfasst.");
                         System.out.println("Eine Bestellung mit " + sofas + (sofas == 1 ? " Sofa und " : " Sofas und ") + stuehle + (stuehle == 1 ? " Stuhl" : " Stuehlen") +" wird in der Fabrik erfasst.");
                         JOptionPane.showMessageDialog(GUI.this, result);
                         
                         } catch (IllegalArgumentException e) {
-                            // System.out.println("\nBasierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
                             JOptionPane.showMessageDialog(GUI.this, "Basierend auf den Eigenschaften des Lagers, ist dies eine zu grosse Bestellmenge. Bitte probieren Sie mit einer kleineren!");
                         }
                     } else {
@@ -582,11 +498,7 @@ public class GUI extends JFrame {
      * Zeigt Fehlermeldungen an, wenn die Eingabe ungültig ist, oder führt die Methode `fabrik.beeinflusseZeit()` aus.
      */
     private void handleZeitraffer() {
-        System.out.println("Der Knopf 'Zeitraffer' wurde gedrueckt."); // Debug print
 
-        // String sofasInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Sofas an, welche Sie bestellen moechten:");
-        // String stuehleInput = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die Anzahl Stuehle an, welche Sie bestellen moechten:");
-        // this.zeitFaktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten.\nEs soll eine ganze Zahl zwischen 1 und 60 sein:");
         String faktor = JOptionPane.showInputDialog(GUI.this, "Bitte geben Sie die den Faktor an um welchen Sie die Zeit beeinflussen moechten.\nEs soll eine ganze Zahl zwischen 1 und 60 sein:");
 
         // Wenn "Abbrechen" gewält wird, verhält es sich als ob "faktor = null". In solchen Fällen, wird das Else ausgeführt
@@ -600,7 +512,7 @@ public class GUI extends JFrame {
 
                     if (1 <= faktorInt && faktorInt <= 60){ // Kontrolle, dass der Wert nicht größer als 60 ist
                         fabrik.beeinflusseZeit(faktorInt);
-                        System.out.println("Funktion fabrik.beeinflusseZeit mit Faktor: " + faktor +" aufgerufen.");
+                        System.out.println("Neuer Zeit-Faktor gewaehlt: " + faktor);
                         this.zeitFaktor = faktor; // Wert wird als Attribut gespeichert
                     } else {
                         throw new NumberFormatException();
@@ -613,7 +525,7 @@ public class GUI extends JFrame {
                     JOptionPane.showMessageDialog(GUI.this, "Ungueltiger Input. Es soll eine ganze Zahl zwischen 1 und 60 sein.");
                 } 
             } else {
-                System.out.println("Operation wurde abgebrochen");
+                ;
             }
 
         
@@ -623,35 +535,18 @@ public class GUI extends JFrame {
      * Methode die die Methode fabrik.bestellungenAusgeben aufruft, um die aktuellen Bestellungen abzurufen.
      */
     private void handleBestellungenAusgeben() {
-        // Call the fabrik.bestellungenAusgeben method
-        // String result = fabrik.bestellungenAusgeben();
+        // Fabrik-Methode aufrufen und abspeichern
         String result = fabrik.bestellungenAusgeben();
 
-        // Fenster "Bestellungen" wird aktualisiert
-        //updateBestellungenPanel();
-
-        // fenster.pack(); // Fenster wird geladen
-
-        // Display the result
+        // Bestellungen anzeigen
         JOptionPane.showMessageDialog(GUI.this, result);
     }
-
-    ///**
-    // * auskommentieren?
-    // */
-    //private void handleOption1() {
-        // Hier könnte Option 1 refresh implementiert werden
-        //fabrik.updateSomeValues(); // You need to implement this method in your Fabrik class.
-
-        // Update the GUI to reflect changes
-        //updateGUI();
-    //}
 
     /**
      * Diese Methode erstellt ein neues Fenster, das Informationen zum Lieferanten anzeigt, einschliesslich des aktuellen Lieferstatus 
      * und der im Lieferprozess befindlichen Einheiten. Der Nutzer kann das Fenster durch Betätigen des "Schliessen"-Buttons schliessen.
      */
-    private void displayInformationPanel() {
+        private void displayInformationPanel() {
         // Create a new JFrame for the information panel zum Lieferanten
         JFrame informationFrame = new JFrame("Lieferant Information");
         informationFrame.setSize(600, 300);
@@ -676,18 +571,6 @@ public class GUI extends JFrame {
 
         JLabel infoLabel = new JLabel(infoText);
         JButton closeButton = new JButton("Schliessen");
-
-        // closeButton.setBorderPainted(false);
-
-        // closeButton.setMargin(new Insets(5, 10, 5, 10));
-
-        // Insets margin = closeButton.getMargin();
-        // margin.left += 5;
-        // closeButton.setMargin(margin);
-        // closeButton.setBounds(20, 0, 0, 0);
-        // closeButton.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
-        
-        // closeButton.setContentAreaFilled(false); 
         
         closeButton.addActionListener(e -> informationFrame.dispose());
 
@@ -708,65 +591,13 @@ public class GUI extends JFrame {
         informationFrame.setVisible(true);
     }
 
-    //Diese Funktion sollte das Panel mit den Bestellungen updaten (nicht mehr in Use - jetzt aktualisiereBestellungPanel())
-    /*
-    private void updateBestellungenPanel() {
-    // Create a new panel for bestellungenLogPanel
-    // Create a new panel for bestellungenLogPanel
-    // JPanel newBestellungenLogPanel = createBestellungPanel("STa chippa");
-    JPanel newBestellungenLogPanel = createBestellungPanel(fabrik.gibBestellungsList());
-
-    //Nur als Testing Alex
-    JFrame debugFrame = new JFrame("Debug Window");
-    debugFrame.setSize(400, 300);
-    debugFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    debugFrame.setContentPane(newBestellungenLogPanel);
-    debugFrame.setLocationRelativeTo(null);
-    debugFrame.setVisible(true);
-
-    // Update only the Bestellungen column
-    Component[] components = columnsPanel.getComponents();
-    for (Component component : components) {
-    if (component instanceof JScrollPane && ((JScrollPane) component).getViewport().getView() instanceof JPanel) {
-    // Remove the old bestellungenLogPanel from the JScrollPane
-    ((JScrollPane) component).getViewport().removeAll();
-
-    // Add the new bestellungenLogPanel to the JScrollPane
-    ((JScrollPane) component).setViewportView(newBestellungenLogPanel);
-    break; // Assuming there's only one JScrollPane for Bestellungen
-    }
-    }
-
-    // Repaint the GUI
-    revalidate();
-    repaint();
-    }
-     */
-
-    /*
-    //Dieser Code snippet sollte die gesamte GUI updaten nicht mehr in use
-    /*
-     * 
-     *private void updateGUI() {
-    // Add logic here to update the GUI components that need to reflect changes in the Fabrik
-    // For example, update labels with new values from Fabrik
-    // ...
-    this.bestellungenList = fabrik.gibBestellungsList();
-    // Repaint the GUI
-    revalidate();
-    repaint();
-    }
-
-     */
-
     /**
-     * Aktualisierung eines der vier Roboter-Status-Panel, es muss für jeden Roboter-Panel aufgerufen werden.
+     * Aktualisierung eines der vier Roboter-Status-Panel. Die Methode muss für jeden Roboter-Panel aufgerufen werden.
      * Die Informationen werden in Form von JLabels dargestellt und umfassen den Roboter-Namen, seinen Status und die Größe seiner Warteschlange.
-     * @param roboter Der Roboter, dessen Informationen im erstellten JPanel dargestellt werden sollen.
-     * @return Jpanel Ein Panel, das die aktualisierten Bestellungen darstellt.
      * 
+     * @param roboter Der Roboter, dessen Informationen im erstellten JPanel dargestellt werden sollen.
+     * @return panel Ein Panel, das die Roboter-Informationen darstellt.
      */
-    //Dieser Code sollte die einzelenen Roboter in Spalte 2 formatieren nicht mer in use
 
     private JPanel aktualisiereRoboterPanel(Roboter roboter) {
         JPanel panel = new JPanel(new GridLayout(4, 1));
@@ -785,15 +616,13 @@ public class GUI extends JFrame {
 
     /**
      * Aktualisiert das Panel für Bestellungen und gibt ein neues JPanel zurück. 
-     * @return Jpanel Ein Panel, das die aktualisierten Bestellungen darstellt. 
+     * 
+     * @return panel Ein Panel, das die aktualisierten Bestellungen darstellt. 
      */ 
 
     private JPanel aktualisiereBestellungPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-        //JLabel titleLabel = new JLabel("Bestellungen");
-        //panel.add(titleLabel);
 
         // Create panels for each order
         this.bestellungenList = fabrik.gibBestellungsList();
@@ -831,26 +660,12 @@ public class GUI extends JFrame {
         aktualisiereZeitraffer();
         aktualisiereColumnBestellungen();
         aktualisiereColumnRoboterstatus();
-        // Add other update methods if needed
     }
 
-
-    /*
-    // Methode um Bestellungen zu Printen neu angelegt während dem Sprint,
-    private void BestellungenAusgeben(){
-    columnsPanel.removeAll();
-    this.bestellungenList = fabrik.gibBestellungsList();
-    for (Bestellung bestellung : bestellungenList) {
-    JLabel label = new JLabel("Bestellung Nr. " + bestellung.gibBestellungsNr() + "Anzahl Stühle: " + bestellung.gibAnzahlStuehle() +
-    " | Anzahl Sofas: " + bestellung.gibAnzahlSofas());
-    columnsPanel.add(label);
-    }
-    fenster.pack();
-    }
-
-     */
-
+    
     /// Methoden zu den Werten des aktuellen und maximalen Lagerbestandes
+    
+    
     /**
      * Methode, um den aktuellen Wert der vorhandenen Holzeinheiten im Lager zu erhalten.
      * @return vorhandeneHolzeinheiten Der aktuelle Wert der vorhandenen Holzeinheiten.
@@ -930,58 +745,6 @@ public class GUI extends JFrame {
     private int gibMaximalerKartonWert() {
         return this.lager.gibMaxKartoneinheiten();
     }
-
-    /* Das da unten ist falsch, LG Flo.
-
-    /// Methoden zu den Werten der Bestellungen
-    private int getChairsValue(int bestellungNr) {
-    // Implement logic to get number of chairs for the given Bestellung
-    return 10 * bestellungNr;
-    }
-
-    private int getSofasValue(int bestellungNr) {
-    // Implement logic to get number of sofas for the given Bestellung
-    return 5 * bestellungNr;
-    }
-
-    private String getStatusValue(int bestellungNr) {
-    // Implement logic to get status for the given Bestellung
-    return "In Progress";
-    }
-
-    
-
-    //public static void main(String[] args) {
-    // Create and display the GUI
-    //    SwingUtilities.invokeLater(() -> new GUI());
-    //}
-
-
-    // /**
-    //  * Methode zur Veränderung der Zeit um den im Input angegebenen Faktor.
-    //  * 
-    //  */
-    // public void beeinflusseZeit(int faktor){
-    //     fabrik.beeinflusseZeit(faktor);
-    // }
-    
-    /*
-     * Herzlich Willkommen bei AEKI. Es ist keine Eingabe notwendig um die GUI zu starten.
-    **/
-
-    // public static void main(String[] args) {
-    //     // GUI erstellen und sichtbar machen
-    //     SwingUtilities.invokeLater(() -> {
-    //                 GUI gui = new GUI();
-    //                 gui.setVisible(false);
-
-    //                 // Timer, damit die Fenster jede Millisekunde updaten
-    //                 Timer timer = new Timer(1, e -> gui.aktualisiereFenster());
-    //                 timer.setRepeats(true); // true, damit sich das wiederholt
-    //                 timer.start();
-    //         });
-    // }
-
 
     /**
      * Die Klasse "TeamActionListener" erstellt ein neues Fenster sobald über

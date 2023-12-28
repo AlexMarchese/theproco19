@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=Main
-comment0.text=\r\n\ \r\n\ Die\ Klasse\ Main\ ist\ der\ Einstiegspunkt\ in\ das\ Programm\ und\ in\ der\ Main\ Methode\ wird\ das\ Programm\ ausgef\u00FChrt.\r\n\ Hier\ k\u00F6nnen\ aufgef\u00FClltBestellungen\ mit\ individuellen\ Anzahlen\ an\ St\u00FChlen\ und\ Sofas\ aufgegeben\ werden\ oder\ es\ \r\n\ wird\ eine\ vordefinierte\ Bestellung\ ausgef\u00FChrt.\ \r\n\ \r\n\ \r\n\ @author\ \ GBI\ Gruppe\ 19\r\n\ @version\ 2.0\r\n
+comment0.text=\n\ \n\ Die\ Klasse\ Main\ ist\ der\ Einstiegspunkt\ in\ das\ Programm\ und\ in\ der\ Main\ Methode\ wird\ das\ Programm\ ausgef\u00FChrt.\n\ Hier\ k\u00F6nnen\ aufgef\u00FCllte\ Bestellungen\ mit\ individuellen\ Anzahlen\ an\ St\u00FChlen\ und\ Sofas\ aufgegeben\ werden\ oder\ es\ \n\ wird\ eine\ vordefinierte\ Bestellung\ ausgef\u00FChrt.\ \n\ \n\ \n\ @author\ \ GBI\ Gruppe\ 19\n\ @version\ 2.0\n
 comment1.params=
 comment1.target=Main()
 comment2.params=
 comment2.target=Fabrik\ gibFabrik()
-comment2.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Fabrik.\r\n\ \r\n\ @return\ \ fabrikStart\ \ \ Fabrik.\r\n
+comment2.text=\n\ Methode\ zur\ Ausgabe\ der\ Fabrik.\n\ \n\ @return\ \ fabrikStart\ \ \ Fabrik.\n
 comment3.params=
 comment3.target=Lager\ gibLager()
-comment3.text=\r\n\ Methode\ zur\ Ausgabe\ der\ Lagers\ der\ Fabrik.\r\n\ \r\n\ @return\ \ lager\ \ \ Lager\ der\ Fabrik.\r\n
+comment3.text=\n\ Methode\ zur\ Ausgabe\ der\ Lagers\ der\ Fabrik.\n\ \n\ @return\ \ lager\ \ \ Lager\ der\ Fabrik.\n
 comment4.params=args
 comment4.target=void\ main(java.lang.String[])
-comment4.text=\r\n\ Die\ main-Methode\ startet\ die\ Anwendung.\r\n\ Hier\ wird\ ein\ GUI\ erstellt\ und\ sichtbar\ gemacht.\r\n\ Ein\ Timer\ wird\ verwendet,\ um\ die\ GUI-Fenster\ in\ regelm\u00E4\u00DFigen\ Abst\u00E4nden\ zu\ aktualisieren.\r\n\ Der\ Timer\ ruft\ die\ aktualisiereFenster()\ Methode\ des\ GUI-Objekts\ alle\ 1\ Millisekunde\ auf.\r\n
+comment4.text=\n\ Die\ main-Methode\ startet\ die\ Anwendung.\ Der\ GUI\ wird\ hier\ erstellt\ und\ sichtbar\ gemacht.\n\ Dar\u00FCber\ hinaus\ wird\ ein\ Timer\ verwendet,\ um\ das\ GUI-Fenster\ stetig\ zu\ aktualisieren.\n
 numComments=5
